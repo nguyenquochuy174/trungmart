@@ -1,7 +1,7 @@
 import Footer from '~/layouts/components/Sell/Footer/Footer';
 import Header from '~/layouts/components/Sell/Header/Header';
 
-function DefaultLayout({ children }) {
+function DefaultLayoutNotification({ children }) {
     return (
         <>
             <Header />
@@ -11,4 +11,4 @@ function DefaultLayout({ children }) {
     );
 }
 
-export default DefaultLayout;
+export default DefaultLayoutNotification;
