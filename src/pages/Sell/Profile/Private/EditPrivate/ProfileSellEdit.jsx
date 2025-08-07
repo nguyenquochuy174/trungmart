@@ -1,9 +1,7 @@
-import SliderBar from "~/layouts/components/Sell/SliderBar/SliderBar";
 import "./ProfileSellEdit.module.scss"
 function ProfileSellEdit() {
     return (
     <div className="content">
-        <SliderBar/>
         <h1 className="Home">ProfileSellEdit</h1>
     </div>
     );

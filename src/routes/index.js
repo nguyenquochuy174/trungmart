@@ -1,9 +1,12 @@
 
 import AdminLayouts from '~/layouts/Admin/DefaultLayout/DefaultLayout';
 import SellLayout from '~/layouts/Sell/DefaultLayout/DefaultLayout';
+import DetailProductAdmin from '~/pages/Admin/Manager/Sell/StoreSellManager/DetailProduct/DetailProductAdmin';
+import DefaultLayoutMess from '~/layouts/Sell/DefaultLayoutMess/DefaultLayoutMess';
+import DefaultLayoutProduct from '~/layouts/Sell/DefaultLayoutProduct/DefaultLayoutProduct';
+import DefaultLayoutProfile from '~/layouts/Sell/DefaultLayoutProfile/DefaultLayoutProfile';
 
 import Introduce from '~/pages/Introduce/Introduce'
-import Home from '~/pages/User/Home';
 
 // sell
 import MessageSell from '~/pages/Sell/Message/MessageSell';
@@ -38,35 +41,35 @@ import ManagerSell from '~/pages/Admin/Manager/Sell/ManagerSell';
 import StoreAdmin from '~/pages/Admin/Manager/Sell/StoreSellManager/Store/StoreAdmin';
 import DetailStoreAdmin from '~/pages/Admin/Manager/Sell/StoreSellManager/DetailStore/DetailStoreAdmin';
 import ProductAdmin from '~/pages/Admin/Manager/Sell/StoreSellManager/Product/ProductAdmin';
-import DetailProductAdmin from '~/pages/Admin/Manager/Sell/StoreSellManager/DetailProduct/DetailProductAdmin';
+
 
 
 // không cần đăng nhập vẫn xem được
 const publicRoutes = [
-    { path: '/', component: Home },
+    { path: '/StatisAdmin', component: StatisAdmin },
     { path: '/IntroduceSell', component: Introduce,layout: SellLayout},
     { path: '/IntroduceAdmin', component: Introduce,layout: AdminLayouts},
 
 
 
     // sell
-    { path: '/MessageSell', component: MessageSell,layout: SellLayout },
+    { path: '/MessageSell', component: MessageSell,layout: DefaultLayoutMess },
     { path: '/NotificationSell', component: NotificationSell,layout: SellLayout},
     // product
-    { path: '/ProductSell', component: ProductSell,layout: SellLayout },
-    { path: '/EditProductSell', component: EditProductSell,layout: SellLayout },
-    { path: '/DetailProductSell', component: DetailProductSell,layout: SellLayout },
-    { path: '/AddProductSell', component: AddProductSell,layout: SellLayout },
+    { path: '/ProductSell', component: ProductSell,layout:DefaultLayoutProduct },
+    { path: '/EditProductSell', component: EditProductSell,layout: SellLayout},
+    { path: '/DetailProductSell', component: DetailProductSell,layout: SellLayout},
+    { path: '/AddProductSell', component: AddProductSell,layout: SellLayout},
     //profile
-    { path: '/ProfileSell', component: ProfileSell,layout: SellLayout},
-    { path: '/ProfileSellEdit', component: ProfileSellEdit,layout: SellLayout},
-    { path: '/StatisticSell', component: StatisticSell,layout: SellLayout},
-    { path: '/OrderSell', component: OrderSell,layout: SellLayout},
-    { path: '/PasswordSell', component: PasswordSell,layout: SellLayout},
-    { path: '/StoreSell', component: StoreSell,layout: SellLayout},
-    { path: '/StoreSellEdit', component: StoreSellEdit,layout: SellLayout},
-    { path: '/WalletSell', component: WalletSell,layout: SellLayout},
-    { path: '/WalletSellEdit', component: WalletSellEdit,layout: SellLayout},
+    { path: '/ProfileSell', component: ProfileSell,layout:DefaultLayoutProfile},
+    { path: '/ProfileSellEdit', component: ProfileSellEdit,layout: DefaultLayoutProfile},
+    { path: '/StatisticSell', component: StatisticSell,layout: DefaultLayoutProfile},
+    { path: '/OrderSell', component: OrderSell,layout: DefaultLayoutProfile},
+    { path: '/PasswordSell', component: PasswordSell,layout: DefaultLayoutProfile},
+    { path: '/StoreSell', component: StoreSell,layout: DefaultLayoutProfile},
+    { path: '/StoreSellEdit', component: StoreSellEdit,layout: DefaultLayoutProfile},
+    { path: '/WalletSell', component: WalletSell,layout: DefaultLayoutProfile},
+    { path: '/WalletSellEdit', component: WalletSellEdit,layout: DefaultLayoutProfile},
 
     //admin
     { path: '/StatisAdmin', component: StatisAdmin, layout: AdminLayouts},
