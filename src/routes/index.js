@@ -2,7 +2,7 @@
 import AdminLayouts from '~/layouts/Admin/DefaultLayout/DefaultLayout';
 import SellLayout from '~/layouts/Sell/DefaultLayout/DefaultLayout';
 
-
+import Introduce from '~/pages/Introduce/Introduce'
 import Home from '~/pages/User/Home';
 
 // sell
@@ -44,6 +44,11 @@ import DetailProductAdmin from '~/pages/Admin/Manager/Sell/StoreSellManager/Deta
 // không cần đăng nhập vẫn xem được
 const publicRoutes = [
     { path: '/', component: Home },
+    { path: '/IntroduceSell', component: Introduce,layout: SellLayout},
+    { path: '/IntroduceAdmin', component: Introduce,layout: AdminLayouts},
+
+
+
     // sell
     { path: '/MessageSell', component: MessageSell,layout: SellLayout },
     { path: '/NotificationSell', component: NotificationSell,layout: SellLayout},
