@@ -1,10 +1,37 @@
+import DefaultLayoutAdmin from '~/layouts/Admin/DefaultLayoutAdmin/DefaultLayoutAdmin';
 import LoginLayout from '~/layouts/LoginLayout/LoginLayout';
-import DefaultLayout from '~/layouts/User/DefaultLayout/DefaultLayout';
+import DefaultLayoutMess from '~/layouts/Sell/DefaultLayoutMess/DefaultLayoutMess';
+import DefaultLayoutProduct from '~/layouts/Sell/DefaultLayoutProduct/DefaultLayoutProduct';
+import DefaultLayoutProfile from '~/layouts/Sell/DefaultLayoutProfile/DefaultLayoutProfile';
+import DefaultLayoutSell from '~/layouts/Sell/DefaultLayoutSell/DefaultLayoutSell';
+import DefaultLayout from '~/layouts/User/DefaultLayoutUser/DefaultLayoutUser';
 import SidebarMessageLayout from '~/layouts/User/SidebarMessageLayout/SidebarMessageLayout';
 import SidebarProductLayout from '~/layouts/User/SidebarProductLayout/SidebarProductLayout';
 import SidebarProfileLayout from '~/layouts/User/SidebarProfileLayout/SidebarProfileLayout';
+import ManagerSell from '~/pages/Admin/Manager/Sell/ManagerSell';
+import DetailProductAdmin from '~/pages/Admin/Manager/Sell/StoreSellManager/DetailProduct/DetailProductAdmin';
+import DetailStoreAdmin from '~/pages/Admin/Manager/Sell/StoreSellManager/DetailStore/DetailStoreAdmin';
+import ProductAdmin from '~/pages/Admin/Manager/Sell/StoreSellManager/Product/ProductAdmin';
+import StoreAdmin from '~/pages/Admin/Manager/Sell/StoreSellManager/Store/StoreAdmin';
+import ManagerUser from '~/pages/Admin/Manager/User/ManagerUser';
+import NotificationAdmin from '~/pages/Admin/Notification/NotificationAdmin';
+import StatisAdmin from '~/pages/Admin/Statis/StatisAdmin';
 import Introduce from '~/pages/Introduce/Introduce';
 import Login from '~/pages/Login/Login';
+import MessageSell from '~/pages/Sell/Message/MessageSell';
+import NotificationSell from '~/pages/Sell/Notification/NotificationSell';
+import AddProduct from '~/pages/Sell/Product/AddProduct/AddProductSell';
+import EditProductSell from '~/pages/Sell/Product/EditProduct/EditProductSell';
+import ProductSell from '~/pages/Sell/Product/ProductSell/ProductSell';
+import OrderSell from '~/pages/Sell/Profile/Oder/OrderSell';
+import PasswordSell from '~/pages/Sell/Profile/Password/PasswordSell';
+import ProfileSell from '~/pages/Sell/Profile/Private/DetailPrivate/ProfileSell';
+import ProfileSellEdit from '~/pages/Sell/Profile/Private/EditPrivate/ProfileSellEdit';
+import StatisticSell from '~/pages/Sell/Profile/Statistic/StatisticSell';
+import StoreSell from '~/pages/Sell/Profile/Store/StoreSellDetail/StoreSell';
+import StoreSellEdit from '~/pages/Sell/Profile/Store/StoreSellEdit/StoreSellEdit';
+import WalletSell from '~/pages/Sell/Profile/Wallet/WalletSellDetail/WalletSell';
+import WalletSellEdit from '~/pages/Sell/Profile/Wallet/WalletSellEdit/WalletSellEdit';
 import DetailProduct from '~/pages/User/DetailProduct/DetailProduct';
 
 import Home from '~/pages/User/Home/Home';
@@ -78,6 +105,125 @@ const publicRoutes = [
         path: '/UserProfileOrder',
         component: ProfileOrder,
         layout: SidebarProfileLayout,
+    },
+
+    {
+        path: '/StatisAdmin',
+        component: StatisAdmin,
+        layout: DefaultLayoutAdmin,
+    },
+    { path: '/IntroduceSell', component: Introduce, layout: DefaultLayoutSell },
+    {
+        path: '/IntroduceAdmin',
+        component: Introduce,
+        layout: DefaultLayoutAdmin,
+    },
+
+    // sell
+    { path: '/MessageSell', component: MessageSell, layout: DefaultLayoutMess },
+    {
+        path: '/NotificationSell',
+        component: NotificationSell,
+        layout: DefaultLayoutSell,
+    },
+    // product
+    {
+        path: '/ProductSell',
+        component: ProductSell,
+        layout: DefaultLayoutProduct,
+    },
+    {
+        path: '/EditProductSell',
+        component: EditProductSell,
+        layout: DefaultLayoutSell,
+    },
+    {
+        path: '/DetailProductSell',
+        component: DetailProduct,
+        layout: DefaultLayoutSell,
+    },
+    {
+        path: '/AddProductSell',
+        component: AddProduct,
+        layout: DefaultLayoutSell,
+    },
+    //profile
+    {
+        path: '/ProfileSell',
+        component: ProfileSell,
+        layout: DefaultLayoutProfile,
+    },
+    {
+        path: '/ProfileSellEdit',
+        component: ProfileSellEdit,
+        layout: DefaultLayoutProfile,
+    },
+    {
+        path: '/StatisticSell',
+        component: StatisticSell,
+        layout: DefaultLayoutProfile,
+    },
+    { path: '/OrderSell', component: OrderSell, layout: DefaultLayoutProfile },
+    {
+        path: '/PasswordSell',
+        component: PasswordSell,
+        layout: DefaultLayoutProfile,
+    },
+    { path: '/StoreSell', component: StoreSell, layout: DefaultLayoutProfile },
+    {
+        path: '/StoreSellEdit',
+        component: StoreSellEdit,
+        layout: DefaultLayoutProfile,
+    },
+    {
+        path: '/WalletSell',
+        component: WalletSell,
+        layout: DefaultLayoutProfile,
+    },
+    {
+        path: '/WalletSellEdit',
+        component: WalletSellEdit,
+        layout: DefaultLayoutProfile,
+    },
+
+    //admin
+    {
+        path: '/StatisAdmin',
+        component: StatisAdmin,
+        layout: DefaultLayoutAdmin,
+    },
+    {
+        path: '/NotificationAdmin',
+        component: NotificationAdmin,
+        layout: DefaultLayoutAdmin,
+    },
+
+    {
+        path: '/ManagerUser',
+        component: ManagerUser,
+        layout: DefaultLayoutAdmin,
+    },
+    {
+        path: '/ManagerSell',
+        component: ManagerSell,
+        layout: DefaultLayoutAdmin,
+    },
+
+    { path: '/StoreAdmin', component: StoreAdmin, layout: DefaultLayoutAdmin },
+    {
+        path: '/DetailStoreAdmin',
+        component: DetailStoreAdmin,
+        layout: DefaultLayoutAdmin,
+    },
+    {
+        path: '/ProductAdmin',
+        component: ProductAdmin,
+        layout: DefaultLayoutAdmin,
+    },
+    {
+        path: '/DetailProductAdmin',
+        component: DetailProductAdmin,
+        layout: DefaultLayoutAdmin,
     },
 ];
 // cần phải đăng nhập mới xem được
