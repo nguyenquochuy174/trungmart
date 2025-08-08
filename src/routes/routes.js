@@ -4,9 +4,8 @@ import DefaultLayoutMess from '~/layouts/Sell/DefaultLayoutMess/DefaultLayoutMes
 import DefaultLayoutProduct from '~/layouts/Sell/DefaultLayoutProduct/DefaultLayoutProduct';
 import DefaultLayoutProfile from '~/layouts/Sell/DefaultLayoutProfile/DefaultLayoutProfile';
 import DefaultLayoutSell from '~/layouts/Sell/DefaultLayoutSell/DefaultLayoutSell';
-import DefaultLayout from '~/layouts/User/DefaultLayoutUser/DefaultLayoutUser';
+import DefaultLayoutUser from '~/layouts/User/DefaultLayoutUser/DefaultLayoutUser';
 import SidebarMessageLayout from '~/layouts/User/SidebarMessageLayout/SidebarMessageLayout';
-import SidebarProductLayout from '~/layouts/User/SidebarProductLayout/SidebarProductLayout';
 import SidebarProfileLayout from '~/layouts/User/SidebarProfileLayout/SidebarProfileLayout';
 import ManagerSell from '~/pages/Admin/Manager/Sell/ManagerSell';
 import DetailProductAdmin from '~/pages/Admin/Manager/Sell/StoreSellManager/DetailProduct/DetailProductAdmin';
@@ -52,28 +51,32 @@ import ProductShop from '~/pages/User/ViewShop/ProductShop/ProductShop';
 const publicRoutes = [
     // user
     { path: '/', component: Login, layout: LoginLayout },
-    { path: '/UserHome', component: Home, layout: DefaultLayout },
-    { path: '/UserIntroduce', component: Introduce, layout: DefaultLayout },
+    { path: '/UserHome', component: Home, layout: DefaultLayoutUser },
+    { path: '/UserIntroduce', component: Introduce, layout: DefaultLayoutUser },
     {
         path: '/UserNotification',
         component: Notification,
-        layout: DefaultLayout,
+        layout: DefaultLayoutUser,
     },
     {
         path: '/UserDetailProduct',
         component: DetailProduct,
-        layout: DefaultLayout,
+        layout: DefaultLayoutUser,
     },
     {
         path: '/UserShoppingCart',
         component: ShoppingCart,
-        layout: DefaultLayout,
+        layout: DefaultLayoutUser,
     },
-    { path: '/UserPayment', component: Payment, layout: DefaultLayout },
-    { path: '/UserInfoShop', component: InfoShop, layout: DefaultLayout },
-    { path: '/UserProductShop', component: ProductShop, layout: DefaultLayout },
+    { path: '/UserPayment', component: Payment, layout: DefaultLayoutUser },
+    { path: '/UserInfoShop', component: InfoShop, layout: DefaultLayoutUser },
+    {
+        path: '/UserProductShop',
+        component: ProductShop,
+        layout: DefaultLayoutUser,
+    },
     { path: '/UserMessage', component: Message, layout: SidebarMessageLayout },
-    { path: '/UserProduct', component: Product, layout: SidebarProductLayout },
+    { path: '/UserProduct', component: Product, layout: DefaultLayoutUser },
 
     // user profile
     {

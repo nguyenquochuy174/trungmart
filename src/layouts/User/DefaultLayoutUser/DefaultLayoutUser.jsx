@@ -1,7 +1,7 @@
 import Footer from '~/layouts/components/Footer/Footer';
 import Header from '~/layouts/components/User/Header/Header';
 
-function DefaultLayout({ children }) {
+function DefaultLayoutUser({ children }) {
     return (
         <>
             <Header />
@@ -11,4 +11,4 @@ function DefaultLayout({ children }) {
     );
 }
 
-export default DefaultLayout;
+export default DefaultLayoutUser;
