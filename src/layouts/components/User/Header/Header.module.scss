@@ -1,0 +1,283 @@
+.container {
+    width: 100%;
+}
+.headerTop {
+    width: 100%;
+    height: 42px;
+    background-color: var(--primary);
+}
+.headerBottom {
+    width: 100%;
+    height: 92px;
+    background-color: #174733;
+}
+.infoHeader {
+    width: 1200px;
+    height: 100%;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    color: white;
+    font-size: 1.6rem;
+
+    .iconFace {
+        width: 24px;
+        height: 24px;
+    }
+
+    p {
+        padding-left: 350px;
+    }
+}
+.headerContent {
+    width: 1200px;
+    height: 100%;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: white;
+    .formSearch {
+        display: flex;
+        input {
+            width: 500px;
+            height: 45px;
+            border-top-left-radius: 4px;
+            border-bottom-left-radius: 4px;
+            padding-left: 10px;
+            font-size: 1.6rem;
+        }
+        .iconSearch {
+            padding: 10px;
+            background-color: var(--primary);
+            font-size: 2.5rem;
+            border-top-right-radius: 4px;
+            border-bottom-right-radius: 4px;
+
+            &:hover {
+                opacity: 0.7;
+                cursor: pointer;
+            }
+        }
+    }
+    .menuIconHeader {
+        ul {
+            display: flex;
+            list-style: none;
+            a {
+                color: white;
+                font-size: 2.4rem;
+                margin-left: 16px;
+                & :hover {
+                    color: var(--primary);
+                    cursor: pointer;
+                }
+            }
+        }
+    }
+}
+
+.logo {
+    img {
+        width: 50px;
+        height: 70px;
+    }
+}
+
+@media (max-width: 576px) {
+    .headerTop {
+        height: 35px;
+
+        p {
+            font-size: 1.2rem;
+            padding-left: 20px;
+        }
+    }
+    .headerBottom {
+        height: 68px;
+    }
+
+    .infoHeader {
+        width: 380px;
+    }
+    .headerContent {
+        width: 380px;
+        .formSearch {
+            input {
+                width: 180px;
+                height: 30px;
+                font-size: 1.2rem;
+            }
+            .iconSearch {
+                padding: 5px;
+                font-size: 2rem;
+            }
+        }
+
+        .menuIconHeader {
+            ul {
+                a {
+                    font-size: 1.6rem;
+                    margin-left: 6px;
+                }
+            }
+        }
+    }
+
+    .logo {
+        img {
+            width: 28px;
+            height: 51px;
+        }
+    }
+}
+
+@media (min-width: 577px) and (max-width: 768px) {
+    .headerTop {
+        height: 38px;
+
+        p {
+            font-size: 1.3rem;
+            padding-left: 50px;
+        }
+    }
+    .headerBottom {
+        height: 75px;
+    }
+
+    .infoHeader {
+        width: 550px;
+    }
+
+    .headerContent {
+        width: 550px;
+
+        .formSearch {
+            input {
+                width: 250px;
+                height: 35px;
+                font-size: 1.3rem;
+            }
+            .iconSearch {
+                padding: 6px;
+                font-size: 2rem;
+            }
+        }
+
+        .menuIconHeader {
+            ul {
+                a {
+                    font-size: 1.8rem;
+                    margin-left: 10px;
+                }
+            }
+        }
+    }
+
+    .logo {
+        img {
+            width: 35px;
+            height: 55px;
+        }
+    }
+}
+
+@media (min-width: 769px) and (max-width: 992px) {
+    .headerTop {
+        height: 40px;
+
+        p {
+            font-size: 1.4rem;
+            padding-left: 100px;
+        }
+    }
+    .headerBottom {
+        height: 80px;
+    }
+
+    .infoHeader {
+        width: 720px;
+    }
+
+    .headerContent {
+        width: 720px;
+
+        .formSearch {
+            input {
+                width: 350px;
+                height: 40px;
+                font-size: 1.4rem;
+            }
+            .iconSearch {
+                padding: 8px;
+                font-size: 2.2rem;
+            }
+        }
+
+        .menuIconHeader {
+            ul {
+                a {
+                    font-size: 2rem;
+                    margin-left: 12px;
+                }
+            }
+        }
+    }
+
+    .logo {
+        img {
+            width: 40px;
+            height: 60px;
+        }
+    }
+}
+
+@media (min-width: 993px) and (max-width: 1200px) {
+    .headerTop {
+        height: 42px;
+
+        p {
+            font-size: 1.5rem;
+            padding-left: 200px;
+        }
+    }
+    .headerBottom {
+        height: 85px;
+    }
+
+    .infoHeader {
+        width: 960px;
+    }
+
+    .headerContent {
+        width: 960px;
+
+        .formSearch {
+            input {
+                width: 420px;
+                height: 42px;
+                font-size: 1.5rem;
+            }
+            .iconSearch {
+                padding: 9px;
+                font-size: 2.3rem;
+            }
+        }
+
+        .menuIconHeader {
+            ul {
+                a {
+                    font-size: 2.2rem;
+                    margin-left: 14px;
+                }
+            }
+        }
+    }
+
+    .logo {
+        img {
+            width: 45px;
+            height: 65px;
+        }
+    }
+}
