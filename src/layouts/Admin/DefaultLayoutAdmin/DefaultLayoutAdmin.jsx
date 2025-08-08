@@ -1,8 +1,7 @@
-
 import Header from '~/layouts/components/Admin/Header/Header';
 import Footer from '~/layouts/components/Footer/Footer';
 
-function DefaultLayout({ children }) {
+function DefaultLayoutAdmin({ children }) {
     return (
         <>
             <Header />
@@ -12,4 +11,4 @@ function DefaultLayout({ children }) {
     );
 }
 
-export default DefaultLayout;
+export default DefaultLayoutAdmin;

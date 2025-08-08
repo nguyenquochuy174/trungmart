@@ -1,6 +1,5 @@
-
 import Footer from '~/layouts/components/Footer/Footer';
-import Header from '~/layouts/components/Sell/Header/Header';
+import Header from '~/layouts/components/User/Header/Header';
 
 function DefaultLayout({ children }) {
     return (
