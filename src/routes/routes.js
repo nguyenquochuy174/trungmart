@@ -110,6 +110,8 @@ const publicRoutes = [
         layout: SidebarProfileLayout,
     },
 
+    //Admin
+
     {
         path: '/StatisAdmin',
         component: StatisAdmin,

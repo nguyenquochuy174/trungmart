@@ -1,5 +1,6 @@
 import classNames from 'classnames/bind';
 import styles from './Footer.module.scss';
+import { listMenuUser } from '~/constant/mock-data';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
     faAngleUp,
@@ -13,7 +14,7 @@ import {
     faSquareInstagram,
 } from '@fortawesome/free-brands-svg-icons';
 const cx = classNames.bind(styles);
-function Footer() {
+function Footer({ data }) {
     return (
         <>
             <div className={cx('footer')}>
@@ -49,15 +50,11 @@ function Footer() {
                     </div>
                     <div className={cx('footerMenu')}>
                         <ul>
-                            <li>
-                                <a href="/UserHome">Trang Chủ</a>
-                            </li>
-                            <li>
-                                <a href="/UserProduct">Sản Phẩm</a>
-                            </li>
-                            <li>
-                                <a href="/UserIntroduce">Giới Thiệu</a>
-                            </li>
+                            {data.map((menu) => (
+                                <li>
+                                    <a href={menu.path}>{menu.name}</a>
+                                </li>
+                            ))}
                         </ul>
                     </div>
                     <div className={cx('footerRequire')}>
