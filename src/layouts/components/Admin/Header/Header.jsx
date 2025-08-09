@@ -1,10 +1,11 @@
-import { MenuAdmin } from '~/components/MenuAdmin/MenuAdmin';
+import { Menu } from '~/components/Menu/Menu';
+import { listMenuAdmin } from '~/constant/mock-data';
 
 function Header() {
     return (
         <>
             <h1>Header Admin</h1>
-            <MenuAdmin />
+            <Menu data={listMenuAdmin} />
         </>
     );
 }

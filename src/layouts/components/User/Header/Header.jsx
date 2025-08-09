@@ -1,5 +1,5 @@
 import classNames from 'classnames/bind';
-import { MenuUser } from '~/components/MenuUser/MenuUser';
+import { Menu } from '~/components/Menu/Menu';
 import styles from './Header.module.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
@@ -13,6 +13,7 @@ import {
     faUser,
 } from '@fortawesome/free-solid-svg-icons';
 import images from '~/assets/images/image';
+import { listMenuUser } from '~/constant/mock-data';
 
 const cx = classNames.bind(styles);
 
@@ -79,7 +80,7 @@ function Header() {
                     </div>
                 </div>
             </div>
-            <MenuUser />
+            <Menu data={listMenuUser} />
         </>
     );
 }
