@@ -50,8 +50,8 @@ function Footer({ data }) {
                     </div>
                     <div className={cx('footerMenu')}>
                         <ul>
-                            {data.map((menu) => (
-                                <li>
+                            {data.map((menu, index) => (
+                                <li key={index}>
                                     <a href={menu.path}>{menu.name}</a>
                                 </li>
                             ))}
