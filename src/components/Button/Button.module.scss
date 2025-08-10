@@ -5,10 +5,10 @@
     padding: 10px 50px;
     border-radius: 4px;
     font-size: 1.8rem;
-    font-weight: 700;
+    font-weight: 600;
     cursor: pointer;
     background-color: var(--white);
-    border: 1px solid transparent;
+    border: 2px solid transparent;
     user-select: none;
 
     &.disabled {
@@ -41,8 +41,9 @@
 }
 
 .outline {
+    min-width: 186px;
     color: var(--primary);
-    border: 3px solid var(--primary);
+    border: 2px solid var(--primary);
 
     &:hover {
         background-color: var(--primary);
@@ -62,9 +63,11 @@
 }
 
 .small {
-    padding: 4px 12px;
+    min-width: 150px;
+    font-size: 1.6rem;
+    padding: 8px 26px;
 }
 
 .large {
-    padding: 14px 20px;
+    padding: 12px 50px;
 }

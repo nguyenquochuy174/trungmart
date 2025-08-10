@@ -1,0 +1,136 @@
+.introduce {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 20px;
+    color: black;
+    line-height: 1.6;
+
+    .introduce-title {
+        text-align: center;
+        font-size: 2.4rem;
+        margin-bottom: 5px;
+    }
+
+    .introduce-slogan {
+        text-align: center;
+        margin-bottom: 20px;
+        font-style: italic;
+        color: #555;
+    }
+
+    .introduce-list {
+        padding-left: 20px;
+        font-size: 1.8rem;
+
+        li {
+            margin-bottom: 15px;
+            p {
+                padding-left: 20px;
+            }
+            strong {
+                display: block;
+                margin-bottom: 5px;
+                font-size: 2rem;
+            }
+
+            ul {
+                font-size: 1.8rem;
+                padding-left: 60px;
+                list-style-type: disc;
+                margin-bottom: 10px;
+
+                li {
+                    margin-bottom: 5px;
+                }
+            }
+
+            ol {
+                padding-left: 20px;
+                list-style-type: lower-alpha;
+
+                li {
+                    margin-bottom: 5px;
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 576px) {
+    .introduce {
+        padding: 15px;
+        .introduce-title {
+            font-size: 1.8rem;
+        }
+        .introduce-slogan {
+            font-size: 1.6rem;
+        }
+    }
+}
+@media (min-width: 577px) and (max-width: 768px) {
+    .introduce {
+        padding: 15px;
+
+        .introduce-title {
+            font-size: 2rem;
+        }
+
+        .introduce-slogan {
+            font-size: 1.6rem;
+        }
+
+        .introduce-list {
+            font-size: 1.6rem;
+
+            li strong {
+                font-size: 1.8rem;
+            }
+
+            ul {
+                font-size: 1.6rem;
+                padding-left: 40px;
+            }
+        }
+    }
+}
+
+@media (min-width: 769px) and (max-width: 992px) {
+    .introduce {
+        padding: 18px;
+
+        .introduce-title {
+            font-size: 2.2rem;
+        }
+
+        .introduce-slogan {
+            font-size: 1.8rem;
+        }
+
+        .introduce-list {
+            font-size: 1.7rem;
+
+            li strong {
+                font-size: 1.9rem;
+            }
+
+            ul {
+                font-size: 1.7rem;
+                padding-left: 50px;
+            }
+        }
+    }
+}
+
+@media (min-width: 993px) and (max-width: 1200px) {
+    .introduce {
+        padding: 20px;
+
+        .introduce-title {
+            font-size: 2.3rem;
+        }
+
+        .introduce-slogan {
+            font-size: 1.9rem;
+        }
+    }
+}
