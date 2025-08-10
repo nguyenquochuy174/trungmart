@@ -4,6 +4,7 @@ import DefaultLayoutUser from './layouts/User/DefaultLayoutUser/DefaultLayoutUse
 import { publicRoutes } from './routes/routes';
 import DefaultLayoutSell from './layouts/Sell/DefaultLayoutSell/DefaultLayoutSell';
 import DefaultLayoutAdmin from './layouts/Admin/DefaultLayoutAdmin/DefaultLayoutAdmin';
+import '~/assets//styles/styles.scss';
 const inweb = 'user';
 function App() {
     return (

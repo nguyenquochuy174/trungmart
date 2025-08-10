@@ -1,0 +1,115 @@
+.itemProduct {
+    width: 260px;
+    border: 1px solid #eee;
+    border-radius: 8px;
+    background-color: #fff;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    padding-bottom: 10px;
+    text-align: center;
+    .imgWrapper {
+        position: relative;
+        width: 100%;
+        height: 180px;
+        overflow: hidden;
+        .img {
+            width: 100%;
+            height: 100%;
+            border-top-left-radius: 8px;
+            border-top-right-radius: 8px;
+            object-fit: cover;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+        .slide-next {
+            animation: slideNext 0.4s ease;
+        }
+        .slide-prev {
+            animation: slidePrev 0.4s ease;
+        }
+        @keyframes slideNext {
+            0% {
+                transform: translateX(100%);
+                opacity: 0;
+            }
+            100% {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+        @keyframes slidePrev {
+            0% {
+                transform: translateX(-100%);
+                opacity: 0;
+            }
+            100% {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+        .navBtn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(0, 0, 0, 0.4);
+            border: none;
+            color: white;
+            padding: 6px;
+            cursor: pointer;
+            font-size: 1.4rem;
+            border-radius: 50%;
+            z-index: 2;
+            &.prev {
+                left: 5px;
+            }
+            &.next {
+                right: 5px;
+            }
+            &:hover {
+                background: rgba(0, 0, 0, 0.6);
+            }
+        }
+    }
+    .info {
+        padding: 8px;
+
+        .name {
+            font-size: 1.8rem;
+            font-weight: 500;
+            margin: 6px 0 4px 0;
+            color: #333;
+        }
+
+        .price {
+            font-size: 1.6rem;
+            font-weight: bold;
+            color: #000;
+            margin-bottom: 6px;
+        }
+
+        .rating {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            gap: 6px;
+
+            .score {
+                color: black;
+                font-weight: 600;
+                display: flex;
+                align-items: center;
+                gap: 3px;
+
+                .iconStar {
+                    font-size: 1.6rem;
+                    color: #ffcc00;
+                }
+            }
+
+            .reviews {
+                font-size: 1.6rem;
+                color: #555;
+            }
+        }
+    }
+}
