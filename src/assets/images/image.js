@@ -13,5 +13,16 @@ const images = {
     meXungHue: require('~/assets/images/mexungHue.jpg'),
     nuocMam: require('~/assets/images/nuocnamnamo.jpg'),
     tra: require('~/assets/images/tracungdinhHue.jpg'),
+    thucPhamSach: {
+        img1: require('~/assets/images/thucphamsach1.jpg'),
+        img2: require('~/assets/images/thucphamsach2.jpg'),
+        img3: require('~/assets/images/thucphamsach3.jpg'),
+    },
+    danhMucNoiBat: {
+        img1: require('~/assets/images/banhkeomut.jpg'),
+        img2: require('~/assets/images/tre.jpg'),
+        img3: require('~/assets/images/anhtraicay.png'),
+        img4: require('~/assets/images/mam.jpg'),
+    },
 };
 export default images;
