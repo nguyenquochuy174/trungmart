@@ -71,3 +71,9 @@
 .large {
     padding: 12px 50px;
 }
+
+@media (max-width: 576px) {
+    .text {
+        font-size: 1.4rem;
+    }
+}
