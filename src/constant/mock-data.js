@@ -174,6 +174,48 @@ const reportForm = [
         description:
             'Khi bạn “Xác Nhận” thì đơn hàng sẽ bị xóa. Thông báo gửi đến Chủ Cửa Hàng.',
     },
+    {
+        id: 'feedback',
+        title: 'Đánh giá đơn hàng',
+        star: true,
+    },
 ];
 
-export { listMenuUser, listMenuAdmin, listMenuSell, listProduct, reportForm };
+const slideImage = [
+    images.thucPhamSach.img1,
+    images.thucPhamSach.img2,
+    images.thucPhamSach.img3,
+];
+
+const featuredCategories = [
+    {
+        id: 1,
+        image: images.danhMucNoiBat.img1,
+        title: 'Gia vị',
+    },
+    {
+        id: 2,
+        image: images.danhMucNoiBat.img2,
+        title: 'Trái cây - Rau củ',
+    },
+    {
+        id: 3,
+        image: images.danhMucNoiBat.img3,
+        title: 'Bánh kẹo',
+    },
+    {
+        id: 4,
+        image: images.danhMucNoiBat.img4,
+        title: 'Đồ khô - Chế biến sẵn',
+    },
+];
+
+export {
+    listMenuUser,
+    listMenuAdmin,
+    listMenuSell,
+    listProduct,
+    reportForm,
+    slideImage,
+    featuredCategories,
+};

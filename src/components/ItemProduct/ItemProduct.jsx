@@ -46,9 +46,14 @@ function ItemProduct({ data }) {
     return (
         <div className={cx('itemProduct')}>
             <div className={cx('imgWrapper')}>
-                <button className={cx('navBtn', 'prev')} onClick={handlePrev}>
-                    <FontAwesomeIcon icon={faChevronLeft} />
-                </button>
+                {productImages.length >= 2 && (
+                    <button
+                        className={cx('navBtn', 'prev')}
+                        onClick={handlePrev}
+                    >
+                        <FontAwesomeIcon icon={faChevronLeft} />
+                    </button>
+                )}
                 {productImages.length > 0 && (
                     <img
                         src={productImages[currentIndex].url}
@@ -59,9 +64,14 @@ function ItemProduct({ data }) {
                         )}
                     />
                 )}
-                <button className={cx('navBtn', 'next')} onClick={handleNext}>
-                    <FontAwesomeIcon icon={faChevronRight} />
-                </button>
+                {productImages.length >= 2 && (
+                    <button
+                        className={cx('navBtn', 'next')}
+                        onClick={handleNext}
+                    >
+                        <FontAwesomeIcon icon={faChevronRight} />
+                    </button>
+                )}
             </div>
 
             <div className={cx('info')}>

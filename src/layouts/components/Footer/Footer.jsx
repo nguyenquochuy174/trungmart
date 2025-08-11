@@ -15,10 +15,14 @@ import {
 } from '@fortawesome/free-brands-svg-icons';
 const cx = classNames.bind(styles);
 function Footer({ data }) {
+    function handleScrollToTop() {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
     return (
         <>
             <div className={cx('footer')}>
-                <div className={cx('backToTop')}>
+                <div className={cx('backToTop')} onClick={handleScrollToTop}>
                     <p>Quay lại đầu trang</p>
                     <FontAwesomeIcon
                         icon={faAngleUp}
