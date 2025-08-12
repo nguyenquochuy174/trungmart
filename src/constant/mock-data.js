@@ -1,3 +1,7 @@
+import {
+    faCircleExclamation,
+    faTriangleExclamation,
+} from '@fortawesome/free-solid-svg-icons';
 import images from '~/assets/images/image';
 
 const listMenuUser = [
@@ -155,4 +159,63 @@ const listProduct = [
     },
 ];
 
-export { listMenuUser, listMenuAdmin, listMenuSell, listProduct };
+const reportForm = [
+    {
+        id: 'report',
+        icon: faCircleExclamation,
+        title: 'Báo cáo cửa hàng',
+        description:
+            'Khi bạn “Xác Nhận” thì nội dung báo cáo sẽ được gửi đến Quản Trị Viên. Quản Trị Viên sẽ xem xét và xử lý.',
+    },
+    {
+        id: 'cancel',
+        icon: faTriangleExclamation,
+        title: 'Hủy đơn hàng',
+        description:
+            'Khi bạn “Xác Nhận” thì đơn hàng sẽ bị xóa. Thông báo gửi đến Chủ Cửa Hàng.',
+    },
+    {
+        id: 'feedback',
+        title: 'Đánh giá đơn hàng',
+        star: true,
+    },
+];
+
+const slideImage = [
+    images.thucPhamSach.img1,
+    images.thucPhamSach.img2,
+    images.thucPhamSach.img3,
+];
+
+const featuredCategories = [
+    {
+        id: 1,
+        image: images.danhMucNoiBat.img1,
+        title: 'Gia vị',
+    },
+    {
+        id: 2,
+        image: images.danhMucNoiBat.img2,
+        title: 'Trái cây - Rau củ',
+    },
+    {
+        id: 3,
+        image: images.danhMucNoiBat.img3,
+        title: 'Bánh kẹo',
+    },
+    {
+        id: 4,
+        image: images.danhMucNoiBat.img4,
+        title: 'Đồ khô - Chế biến sẵn',
+    },
+];
+
+export {
+    listMenuUser,
+    listMenuAdmin,
+    listMenuSell,
+    listProduct,
+    reportForm,
+    slideImage,
+    featuredCategories,
+};

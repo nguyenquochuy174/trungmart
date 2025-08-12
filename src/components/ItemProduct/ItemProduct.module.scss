@@ -4,7 +4,7 @@
     border-radius: 8px;
     background-color: #fff;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    padding-bottom: 10px;
+    padding-bottom: 20px;
     text-align: center;
     .imgWrapper {
         position: relative;
@@ -78,6 +78,10 @@
             font-weight: 500;
             margin: 6px 0 4px 0;
             color: #333;
+
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
         }
 
         .price {
@@ -109,6 +113,120 @@
             .reviews {
                 font-size: 1.6rem;
                 color: #555;
+            }
+        }
+    }
+}
+
+@media (max-width: 576px) {
+    .itemProduct {
+        width: 185px;
+        font-size: 1.4rem;
+        .imgWrapper {
+            height: 160px;
+        }
+
+        .info {
+            .name {
+                font-size: 1.6rem;
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
+            }
+            .price {
+                font-size: 1.4rem;
+            }
+
+            .rating {
+                .iconStar {
+                    font-size: 1.4rem;
+                }
+                .reviews {
+                    font-size: 1.4rem;
+                }
+            }
+        }
+    }
+}
+@media (min-width: 577px) and (max-width: 768px) {
+    .itemProduct {
+        width: 210px;
+        font-size: 1.5rem;
+
+        .imgWrapper {
+            height: 170px;
+        }
+
+        .info {
+            .name {
+                font-size: 1.7rem;
+            }
+            .price {
+                font-size: 1.5rem;
+            }
+            .rating {
+                .iconStar {
+                    font-size: 1.5rem;
+                }
+                .reviews {
+                    font-size: 1.5rem;
+                }
+            }
+        }
+    }
+}
+
+@media (min-width: 769px) and (max-width: 992px) {
+    .itemProduct {
+        width: 230px;
+        font-size: 1.6rem;
+
+        .imgWrapper {
+            height: 175px;
+        }
+
+        .info {
+            .name {
+                font-size: 1.75rem;
+            }
+            .price {
+                font-size: 1.55rem;
+            }
+            .rating {
+                .iconStar {
+                    font-size: 1.55rem;
+                }
+                .reviews {
+                    font-size: 1.55rem;
+                }
+            }
+        }
+    }
+}
+
+@media (min-width: 993px) and (max-width: 1200px) {
+    .itemProduct {
+        width: 245px;
+        font-size: 1.7rem;
+
+        .imgWrapper {
+            height: 180px;
+        }
+
+        .info {
+            .name {
+                font-size: 1.78rem;
+            }
+            .price {
+                font-size: 1.6rem;
+            }
+            .rating {
+                .iconStar {
+                    font-size: 1.6rem;
+                }
+                .reviews {
+                    font-size: 1.6rem;
+                }
             }
         }
     }

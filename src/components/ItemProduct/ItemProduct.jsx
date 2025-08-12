@@ -7,7 +7,7 @@ import {
     faChevronLeft,
     faChevronRight,
 } from '@fortawesome/free-solid-svg-icons';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 const cx = classNames.bind(styles);
 
@@ -15,6 +15,7 @@ function ItemProduct({ data }) {
     const productImages = data.image || [];
     const [currentIndex, setCurrentIndex] = useState(0);
     const [direction, setDirection] = useState('next');
+    const [isMobile, setIsMobile] = useState(window.innerWidth <= 576);
 
     const handlePrev = () => {
         setDirection('prev');
@@ -35,12 +36,24 @@ function ItemProduct({ data }) {
         data.totalStars && data.reviews
             ? (data.totalStars / data.reviews).toFixed(1)
             : 0;
+    // kiểm tra để điều chỉnh size button
+    useEffect(() => {
+        const handleResize = () => setIsMobile(window.innerWidth <= 576);
+        window.addEventListener('resize', handleResize);
+        return () => window.removeEventListener('resize', handleResize);
+    }, []);
+
     return (
         <div className={cx('itemProduct')}>
             <div className={cx('imgWrapper')}>
-                <button className={cx('navBtn', 'prev')} onClick={handlePrev}>
-                    <FontAwesomeIcon icon={faChevronLeft} />
-                </button>
+                {productImages.length >= 2 && (
+                    <button
+                        className={cx('navBtn', 'prev')}
+                        onClick={handlePrev}
+                    >
+                        <FontAwesomeIcon icon={faChevronLeft} />
+                    </button>
+                )}
                 {productImages.length > 0 && (
                     <img
                         src={productImages[currentIndex].url}
@@ -51,9 +64,14 @@ function ItemProduct({ data }) {
                         )}
                     />
                 )}
-                <button className={cx('navBtn', 'next')} onClick={handleNext}>
-                    <FontAwesomeIcon icon={faChevronRight} />
-                </button>
+                {productImages.length >= 2 && (
+                    <button
+                        className={cx('navBtn', 'next')}
+                        onClick={handleNext}
+                    >
+                        <FontAwesomeIcon icon={faChevronRight} />
+                    </button>
+                )}
             </div>
 
             <div className={cx('info')}>
@@ -74,7 +92,9 @@ function ItemProduct({ data }) {
                     </span>
                 </div>
             </div>
-            <Button primary>Xem Chi Tiết</Button>
+            <Button primary small={isMobile}>
+                Xem Chi Tiết
+            </Button>
         </div>
     );
 }
