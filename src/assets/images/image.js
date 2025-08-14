@@ -24,5 +24,10 @@ const images = {
         img3: require('~/assets/images/anhtraicay.png'),
         img4: require('~/assets/images/mam.jpg'),
     },
+    giayChungNhan: {
+        img1: require('~/assets/images/gcnATTP.jpg'),
+        img2: require('~/assets/images/gcnHoatDong.jpg'),
+    },
+    avatarStore: require('~/assets/images/khi.jpg'),
 };
 export default images;
