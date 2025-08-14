@@ -4,6 +4,7 @@ import {
 } from '@fortawesome/free-solid-svg-icons';
 import images from '~/assets/images/image';
 
+
 const listMenuUser = [
     { name: 'Trang Chủ', path: '/UserHome' },
     {
@@ -35,7 +36,15 @@ const listMenuSell = [
     { name: 'Sản Phẩm', path: '/ProductSell' },
     { name: 'Giới Thiệu', path: '/IntroduceSell' },
 ];
-
+const listSliderBarSell=[
+    {name:'Hồ sơ của tôi', path:"/ProfileSell"},
+    {name:'Cửa hàng của tôi', path:"/StoreSell"},
+    {name:'Đổi mật khẩu', path:"/PasswordSell"},
+    {name:'Thống kê', path:"/StatisticSell"},
+    {name:'Duyệt đơn hàng', path:"/OrderSell"},
+    {name:'Ví', path:"/WalletSell"},
+    {name:'Đăng xuất', path:"/"},
+]
 const listProduct = [
     {
         id: 1,
@@ -209,7 +218,30 @@ const featuredCategories = [
         title: 'Đồ khô - Chế biến sẵn',
     },
 ];
-
+const listinfoSell=[
+    {
+        id:1,
+        Name:'An',
+        LastName:'Nguyễn Phúc',
+        Date:'26/04/20004',
+        Gender:'Nam',
+        Email:'npan2604@gmail.com',
+        Phone:'01659835717',
+        Facebook:'trungmart',
+        Tiktok:'trungmart@168',
+        Avatar:images.avatar,
+        Address:"thôn, Phước Thanh, xã Quảng Điền, TP. Huế"
+    }
+]
+const listinforWalletSell=[
+    {
+        id:1,
+        Name:'Nguyễn Phúc An',
+        Bank:'Viettinbank',
+        Banknumber:'01659835717',
+        imgQR:images.avatar
+    }
+]
 export {
     listMenuUser,
     listMenuAdmin,
@@ -218,4 +250,7 @@ export {
     reportForm,
     slideImage,
     featuredCategories,
+    listSliderBarSell,
+    listinfoSell,
+    listinforWalletSell
 };

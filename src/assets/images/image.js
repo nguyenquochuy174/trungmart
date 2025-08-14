@@ -24,5 +24,6 @@ const images = {
         img3: require('~/assets/images/anhtraicay.png'),
         img4: require('~/assets/images/mam.jpg'),
     },
+    avatar:require('~/assets/images/2-6.png')
 };
 export default images;

@@ -1,8 +1,100 @@
 .content{
+    width: 80%;
+    margin-top: 10px;
+
+}
+.userName{
+    padding: 10px;
+    width: 100%;
+    margin-top: 10px;
+    display: flex;
+    align-items: center;
+    .editinfo{
+        margin-right: 10px;
+        display: flex;
+        justify-content: end;
+        width: 30%;
+    }
+    .radio{
+        display: flex;
+        align-items: center;
+        gap: 50px;
+    }
+    .imgAvatar {
+    display: flex;
+    flex-direction: column; 
+    align-items: center;   
+    gap: 10px;             
+   
+    img {
+        width: 225px;
+        height: 185px;
+        object-fit: cover;    
+        border-radius: 8px;  
+    }
+}
+
+}
+.inputEdit{
+    border: 1px solid black;
+    width: 500px;
+    height:45px;
+    padding:10px;
+    border-radius: 4px;
+}
+.Submit{
     width: 100%;
     display: flex;
-    
+    align-items: center;
+     justify-content: center;
+     gap: 10px;
+    flex-direction: column; 
+
 }
-.Home{
-    margin-left:10px;
+.inputEdit{
+    border: 1px solid black;
+    width: 70%;
+    height:45px;
+    padding:10px;
+    border-radius: 4px;
+}
+@media (max-width: 576px) {
+    .content{
+        width: 100%;
+    }
+ .userName{
+    display: flex;            
+    flex-direction: column;    
+    align-items: flex-start;
+    gap: 10px;        
+    .editinfo{
+        margin-right: 10px;
+        display: flex;
+        justify-content:start;
+        width: 100%;
+    }
+    .radio{
+        gap:5px;
+    }
+    .imgAvatar{
+        width: 100%;
+        margin-bottom: 20px;
+    }
+}
+.inputEdit{
+    width: 100%;
+}
+
+}
+
+@media (min-width: 577px) and (max-width: 768px) {
+ 
+}
+
+@media (min-width: 769px) and (max-width: 992px) {
+
+}
+
+@media (min-width: 993px) and (max-width: 1200px) {
+
 }
