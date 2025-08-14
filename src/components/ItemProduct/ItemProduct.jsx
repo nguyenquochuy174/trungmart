@@ -8,6 +8,7 @@ import {
     faChevronRight,
 } from '@fortawesome/free-solid-svg-icons';
 import { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const cx = classNames.bind(styles);
 
@@ -16,6 +17,11 @@ function ItemProduct({ data }) {
     const [currentIndex, setCurrentIndex] = useState(0);
     const [direction, setDirection] = useState('next');
     const [isMobile, setIsMobile] = useState(window.innerWidth <= 576);
+    const navigate = useNavigate();
+
+    const handleViewDetail = () => {
+        navigate(`/UserDetailProduct/${data.id}`);
+    };
 
     const handlePrev = () => {
         setDirection('prev');
@@ -92,7 +98,7 @@ function ItemProduct({ data }) {
                     </span>
                 </div>
             </div>
-            <Button primary small={isMobile}>
+            <Button primary small={isMobile} onClick={handleViewDetail}>
                 Xem Chi Tiết
             </Button>
         </div>
