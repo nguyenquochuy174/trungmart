@@ -5,52 +5,53 @@ import classNames from 'classnames/bind';
 import styles from './RatingSelect.module.scss';
 
 const cx = classNames.bind(styles);
-
-function RatingSelect({ onChange }) {
-    const [selected, setSelected] = useState(null);
+function RatingSelect({ value, onChange }) {
     const [isHovered, setIsHovered] = useState(false);
 
-    const handleSelect = (value) => {
-        setSelected(value);
-        if (onChange) {
-            onChange(value);
+    const handleSelect = (val) => {
+        if (val === value) {
+            onChange(null);
+        } else {
+            onChange(val);
         }
+        setIsHovered(false);
     };
 
-    const renderStars = (count) =>
+    const renderStars = (count, highlight = false) =>
         Array.from({ length: count }).map((_, idx) => (
-            <FontAwesomeIcon key={idx} icon={faStar} className={cx('star')} />
+            <FontAwesomeIcon
+                key={idx}
+                icon={faStar}
+                className={cx('star', {
+                    highlighted: idx < count && highlight,
+                })}
+            />
         ));
 
     return (
-        <>
-            <div
-                className={cx('wrapper')}
-                onMouseEnter={() => setIsHovered(true)}
-                onMouseLeave={() => setIsHovered(false)}
-            >
-                <div className={cx('dropdown')}>
-                    <span>{selected ? renderStars(selected) : 'Đánh giá'}</span>
-                    <FontAwesomeIcon
-                        icon={faChevronDown}
-                        className={cx('icon')}
-                    />
-                </div>
-
-                {isHovered && (
-                    <ul className={cx('menu')}>
-                        {[5, 4, 3, 2, 1].map((starCount) => (
-                            <li
-                                key={starCount}
-                                onClick={() => handleSelect(starCount)}
-                            >
-                                {renderStars(starCount)}
-                            </li>
-                        ))}
-                    </ul>
-                )}
+        <div
+            className={cx('wrapper')}
+            onMouseEnter={() => setIsHovered(true)}
+            onMouseLeave={() => setIsHovered(false)}
+        >
+            <div className={cx('dropdown')}>
+                <span>{value ? renderStars(value, true) : 'Đánh giá'}</span>
+                <FontAwesomeIcon icon={faChevronDown} className={cx('icon')} />
             </div>
-        </>
+
+            {isHovered && (
+                <ul className={cx('menu')}>
+                    {[5, 4, 3, 2, 1].map((starCount) => (
+                        <li
+                            key={starCount}
+                            onClick={() => handleSelect(starCount)}
+                        >
+                            {renderStars(starCount, true)}
+                        </li>
+                    ))}
+                </ul>
+            )}
+        </div>
     );
 }
 

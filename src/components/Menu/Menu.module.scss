@@ -17,6 +17,9 @@
         color: var(--primary);
         cursor: pointer;
     }
+    &.active > a {
+        color: var(--primary);
+    }
 }
 .dropdownMenu {
     display: none;
@@ -42,6 +45,9 @@
 
         &:hover {
             background-color: #e0e0e0;
+        }
+        &.active > a {
+            color: var(--primary);
         }
     }
 }
