@@ -22,6 +22,7 @@ function Notification() {
         );
         setNotifications(userNotifications);
     }, []);
+
     const latestNotifications = useMemo(() => {
         return [...notifications].sort(
             (a, b) => new Date(b.timestamp) - new Date(a.timestamp),
@@ -31,28 +32,17 @@ function Notification() {
     const totalPages = Math.ceil(
         latestNotifications.length / notificationsPage,
     );
+
     const getPaginationRange = (currentPage, totalPages, delta = 2) => {
         const range = [];
         const left = Math.max(2, currentPage - delta);
         const right = Math.min(totalPages - 1, currentPage + delta);
 
         range.push(1);
-
-        if (left > 2) {
-            range.push('...');
-        }
-
-        for (let i = left; i <= right; i++) {
-            range.push(i);
-        }
-
-        if (right < totalPages - 1) {
-            range.push('...');
-        }
-
-        if (totalPages > 1) {
-            range.push(totalPages);
-        }
+        if (left > 2) range.push('...');
+        for (let i = left; i <= right; i++) range.push(i);
+        if (right < totalPages - 1) range.push('...');
+        if (totalPages > 1) range.push(totalPages);
 
         return range;
     };
@@ -74,9 +64,28 @@ function Notification() {
         setNotifications(updated);
     };
 
+    const handleDeleteNotification = (notificationId) => {
+        const updated = notifications.filter(
+            (item) => item.id !== notificationId,
+        );
+        setNotifications(updated);
+
+        const newTotalPages = Math.ceil(updated.length / notificationsPage);
+        if (currentPage > newTotalPages) {
+            setCurrentPage(newTotalPages || 1);
+        }
+    };
+
     const handlePageChange = (page) => {
         if (page === '...' || page < 1 || page > totalPages) return;
         setCurrentPage(page);
+    };
+    const handleIsRead = (notificationId) => {
+        setNotifications((prev) =>
+            prev.map((item) =>
+                item.id === notificationId ? { ...item, isRead: true } : item,
+            ),
+        );
     };
 
     return (
@@ -93,7 +102,8 @@ function Notification() {
 
             <ItemNotification
                 notifications={currentNotifications}
-                setNotifications={setNotifications}
+                onDelete={handleDeleteNotification}
+                onIsRead={handleIsRead}
             />
 
             <div className={cx('pagination')}>
