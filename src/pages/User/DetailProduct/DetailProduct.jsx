@@ -1,7 +1,7 @@
 import classNames from 'classnames/bind';
 import styles from './DetailProduct.module.scss';
 import { useParams } from 'react-router-dom';
-import { listProduct, storeList } from '~/constant/mock-data';
+import { listProduct, reportForm, storeList } from '~/constant/mock-data';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
     faChevronLeft,
@@ -21,6 +21,7 @@ import { faHeart } from '@fortawesome/free-regular-svg-icons';
 import StoreView from '~/components/StoreView/StoreView';
 import ItemProduct from '~/components/ItemProduct/ItemProduct';
 import ReviewItem from '~/components/ReviewItem/ReviewItem';
+import FormApprove from '~/components/FormApprove/FormApprove';
 const cx = classNames.bind(styles);
 function DetailProduct() {
     const { id } = useParams();
@@ -30,6 +31,7 @@ function DetailProduct() {
     const [direction, setDirection] = useState('next');
     const [quantity, setQuantity] = useState(1);
     const [productsPerPage, setProductsPerPage] = useState(8);
+    const [showReportForm, setShowReportForm] = useState(false);
 
     const store = storeList.find(
         (store) => store.id === Number(product?.idStore),
@@ -186,7 +188,11 @@ function DetailProduct() {
                     </div>
                 </div>
             </div>
-            <StoreView data={store} report={true} />
+            <StoreView
+                data={store}
+                report={true}
+                onReportClick={() => setShowReportForm(true)}
+            />
             <div className={cx('otherProduct')}>
                 <h3>Sản phẩm khác của cửa hàng</h3>
 
@@ -202,6 +208,17 @@ function DetailProduct() {
 
                 <ReviewItem data={id} />
             </div>
+
+            {showReportForm && (
+                <div className={cx('modalOverlay')}>
+                    <div className={cx('modalContent')}>
+                        <FormApprove
+                            data={reportForm[0]}
+                            onClose={() => setShowReportForm(false)}
+                        />
+                    </div>
+                </div>
+            )}
         </>
     );
 }
