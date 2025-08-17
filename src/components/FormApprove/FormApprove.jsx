@@ -6,17 +6,15 @@ import Button from '../Button/Button';
 import { useEffect, useRef, useState } from 'react';
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import { useNavigate } from 'react-router-dom';
 import RatingSelect from '../RatingSelect/RatingSelect';
 
 const cx = classNames.bind(styles);
 
-function FormApprove({ data }) {
+function FormApprove({ data, onClose }) {
     const inputRef = useRef(null);
     const [isMobile, setIsMobile] = useState(window.innerWidth <= 576);
     const [inputValue, setInputValue] = useState('');
     const [error, setError] = useState('');
-    const navigate = useNavigate();
     const [ratingValue, setRatingValue] = useState(null);
 
     const handleFocusInput = () => {
@@ -52,7 +50,7 @@ function FormApprove({ data }) {
     const handleCancel = () => {
         setInputValue('');
         setError('');
-        navigate(-1);
+        if (onClose) onClose();
     };
 
     useEffect(() => {

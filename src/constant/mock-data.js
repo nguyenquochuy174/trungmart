@@ -774,6 +774,184 @@ const listOrder = [
   },
 ];
 
+const listNotification = [
+    {
+        id: 1,
+        senderId: 1,
+        receiverId: 1001,
+        content:
+            'Đơn hàng của bạn đã được xác nhận, shop đang đóng gói và giao đơn hàng đến với bạn trong thời gian sớm nhất.',
+        timestamp: '2025-08-14T09:30:00',
+        isRead: false,
+    },
+    {
+        id: 2,
+        senderId: 1,
+        receiverId: 1002,
+        content:
+            'Đơn hàng của bạn đã được xác nhận, shop đang đóng gói và giao đơn hàng đến với bạn trong thời gian sớm nhất.',
+        timestamp: '2025-08-14T08:45:00',
+        isRead: true,
+    },
+    {
+        id: 3,
+        senderId: 1,
+        receiverId: 1001,
+        content:
+            'Đơn hàng của bạn đã giao thành công, shop mong chờ những đóng góp của bạn để shop ngày càng phát triển.',
+        timestamp: '2025-08-13T17:20:00',
+        isRead: true,
+    },
+    {
+        id: 4,
+        senderId: 2,
+        receiverId: 1003,
+        content:
+            'Đơn hàng của bạn đã được xác nhận, shop đang đóng gói và giao đơn hàng đến với bạn trong thời gian sớm nhất.',
+        timestamp: '2025-08-14T07:10:00',
+        isRead: false,
+    },
+    {
+        id: 5,
+        senderId: 1,
+        receiverId: 1001,
+        content: 'Đơn hàng của bạn đã bị hủy vì không hợp lệ.',
+        timestamp: '2025-08-13T15:00:00',
+        isRead: true,
+    },
+    {
+        id: 6,
+        senderId: 1,
+        receiverId: 1001,
+        content:
+            'Đơn hàng của bạn đã được xác nhận, shop đang đóng gói và giao đơn hàng đến với bạn trong thời gian sớm nhất.',
+        timestamp: '2025-08-14T09:30:00',
+        isRead: false,
+    },
+    {
+        id: 7,
+        senderId: 1,
+        receiverId: 1002,
+        content:
+            'Đơn hàng của bạn đã được xác nhận, shop đang đóng gói và giao đơn hàng đến với bạn trong thời gian sớm nhất.',
+        timestamp: '2025-08-14T08:45:00',
+        isRead: true,
+    },
+    {
+        id: 8,
+        senderId: 1,
+        receiverId: 1001,
+        content:
+            'Đơn hàng của bạn đã giao thành công, shop mong chờ những đóng góp của bạn để shop ngày càng phát triển.',
+        timestamp: '2025-08-13T17:20:00',
+        isRead: true,
+    },
+    {
+        id: 9,
+        senderId: 2,
+        receiverId: 1003,
+        content:
+            'Đơn hàng của bạn đã được xác nhận, shop đang đóng gói và giao đơn hàng đến với bạn trong thời gian sớm nhất.',
+        timestamp: '2025-08-14T07:10:00',
+        isRead: false,
+    },
+    {
+        id: 10,
+        senderId: 1,
+        receiverId: 1001,
+        content: 'Đơn hàng của bạn đã bị hủy vì không hợp lệ.',
+        timestamp: '2025-08-13T15:00:00',
+        isRead: true,
+    },
+    {
+        id: 11,
+        senderId: 1,
+        receiverId: 1001,
+        content:
+            'Đơn hàng của bạn đã được xác nhận, shop đang đóng gói và giao đơn hàng đến với bạn trong thời gian sớm nhất.',
+        timestamp: '2025-08-14T09:30:00',
+        isRead: false,
+    },
+    {
+        id: 12,
+        senderId: 1,
+        receiverId: 1002,
+        content:
+            'Đơn hàng của bạn đã được xác nhận, shop đang đóng gói và giao đơn hàng đến với bạn trong thời gian sớm nhất.',
+        timestamp: '2025-08-14T08:45:00',
+        isRead: true,
+    },
+    {
+        id: 13,
+        senderId: 1,
+        receiverId: 1001,
+        content:
+            'Đơn hàng của bạn đã giao thành công, shop mong chờ những đóng góp của bạn để shop ngày càng phát triển.',
+        timestamp: '2025-08-13T17:20:00',
+        isRead: true,
+    },
+    {
+        id: 14,
+        senderId: 2,
+        receiverId: 1003,
+        content:
+            'Đơn hàng của bạn đã được xác nhận, shop đang đóng gói và giao đơn hàng đến với bạn trong thời gian sớm nhất.',
+        timestamp: '2025-08-14T07:10:00',
+        isRead: false,
+    },
+    {
+        id: 15,
+        senderId: 1,
+        receiverId: 1001,
+        content: 'Đơn hàng của bạn đã bị hủy vì không hợp lệ.',
+        timestamp: '2025-08-13T15:00:00',
+        isRead: true,
+    },
+    {
+        id: 16,
+        senderId: 1,
+        receiverId: 1001,
+        content:
+            'Đơn hàng của bạn đã được xác nhận, shop đang đóng gói và giao đơn hàng đến với bạn trong thời gian sớm nhất.',
+        timestamp: '2025-08-14T09:30:00',
+        isRead: false,
+    },
+    {
+        id: 17,
+        senderId: 1,
+        receiverId: 1002,
+        content:
+            'Đơn hàng của bạn đã được xác nhận, shop đang đóng gói và giao đơn hàng đến với bạn trong thời gian sớm nhất.',
+        timestamp: '2025-08-14T08:45:00',
+        isRead: true,
+    },
+    {
+        id: 18,
+        senderId: 1,
+        receiverId: 1001,
+        content:
+            'Đơn hàng của bạn đã giao thành công, shop mong chờ những đóng góp của bạn để shop ngày càng phát triển.',
+        timestamp: '2025-08-13T17:20:00',
+        isRead: true,
+    },
+    {
+        id: 19,
+        senderId: 2,
+        receiverId: 1003,
+        content:
+            'Đơn hàng của bạn đã được xác nhận, shop đang đóng gói và giao đơn hàng đến với bạn trong thời gian sớm nhất.',
+        timestamp: '2025-08-14T07:10:00',
+        isRead: false,
+    },
+    {
+        id: 20,
+        senderId: 1,
+        receiverId: 1001,
+        content: 'Đơn hàng của bạn đã bị hủy vì không hợp lệ.',
+        timestamp: '2025-08-13T15:00:00',
+        isRead: true,
+    },
+];
 export {
     listMenuUser,
     listMenuAdmin,
@@ -790,5 +968,6 @@ export {
     listUser,
     listReviewProduct,
     listOrder,
-    ListBank
+    ListBank,
+    listNotification
 };

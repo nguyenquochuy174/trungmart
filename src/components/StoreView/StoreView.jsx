@@ -16,7 +16,7 @@ import { faHeart, faStar } from '@fortawesome/free-regular-svg-icons';
 import { listProduct } from '~/constant/mock-data';
 
 const cx = classNames.bind(styles);
-function StoreView({ data, report }) {
+function StoreView({ data, report, onReportClick }) {
     const totalStoreProducts = listProduct.filter(
         (product) => Number(product.idStore) === data.id,
     ).length;
@@ -104,7 +104,10 @@ function StoreView({ data, report }) {
 
                 <div className={cx('storeContact')}>
                     {report && (
-                        <div className={cx('storeReport')}>
+                        <div
+                            className={cx('storeReport')}
+                            onClick={onReportClick}
+                        >
                             <FontAwesomeIcon
                                 icon={faCircleExclamation}
                                 className={cx('icon')}
@@ -112,6 +115,7 @@ function StoreView({ data, report }) {
                             <p>Báo cáo</p>
                         </div>
                     )}
+
                     <Button outline small>
                         Nhắn tin
                     </Button>
