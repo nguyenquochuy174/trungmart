@@ -1,8 +1,121 @@
+.container{
+    width: 80%;
+    padding: 10px;
+}
 .content{
     width: 100%;
+    height: 49px;
+    border-bottom: 0.5px solid #B3B3B3;
     display: flex;
-    
+    justify-content: space-between;
+    align-items: center;
+    a{
+        color:#333;
+        &:hover{
+            color:#5C8018;
+        }
+    }
 }
-.Home{
-    margin-left:10px;
+.info{
+    width: 100%;
+    display: flex;
+    .leftInfo{
+        width: 50%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        .leftcontent{
+            width: 50%;
+            margin-top: 10%;
+           display: flex;
+           flex-direction: column;
+           align-items: center;
+           gap:33px;
+            .Name{
+            display: block;
+            width: 100%;
+            height: 58.33px;
+
+        }
+        }
+        
+        
+    }
+    .rightInfo{
+        width: 50%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        img{
+            width: 50%;
+            height: 327px;
+             object-fit: cover;
+        }
+    }
+}
+@media (max-width: 576px) {
+    .container{
+        width: 100%;
+    }
+    .info{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+    .rightInfo{
+        margin-top: 50px;
+    }
+
+}  
+
+@media (min-width: 577px) and (max-width: 768px) {
+    .container{
+        width: 90%;
+    }
+    .info{
+        flex-direction: column;
+        align-items: center;
+    }
+    .leftInfo, .rightInfo{
+        width: 100%;
+    }
+    .rightInfo{
+        margin-top: 30px;
+        img{
+            width: 60%;
+        }
+    }
+}
+
+@media (min-width: 769px) and (max-width: 992px) {
+    .container{
+        width: 85%;
+    }
+    .leftInfo{
+        .leftcontent{
+            width: 70%;
+        }
+    }
+    .rightInfo{
+        img{
+            width: 60%;
+        }
+    }
+}
+
+@media (min-width: 993px) and (max-width: 1200px) {
+    .container{
+        width: 80%;
+    }
+    .leftInfo{
+        .leftcontent{
+            width: 60%;
+        }
+    }
+    .rightInfo{
+        img{
+            width: 50%;
+        }
+    }
 }

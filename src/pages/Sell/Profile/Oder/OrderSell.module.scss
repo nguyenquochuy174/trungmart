@@ -1,8 +1,283 @@
-.content{
+.container{
+    width: 80%;
+    margin-top: 10px;
+    margin-left: 10px;
+    padding:10px;
+}
+.contentHeader{
     width: 100%;
     display: flex;
+    align-items: center;
+    gap:50px;
+    margin-bottom: 10px;
+}
+.contentBottom{
+    width: 100%;
+    .inforder{
+      margin-bottom: 10px;
+        padding:10px;;
+        width: 100%;
+        background: #fff;             // nên có màu nền trắng
+        border-radius: 8px;           // bo nhẹ
+        box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+        .Ordercontent{
+            display: flex;
+            width: 100%;
+              b{
+                   font-size: 18px;
+                   
+                }
+            .Product{
+                width: 55%;  
+                .reviewOrder{
+                    
+                    display: flex;
+                    align-items: center;
+                    .imgproduct{
+                        width: 100px;
+                        height:100px;
+                         border-radius: 4px;
+                    }
+                    .infoProduct{
+                        margin-left: 10px;
+                    }
+                }
+            }
+            .Number{
+                width: 15%;
+                height: 100px;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                gap:25%;
+            }
+            .Sum{
+                width: 30%;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                .sumOrder{
+                    width: 100%;
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    .sumPrice{
+                        display: flex;
+                        align-items: center;
+                        justify-content: space-between;
+                        width: 100%;
+                        
+                    }
+                    .total{
+                        border-top: 1px solid #ccc; 
+                        padding-top: 10px;          
+                        margin-top: 10px;  
+                    }
+                }
+            }
+        }
+        .dateOrder{
+            margin-top: 10px;
+            display: flex;
+            gap:50px;
+        }
+        .statusOrder{
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+            .accept{
+                display: flex;
+                
+                gap: 10px;
+            }
+        }
+    }
+}
+@media (max-width: 576px) {
+.container{
+    width: 100%;
+}
+  .contentBottom {
+    .inforder {
+        width: 100%;
+      .Ordercontent {
+        flex-direction: column;
+        gap:10px;
+        .Product {
+          width: 100%;
+          display: flex;
+          flex-direction: column;
+
+        }
+        .Number{
+            width: 100%;
+            height: auto;      
+            flex-direction: row; 
+        }
+        .Sum{
+            width: 100%;
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-between;
+            b{
+                width: 50%;
+            }
+        }
+    }
+    .dateOrder{
+        flex-direction: column;
+        gap:10px;
+    }
+    .statusOrder{
+        flex-direction: column;
+        align-items: flex-start;
+            .accept{
+                display: flex;
+                width: 100%;
+                height: auto;
+                align-items: center;
+                justify-content: center;
+                gap: 10px;
+            }
+    }
+}
+  }
     
 }
-.Home{
-    margin-left:10px;
+@media (min-width: 577px) and (max-width: 768px) {
+  .container {
+    width: 95%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .contentBottom {
+    .inforder {
+      padding: 8px;
+
+      .Ordercontent {
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 14px;
+
+        .Product {
+          width: 60%;
+          .reviewOrder {
+            .imgproduct {
+              width: 90px;
+              height: 90px;
+            }
+            .infoProduct {
+              font-size: 14px;
+              margin-left: 8px;
+            }
+          }
+        }
+
+        .Number {
+          width: 35%;
+          flex-direction: column;
+          align-items:center;
+          gap: 50%;
+        }
+
+        .Sum {
+          width: 100%;
+          flex-direction: row;
+          justify-content: space-between;
+           b{
+                width: 50%;
+            }
+        }
+      }
+
+      .dateOrder {
+        gap: 10px;
+      }
+
+      .statusOrder {
+        flex-direction: row;
+        gap: 10px;
+      }
+    }
+  }
+}
+
+/* ===== Tablet lớn / Laptop nhỏ 769–992px ===== */
+@media (min-width: 769px) and (max-width: 992px) {
+  .container {
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .contentBottom {
+    .inforder {
+      padding: 10px;
+
+      .Ordercontent {
+        gap: 10px;
+
+        .Product {
+          width: 55%;
+        }
+
+        .Number {
+          width: 15%;
+        }
+
+        .Sum {
+          width: 30%;
+        }
+      }
+
+      .dateOrder {
+        gap: 40px;
+      }
+
+      .statusOrder {
+        flex-direction: row;
+      }
+    }
+  }
+}
+
+/* ===== Laptop / Desktop vừa 993–1200px ===== */
+@media (min-width: 993px) and (max-width: 1200px) {
+  .container {
+    width: 85%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .contentBottom {
+    .inforder {
+      padding: 12px;
+
+      .Ordercontent {
+        gap: 25px;
+
+        .Product {
+          width: 55%;
+        }
+
+        .Number {
+          width: 15%;
+        }
+
+        .Sum {
+          width: 30%;
+        }
+      }
+
+      .dateOrder {
+        gap: 50px;
+      }
+
+      .statusOrder {
+        flex-direction: row;
+      }
+    }
+  }
 }

@@ -1,0 +1,83 @@
+.container{
+    width: 20%;
+    display: flex;
+    justify-content: flex-end;
+}
+.content{
+    margin-top: 10px;
+    width: 224px;
+    border-right: 0.5px solid #B3B3B3;
+}
+.infoUser{
+    display: flex;
+    width: 100%;
+    height: 59px;
+    padding:5px;
+    border-bottom:  0.5px solid #B3B3B3;
+    .avatar{
+        img{
+            width: 48px;
+            height: 49px;
+            border-radius: 50%;
+        }
+    }
+    .Name{
+        margin-left: 10px;
+        width: 151px;
+        height: 40px;
+        display: block;
+       
+        .userName{
+            font-size: 1.6rem;
+        }
+        .userEmail{
+            font-size: 1.4rem;
+            color:#3B3B3B;
+        }
+    }
+
+
+}
+.Action{
+    width: 100%;
+    font-size: 1.6rem;
+    .actionContent{
+        a{
+        padding:10px 5px;
+        display: flex;          
+        align-items: center;     
+        gap: 10px;                
+        text-decoration: none;   
+        color: inherit;
+        }
+        &:hover{
+            color:#5C8018;
+        }
+        .iconProfile{
+        font-size: 20px;
+        }
+    }
+    
+}
+
+@media (min-width: 577px) and (max-width: 768px) {
+    .container{
+        width: 40%;
+        justify-content: flex-start;
+    }
+    .content{
+        width: 100%;
+    }
+}
+
+@media (min-width: 769px) and (max-width: 992px) {
+    .container{
+        width: 30%;
+    }
+}
+
+@media (min-width: 993px) and (max-width: 1200px) {
+    .container{
+        width: 22%;
+    }
+}
