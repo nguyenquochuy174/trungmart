@@ -1,8 +1,85 @@
+.container{
+    width: 80%;
+    padding:10px;
+}
 .content{
     width: 100%;
+    max-width: 100%;
+    height: 49px;
+    border-bottom: 0.5px solid #B3B3B3;
     display: flex;
-    
+    justify-content: space-between;
+    align-items: center;
+    a{
+        color:#333;
+        &:hover{
+            color:#5C8018;
+        }
+    }
 }
-.Home{
-    margin-left:10px;
+.info{
+    width: 100%;
+    margin-bottom: 20px;
 }
+.NameSell{
+    display: flex;
+    margin-top: 20px;
+    .Name{
+        width: 329px;
+        margin-top: 20px;
+    }
+
+}
+
+@media (max-width: 576px) {
+    .container{
+        width: 100%;
+    }
+      .NameSell{
+    display: block;
+    margin-top: 20px;
+    .Name{
+        width: 100%;
+        
+    }
+
+}  
+}
+
+@media (min-width: 577px) and (max-width: 768px) {
+    .container{
+        width: 90%;
+    }
+    .NameSell{
+        display: flex;
+        flex-wrap: wrap;
+        .Name{
+            width: 48%;
+            margin-top: 10px;
+        }
+    }
+}
+
+@media (min-width: 769px) and (max-width: 992px) {
+    .container{
+        width: 85%;
+    }
+    .NameSell{
+        display: flex;
+        .Name{
+            width: 45%;
+        }
+    }
+}
+
+@media (min-width: 993px) and (max-width: 1200px) {
+    .container{
+        width: 80%;
+    }
+    .NameSell{
+        .Name{
+            width: 40%;
+        }
+    }
+}
+

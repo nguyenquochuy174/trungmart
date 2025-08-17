@@ -4,16 +4,25 @@ import Header from '~/layouts/components/Sell/Header/Header';
 import SliderBar from './SliderBarProfile/SliderBar';
 import Footer from '~/layouts/components/Footer/Footer';
 import { listMenuSell } from '~/constant/mock-data';
+import { useState, useEffect } from 'react';
 const cx = classNames.bind(styles);
 function DefaultLayoutProfile({ children }) {
+const [isMoblie,setisMobile]=useState(window.innerWidth<576)
+useEffect(()=>{
+    const handleResize = ()=>{
+        setisMobile(window.innerWidth<576)
+    }
+    window.addEventListener("resize",handleResize)
+    return ()=>window.removeEventListener("resize",handleResize)
+})
+
     return (
         <>
             <Header />
             <div className={cx('container')}>
-                <SliderBar />
-                <div>{children}</div>
+               {!isMoblie && <SliderBar/>}
+                {children}
             </div>
-
             <Footer data={listMenuSell} />
         </>
     );
