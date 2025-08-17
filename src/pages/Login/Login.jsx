@@ -23,9 +23,9 @@ function Login() {
         const id = parseInt(userId);
 
         const user = listUser.find(
-            (u) => u.id === id && u.password === password,
+            (user) => user.id === id && user.password === password,
         );
-
+        // code kiểm tra tk đn sell
         if (user) {
             localStorage.setItem('userId', user.id);
             setError('');
