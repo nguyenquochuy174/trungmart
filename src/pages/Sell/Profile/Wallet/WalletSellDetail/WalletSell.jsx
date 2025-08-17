@@ -10,7 +10,7 @@ function WalletSell() {
     <div className={cx('container')}>
         {listinforWalletSell.map(info=>(
             <div key={info.id}>
-                         <div className={cx('content')}>
+                <div className={cx('content')}>
                 <h3>Ví điện tử cửa hàng</h3>
                 <a href="/WalletSellEdit">
                 <FontAwesomeIcon icon={faPen} className={cx('icon')} />

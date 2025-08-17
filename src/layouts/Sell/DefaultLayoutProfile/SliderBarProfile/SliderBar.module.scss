@@ -6,7 +6,7 @@
 .content{
     margin-top: 10px;
     width: 224px;
-    background-color: rgb(243, 242, 242);
+    border-right: 0.5px solid #B3B3B3;
 }
 .infoUser{
     display: flex;
@@ -58,4 +58,26 @@
         }
     }
     
+}
+
+@media (min-width: 577px) and (max-width: 768px) {
+    .container{
+        width: 40%;
+        justify-content: flex-start;
+    }
+    .content{
+        width: 100%;
+    }
+}
+
+@media (min-width: 769px) and (max-width: 992px) {
+    .container{
+        width: 30%;
+    }
+}
+
+@media (min-width: 993px) and (max-width: 1200px) {
+    .container{
+        width: 22%;
+    }
 }

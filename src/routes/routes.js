@@ -59,7 +59,7 @@ const publicRoutes = [
         layout: DefaultLayoutUser,
     },
     {
-        path: '/UserDetailProduct',
+        path: '/UserDetailProduct/:id',
         component: DetailProduct,
         layout: DefaultLayoutUser,
     },

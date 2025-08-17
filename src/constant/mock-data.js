@@ -4,6 +4,33 @@ import {
 } from '@fortawesome/free-solid-svg-icons';
 import images from '~/assets/images/image';
 
+const listUser = [
+    {
+        id: 1001,
+        name: 'Nguyễn Văn A',
+        avatar: images.avatarStore,
+    },
+    {
+        id: 1002,
+        name: 'Trần Thị B',
+        avatar: images.avatarStore,
+    },
+    {
+        id: 1003,
+        name: 'Lê Văn C',
+        avatar: images.avatarStore,
+    },
+    {
+        id: 1004,
+        name: 'Phạm Thị D',
+        avatar: images.avatarStore,
+    },
+    {
+        id: 1005,
+        name: 'Đặng Văn E',
+        avatar: images.avatarStore,
+    },
+];
 
 const listMenuUser = [
     { name: 'Trang Chủ', path: '/UserHome' },
@@ -13,14 +40,29 @@ const listMenuUser = [
         children: [
             {
                 name: 'Đồ khô - Chế biến sẵn',
-                path: '/UserProduct/DriedProcessedFoods',
+                path: '/UserProduct?category=dried',
+                categoryKey: 'dried',
             },
-            { name: 'Bánh - Kẹo', path: '/UserProduct/SnacksCandies' },
+            {
+                name: 'Bánh - Kẹo',
+                path: '/UserProduct?category=snacks',
+                categoryKey: 'snacks',
+            },
             {
                 name: 'Trái Cây - Rau Củ',
-                path: '/UserProduct/FruitsVegetables',
+                path: '/UserProduct?category=fruits',
+                categoryKey: 'fruits',
             },
-            { name: 'Gia vị', path: '/UserProduct/Spices' },
+            {
+                name: 'Gia vị',
+                path: '/UserProduct?category=spices',
+                categoryKey: 'spices',
+            },
+            {
+                name: 'Đồ uống',
+                path: '/UserProduct?category=drinks',
+                categoryKey: 'drinks',
+            },
         ],
     },
     { name: 'Giới Thiệu', path: '/UserIntroduce' },
@@ -45,6 +87,153 @@ const listSliderBarSell=[
     {name:'Ví', path:"/WalletSell"},
     {name:'Đăng xuất', path:"/"},
 ]
+
+const storeList = [
+    {
+        id: 1,
+        name: 'Bếp Nhà',
+        description:
+            'Bếp Nhà là nơi lưu giữ và lan tỏa những hương vị đặc sản đậm chất miền Trung Việt Nam. Từ những món quà quê dân dã đến các sản phẩm truyền thống được chế biến tinh tế, chúng tôi mong muốn mang đến cho bạn không chỉ là món ăn, mà còn là một phần ký ức, một chút ấm áp của quê hương.',
+        address: '125 Trường Chinh, TP. Huế',
+        phone: '0935 123 456',
+        email: 'contact@bepnha.vn',
+        website: 'https://www.bepnha.vn',
+        fanpage: 'https://www.fb.com/bepnhadacsan',
+        rating: 4.8,
+        totalReviews: 898,
+        joinedAt: '2018-08-01',
+        avatar: images.avatarStore,
+        certifications: [
+            { id: 1, url: images.giayChungNhan.img1, alt: 'Giấy chứng nhận' },
+            { id: 2, url: images.giayChungNhan.img2, alt: 'Giấy hoạt động' },
+        ],
+        featuredProducts: ['Mè xửng Huế', 'Me xí muội Huế', 'Trà Huế'],
+        guarantee: {
+            ingredients: 'Nguyên liệu sạch, chuẩn vị quê nhà',
+            quality: 'Đóng gói kỹ lưỡng, giao hàng toàn quốc',
+            refund: 'Tư vấn tận tình, đổi trả dễ dàng nếu sản phẩm không như cam kết',
+        },
+        area: 'hue',
+    },
+    {
+        id: 2,
+        name: 'Đặc Sản Đà Nẵng',
+        description:
+            'Mang hương vị của thành phố biển đến từng bữa ăn, Đặc Sản Đà Nẵng chuyên cung cấp các sản phẩm như nước mắm Nam Ô, tré Bà Đệ, bánh khô mè truyền thống.',
+        address: '78 Nguyễn Văn Linh, TP. Đà Nẵng',
+        phone: '0905 234 567',
+        email: 'contact@dacsandanang.vn',
+        website: 'https://www.dacsandanang.vn',
+        fanpage: 'https://www.fb.com/dacsandanang',
+        rating: 4.5,
+        totalReviews: 500,
+        joinedAt: '2019-05-15',
+        avatar: images.avatarStore,
+        certifications: [
+            { id: 1, url: images.giayChungNhan.img1, alt: 'Giấy chứng nhận' },
+            { id: 2, url: images.giayChungNhan.img2, alt: 'Giấy hoạt động' },
+        ],
+        featuredProducts: [
+            'Nước mắm Nam Ô',
+            'Tré Bà Đệ',
+            'Bánh khô mè',
+            'Chả bò Đà Nẵng',
+        ],
+        guarantee: {
+            ingredients: 'Chọn lọc từ vùng biển Đà Nẵng',
+            quality: 'Chế biến an toàn, đóng gói kỹ',
+            refund: 'Hoàn tiền nếu sản phẩm không đúng mô tả',
+        },
+        area: 'danang',
+    },
+    {
+        id: 3,
+        name: 'Quảng Nam Quê Tôi',
+        description:
+            'Gìn giữ hương vị dân dã của vùng đất Quảng Nam qua từng món đặc sản như bánh tráng mè, mỳ Quảng, bánh tổ, bánh in truyền thống.',
+        address: '45 Trần Cao Vân, Tam Kỳ, Quảng Nam',
+        phone: '0911 111 222',
+        email: 'info@quangnamquetoi.vn',
+        website: 'https://www.quangnamquetoi.vn',
+        fanpage: 'https://www.fb.com/quangnamquetoi',
+        rating: 4.2,
+        totalReviews: 310,
+        joinedAt: '2020-02-10',
+        avatar: images.avatarStore,
+        certifications: [
+            { id: 1, url: images.giayChungNhan.img1, alt: 'Giấy chứng nhận' },
+            { id: 2, url: images.giayChungNhan.img2, alt: 'Giấy hoạt động' },
+        ],
+        featuredProducts: [
+            'Bánh tráng mè nướng Quảng Nam',
+            'Bánh tổ',
+            'Mỳ Quảng',
+        ],
+        guarantee: {
+            ingredients: 'Chế biến theo công thức gia truyền',
+            quality: 'Sạch, ngon, đúng vị quê hương',
+            refund: 'Hỗ trợ đổi trả trong 7 ngày',
+        },
+        area: 'quangnam',
+    },
+    {
+        id: 4,
+        name: 'Hà Tĩnh Đặc Sản',
+        description:
+            'Hà Tĩnh Đặc Sản là nơi hội tụ những món ngon nổi tiếng như kẹo cu đơ, cam Khe Mây, bánh đa, tương Nam Đàn, gói ghém hương vị miền Trung xa xứ.',
+        address: '10 Lê Duẩn, TP. Hà Tĩnh',
+        phone: '0922 333 444',
+        email: 'support@hattinhdacsan.vn',
+        website: 'https://www.hattinhdacsan.vn',
+        fanpage: 'https://www.fb.com/hattinhdacsan',
+        rating: 4.1,
+        totalReviews: 180,
+        joinedAt: '2021-04-05',
+        avatar: images.avatarStore,
+        certifications: [
+            { id: 1, url: images.giayChungNhan.img1, alt: 'Giấy chứng nhận' },
+            { id: 2, url: images.giayChungNhan.img2, alt: 'Giấy hoạt động' },
+        ],
+        featuredProducts: ['Kẹo cu đơ Hà Tĩnh', 'Cam Khe Mây', 'Tương Nam Đàn'],
+        guarantee: {
+            ingredients: 'Nguyên liệu bản địa, quy trình thủ công',
+            quality: 'Hương vị truyền thống, đóng gói chuẩn',
+            refund: 'Hoàn tiền nếu sản phẩm không đạt yêu cầu',
+        },
+        area: 'hatinh',
+    },
+    {
+        id: 5,
+        name: 'Quảng Ngãi Quê Hương',
+        description:
+            'Đưa đặc sản Quảng Ngãi đến gần hơn với mọi miền, chúng tôi cung cấp các sản phẩm như kẹo gương, kẹo đậu phộng, cá bống sông Trà, mạch nha,...',
+        address: '66 Hùng Vương, TP. Quảng Ngãi',
+        phone: '0988 555 666',
+        email: 'hello@quangngai.vn',
+        website: 'https://www.quangngai.vn',
+        fanpage: 'https://www.fb.com/quangngaiquehuong',
+        rating: 4.3,
+        totalReviews: 250,
+        joinedAt: '2019-11-20',
+        avatar: images.avatarStore,
+        certifications: [
+            { id: 1, url: images.giayChungNhan.img1, alt: 'Giấy chứng nhận' },
+            { id: 2, url: images.giayChungNhan.img2, alt: 'Giấy hoạt động' },
+        ],
+        featuredProducts: [
+            'Kẹo đậu phộng Quảng Ngãi',
+            'Cá bống sông Trà',
+            'Mạch nha Quảng Ngãi',
+        ],
+        guarantee: {
+            ingredients: 'Chọn lọc kỹ lưỡng từ địa phương',
+            quality: 'Đóng gói an toàn, giữ trọn hương vị',
+            refund: 'Đổi trả nếu không hài lòng',
+        },
+        area: 'quangngai',
+    },
+];
+
 const listProduct = [
     {
         id: 1,
@@ -53,7 +242,9 @@ const listProduct = [
         price: 80000,
         description:
             'Nước mắm Nam Ô Đà Nẵng làm từ cá cơm than, hương vị đậm đà đặc trưng.',
-        category: 'Gia vị',
+        category: 'spices',
+        area: 'danang',
+        idStore: '2',
         image: [{ id: 1, url: images.nuocMam, alt: 'Nước mắm Nam Ô' }],
         totalStars: 100,
         reviews: 20,
@@ -65,7 +256,9 @@ const listProduct = [
         price: 65000,
         description:
             'Mè xửng dẻo thơm, vị ngọt bùi của mạch nha, mè rang vàng óng, đặc sản truyền thống xứ Huế.',
-        category: 'Bánh kẹo',
+        category: 'snacks',
+        area: 'hue',
+        idStore: '1',
         image: [{ id: 1, url: images.meXungHue, alt: 'Mè xửng Huế' }],
         totalStars: 120,
         reviews: 25,
@@ -77,7 +270,9 @@ const listProduct = [
         price: 180000,
         description:
             'Kẹo cu đơ giòn rụm, nhân lạc và mạch nha ngọt bùi, đặc sản nổi tiếng của Hà Tĩnh.',
-        category: 'Bánh kẹo',
+        category: 'snacks',
+        area: 'hatinh',
+        idStore: '4',
         image: [{ id: 1, url: images.keoCuDo, alt: 'Kẹo cu đơ Hà Tĩnh' }],
         totalStars: 80,
         reviews: 18,
@@ -88,7 +283,9 @@ const listProduct = [
         quantity: 70,
         price: 25000,
         description: 'Bánh tráng giòn rụm, thơm mùi mè rang đặc sản Quảng Nam.',
-        category: 'Ăn vặt',
+        category: 'snacks',
+        area: 'quangnam',
+        idStore: '3',
         image: [{ id: 1, url: images.banhTrang, alt: 'Bánh tráng mè nướng' }],
         totalStars: 80,
         reviews: 19,
@@ -100,7 +297,9 @@ const listProduct = [
         price: 90000,
         description:
             'Trà thảo mộc cung đình Huế kết hợp nhiều loại dược liệu quý.',
-        category: 'Đồ uống',
+        category: 'drinks',
+        area: 'hue',
+        idStore: '1',
         image: [{ id: 1, url: images.tra, alt: 'Trà cung đình Huế' }],
         totalStars: 100,
         reviews: 21,
@@ -112,7 +311,9 @@ const listProduct = [
         price: 20000,
         description:
             'Kẹo truyền thống làm từ đậu phộng và đường mạch nha đặc sản Quảng Ngãi.',
-        category: 'Bánh kẹo',
+        category: 'snacks',
+        area: 'quangngai',
+        idStore: '5',
         image: [{ id: 1, url: images.keoDauPhong, alt: 'Kẹo đậu phộng' }],
         totalStars: 150,
         reviews: 33,
@@ -123,7 +324,9 @@ const listProduct = [
         quantity: 60,
         price: 30000,
         description: 'Me chua ngọt xí muội, ăn vặt hấp dẫn của xứ Huế.',
-        category: 'Ăn vặt',
+        category: 'snacks',
+        area: 'hue',
+        idStore: '1',
         image: [{ id: 1, url: images.meXiMuoi, alt: 'Me xí muội Huế' }],
         totalStars: 200,
         reviews: 45,
@@ -135,7 +338,9 @@ const listProduct = [
         price: 50000,
         description:
             'Mắm ruốc Huế lên men tự nhiên, hương vị đậm đà đặc trưng.',
-        category: 'Gia vị',
+        category: 'spices',
+        area: 'hue',
+        idStore: '1',
         image: [{ id: 1, url: images.mamRuot, alt: 'Mắm ruốc Huế' }],
         totalStars: 100,
         reviews: 22,
@@ -147,7 +352,9 @@ const listProduct = [
         price: 75000,
         description:
             'Hạt sen khô thơm bùi, dùng nấu chè hoặc ăn vặt, đặc sản Huế.',
-        category: 'Nguyên liệu',
+        category: 'dried',
+        area: 'hue',
+        idStore: '1',
         image: [{ id: 1, url: images.hatSen, alt: 'Hạt sen' }],
         totalStars: 100,
         reviews: 25,
@@ -158,13 +365,198 @@ const listProduct = [
         quantity: 25,
         price: 45000,
         description: 'Bánh bột lọc nhân tôm thịt, dẻo thơm chuẩn vị Huế.',
-        category: 'Món ăn',
+        category: 'dried',
+        area: 'hue',
+        idStore: '1',
         image: [
             { id: 1, url: images.banhLoc.img1, alt: 'Bánh bột lọc Huế' },
             { id: 2, url: images.banhLoc.img2, alt: 'Bánh bột lọc Huế' },
         ],
         totalStars: 100,
         reviews: 23,
+    },
+    {
+        id: 11,
+        name: 'Nước mắm Nam Ô',
+        quantity: 50,
+        price: 80000,
+        description:
+            'Nước mắm Nam Ô Đà Nẵng làm từ cá cơm than, hương vị đậm đà đặc trưng.',
+        category: 'spices',
+        area: 'danang',
+        idStore: '2',
+        image: [{ id: 1, url: images.nuocMam, alt: 'Nước mắm Nam Ô' }],
+        totalStars: 100,
+        reviews: 20,
+    },
+    {
+        id: 12,
+        name: 'Mè xửng Huế',
+        quantity: 40,
+        price: 65000,
+        description:
+            'Mè xửng dẻo thơm, vị ngọt bùi của mạch nha, mè rang vàng óng, đặc sản truyền thống xứ Huế.',
+        category: 'snacks',
+        area: 'hue',
+        idStore: '1',
+        image: [{ id: 1, url: images.meXungHue, alt: 'Mè xửng Huế' }],
+        totalStars: 120,
+        reviews: 25,
+    },
+    {
+        id: 13,
+        name: 'Kẹo cu đơ Hà Tĩnh',
+        quantity: 30,
+        price: 180000,
+        description:
+            'Kẹo cu đơ giòn rụm, nhân lạc và mạch nha ngọt bùi, đặc sản nổi tiếng của Hà Tĩnh.',
+        category: 'snacks',
+        area: 'hatinh',
+        idStore: '4',
+        image: [{ id: 1, url: images.keoCuDo, alt: 'Kẹo cu đơ Hà Tĩnh' }],
+        totalStars: 80,
+        reviews: 18,
+    },
+    {
+        id: 14,
+        name: 'Bánh tráng mè nướng Quảng Nam',
+        quantity: 70,
+        price: 25000,
+        description: 'Bánh tráng giòn rụm, thơm mùi mè rang đặc sản Quảng Nam.',
+        category: 'snacks',
+        area: 'quangnam',
+        idStore: '3',
+        image: [{ id: 1, url: images.banhTrang, alt: 'Bánh tráng mè nướng' }],
+        totalStars: 80,
+        reviews: 19,
+    },
+    {
+        id: 15,
+        name: 'Trà cung đình Huế',
+        quantity: 90,
+        price: 90000,
+        description:
+            'Trà thảo mộc cung đình Huế kết hợp nhiều loại dược liệu quý.',
+        category: 'drinks',
+        area: 'hue',
+        idStore: '1',
+        image: [{ id: 1, url: images.tra, alt: 'Trà cung đình Huế' }],
+        totalStars: 100,
+        reviews: 21,
+    },
+    {
+        id: 16,
+        name: 'Kẹo đậu phộng Quảng Ngãi',
+        quantity: 100,
+        price: 20000,
+        description:
+            'Kẹo truyền thống làm từ đậu phộng và đường mạch nha đặc sản Quảng Ngãi.',
+        category: 'snacks',
+        area: 'quangngai',
+        idStore: '5',
+        image: [{ id: 1, url: images.keoDauPhong, alt: 'Kẹo đậu phộng' }],
+        totalStars: 150,
+        reviews: 33,
+    },
+    {
+        id: 17,
+        name: 'Me xí muội Huế',
+        quantity: 60,
+        price: 30000,
+        description: 'Me chua ngọt xí muội, ăn vặt hấp dẫn của xứ Huế.',
+        category: 'snacks',
+        area: 'hue',
+        idStore: '1',
+        image: [{ id: 1, url: images.meXiMuoi, alt: 'Me xí muội Huế' }],
+        totalStars: 200,
+        reviews: 45,
+    },
+    {
+        id: 18,
+        name: 'Mắm ruốc Huế',
+        quantity: 35,
+        price: 50000,
+        description:
+            'Mắm ruốc Huế lên men tự nhiên, hương vị đậm đà đặc trưng.',
+        category: 'spices',
+        area: 'hue',
+        idStore: '1',
+        image: [{ id: 1, url: images.mamRuot, alt: 'Mắm ruốc Huế' }],
+        totalStars: 100,
+        reviews: 22,
+    },
+    {
+        id: 19,
+        name: 'Hạt sen Huế sấy khô',
+        quantity: 50,
+        price: 75000,
+        description:
+            'Hạt sen khô thơm bùi, dùng nấu chè hoặc ăn vặt, đặc sản Huế.',
+        category: 'dried',
+        area: 'hue',
+        idStore: '1',
+        image: [{ id: 1, url: images.hatSen, alt: 'Hạt sen' }],
+        totalStars: 100,
+        reviews: 25,
+    },
+    {
+        id: 20,
+        name: 'Bánh bột lọc Huế',
+        quantity: 25,
+        price: 45000,
+        description: 'Bánh bột lọc nhân tôm thịt, dẻo thơm chuẩn vị Huế.',
+        category: 'dried',
+        area: 'hue',
+        idStore: '1',
+        image: [
+            { id: 1, url: images.banhLoc.img1, alt: 'Bánh bột lọc Huế' },
+            { id: 2, url: images.banhLoc.img2, alt: 'Bánh bột lọc Huế' },
+        ],
+        totalStars: 100,
+        reviews: 23,
+    },
+];
+
+const listReviewProduct = [
+    {
+        id: 1,
+        idProduct: 20,
+        idUser: 1001,
+        content: 'Sản phẩm rất tốt, đúng mô tả và giao hàng nhanh.',
+        stars: 5,
+        createdAt: '2025-08-10T14:30:00',
+    },
+    {
+        id: 2,
+        idProduct: 1,
+        idUser: 1002,
+        content: 'Chất lượng ổn trong tầm giá, sẽ ủng hộ lần sau.',
+        stars: 4,
+        createdAt: '2025-08-09T09:15:00',
+    },
+    {
+        id: 3,
+        idProduct: 1,
+        idUser: 1003,
+        content: 'Không giống như hình, chất liệu khá kém.',
+        stars: 2,
+        createdAt: '2025-08-08T19:45:00',
+    },
+    {
+        id: 4,
+        idProduct: 12,
+        idUser: 1004,
+        content: 'Sản phẩm ok, nhưng giao hàng hơi chậm.',
+        stars: 3,
+        createdAt: '2025-08-07T13:20:00',
+    },
+    {
+        id: 5,
+        idProduct: 1,
+        idUser: 1005,
+        content: 'Dịch vụ tốt, đóng gói kỹ, sản phẩm như quảng cáo.',
+        stars: 5,
+        createdAt: '2025-08-06T11:00:00',
     },
 ];
 
@@ -242,6 +634,146 @@ const listinforWalletSell=[
         imgQR:images.avatar
     }
 ]
+const ListBank = [
+  {
+    label: 'viettinbank',
+    value: 'viettinbank',
+    img: images.imgBank.img2
+  },
+  {
+    label: 'MB',
+    value: 'Mb',
+    img: images.imgBank.img1
+  },
+
+];
+const listSelect = [
+    {
+        id: 1,
+        name: 'Giá tiền',
+        children: [
+            { label: 'Dưới 100.000', value: [0, 100000], queryKey: 'price' },
+            {
+                label: '100.000 - 200.000',
+                value: [100000, 200000],
+                queryKey: 'price',
+            },
+            {
+                label: '200.000 - 500.000',
+                value: [200000, 500000],
+                queryKey: 'price',
+            },
+            {
+                label: 'Trên 500.000',
+                value: [500000, Infinity],
+                queryKey: 'price',
+            },
+        ],
+    },
+    {
+        id: 2,
+        name: 'Khu vực',
+        children: [
+            { label: 'Thanh Hóa', value: 'thanhhoa', queryKey: 'area' },
+            { label: 'Nghệ An', value: 'nghean', queryKey: 'area' },
+            { label: 'Hà Tĩnh', value: 'hatinh', queryKey: 'area' },
+            { label: 'Quảng Bình', value: 'quangbinh', queryKey: 'area' },
+            { label: 'Quảng Trị', value: 'quangtri', queryKey: 'area' },
+            { label: 'Huế', value: 'hue', queryKey: 'area' },
+            { label: 'Đà Nẵng', value: 'danang', queryKey: 'area' },
+            { label: 'Quảng Nam', value: 'quangnam', queryKey: 'area' },
+            { label: 'Quảng Ngãi', value: 'quangngai', queryKey: 'area' },
+            { label: 'Bình Định', value: 'binhdinh', queryKey: 'area' },
+            { label: 'Phú Yên', value: 'phuyen', queryKey: 'area' },
+            { label: 'Khánh Hòa', value: 'khanhhoa', queryKey: 'area' },
+            { label: 'Ninh Thuận', value: 'ninhthuan', queryKey: 'area' },
+            { label: 'Bình Thuận', value: 'binhthuan', queryKey: 'area' },
+        ],
+    },
+    {
+        id: 3,
+        name: 'Trạng thái',
+        children: [
+            { label: 'Đã hủy', value: 'cancelled', queryKey: 'status' },
+            { label: 'Đã duyệt', value: 'approved', queryKey: 'status' },
+            { label: 'Đang chờ duyệt', value: 'pending', queryKey: 'status' },
+            { label: 'Đang giao hàng', value: 'shipping', queryKey: 'status' },
+        ],
+    },
+];
+const listOrder = [
+  {
+    id: 1,
+    code: 'DH00123',
+    status: 'approved',
+    product: {
+      name: 'Mè Xửng Huế',
+      price: 281000,
+      quantity: 1,
+      description: 'Địa Chỉ Giao : 126 Nguyễn Kim Thành, ...',
+      receiverName: 'Nguyễn Phúc An',
+      phone: '0357284698',
+    },
+    discount: 50000,
+    shippingFee: 20000,
+    orderTime: '19/07/2025 - 10:15 AM',
+    img:images.keoCuDo
+  },
+  {
+    id: 2,
+    code: 'DH00124',
+    status: 'shipping',
+    product: {
+      name: 'Mè Xửng Huế',
+      price: 281000,
+      quantity: 1,
+      description: 'Địa Chỉ Giao : 126 Nguyễn Kim Thành, ...',
+      receiverName: 'Nguyễn Phúc An',
+      phone: '0357284698',
+    },
+    discount: 50000,
+    shippingFee: 20000,
+    orderTime: '19/07/2025 - 10:15 AM',
+     img:images.keoCuDo
+  },
+  {
+    id: 3,
+    code: 'DH00125',
+    status: 'cancelled',
+    product: {
+      name: 'Mè Xửng Huế',
+      price: 281000,
+      quantity: 1,
+      description: 'Địa Chỉ Giao : 126 Nguyễn Kim Thành, ...',
+      receiverName: 'Nguyễn Phúc An',
+      phone: '0357284698',
+    },
+    discount: 50000,
+    shippingFee: 20000,
+    orderTime: '19/07/2025 - 10:15 AM',
+    reason: 'Thông tin đơn hàng không hợp lệ',
+     img:images.keoCuDo
+  },
+  {
+    id: 4,
+    code: 'DH00126',
+    status: 'pending',
+    product: {
+      name: 'Mè Xửng Huế',
+      price: 281000,
+      quantity: 1,
+      description: 'Địa Chỉ Giao : 126 Nguyễn Kim Thành, ...',
+      receiverName: 'Nguyễn Phúc An',
+      phone: '0357284698',
+      
+    },
+    discount: 50000,
+    shippingFee: 20000,
+    orderTime: '19/07/2025 - 10:15 AM',
+     img:images.keoCuDo
+  },
+];
+
 export {
     listMenuUser,
     listMenuAdmin,
@@ -252,5 +784,11 @@ export {
     featuredCategories,
     listSliderBarSell,
     listinfoSell,
-    listinforWalletSell
+    listinforWalletSell,
+    listSelect,
+    storeList,
+    listUser,
+    listReviewProduct,
+    listOrder,
+    ListBank
 };

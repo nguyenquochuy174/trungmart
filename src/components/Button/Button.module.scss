@@ -32,6 +32,7 @@
 
 .primary {
     color: white;
+    min-width: 186px;
     background-color: var(--primary);
     border-color: var(--primary);
 
@@ -63,7 +64,7 @@
 }
 
 .small {
-    min-width: 150px;
+    min-width: 100px;
     font-size: 1.6rem;
     padding: 8px 26px;
 }
@@ -74,6 +75,11 @@
 
 @media (max-width: 576px) {
     .text {
+        font-size: 1.4rem;
+    }
+}
+@media (min-width: 577px) and (max-width: 768px) {
+    .primary {
         font-size: 1.4rem;
     }
 }

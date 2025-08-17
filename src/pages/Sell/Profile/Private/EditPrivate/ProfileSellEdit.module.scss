@@ -1,6 +1,7 @@
 .content{
     width: 80%;
     margin-top: 10px;
+    padding:10px;
 
 }
 .userName{
@@ -24,6 +25,8 @@
     display: flex;
     flex-direction: column; 
     align-items: center;   
+    width: 70%;
+    justify-content: center; 
     gap: 10px;             
    
     img {
@@ -46,7 +49,6 @@
     width: 100%;
     display: flex;
     align-items: center;
-     justify-content: center;
      gap: 10px;
     flex-direction: column; 
 
@@ -88,13 +90,62 @@
 }
 
 @media (min-width: 577px) and (max-width: 768px) {
- 
+    .content{
+        width: 90%;
+    }
+    .userName{
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+
+        .editinfo{
+            width: 100%;
+            justify-content: flex-start;
+        }
+        .radio{
+            gap: 15px;
+        }
+        .imgAvatar{
+            img{
+                width: 70%;
+            }
+        }
+    }
+    .inputEdit{
+        width: 100%;
+    }
 }
 
 @media (min-width: 769px) and (max-width: 992px) {
-
+    .content{
+        width: 85%;
+    }
+    .userName{
+        .editinfo{
+            width: 35%;
+        }
+        .inputEdit{
+            width: 65%;
+        }
+        .imgAvatar img{
+            width: 60%;
+        }
+    }
 }
 
 @media (min-width: 993px) and (max-width: 1200px) {
-
+    .content{
+        width: 80%;
+    }
+    .userName{
+        .editinfo{
+            width: 30%;
+        }
+        .inputEdit{
+            width: 70%;
+        }
+        .imgAvatar img{
+            width: 50%;
+        }
+    }
 }

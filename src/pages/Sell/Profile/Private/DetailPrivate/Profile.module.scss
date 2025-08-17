@@ -1,5 +1,5 @@
 .container{
-    width: 70%;
+    width: 80%;
     padding:10px;
 }
 .content{
@@ -47,13 +47,39 @@
 }
 
 @media (min-width: 577px) and (max-width: 768px) {
- 
+    .container{
+        width: 90%;
+    }
+    .NameSell{
+        display: flex;
+        flex-wrap: wrap;
+        .Name{
+            width: 48%;
+            margin-top: 10px;
+        }
+    }
 }
 
 @media (min-width: 769px) and (max-width: 992px) {
-
+    .container{
+        width: 85%;
+    }
+    .NameSell{
+        display: flex;
+        .Name{
+            width: 45%;
+        }
+    }
 }
 
 @media (min-width: 993px) and (max-width: 1200px) {
-
+    .container{
+        width: 80%;
+    }
+    .NameSell{
+        .Name{
+            width: 40%;
+        }
+    }
 }
+
