@@ -16,12 +16,14 @@ function Notification() {
     const [currentPage, setCurrentPage] = useState(1);
     const notificationsPage = 10;
 
+    const userId = useMemo(() => parseInt(localStorage.getItem('userId')), []);
+
     useEffect(() => {
         const userNotifications = listNotification.filter(
-            (item) => item.receiverId === 1001,
+            (item) => item.receiverId === userId,
         );
         setNotifications(userNotifications);
-    }, []);
+    }, [userId]);
 
     const latestNotifications = useMemo(() => {
         return [...notifications].sort(

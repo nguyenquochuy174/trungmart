@@ -75,7 +75,16 @@ const publicRoutes = [
         component: ProductShop,
         layout: DefaultLayoutUser,
     },
-    { path: '/UserMessage', component: Message, layout: SidebarMessageLayout },
+    {
+        path: '/UserMessage/:shopId',
+        component: Message,
+        layout: SidebarMessageLayout,
+    },
+    {
+        path: '/UserMessage',
+        component: Message,
+        layout: SidebarMessageLayout,
+    },
     { path: '/UserProduct', component: Product, layout: DefaultLayoutUser },
 
     // user profile

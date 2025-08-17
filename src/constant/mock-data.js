@@ -9,26 +9,31 @@ const listUser = [
         id: 1001,
         name: 'Nguyễn Văn A',
         avatar: images.avatarStore,
+        password: 'a123',
     },
     {
         id: 1002,
         name: 'Trần Thị B',
         avatar: images.avatarStore,
+        password: 'b123',
     },
     {
         id: 1003,
         name: 'Lê Văn C',
         avatar: images.avatarStore,
+        password: 'c123',
     },
     {
         id: 1004,
         name: 'Phạm Thị D',
         avatar: images.avatarStore,
+        password: 'd123',
     },
     {
         id: 1005,
         name: 'Đặng Văn E',
         avatar: images.avatarStore,
+        password: 'e123',
     },
 ];
 
@@ -78,15 +83,15 @@ const listMenuSell = [
     { name: 'Sản Phẩm', path: '/ProductSell' },
     { name: 'Giới Thiệu', path: '/IntroduceSell' },
 ];
-const listSliderBarSell=[
-    {name:'Hồ sơ của tôi', path:"/ProfileSell"},
-    {name:'Cửa hàng của tôi', path:"/StoreSell"},
-    {name:'Đổi mật khẩu', path:"/PasswordSell"},
-    {name:'Thống kê', path:"/StatisticSell"},
-    {name:'Duyệt đơn hàng', path:"/OrderSell"},
-    {name:'Ví', path:"/WalletSell"},
-    {name:'Đăng xuất', path:"/"},
-]
+const listSliderBarSell = [
+    { name: 'Hồ sơ của tôi', path: '/ProfileSell' },
+    { name: 'Cửa hàng của tôi', path: '/StoreSell' },
+    { name: 'Đổi mật khẩu', path: '/PasswordSell' },
+    { name: 'Thống kê', path: '/StatisticSell' },
+    { name: 'Duyệt đơn hàng', path: '/OrderSell' },
+    { name: 'Ví', path: '/WalletSell' },
+    { name: 'Đăng xuất', path: '/' },
+];
 
 const storeList = [
     {
@@ -610,42 +615,41 @@ const featuredCategories = [
         title: 'Đồ khô - Chế biến sẵn',
     },
 ];
-const listinfoSell=[
+const listinfoSell = [
     {
-        id:1,
-        Name:'An',
-        LastName:'Nguyễn Phúc',
-        Date:'26/04/20004',
-        Gender:'Nam',
-        Email:'npan2604@gmail.com',
-        Phone:'01659835717',
-        Facebook:'trungmart',
-        Tiktok:'trungmart@168',
-        Avatar:images.avatar,
-        Address:"thôn, Phước Thanh, xã Quảng Điền, TP. Huế"
-    }
-]
-const listinforWalletSell=[
+        id: 1,
+        Name: 'An',
+        LastName: 'Nguyễn Phúc',
+        Date: '26/04/20004',
+        Gender: 'Nam',
+        Email: 'npan2604@gmail.com',
+        Phone: '01659835717',
+        Facebook: 'trungmart',
+        Tiktok: 'trungmart@168',
+        Avatar: images.avatar,
+        Address: 'thôn, Phước Thanh, xã Quảng Điền, TP. Huế',
+    },
+];
+const listinforWalletSell = [
     {
-        id:1,
-        Name:'Nguyễn Phúc An',
-        Bank:'Viettinbank',
-        Banknumber:'01659835717',
-        imgQR:images.avatar
-    }
-]
+        id: 1,
+        Name: 'Nguyễn Phúc An',
+        Bank: 'Viettinbank',
+        Banknumber: '01659835717',
+        imgQR: images.avatar,
+    },
+];
 const ListBank = [
-  {
-    label: 'viettinbank',
-    value: 'viettinbank',
-    img: images.imgBank.img2
-  },
-  {
-    label: 'MB',
-    value: 'Mb',
-    img: images.imgBank.img1
-  },
-
+    {
+        label: 'viettinbank',
+        value: 'viettinbank',
+        img: images.imgBank.img2,
+    },
+    {
+        label: 'MB',
+        value: 'Mb',
+        img: images.imgBank.img1,
+    },
 ];
 const listSelect = [
     {
@@ -702,76 +706,75 @@ const listSelect = [
     },
 ];
 const listOrder = [
-  {
-    id: 1,
-    code: 'DH00123',
-    status: 'approved',
-    product: {
-      name: 'Mè Xửng Huế',
-      price: 281000,
-      quantity: 1,
-      description: 'Địa Chỉ Giao : 126 Nguyễn Kim Thành, ...',
-      receiverName: 'Nguyễn Phúc An',
-      phone: '0357284698',
+    {
+        id: 1,
+        code: 'DH00123',
+        status: 'approved',
+        product: {
+            name: 'Mè Xửng Huế',
+            price: 281000,
+            quantity: 1,
+            description: 'Địa Chỉ Giao : 126 Nguyễn Kim Thành, ...',
+            receiverName: 'Nguyễn Phúc An',
+            phone: '0357284698',
+        },
+        discount: 50000,
+        shippingFee: 20000,
+        orderTime: '19/07/2025 - 10:15 AM',
+        img: images.keoCuDo,
     },
-    discount: 50000,
-    shippingFee: 20000,
-    orderTime: '19/07/2025 - 10:15 AM',
-    img:images.keoCuDo
-  },
-  {
-    id: 2,
-    code: 'DH00124',
-    status: 'shipping',
-    product: {
-      name: 'Mè Xửng Huế',
-      price: 281000,
-      quantity: 1,
-      description: 'Địa Chỉ Giao : 126 Nguyễn Kim Thành, ...',
-      receiverName: 'Nguyễn Phúc An',
-      phone: '0357284698',
+    {
+        id: 2,
+        code: 'DH00124',
+        status: 'shipping',
+        product: {
+            name: 'Mè Xửng Huế',
+            price: 281000,
+            quantity: 1,
+            description: 'Địa Chỉ Giao : 126 Nguyễn Kim Thành, ...',
+            receiverName: 'Nguyễn Phúc An',
+            phone: '0357284698',
+        },
+        discount: 50000,
+        shippingFee: 20000,
+        orderTime: '19/07/2025 - 10:15 AM',
+        img: images.keoCuDo,
     },
-    discount: 50000,
-    shippingFee: 20000,
-    orderTime: '19/07/2025 - 10:15 AM',
-     img:images.keoCuDo
-  },
-  {
-    id: 3,
-    code: 'DH00125',
-    status: 'cancelled',
-    product: {
-      name: 'Mè Xửng Huế',
-      price: 281000,
-      quantity: 1,
-      description: 'Địa Chỉ Giao : 126 Nguyễn Kim Thành, ...',
-      receiverName: 'Nguyễn Phúc An',
-      phone: '0357284698',
+    {
+        id: 3,
+        code: 'DH00125',
+        status: 'cancelled',
+        product: {
+            name: 'Mè Xửng Huế',
+            price: 281000,
+            quantity: 1,
+            description: 'Địa Chỉ Giao : 126 Nguyễn Kim Thành, ...',
+            receiverName: 'Nguyễn Phúc An',
+            phone: '0357284698',
+        },
+        discount: 50000,
+        shippingFee: 20000,
+        orderTime: '19/07/2025 - 10:15 AM',
+        reason: 'Thông tin đơn hàng không hợp lệ',
+        img: images.keoCuDo,
     },
-    discount: 50000,
-    shippingFee: 20000,
-    orderTime: '19/07/2025 - 10:15 AM',
-    reason: 'Thông tin đơn hàng không hợp lệ',
-     img:images.keoCuDo
-  },
-  {
-    id: 4,
-    code: 'DH00126',
-    status: 'pending',
-    product: {
-      name: 'Mè Xửng Huế',
-      price: 281000,
-      quantity: 1,
-      description: 'Địa Chỉ Giao : 126 Nguyễn Kim Thành, ...',
-      receiverName: 'Nguyễn Phúc An',
-      phone: '0357284698',
-      
+    {
+        id: 4,
+        code: 'DH00126',
+        status: 'pending',
+        product: {
+            name: 'Mè Xửng Huế',
+            price: 281000,
+            quantity: 1,
+            description: 'Địa Chỉ Giao : 126 Nguyễn Kim Thành, ...',
+            receiverName: 'Nguyễn Phúc An',
+            phone: '0357284698',
+        },
+        discount: 50000,
+        shippingFee: 20000,
+        orderTime: '19/07/2025 - 10:15 AM',
+        img: images.keoCuDo,
     },
-    discount: 50000,
-    shippingFee: 20000,
-    orderTime: '19/07/2025 - 10:15 AM',
-     img:images.keoCuDo
-  },
 ];
 
 const listNotification = [
@@ -952,6 +955,146 @@ const listNotification = [
         isRead: true,
     },
 ];
+
+const chatMessages = [
+    {
+        idChat: 'msg1',
+        idSend: 1001,
+        idReceive: 1,
+        content: 'Chào shop, cho mình hỏi còn hàng không?',
+        time: '2025-08-15T09:00:00Z',
+        type: 'text',
+    },
+    {
+        idChat: 'msg2',
+        idSend: 1,
+        idReceive: 1001,
+        content: 'Dạ còn ạ, bạn cần hỗ trợ gì ạ?',
+        time: '2025-08-15T09:01:00Z',
+        type: 'text',
+    },
+    {
+        idChat: 'msg3',
+        idSend: 1001,
+        idReceive: 1,
+        content: 'Mình muốn mua 2 cái áo size M.',
+        time: '2025-08-15T09:02:00Z',
+        type: 'text',
+    },
+    {
+        idChat: 'msg4',
+        idSend: 1002,
+        idReceive: 2,
+        content: 'Shop có giao hàng nhanh không?',
+        time: '2025-08-14T14:00:00Z',
+        type: 'text',
+    },
+    {
+        idChat: 'msg5',
+        idSend: 2,
+        idReceive: 1002,
+        content: 'Dạ bên shop giao trong 2-3 ngày ạ.',
+        time: '2025-08-14T14:05:00Z',
+        type: 'text',
+    },
+    {
+        idChat: 'msg6',
+        idSend: 1002,
+        idReceive: 2,
+        content: 'Ok cảm ơn shop nhé!',
+        time: '2025-08-14T14:06:00Z',
+        type: 'text',
+    },
+    {
+        idChat: 'msg7',
+        idSend: 1003,
+        idReceive: 3,
+        content: 'Shop có size XXL không?',
+        time: '2025-08-13T10:30:00Z',
+        type: 'text',
+    },
+    {
+        idChat: 'msg8',
+        idSend: 3,
+        idReceive: 1003,
+        content: 'Dạ có bạn nhé, bạn muốn đặt bao nhiêu cái?',
+        time: '2025-08-13T10:32:00Z',
+        type: 'text',
+    },
+    {
+        idChat: 'msg9',
+        idSend: 1003,
+        idReceive: 3,
+        content: 'Mình đặt 3 cái, gửi về địa chỉ A nha shop.',
+        time: '2025-08-13T10:35:00Z',
+        type: 'text',
+    },
+    {
+        idChat: 'msg10',
+        idSend: 1004,
+        idReceive: 1,
+        content: 'Shop ơi, có giảm giá không?',
+        time: '2025-08-12T15:00:00Z',
+        type: 'text',
+    },
+    {
+        idChat: 'msg11',
+        idSend: 1,
+        idReceive: 1004,
+        content: 'Hiện tại shop đang có giảm 10% cho đơn hàng đầu tiên ạ.',
+        time: '2025-08-12T15:01:00Z',
+        type: 'text',
+    },
+    {
+        idChat: 'msg12',
+        idSend: 1004,
+        idReceive: 1,
+        content: 'Tuyệt quá, mình đặt luôn nhé.',
+        time: '2025-08-12T15:02:00Z',
+        type: 'text',
+    },
+    {
+        idChat: 'msg13',
+        idSend: 1005,
+        idReceive: 2,
+        content: 'Bạn có thể tư vấn giúp mình về sản phẩm X được không?',
+        time: '2025-08-11T08:00:00Z',
+        type: 'text',
+    },
+    {
+        idChat: 'msg14',
+        idSend: 2,
+        idReceive: 1005,
+        content: 'Dạ, bạn cần biết gì về sản phẩm X ạ?',
+        time: '2025-08-11T08:05:00Z',
+        type: 'text',
+    },
+    {
+        idChat: 'msg15',
+        idSend: 1005,
+        idReceive: 2,
+        content: 'Mình muốn biết kích thước và chất liệu.',
+        time: '2025-08-11T08:10:00Z',
+        type: 'text',
+    },
+    {
+        idChat: 'msg16',
+        idSend: 2,
+        idReceive: 1001,
+        content: 'Dạ còn ạ, bạn cần hỗ trợ gì ạ?',
+        time: '2025-08-15T09:01:00Z',
+        type: 'text',
+    },
+    {
+        idChat: 'msg17',
+        idSend: 1001,
+        idReceive: 2,
+        content: 'Mình muốn mua 2 cái áo size S.',
+        time: '2025-08-15T09:02:00Z',
+        type: 'text',
+    },
+];
+
 export {
     listMenuUser,
     listMenuAdmin,
@@ -969,5 +1112,6 @@ export {
     listReviewProduct,
     listOrder,
     ListBank,
-    listNotification
+    listNotification,
+    chatMessages,
 };
