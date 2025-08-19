@@ -69,9 +69,13 @@ const publicRoutes = [
         layout: DefaultLayoutUser,
     },
     { path: '/UserPayment', component: Payment, layout: DefaultLayoutUser },
-    { path: '/UserInfoShop', component: InfoShop, layout: DefaultLayoutUser },
     {
-        path: '/UserProductShop',
+        path: '/UserInfoShop/:shopId',
+        component: InfoShop,
+        layout: DefaultLayoutUser,
+    },
+    {
+        path: '/UserProductShop/:shopId',
         component: ProductShop,
         layout: DefaultLayoutUser,
     },

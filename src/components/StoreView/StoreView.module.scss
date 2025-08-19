@@ -13,6 +13,9 @@
         display: flex;
         justify-content: space-between;
         align-items: center;
+        .menu-link {
+            color: black;
+        }
         .storeInfo {
             display: flex;
             align-items: center;
