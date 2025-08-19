@@ -13,7 +13,7 @@ function ItemChat({ name, avatar, lastMessage, time }) {
             </div>
             <div className={cx('content')}>
                 <div className={cx('top')}>
-                    <h4 className={cx('name')}>{name}</h4>
+                    <p className={cx('name')}>{name}</p>
                     <span className={cx('time')}>{formattedTime}</span>
                 </div>
                 <p className={cx('last-message')}>{lastMessage}</p>

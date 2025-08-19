@@ -1,6 +1,13 @@
 import {
+    faArrowRightFromBracket,
+    faBookBookmark,
     faCircleExclamation,
+    faClipboardCheck,
+    faKey,
+    faLocationDot,
+    faShop,
     faTriangleExclamation,
+    faUser,
 } from '@fortawesome/free-solid-svg-icons';
 import images from '~/assets/images/image';
 
@@ -10,30 +17,80 @@ const listUser = [
         name: 'Nguyễn Văn A',
         avatar: images.avatarStore,
         password: 'a123',
+        email: 'nguyenvana@gmail.com',
     },
     {
         id: 1002,
         name: 'Trần Thị B',
         avatar: images.avatarStore,
         password: 'b123',
+        email: 'tranthib@gmail.com',
     },
     {
         id: 1003,
         name: 'Lê Văn C',
         avatar: images.avatarStore,
         password: 'c123',
+        email: 'levanc@gmail.com',
     },
     {
         id: 1004,
         name: 'Phạm Thị D',
         avatar: images.avatarStore,
         password: 'd123',
+        email: 'phamthid@gmail.com',
     },
     {
         id: 1005,
         name: 'Đặng Văn E',
         avatar: images.avatarStore,
         password: 'e123',
+        email: 'dangvane@gmail.com',
+    },
+];
+
+const listSidebarProfileUser = [
+    {
+        id: 1,
+        name: 'Hồ sơ của tôi',
+        icon: faUser,
+        path: '/UserProfileInfo',
+    },
+    {
+        id: 2,
+        name: 'Địa chỉ giao hàng',
+        icon: faLocationDot,
+        path: '/UserProfileAddress',
+    },
+    {
+        id: 3,
+        name: 'Đổi mật khẩu',
+        icon: faKey,
+        path: '/UserProfilePassword',
+    },
+    {
+        id: 4,
+        name: 'Đơn hàng',
+        icon: faClipboardCheck,
+        path: '/UserProfileOrder',
+    },
+    {
+        id: 5,
+        name: 'Sản phẩm yêu thích',
+        icon: faBookBookmark,
+        path: '/UserProfileFavoriteProduct',
+    },
+    {
+        id: 6,
+        name: 'Cửa hàng yêu thích',
+        icon: faShop,
+        path: '/UserProfileFavoriteShop',
+    },
+    {
+        id: 7,
+        name: 'Đăng xuất',
+        icon: faArrowRightFromBracket,
+        path: '/',
     },
 ];
 
@@ -113,11 +170,11 @@ const storeList = [
             { id: 2, url: images.giayChungNhan.img2, alt: 'Giấy hoạt động' },
         ],
         featuredProducts: ['Mè xửng Huế', 'Me xí muội Huế', 'Trà Huế'],
-        guarantee: {
-            ingredients: 'Nguyên liệu sạch, chuẩn vị quê nhà',
-            quality: 'Đóng gói kỹ lưỡng, giao hàng toàn quốc',
-            refund: 'Tư vấn tận tình, đổi trả dễ dàng nếu sản phẩm không như cam kết',
-        },
+        guarantee: [
+            'Nguyên liệu sạch, chuẩn vị quê nhà',
+            'Đóng gói kỹ lưỡng, giao hàng toàn quốc',
+            'Tư vấn tận tình, đổi trả dễ dàng nếu sản phẩm không như cam kết',
+        ],
         area: 'hue',
     },
     {
@@ -144,11 +201,11 @@ const storeList = [
             'Bánh khô mè',
             'Chả bò Đà Nẵng',
         ],
-        guarantee: {
-            ingredients: 'Chọn lọc từ vùng biển Đà Nẵng',
-            quality: 'Chế biến an toàn, đóng gói kỹ',
-            refund: 'Hoàn tiền nếu sản phẩm không đúng mô tả',
-        },
+        guarantee: [
+            'Chọn lọc từ vùng biển Đà Nẵng',
+            'Chế biến an toàn, đóng gói kỹ',
+            'Hoàn tiền nếu sản phẩm không đúng mô tả',
+        ],
         area: 'danang',
     },
     {
@@ -174,11 +231,11 @@ const storeList = [
             'Bánh tổ',
             'Mỳ Quảng',
         ],
-        guarantee: {
-            ingredients: 'Chế biến theo công thức gia truyền',
-            quality: 'Sạch, ngon, đúng vị quê hương',
-            refund: 'Hỗ trợ đổi trả trong 7 ngày',
-        },
+        guarantee: [
+            'Chế biến theo công thức gia truyền',
+            'Sạch, ngon, đúng vị quê hương',
+            'Hỗ trợ đổi trả trong 7 ngày',
+        ],
         area: 'quangnam',
     },
     {
@@ -200,11 +257,11 @@ const storeList = [
             { id: 2, url: images.giayChungNhan.img2, alt: 'Giấy hoạt động' },
         ],
         featuredProducts: ['Kẹo cu đơ Hà Tĩnh', 'Cam Khe Mây', 'Tương Nam Đàn'],
-        guarantee: {
-            ingredients: 'Nguyên liệu bản địa, quy trình thủ công',
-            quality: 'Hương vị truyền thống, đóng gói chuẩn',
-            refund: 'Hoàn tiền nếu sản phẩm không đạt yêu cầu',
-        },
+        guarantee: [
+            'Nguyên liệu bản địa, quy trình thủ công',
+            'Hương vị truyền thống, đóng gói chuẩn',
+            'Hoàn tiền nếu sản phẩm không đạt yêu cầu',
+        ],
         area: 'hatinh',
     },
     {
@@ -230,11 +287,11 @@ const storeList = [
             'Cá bống sông Trà',
             'Mạch nha Quảng Ngãi',
         ],
-        guarantee: {
-            ingredients: 'Chọn lọc kỹ lưỡng từ địa phương',
-            quality: 'Đóng gói an toàn, giữ trọn hương vị',
-            refund: 'Đổi trả nếu không hài lòng',
-        },
+        guarantee: [
+            'Chọn lọc kỹ lưỡng từ địa phương',
+            'Đóng gói an toàn, giữ trọn hương vị',
+            'Đổi trả nếu không hài lòng',
+        ],
         area: 'quangngai',
     },
 ];
@@ -1114,4 +1171,5 @@ export {
     ListBank,
     listNotification,
     chatMessages,
+    listSidebarProfileUser,
 };

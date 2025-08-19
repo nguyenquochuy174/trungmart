@@ -28,8 +28,9 @@ function Home() {
     }, []);
 
     const listRef = useRef(null);
-
+    // lắng nge hành động kéo chuột
     const isDragging = useRef(false);
+
     const startX = useRef(0);
     const scrollLeft = useRef(0);
     // đánh dấu và lấy vị trí hiện tại để kéo

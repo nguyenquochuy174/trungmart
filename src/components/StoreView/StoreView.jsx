@@ -14,6 +14,7 @@ import {
 import Button from '../Button/Button';
 import { faHeart, faStar } from '@fortawesome/free-regular-svg-icons';
 import { listProduct } from '~/constant/mock-data';
+import { Link } from 'react-router-dom';
 
 const cx = classNames.bind(styles);
 function StoreView({ data, report, onReportClick }) {
@@ -34,16 +35,21 @@ function StoreView({ data, report, onReportClick }) {
     return (
         <div className={cx('storeContainer')}>
             <div className={cx('storeTop')}>
-                <div className={cx('storeInfo')}>
-                    <div className={cx('storeAvatar')}>
-                        <img src={data.avatar} alt="Avatar" />
+                <Link
+                    to={`/UserInfoShop/${data.id}`}
+                    className={cx('menu-link')}
+                >
+                    <div className={cx('storeInfo')}>
+                        <div className={cx('storeAvatar')}>
+                            <img src={data.avatar} alt="Avatar" />
+                        </div>
+                        <div className={cx('storeDetails')}>
+                            <p className={cx('storeName')}>{data.name}</p>
+                            <p className={cx('storePhone')}>{data.phone}</p>
+                            <p className={cx('storeAddress')}>{data.address}</p>
+                        </div>
                     </div>
-                    <div className={cx('storeDetails')}>
-                        <p className={cx('storeName')}>{data.name}</p>
-                        <p className={cx('storePhone')}>{data.phone}</p>
-                        <p className={cx('storeAddress')}>{data.address}</p>
-                    </div>
-                </div>
+                </Link>
 
                 <div className={cx('storeSocial')}>
                     <div className={cx('storeStats')}>
