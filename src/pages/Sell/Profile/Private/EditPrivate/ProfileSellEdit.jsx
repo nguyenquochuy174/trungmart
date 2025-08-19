@@ -2,12 +2,22 @@ import styles from "./ProfileSellEdit.module.scss";
 import classNames from "classnames/bind";
 import { listinfoSell } from "~/constant/mock-data";
 import Button from '~/components/Button/Button';
+import { useState,useEffect} from 'react';
+
 const cx = classNames.bind(styles);
 
 function ProfileSellEdit() {
+  const [info, setInfo] = useState([]);
+      const idsell = parseInt(localStorage.getItem('idSell'))
+       useEffect(() => {
+  const filteredInfo = listinfoSell.filter(
+    (msg) => parseInt(msg.idUser) === idsell
+  );
+  setInfo(filteredInfo);
+}, [idsell]);
   return (
     <div className={cx("content")}>
-      {listinfoSell.map((info) => (
+      {info.map((info) => (
         <div key={info.id}>
           <div className={cx("userName")}>
             <p className={cx("editinfo")}>Tên đăng nhập: </p>

@@ -53,10 +53,14 @@
         &:hover{
             color:#5C8018;
         }
+        &.active {
+                    color: var(--primary);
+                }
         .iconProfile{
         font-size: 20px;
         }
     }
+    
     
 }
 

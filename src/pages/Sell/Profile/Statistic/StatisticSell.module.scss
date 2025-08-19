@@ -1,8 +1,15 @@
-.content{
+.container{
     width: 100%;
-    display: flex;
-    
+    padding:10px;
+    margin-top: 10px;
 }
-.Home{
-    margin-left:10px;
+.contentHeader{
+ display: flex;
+ align-items: center;
+ width: 100%;
+ gap:5%;
+}
+.contentBottom{
+    width: 100%;
+    
 }

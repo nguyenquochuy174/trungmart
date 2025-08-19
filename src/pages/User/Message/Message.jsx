@@ -29,7 +29,7 @@ function Message() {
             .sort((a, b) => new Date(a.time) - new Date(b.time));
 
         setMessages(newChatMessages);
-        // eslint-disable-next-line react-hooks/exhaustive-deps
+       
     }, [chatMessages, shopId]);
 
     const messagesEndRef = useRef(null);

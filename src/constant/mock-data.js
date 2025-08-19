@@ -6,6 +6,13 @@ import images from '~/assets/images/image';
 
 const listUser = [
     {
+        id: 1,
+        roll:'Sell',
+        name: 'Nguyễn Văn A',
+        avatar: images.avatarStore,
+        password: '123',
+    },
+    {
         id: 1001,
         name: 'Nguyễn Văn A',
         avatar: images.avatarStore,
@@ -95,7 +102,8 @@ const listSliderBarSell = [
 
 const storeList = [
     {
-        id: 1,
+        idUser: 1,
+        idBank:1,
         name: 'Bếp Nhà',
         description:
             'Bếp Nhà là nơi lưu giữ và lan tỏa những hương vị đặc sản đậm chất miền Trung Việt Nam. Từ những món quà quê dân dã đến các sản phẩm truyền thống được chế biến tinh tế, chúng tôi mong muốn mang đến cho bạn không chỉ là món ăn, mà còn là một phần ký ức, một chút ấm áp của quê hương.',
@@ -617,6 +625,7 @@ const featuredCategories = [
 ];
 const listinfoSell = [
     {
+        idUser:1,
         id: 1,
         Name: 'An',
         LastName: 'Nguyễn Phúc',
@@ -628,11 +637,27 @@ const listinfoSell = [
         Tiktok: 'trungmart@168',
         Avatar: images.avatar,
         Address: 'thôn, Phước Thanh, xã Quảng Điền, TP. Huế',
+        password:'123'
+    },
+        {
+        id: 2,
+        Name: 'Mạnh',
+        LastName: 'Nguyễn Hoàng',
+        Date: '28/05/20005',
+        Gender: 'Nam',
+        Email: 'n24@gmail.com',
+        Phone: '01659835717',
+        Facebook: 'trungmart',
+        Tiktok: 'trungmart@168',
+        Avatar: images.avatar,
+        Address: 'thôn, Phước Thanh, xã Quảng Điền, TP. Huế',
+        password:'1235'
     },
 ];
 const listinforWalletSell = [
     {
         id: 1,
+        idUser:1,
         Name: 'Nguyễn Phúc An',
         Bank: 'Viettinbank',
         Banknumber: '01659835717',
@@ -704,14 +729,61 @@ const listSelect = [
             { label: 'Đang giao hàng', value: 'shipping', queryKey: 'status' },
         ],
     },
+    {
+    id: 4,
+    name: "Năm",
+    children: [
+        {label: "Năm",value:"0",queryKey: 'Year'},
+        {label: "Năm 2022",value: "2022",queryKey: 'Year'},
+        {label: "Năm 2023",value: "2023",queryKey: 'Year'},
+        {label: "Năm 2024",value: "2024",queryKey: 'Year'},  
+        ]
+    },
+
+    {
+    id: 5,
+    name: "Tháng",
+    children: [
+    {label: "Tháng ",value:"0",queryKey: 'Month'},
+    {label: "Tháng 1",value:"1",queryKey: 'Month'},
+    {label: "Tháng 2",value:"2",queryKey: 'Month'},
+    {label: "Tháng 3",value:"3",queryKey: 'Month'},
+    {label: "Tháng 4",value:"4",queryKey: 'Month'},
+    {label: "Tháng 5",value:"5",queryKey: 'Month'},
+    {label: "Tháng 6",value:"6",queryKey: 'Month'},
+    {label: "Tháng 7",value:"7",queryKey: 'Month'},
+    {label: "Tháng 8",value:"8",queryKey: 'Month'},
+    {label: "Tháng 9",value:"9",queryKey: 'Month'},
+    {label: "Tháng 10",value: "10",queryKey: 'Month'},
+    {label: "Tháng 11",value: "11",queryKey: 'Month'},
+    {label: "Tháng 12",value: "12",queryKey: 'Month'},
+    ]
+    },
+    {
+    id: 6,
+    name: "Tuần",
+    children: [
+    {label: "Tuần ",value:"0",queryKey: 'Week'},
+    {label: "Tuần 1",value:"1",queryKey: 'Week'},
+    {label: "Tuần 2",value:"2",queryKey: 'Week'},
+    {label: "Tuần 3",value:"3",queryKey: 'Week'},
+    {label: "Tuần 4",value:"4",queryKey: 'Week'},
+    {label: "Tuần 5",value:"5",queryKey: 'Week'},
+    ]
+    },
+
+
+
 ];
 const listOrder = [
     {
         id: 1,
+        idUser:1,
         code: 'DH00123',
         status: 'approved',
         product: {
             name: 'Mè Xửng Huế',
+            idOrder:1001,
             price: 281000,
             quantity: 1,
             description: 'Địa Chỉ Giao : 126 Nguyễn Kim Thành, ...',
@@ -725,9 +797,11 @@ const listOrder = [
     },
     {
         id: 2,
+        idUser:1,
         code: 'DH00124',
         status: 'shipping',
         product: {
+            idOrder:1002,
             name: 'Mè Xửng Huế',
             price: 281000,
             quantity: 1,
@@ -742,9 +816,12 @@ const listOrder = [
     },
     {
         id: 3,
+        idUser:1,
+
         code: 'DH00125',
         status: 'cancelled',
         product: {
+            idOrder:1003,
             name: 'Mè Xửng Huế',
             price: 281000,
             quantity: 1,
@@ -760,9 +837,11 @@ const listOrder = [
     },
     {
         id: 4,
+        idUser:1,
         code: 'DH00126',
         status: 'pending',
         product: {
+            idOrder:1004,
             name: 'Mè Xửng Huế',
             price: 281000,
             quantity: 1,

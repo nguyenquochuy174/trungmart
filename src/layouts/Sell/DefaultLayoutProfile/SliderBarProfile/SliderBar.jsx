@@ -15,10 +15,14 @@ import {
     faArrowRightFromBracket
 } from '@fortawesome/free-solid-svg-icons';
 import images from '~/assets/images/image';
+import {  useLocation } from 'react-router-dom';
 
 const cx = classNames.bind(styles);
 
 function SliderBar() {
+      const location = useLocation();
+  const currentPath = location.pathname;
+  const isActive = (path) => currentPath === path;
     return (
         <>
             <div className={cx('container')}>
@@ -37,7 +41,7 @@ function SliderBar() {
                         </div>
                     </div>
                     <div className={cx('Action')}>
-                         <div className={cx('actionContent')}>
+                          <div className={cx('actionContent', { active: isActive('/ProfileSell') })}>
                             <a href="/ProfileSell">
                                 <FontAwesomeIcon
                                     icon={faUser}
@@ -46,7 +50,7 @@ function SliderBar() {
                                 <p>Hồ sơ của tôi</p>
                             </a>
                          </div>
-                         <div className={cx('actionContent')}>
+                         <div className={cx('actionContent', { active: isActive('/StoreSell') })}>
                             <a href="/StoreSell">
                                 <FontAwesomeIcon
                                     icon={faShop}
@@ -56,7 +60,7 @@ function SliderBar() {
                                 <p>Cửa hàng của tôi</p>
                             </a>
                          </div>
-                         <div className={cx('actionContent')}>
+                         <div className={cx('actionContent', { active: isActive('/PasswordSell') })}>
                             <a href="/PasswordSell">
                                 <FontAwesomeIcon
                                     icon={faKey}
@@ -66,7 +70,7 @@ function SliderBar() {
                                 <p>Đổi mật khẩu</p>
                             </a>
                          </div>
-                         <div className={cx('actionContent')}>
+                         <div className={cx('actionContent', { active: isActive('/StatisticSell') })}>
                             <a href="/StatisticSell">
                                 <FontAwesomeIcon
                                     icon={faChartSimple}
@@ -76,7 +80,7 @@ function SliderBar() {
                                 <p>Thống Kê</p>
                             </a>
                          </div>
-                          <div className={cx('actionContent')}>
+                          <div className={cx('actionContent', { active: isActive('/OrderSell') })}>
                             <a href="/OrderSell">
                                 <FontAwesomeIcon
                                     icon={faClipboardCheck}
@@ -86,7 +90,7 @@ function SliderBar() {
                                 <p>Duyệt đơn hàng</p>
                             </a>
                          </div>
-                           <div className={cx('actionContent')}>
+                           <div className={cx('actionContent', { active: isActive('/WalletSell') })}>
                             <a href="/WalletSell">
                                 <FontAwesomeIcon
                                     icon={faWallet}

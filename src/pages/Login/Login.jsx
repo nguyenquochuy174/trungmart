@@ -3,7 +3,7 @@ import styles from './Login.module.scss';
 import Button from '~/components/Button/Button';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { listUser } from '~/constant/mock-data';
+import { listUser,listinfoSell } from '~/constant/mock-data';
 const cx = classNames.bind(styles);
 
 function Login() {
@@ -26,15 +26,21 @@ function Login() {
             (user) => user.id === id && user.password === password,
         );
         // code kiểm tra tk đn sell
-        if (user) {
-            localStorage.setItem('userId', user.id);
-            setError('');
-            navigate('/UserHome');
-        } else {
+        if (!user) {
             setError('Thông tin đăng nhập không đúng!');
+            return;
         }
-    };
-
+        if(user.roll==='Sell'){
+            localStorage.setItem('idSell', user.id);
+            setError('');
+            navigate('/ProductSell');
+        }else{
+                localStorage.setItem('userId', user.id);
+                setError('');
+                navigate('/UserHome');
+            }
+            
+        } 
     return (
         <div className={cx('container')}>
             <h2 className={cx('title')}>TrungMart</h2>

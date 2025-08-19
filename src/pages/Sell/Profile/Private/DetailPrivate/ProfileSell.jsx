@@ -3,13 +3,22 @@ import classNames from 'classnames/bind';
 import { listinfoSell } from '~/constant/mock-data';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPen } from '@fortawesome/free-solid-svg-icons';
-
+import { useState,useEffect} from 'react';
 const cx = classNames.bind(styles);
 
 function ProfileSell() {
+     const [info, setInfo] = useState([]);
+    const idsell = parseInt(localStorage.getItem('idSell'))
+
+       useEffect(() => {
+  const filteredInfo = listinfoSell.filter(
+    (msg) => parseInt(msg.idUser) === idsell
+  );
+  setInfo(filteredInfo);
+}, [idsell]);
     return (
         <div className={cx('container')}>
-            {listinfoSell.map(info => (
+            {info.map(info => (
                 <div key={info.id}>
                     {/* Thông tin hồ sơ */}
                     <div className={cx('content')}>

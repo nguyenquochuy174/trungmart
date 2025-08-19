@@ -3,12 +3,21 @@ import classNames from 'classnames/bind';
 import { listinforWalletSell } from '~/constant/mock-data';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPen } from '@fortawesome/free-solid-svg-icons';
+import { useState,useEffect} from 'react';
 
 const cx = classNames.bind(styles);
 function WalletSell() {
+     const [info, setInfo] = useState([]);
+    const idsell = parseInt(localStorage.getItem('idSell'))
+    useEffect(() => {
+  const filteredInfo = listinforWalletSell.filter(
+    (msg) => parseInt(msg.idUser) === idsell
+  );
+  setInfo(filteredInfo);
+}, [idsell]);
     return (
     <div className={cx('container')}>
-        {listinforWalletSell.map(info=>(
+        {info.map(info=>(
             <div key={info.id}>
                 <div className={cx('content')}>
                 <h3>Ví điện tử cửa hàng</h3>

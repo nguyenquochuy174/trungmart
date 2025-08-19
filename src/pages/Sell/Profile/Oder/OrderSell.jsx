@@ -24,12 +24,18 @@ function OrderSell() {
     },[searchParams]);
 
     // listorder
-    const filteredOrders = useMemo(()=>{
-        if(!filters.status||filters.status==='Tất Cả'){
-            return listOrder;
-        }
-        return listOrder.filter((order)=>( order.status === filters.status));
-    },[filters])
+const idsell = parseInt(localStorage.getItem('idSell'));
+
+// Lọc đơn hàng vừa theo idSell vừa theo status
+const filteredOrders = useMemo(() => {
+    return listOrder.filter(order => {
+        const matchSeller = parseInt(order.idUser) === idsell;
+        const matchStatus = !filters.status || filters.status === 'Tất Cả' 
+            ? true 
+            : order.status === filters.status;
+        return matchSeller && matchStatus;
+    });
+}, [idsell, filters]);
     // chon select
     const handleFilterChange=(value)=>{
         if(!value || value==='Tất Cả'){

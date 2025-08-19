@@ -3,19 +3,28 @@ import styles from "./StoreSellEdit.module.scss"
 import classNames from 'classnames/bind';
 import { storeList } from '~/constant/mock-data';
 import Button from '~/components/Button/Button';
+import { useState, useEffect } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { 
 } from '@fortawesome/free-solid-svg-icons';
 
 const cx = classNames.bind(styles);
 function StoreSellEdit() {
-    const currentStoreName = "Bếp Nhà";
-
-  // tìm đúng object theo tên
-  const storeInfo = storeList.find((item) => item.name === currentStoreName);
+   const [storeInfo, setStoreInfo] = useState(null);
+     const idsell = parseInt(localStorage.getItem('idSell'));
+   
+     useEffect(() => {
+       const info = storeList.find((store) => store.idUser === idsell);
+       setStoreInfo(info);
+     }, [idsell]);
+   
+     // Nếu chưa có dữ liệu thì không render gì
+     if (!storeInfo) {
+       return <div className={cx('container')}>Đang tải...</div>;
+     }
     return (
     <div className={cx("container")}>
-        {storeInfo &&(
+
          <div>
             <div className={cx('inputedit')}>
             <div className={cx("userName")}>
@@ -137,7 +146,6 @@ function StoreSellEdit() {
             
           
          </div>   
-        )}
     </div>
     );
 }
