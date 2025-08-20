@@ -79,8 +79,8 @@ function InfoShop() {
                 <p className={cx('info-title')}>Giấy chứng nhận</p>
                 <ul className={cx('cert')}>
                     {store.certifications.map((item, index) => (
-                        <li>
-                            <img key={index} src={item.url} alt={item.alt} />
+                        <li key={index}>
+                            <img src={item.url} alt={item.alt} />
                         </li>
                     ))}
                 </ul>

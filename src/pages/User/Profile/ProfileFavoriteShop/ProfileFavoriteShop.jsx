@@ -61,8 +61,9 @@ function ProfileFavoriteShop() {
     return (
         <div className={cx('container')}>
             {currentStores.map((item) => (
-                <StoreView data={item} report={false} />
+                <StoreView key={item.id} data={item} report={false} />
             ))}
+
             {/* Phân trang */}
             <div className={cx('pagination')}>
                 <button
