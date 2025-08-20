@@ -831,23 +831,101 @@ const featuredCategories = [
         id: 1,
         image: images.danhMucNoiBat.img1,
         title: 'Gia vị',
+        categoryKey: 'dried',
     },
     {
         id: 2,
         image: images.danhMucNoiBat.img2,
         title: 'Trái cây - Rau củ',
+        categoryKey: 'fruits',
     },
     {
         id: 3,
         image: images.danhMucNoiBat.img3,
         title: 'Bánh kẹo',
+        categoryKey: 'snacks',
     },
     {
         id: 4,
         image: images.danhMucNoiBat.img4,
         title: 'Đồ khô - Chế biến sẵn',
+        categoryKey: 'spices',
     },
 ];
+
+const listAddress = [
+    {
+        id: 1,
+        name: 'Nguyễn Văn A',
+        phone: '03674373939',
+        address: 'thôn Phước Thanh, xã Quảng Điền, Thành Phố Huế',
+        userId: 1001,
+    },
+    {
+        id: 2,
+        name: 'Nguyễn Văn A',
+        phone: '03674123939',
+        address: 'thôn Phú Lương, xã Quảng Điền, Thành Phố Huế',
+        userId: 1001,
+    },
+    {
+        id: 3,
+        name: 'Nguyễn Văn A',
+        phone: '03672345675',
+        address: 'thôn Đông Xuyên, xã Quảng Điền, Thành Phố Huế',
+        userId: 1001,
+    },
+    {
+        id: 4,
+        name: 'Nguyễn Văn A',
+        phone: '03601234939',
+        address: 'thôn Phước Thanh, xã Quảng Điền, Thành Phố Huế',
+        userId: 1001,
+    },
+    {
+        id: 5,
+        name: 'Nguyễn Văn A',
+        phone: '03618237182',
+        address: 'thôn Phước Thanh, xã Quảng Điền, Thành Phố Huế',
+        userId: 1001,
+    },
+    {
+        id: 6,
+        name: 'Nguyễn Văn A',
+        phone: '03888888888',
+        address: 'thôn Phước Thanh, xã Quảng Điền, Thành Phố Huế',
+        userId: 1001,
+    },
+    {
+        id: 7,
+        name: 'Nguyễn Văn A',
+        phone: '02121212211',
+        address: 'thôn Phước Thanh, xã Quảng Điền, Thành Phố Huế',
+        userId: 1001,
+    },
+    {
+        id: 8,
+        name: 'Nguyễn Văn A',
+        phone: '03674373939',
+        address: 'thôn Phước Thanh, xã Quảng Điền, Thành Phố Huế',
+        userId: 1002,
+    },
+    {
+        id: 9,
+        name: 'Nguyễn Văn A',
+        phone: '03674373939',
+        address: 'thôn Phước Thanh, xã Quảng Điền, Thành Phố Huế',
+        userId: 1003,
+    },
+    {
+        id: 10,
+        name: 'Nguyễn Văn A',
+        phone: '03674373939',
+        address: 'thôn Phước Thanh, xã Quảng Điền, Thành Phố Huế',
+        userId: 1004,
+    },
+];
+
 const listinfoSell = [
     {
         id: 1,
@@ -1349,4 +1427,5 @@ export {
     chatMessages,
     listSidebarProfileUser,
     listFavorites,
+    listAddress,
 };

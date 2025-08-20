@@ -10,6 +10,7 @@ import {
 import { useEffect, useRef, useState } from 'react';
 import ItemProduct from '~/components/ItemProduct/ItemProduct';
 import Button from '~/components/Button/Button';
+import { Link } from 'react-router-dom';
 
 const cx = classNames.bind(styles);
 
@@ -127,9 +128,13 @@ function Home() {
                         <img src={item.image} alt={item.title} />
                         <div className={cx('overlay')}>
                             <span className={cx('text')}>{item.title}</span>
-                            <Button text small>
-                                Xem thêm
-                            </Button>
+                            <Link
+                                to={`/UserProduct?category=${item.categoryKey}`}
+                            >
+                                <Button text small>
+                                    Xem thêm
+                                </Button>
+                            </Link>
                         </div>
                     </div>
                 ))}
