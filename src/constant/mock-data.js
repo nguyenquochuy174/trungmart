@@ -18,6 +18,9 @@ const listUser = [
         avatar: images.avatarStore,
         password: 'a123',
         email: 'nguyenvana@gmail.com',
+        phone: '0367376403',
+        address: 'Huế',
+        sex: 0,
     },
     {
         id: 1002,
@@ -25,6 +28,9 @@ const listUser = [
         avatar: images.avatarStore,
         password: 'b123',
         email: 'tranthib@gmail.com',
+        phone: '0367376403',
+        address: 'Đà Nẵng',
+        sex: 1,
     },
     {
         id: 1003,
@@ -32,6 +38,9 @@ const listUser = [
         avatar: images.avatarStore,
         password: 'c123',
         email: 'levanc@gmail.com',
+        phone: '0367376403',
+        address: 'Quảng Nam',
+        sex: 0,
     },
     {
         id: 1004,
@@ -39,6 +48,9 @@ const listUser = [
         avatar: images.avatarStore,
         password: 'd123',
         email: 'phamthid@gmail.com',
+        phone: '0367376403',
+        address: 'Huế',
+        sex: 1,
     },
     {
         id: 1005,
@@ -46,6 +58,9 @@ const listUser = [
         avatar: images.avatarStore,
         password: 'e123',
         email: 'dangvane@gmail.com',
+        phone: '0367376403',
+        address: 'Hà Tĩnh',
+        sex: 0,
     },
 ];
 
@@ -266,6 +281,149 @@ const storeList = [
     },
     {
         id: 5,
+        name: 'Quảng Ngãi Quê Hương',
+        description:
+            'Đưa đặc sản Quảng Ngãi đến gần hơn với mọi miền, chúng tôi cung cấp các sản phẩm như kẹo gương, kẹo đậu phộng, cá bống sông Trà, mạch nha,...',
+        address: '66 Hùng Vương, TP. Quảng Ngãi',
+        phone: '0988 555 666',
+        email: 'hello@quangngai.vn',
+        website: 'https://www.quangngai.vn',
+        fanpage: 'https://www.fb.com/quangngaiquehuong',
+        rating: 4.3,
+        totalReviews: 250,
+        joinedAt: '2019-11-20',
+        avatar: images.avatarStore,
+        certifications: [
+            { id: 1, url: images.giayChungNhan.img1, alt: 'Giấy chứng nhận' },
+            { id: 2, url: images.giayChungNhan.img2, alt: 'Giấy hoạt động' },
+        ],
+        featuredProducts: [
+            'Kẹo đậu phộng Quảng Ngãi',
+            'Cá bống sông Trà',
+            'Mạch nha Quảng Ngãi',
+        ],
+        guarantee: [
+            'Chọn lọc kỹ lưỡng từ địa phương',
+            'Đóng gói an toàn, giữ trọn hương vị',
+            'Đổi trả nếu không hài lòng',
+        ],
+        area: 'quangngai',
+    },
+    {
+        id: 6,
+        name: 'Bếp Nhà',
+        description:
+            'Bếp Nhà là nơi lưu giữ và lan tỏa những hương vị đặc sản đậm chất miền Trung Việt Nam. Từ những món quà quê dân dã đến các sản phẩm truyền thống được chế biến tinh tế, chúng tôi mong muốn mang đến cho bạn không chỉ là món ăn, mà còn là một phần ký ức, một chút ấm áp của quê hương.',
+        address: '125 Trường Chinh, TP. Huế',
+        phone: '0935 123 456',
+        email: 'contact@bepnha.vn',
+        website: 'https://www.bepnha.vn',
+        fanpage: 'https://www.fb.com/bepnhadacsan',
+        rating: 4.8,
+        totalReviews: 898,
+        joinedAt: '2018-08-01',
+        avatar: images.avatarStore,
+        certifications: [
+            { id: 1, url: images.giayChungNhan.img1, alt: 'Giấy chứng nhận' },
+            { id: 2, url: images.giayChungNhan.img2, alt: 'Giấy hoạt động' },
+        ],
+        featuredProducts: ['Mè xửng Huế', 'Me xí muội Huế', 'Trà Huế'],
+        guarantee: [
+            'Nguyên liệu sạch, chuẩn vị quê nhà',
+            'Đóng gói kỹ lưỡng, giao hàng toàn quốc',
+            'Tư vấn tận tình, đổi trả dễ dàng nếu sản phẩm không như cam kết',
+        ],
+        area: 'hue',
+    },
+    {
+        id: 7,
+        name: 'Đặc Sản Đà Nẵng',
+        description:
+            'Mang hương vị của thành phố biển đến từng bữa ăn, Đặc Sản Đà Nẵng chuyên cung cấp các sản phẩm như nước mắm Nam Ô, tré Bà Đệ, bánh khô mè truyền thống.',
+        address: '78 Nguyễn Văn Linh, TP. Đà Nẵng',
+        phone: '0905 234 567',
+        email: 'contact@dacsandanang.vn',
+        website: 'https://www.dacsandanang.vn',
+        fanpage: 'https://www.fb.com/dacsandanang',
+        rating: 4.5,
+        totalReviews: 500,
+        joinedAt: '2019-05-15',
+        avatar: images.avatarStore,
+        certifications: [
+            { id: 1, url: images.giayChungNhan.img1, alt: 'Giấy chứng nhận' },
+            { id: 2, url: images.giayChungNhan.img2, alt: 'Giấy hoạt động' },
+        ],
+        featuredProducts: [
+            'Nước mắm Nam Ô',
+            'Tré Bà Đệ',
+            'Bánh khô mè',
+            'Chả bò Đà Nẵng',
+        ],
+        guarantee: [
+            'Chọn lọc từ vùng biển Đà Nẵng',
+            'Chế biến an toàn, đóng gói kỹ',
+            'Hoàn tiền nếu sản phẩm không đúng mô tả',
+        ],
+        area: 'danang',
+    },
+    {
+        id: 8,
+        name: 'Quảng Nam Quê Tôi',
+        description:
+            'Gìn giữ hương vị dân dã của vùng đất Quảng Nam qua từng món đặc sản như bánh tráng mè, mỳ Quảng, bánh tổ, bánh in truyền thống.',
+        address: '45 Trần Cao Vân, Tam Kỳ, Quảng Nam',
+        phone: '0911 111 222',
+        email: 'info@quangnamquetoi.vn',
+        website: 'https://www.quangnamquetoi.vn',
+        fanpage: 'https://www.fb.com/quangnamquetoi',
+        rating: 4.2,
+        totalReviews: 310,
+        joinedAt: '2020-02-10',
+        avatar: images.avatarStore,
+        certifications: [
+            { id: 1, url: images.giayChungNhan.img1, alt: 'Giấy chứng nhận' },
+            { id: 2, url: images.giayChungNhan.img2, alt: 'Giấy hoạt động' },
+        ],
+        featuredProducts: [
+            'Bánh tráng mè nướng Quảng Nam',
+            'Bánh tổ',
+            'Mỳ Quảng',
+        ],
+        guarantee: [
+            'Chế biến theo công thức gia truyền',
+            'Sạch, ngon, đúng vị quê hương',
+            'Hỗ trợ đổi trả trong 7 ngày',
+        ],
+        area: 'quangnam',
+    },
+    {
+        id: 9,
+        name: 'Hà Tĩnh Đặc Sản',
+        description:
+            'Hà Tĩnh Đặc Sản là nơi hội tụ những món ngon nổi tiếng như kẹo cu đơ, cam Khe Mây, bánh đa, tương Nam Đàn, gói ghém hương vị miền Trung xa xứ.',
+        address: '10 Lê Duẩn, TP. Hà Tĩnh',
+        phone: '0922 333 444',
+        email: 'support@hattinhdacsan.vn',
+        website: 'https://www.hattinhdacsan.vn',
+        fanpage: 'https://www.fb.com/hattinhdacsan',
+        rating: 4.1,
+        totalReviews: 180,
+        joinedAt: '2021-04-05',
+        avatar: images.avatarStore,
+        certifications: [
+            { id: 1, url: images.giayChungNhan.img1, alt: 'Giấy chứng nhận' },
+            { id: 2, url: images.giayChungNhan.img2, alt: 'Giấy hoạt động' },
+        ],
+        featuredProducts: ['Kẹo cu đơ Hà Tĩnh', 'Cam Khe Mây', 'Tương Nam Đàn'],
+        guarantee: [
+            'Nguyên liệu bản địa, quy trình thủ công',
+            'Hương vị truyền thống, đóng gói chuẩn',
+            'Hoàn tiền nếu sản phẩm không đạt yêu cầu',
+        ],
+        area: 'hatinh',
+    },
+    {
+        id: 10,
         name: 'Quảng Ngãi Quê Hương',
         description:
             'Đưa đặc sản Quảng Ngãi đến gần hơn với mọi miền, chúng tôi cung cấp các sản phẩm như kẹo gương, kẹo đậu phộng, cá bống sông Trà, mạch nha,...',
@@ -576,6 +734,24 @@ const listProduct = [
         ],
         totalStars: 100,
         reviews: 23,
+    },
+];
+
+const listFavorites = [
+    {
+        userId: 1001,
+        productIds: [2, 5, 7, 8, 9, 10, 12, 13, 14, 15, 16],
+        storeIds: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
+    },
+    {
+        userId: 1002,
+        productIds: [1, 3],
+        storeIds: [1, 3, 5, 7],
+    },
+    {
+        userId: 1003,
+        productIds: [4, 6, 7, 10],
+        storeIds: [2, 4, 6, 8],
     },
 ];
 
@@ -1172,4 +1348,5 @@ export {
     listNotification,
     chatMessages,
     listSidebarProfileUser,
+    listFavorites,
 };
