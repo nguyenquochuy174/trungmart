@@ -1016,6 +1016,70 @@ const listSelect = [
         ],
     },
 ];
+
+const listOrders = [
+    {
+        id: 'DH00001',
+        status: 'approved',
+        userId: 1001,
+        orderTime: '2025-08-06T11:00:00',
+        discount: 20000,
+        shippingFee: 20000,
+        idAddress: 1,
+        idProduct: 1,
+        quantity: 2,
+        reason: '',
+    },
+    {
+        id: 'DH00002',
+        status: 'cancelled',
+        userId: 1001,
+        orderTime: '2025-08-06T11:00:00',
+        discount: 20000,
+        shippingFee: 20000,
+        idAddress: 1,
+        idProduct: 3,
+        quantity: 2,
+        reason: 'Thông tin đơn hàng không hợp lệ!',
+    },
+    {
+        id: 'DH00003',
+        status: 'pending',
+        userId: 1001,
+        orderTime: '2025-08-06T11:00:00',
+        discount: 20000,
+        shippingFee: 20000,
+        idAddress: 2,
+        idProduct: 2,
+        quantity: 1,
+        reason: '',
+    },
+    {
+        id: 'DH00004',
+        status: 'shipping',
+        userId: 1001,
+        orderTime: '2025-08-06T11:00:00',
+        discount: 20000,
+        shippingFee: 20000,
+        idAddress: 1,
+        idProduct: 4,
+        quantity: 3,
+        reason: '',
+    },
+    {
+        id: 'DH00005',
+        status: 'shipping',
+        userId: 1002,
+        orderTime: '2025-08-06T11:00:00',
+        discount: 20000,
+        shippingFee: 20000,
+        idAddress: 1,
+        idProduct: 4,
+        quantity: 3,
+        reason: '',
+    },
+];
+
 const listOrder = [
     {
         id: 1,
@@ -1428,4 +1492,5 @@ export {
     listSidebarProfileUser,
     listFavorites,
     listAddress,
+    listOrders,
 };

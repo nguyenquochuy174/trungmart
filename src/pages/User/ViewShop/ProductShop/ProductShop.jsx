@@ -82,7 +82,7 @@ function ProductShop() {
 
     return (
         <>
-            <h4>Thông tin cửa hàng</h4>
+            <h4 className={cx('title')}>Thông tin cửa hàng</h4>
             <StoreView
                 data={store}
                 report={true}
