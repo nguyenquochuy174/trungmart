@@ -17,7 +17,7 @@ function StoreSell() {
   const idsell = parseInt(localStorage.getItem('idSell'));
 
   useEffect(() => {
-    const info = storeList.find((store) => store.idUser === idsell);
+    const info = storeList.find((store) => store.id === idsell);
     setStoreInfo(info);
   }, [idsell]);
 

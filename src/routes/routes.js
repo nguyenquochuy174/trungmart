@@ -32,6 +32,7 @@ import StoreSellEdit from '~/pages/Sell/Profile/Store/StoreSellEdit/StoreSellEdi
 import WalletSell from '~/pages/Sell/Profile/Wallet/WalletSellDetail/WalletSell';
 import WalletSellEdit from '~/pages/Sell/Profile/Wallet/WalletSellEdit/WalletSellEdit';
 import DetailProduct from '~/pages/User/DetailProduct/DetailProduct';
+import DetailProductSell from '~/pages/Sell/Product/DetailProduct/DetailProductSell';
 
 import Home from '~/pages/User/Home/Home';
 import Message from '~/pages/User/Message/Message';
@@ -69,9 +70,13 @@ const publicRoutes = [
         layout: DefaultLayoutUser,
     },
     { path: '/UserPayment', component: Payment, layout: DefaultLayoutUser },
-    { path: '/UserInfoShop', component: InfoShop, layout: DefaultLayoutUser },
     {
-        path: '/UserProductShop',
+        path: '/UserInfoShop/:shopId',
+        component: InfoShop,
+        layout: DefaultLayoutUser,
+    },
+    {
+        path: '/UserProductShop/:shopId',
         component: ProductShop,
         layout: DefaultLayoutUser,
     },
@@ -134,6 +139,7 @@ const publicRoutes = [
     },
 
     // sell
+    { path: '/MessageSell/:idUser', component: MessageSell, layout: DefaultLayoutMess },
     { path: '/MessageSell', component: MessageSell, layout: DefaultLayoutMess },
     {
         path: '/NotificationSell',
@@ -141,19 +147,25 @@ const publicRoutes = [
         layout: DefaultLayoutSell,
     },
     // product
+
     {
         path: '/ProductSell',
         component: ProductSell,
-        layout: DefaultLayoutProduct,
+        layout: DefaultLayoutSell,
     },
     {
-        path: '/EditProductSell',
+        path: '/EditProductSell/:id',
         component: EditProductSell,
         layout: DefaultLayoutSell,
     },
     {
+        path: '/DetailProductSell/:id',
+        component: DetailProductSell,
+        layout: DefaultLayoutSell,
+    },
+    {
         path: '/DetailProductSell',
-        component: DetailProduct,
+        component: DetailProductSell,
         layout: DefaultLayoutSell,
     },
     {
@@ -235,7 +247,7 @@ const publicRoutes = [
         layout: DefaultLayoutAdmin,
     },
     {
-        path: '/DetailProductAdmin',
+        path: '/DetailProductAdmin/:id',
         component: DetailProductAdmin,
         layout: DefaultLayoutAdmin,
     },

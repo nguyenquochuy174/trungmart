@@ -30,7 +30,7 @@ export const useCalendarData = (year, month, week) => {
     if (!month || month === "0") {
       data.values = Array.from({ length: 12 }, (_, idx) => ({
         name: `Tháng ${idx + 1}`,
-        uv: Math.floor(Math.random() * 100),
+        uv: Math.floor(Math.random() * 1000),
       }));
       return data;
     }
@@ -43,7 +43,7 @@ export const useCalendarData = (year, month, week) => {
       while (currentDay <= totalDays) {
         data.weeks.push({
           name: `Tuần ${index}`,
-          uv: Math.floor(Math.random() * 100),
+          uv: Math.floor(Math.random() * 1000),
         });
         currentDay += 7;
         index++;
@@ -58,7 +58,7 @@ export const useCalendarData = (year, month, week) => {
     for (let d = startDate; d <= endDate; d++) {
       data.days.push({
         name: String(d),
-        uv: Math.floor(Math.random() * 100),
+        uv: Math.floor(Math.random() * 1000),
       });
     }
     return data;

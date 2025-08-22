@@ -10,7 +10,7 @@ import RatingSelect from '../RatingSelect/RatingSelect';
 
 const cx = classNames.bind(styles);
 
-function FormApprove({ data, onClose }) {
+function FormApprove({ data, onClose,form=false }) {
     const inputRef = useRef(null);
     const [isMobile, setIsMobile] = useState(window.innerWidth <= 576);
     const [inputValue, setInputValue] = useState('');
@@ -69,7 +69,7 @@ function FormApprove({ data, onClose }) {
                     />
                 )}
                 <h2>{data.title}</h2>
-
+           {form  && (
                 <div className={cx('textarea')}>
                     <input
                         ref={inputRef}
@@ -84,6 +84,7 @@ function FormApprove({ data, onClose }) {
                         className={cx('iconPen')}
                     />
                 </div>
+            )}
                 {error && <p className={cx('errorMessage')}>{error}</p>}
 
                 {data.description && (

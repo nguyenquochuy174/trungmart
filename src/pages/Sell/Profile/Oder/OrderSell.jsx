@@ -4,7 +4,7 @@ import classNames from 'classnames/bind';
 import { listOrder, listSelect } from '~/constant/mock-data';
 import Select from '~/components/Select/Select';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import {} from '@fortawesome/free-solid-svg-icons';
+import {faChevronRight,faChevronLeft} from '@fortawesome/free-solid-svg-icons';
 import { useSearchParams } from 'react-router-dom';
 import Button from '~/components/Button/Button';
 
@@ -12,7 +12,7 @@ import Button from '~/components/Button/Button';
 const cx = classNames.bind(styles);
 function OrderSell() {
     const [currentPage, setCurrentPage] = useState(1);
-    const [orderPerPage, setOrderPerPage] = useState(16);
+    const OrderPage = 4;
     const [searchParams, setSearchParams] = useSearchParams();
 
     // filters lọc
@@ -47,7 +47,7 @@ const filteredOrders = useMemo(() => {
         setCurrentPage(1);
     }
        // phân trang
-        const totalPages = Math.ceil(filteredOrders.length / orderPerPage);
+        const totalPages = Math.ceil(filteredOrders.length / OrderPage);
     const getPaginationRange = (currentPage, totalPages, delta = 2) => {
         const range = [];
         const left = Math.max(2, currentPage - delta);
@@ -77,8 +77,8 @@ const filteredOrders = useMemo(() => {
     const paginationRange = getPaginationRange(currentPage, totalPages);
 
     const currentorder = filteredOrders.slice(
-        (currentPage - 1) * orderPerPage,
-        currentPage * orderPerPage,
+        (currentPage - 1) * OrderPage,
+        currentPage * OrderPage,
     );
 
     const handlePageChange = (page) => {
@@ -203,7 +203,34 @@ const TongTien = (item) => {
                         </div>
                         {viewOrder(item)}
                     </div>
+                    
                 ))}
+                <div className={cx('pagination')}>
+                                <button
+                                    onClick={() => handlePageChange(currentPage - 1)}
+                                    disabled={currentPage === 1}
+                                >
+                                    <FontAwesomeIcon icon={faChevronLeft} />
+                                </button>
+                
+                                {paginationRange.map((page, index) => (
+                                    <button
+                                        key={index}
+                                        className={cx({ active: currentPage === page })}
+                                        onClick={() => handlePageChange(page)}
+                                        disabled={page === '...'}
+                                    >
+                                        {page}
+                                    </button>
+                                ))}
+                
+                                <button
+                                    onClick={() => handlePageChange(currentPage + 1)}
+                                    disabled={currentPage === totalPages}
+                                >
+                                    <FontAwesomeIcon icon={faChevronRight} />
+                                </button>
+                            </div>
         </div>
     </div>
     );

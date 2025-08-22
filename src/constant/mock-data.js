@@ -1,46 +1,197 @@
 import {
+    faArrowRightFromBracket,
+    faBookBookmark,
     faCircleExclamation,
+    faClipboardCheck,
+    faKey,
+    faLocationDot,
+    faShop,
     faTriangleExclamation,
+    faUser,
+    faWallet,
+    faChartSimple,
 } from '@fortawesome/free-solid-svg-icons';
 import images from '~/assets/images/image';
 
 const listUser = [
+    {
+        id: 111,
+        roll:'admin',
+        password: '123',
+
+    },
     {
         id: 1,
         roll:'Sell',
         name: 'Nguyễn Văn A',
         avatar: images.avatarStore,
         password: '123',
+        email: 'nguyenvana@gmail.com',
+        address:'Xã Quảng Điền, TP Huế',
+        area: 'hue',
+    },
+    {
+        id: 23,
+        roll:'block',
+        name: 'Nguyễn Văn Mười',
+        avatar: images.avatarStore,
+        password: '123',
+        email: 'nguyenvana@gmail.com',
+        address:'Quảng Ngãi',
+        area: 'quangngai',
     },
     {
         id: 1001,
         name: 'Nguyễn Văn A',
         avatar: images.avatarStore,
         password: 'a123',
+        email: 'nguyenvana@gmail.com',
+        address:'Quảng Ngãi',
+        area: 'quangngai',
     },
     {
         id: 1002,
         name: 'Trần Thị B',
         avatar: images.avatarStore,
         password: 'b123',
+        email: 'tranthib@gmail.com',
+        address:'Xã Quảng Điền, TP Huế',
+        area: 'hue',
     },
     {
         id: 1003,
         name: 'Lê Văn C',
         avatar: images.avatarStore,
         password: 'c123',
+        email: 'levanc@gmail.com',
+        address:'Xã Quảng Điền, TP Huế',
+        area: 'hue',
     },
     {
         id: 1004,
         name: 'Phạm Thị D',
         avatar: images.avatarStore,
         password: 'd123',
+        email: 'phamthid@gmail.com',
+        address:'Xã Quảng Điền, TP Huế',
+        area: 'hue',
     },
     {
         id: 1005,
         name: 'Đặng Văn E',
         avatar: images.avatarStore,
         password: 'e123',
+        email: 'dangvane@gmail.com',
+        address:'Xã Quảng Điền, TP Huế',
+        area: 'hue',
+    },
+        {
+        id: 1006,
+        name: 'Đặng Văn E',
+        avatar: images.avatarStore,
+        password: 'e123',
+        email: 'dangvane@gmail.com',
+        address:'Xã Quảng Điền, TP Huế',
+        area: 'hue',
+    },
+        {
+        id: 1007,
+        name: 'Đặng Văn Em',
+        roll:'block',
+        avatar: images.avatarStore,
+        password: 'e123',
+        email: 'dangvane@gmail.com',
+        address:'Xã Quảng Điền, TP Huế',
+        area: 'hue',
+    },
+];
+
+const listSidebarProfileUser = [
+    {
+        id: 1,
+        name: 'Hồ sơ của tôi',
+        icon: faUser,
+        path: '/UserProfileInfo',
+    },
+    {
+        id: 2,
+        name: 'Địa chỉ giao hàng',
+        icon: faLocationDot,
+        path: '/UserProfileAddress',
+    },
+    {
+        id: 3,
+        name: 'Đổi mật khẩu',
+        icon: faKey,
+        path: '/UserProfilePassword',
+    },
+    {
+        id: 4,
+        name: 'Đơn hàng',
+        icon: faClipboardCheck,
+        path: '/UserProfileOrder',
+    },
+    {
+        id: 5,
+        name: 'Sản phẩm yêu thích',
+        icon: faBookBookmark,
+        path: '/UserProfileFavoriteProduct',
+    },
+    {
+        id: 6,
+        name: 'Cửa hàng yêu thích',
+        icon: faShop,
+        path: '/UserProfileFavoriteShop',
+    },
+    {
+        id: 7,
+        name: 'Đăng xuất',
+        icon: faArrowRightFromBracket,
+        path: '/',
+    },
+];
+const listSidebarProfileSell = [
+    {
+        id: 1,
+        name: 'Hồ sơ của tôi',
+        icon: faUser,
+        path: '/ProfileSell',
+    },
+    {
+        id: 2,
+        name: 'Cửa hàng của tôi',
+        icon: faShop,
+        path: '/StoreSell',
+    },
+    {
+        id: 3,
+        name: 'Đổi mật khẩu',
+        icon: faKey,
+        path: '/PasswordSell',
+    },
+    {
+        id: 4,
+        name: 'Thống Kê',
+        icon: faChartSimple,
+        path: '/StatisticSell',
+    },
+    {
+        id: 5,
+        name: 'Duyệt đơn hàng',
+        icon: faClipboardCheck,
+        path: '/OrderSell',
+    },
+    {
+        id: 6,
+        name: 'Ví',
+        icon: faWallet,
+        path: '/WalletSell',
+    },
+    {
+        id: 7,
+        name: 'Đăng xuất',
+        icon: faArrowRightFromBracket,
+        path: '/',
     },
 ];
 
@@ -83,7 +234,18 @@ const listMenuUser = [
 const listMenuAdmin = [
     { name: 'Thống Kế', path: '/StatisAdmin' },
     { name: 'Giới Thiệu', path: '/IntroduceAdmin' },
-    { name: 'Quản Lý', path: '/ManagerUser' },
+    { name: 'Quản Lý', path: '/ManagerUser',
+        children: [
+            {
+                name: 'Người Dùng',
+                path: '/ManagerUser',
+            },
+            {
+                name: 'Cửa Hàng',
+                path: '/ManagerSell',
+            },
+        ],
+    },
 ];
 
 const listMenuSell = [
@@ -102,7 +264,7 @@ const listSliderBarSell = [
 
 const storeList = [
     {
-        idUser: 1,
+        id: 1,
         idBank:1,
         name: 'Bếp Nhà',
         description:
@@ -121,12 +283,13 @@ const storeList = [
             { id: 2, url: images.giayChungNhan.img2, alt: 'Giấy hoạt động' },
         ],
         featuredProducts: ['Mè xửng Huế', 'Me xí muội Huế', 'Trà Huế'],
-        guarantee: {
-            ingredients: 'Nguyên liệu sạch, chuẩn vị quê nhà',
-            quality: 'Đóng gói kỹ lưỡng, giao hàng toàn quốc',
-            refund: 'Tư vấn tận tình, đổi trả dễ dàng nếu sản phẩm không như cam kết',
-        },
+        guarantee: [
+            'Nguyên liệu sạch, chuẩn vị quê nhà',
+            'Đóng gói kỹ lưỡng, giao hàng toàn quốc',
+            'Tư vấn tận tình, đổi trả dễ dàng nếu sản phẩm không như cam kết',
+        ],
         area: 'hue',
+        status:'approved'
     },
     {
         id: 2,
@@ -152,12 +315,13 @@ const storeList = [
             'Bánh khô mè',
             'Chả bò Đà Nẵng',
         ],
-        guarantee: {
-            ingredients: 'Chọn lọc từ vùng biển Đà Nẵng',
-            quality: 'Chế biến an toàn, đóng gói kỹ',
-            refund: 'Hoàn tiền nếu sản phẩm không đúng mô tả',
-        },
+        guarantee: [
+            'Chọn lọc từ vùng biển Đà Nẵng',
+            'Chế biến an toàn, đóng gói kỹ',
+            'Hoàn tiền nếu sản phẩm không đúng mô tả',
+        ],
         area: 'danang',
+        status:'approved'
     },
     {
         id: 3,
@@ -182,12 +346,13 @@ const storeList = [
             'Bánh tổ',
             'Mỳ Quảng',
         ],
-        guarantee: {
-            ingredients: 'Chế biến theo công thức gia truyền',
-            quality: 'Sạch, ngon, đúng vị quê hương',
-            refund: 'Hỗ trợ đổi trả trong 7 ngày',
-        },
+        guarantee: [
+            'Chế biến theo công thức gia truyền',
+            'Sạch, ngon, đúng vị quê hương',
+            'Hỗ trợ đổi trả trong 7 ngày',
+        ],
         area: 'quangnam',
+        status:'approved'
     },
     {
         id: 4,
@@ -208,12 +373,13 @@ const storeList = [
             { id: 2, url: images.giayChungNhan.img2, alt: 'Giấy hoạt động' },
         ],
         featuredProducts: ['Kẹo cu đơ Hà Tĩnh', 'Cam Khe Mây', 'Tương Nam Đàn'],
-        guarantee: {
-            ingredients: 'Nguyên liệu bản địa, quy trình thủ công',
-            quality: 'Hương vị truyền thống, đóng gói chuẩn',
-            refund: 'Hoàn tiền nếu sản phẩm không đạt yêu cầu',
-        },
+        guarantee: [
+            'Nguyên liệu bản địa, quy trình thủ công',
+            'Hương vị truyền thống, đóng gói chuẩn',
+            'Hoàn tiền nếu sản phẩm không đạt yêu cầu',
+        ],
         area: 'hatinh',
+        status:'approved'
     },
     {
         id: 5,
@@ -238,13 +404,15 @@ const storeList = [
             'Cá bống sông Trà',
             'Mạch nha Quảng Ngãi',
         ],
-        guarantee: {
-            ingredients: 'Chọn lọc kỹ lưỡng từ địa phương',
-            quality: 'Đóng gói an toàn, giữ trọn hương vị',
-            refund: 'Đổi trả nếu không hài lòng',
-        },
+        guarantee: [
+            'Chọn lọc kỹ lưỡng từ địa phương',
+            'Đóng gói an toàn, giữ trọn hương vị',
+            'Đổi trả nếu không hài lòng',
+        ],
         area: 'quangngai',
+        status:'cancelled'
     },
+     
 ];
 
 const listProduct = [
@@ -260,7 +428,7 @@ const listProduct = [
         idStore: '2',
         image: [{ id: 1, url: images.nuocMam, alt: 'Nước mắm Nam Ô' }],
         totalStars: 100,
-        reviews: 20,
+        reviews: 20, // lọc theo để hiển thị 
     },
     {
         id: 2,
@@ -593,6 +761,43 @@ const reportForm = [
         title: 'Đánh giá đơn hàng',
         star: true,
     },
+      {
+        id: 'Delete',
+        icon: faTriangleExclamation,
+        title: 'Xóa Sản Phẩm',
+        description:
+            'Khi bạn “Xác Nhận” thì Sản Phẩm này sẽ bị xóa khỏi hệ thống .',
+        form:false,
+    },
+          {
+        id: 'Delete',
+        icon: faTriangleExclamation,
+        title: 'Xóa Người Dùng',
+        description:
+            'Khi bạn “Xác Nhận” thì Người Dùng này sẽ bị xóa khỏi hệ thống .',
+            form:true,
+    },
+             {
+        id: 'block',
+        icon: faTriangleExclamation,
+        title: 'Khóa Tài Khoản Người Dùng',
+        description:
+            'Khi bạn “Xác Nhận” thì Người Dùng này sẽ bị khóa tài khoản .', 
+    },
+           {
+        id: 'Deletestore',
+        icon: faTriangleExclamation,
+        title: 'Xóa Cửa Hàng',
+        description:
+            'Khi bạn “Xác Nhận” thì Cửa Hàng này sẽ bị xóa khỏi hệ thống và gửi lý do đên chủ cửa hàng  .',
+    },
+             {
+        id: 'blockstore',
+        icon: faTriangleExclamation,
+        title: 'Khóa Tài Khoản Cửa Hàng',
+        description:
+            'Khi bạn “Xác Nhận” thì Cửa Hàng này sẽ bị khóa tài khoản .', 
+    },
 ];
 
 const slideImage = [
@@ -771,7 +976,24 @@ const listSelect = [
     {label: "Tuần 5",value:"5",queryKey: 'Week'},
     ]
     },
-
+        {
+    id: 7,
+    name: "Trạng Thái",
+     children: [
+            { label: 'Người bán', value: 'cancelled', queryKey: 'status' },
+            { label: 'Khách Hàng', value: 'approved', queryKey: 'status' },
+            { label: 'Khóa', value: 'block', queryKey: 'status' },
+        ],
+    },
+            {
+    id: 8,
+    name: "Trạng Thái",
+     children: [
+            { label: 'Chưa Duyệt', value: 'cancelled', queryKey: 'status' },
+            { label: 'Hoạt Động', value: 'approved', queryKey: 'status' },
+            { label: 'Khóa', value: 'block', queryKey: 'status' },
+        ],
+    },
 
 
 ];
@@ -817,7 +1039,6 @@ const listOrder = [
     {
         id: 3,
         idUser:1,
-
         code: 'DH00125',
         status: 'cancelled',
         product: {
@@ -837,6 +1058,83 @@ const listOrder = [
     },
     {
         id: 4,
+        idUser:1,
+        code: 'DH00126',
+        status: 'pending',
+        product: {
+            idOrder:1004,
+            name: 'Mè Xửng Huế',
+            price: 281000,
+            quantity: 1,
+            description: 'Địa Chỉ Giao : 126 Nguyễn Kim Thành, ...',
+            receiverName: 'Nguyễn Phúc An',
+            phone: '0357284698',
+        },
+        discount: 50000,
+        shippingFee: 20000,
+        orderTime: '19/07/2025 - 10:15 AM',
+        img: images.keoCuDo,
+    },
+    {
+        id: 5,
+        idUser:1,
+        code: 'DH00123',
+        status: 'approved',
+        product: {
+            name: 'Mè Xửng Huế',
+            idOrder:1001,
+            price: 281000,
+            quantity: 1,
+            description: 'Địa Chỉ Giao : 126 Nguyễn Kim Thành, ...',
+            receiverName: 'Nguyễn Phúc An',
+            phone: '0357284698',
+        },
+        discount: 50000,
+        shippingFee: 20000,
+        orderTime: '19/07/2025 - 10:15 AM',
+        img: images.keoCuDo,
+    },
+    {
+        id: 6,
+        idUser:1,
+        code: 'DH00124',
+        status: 'shipping',
+        product: {
+            idOrder:1002,
+            name: 'Mè Xửng Huế',
+            price: 281000,
+            quantity: 1,
+            description: 'Địa Chỉ Giao : 126 Nguyễn Kim Thành, ...',
+            receiverName: 'Nguyễn Phúc An',
+            phone: '0357284698',
+        },
+        discount: 50000,
+        shippingFee: 20000,
+        orderTime: '19/07/2025 - 10:15 AM',
+        img: images.keoCuDo,
+    },
+    {
+        id: 7,
+        idUser:1,
+        code: 'DH00125',
+        status: 'cancelled',
+        product: {
+            idOrder:1003,
+            name: 'Mè Xửng Huế',
+            price: 281000,
+            quantity: 1,
+            description: 'Địa Chỉ Giao : 126 Nguyễn Kim Thành, ...',
+            receiverName: 'Nguyễn Phúc An',
+            phone: '0357284698',
+        },
+        discount: 50000,
+        shippingFee: 20000,
+        orderTime: '19/07/2025 - 10:15 AM',
+        reason: 'Thông tin đơn hàng không hợp lệ',
+        img: images.keoCuDo,
+    },
+    {
+        id: 8,
         idUser:1,
         code: 'DH00126',
         status: 'pending',
@@ -1034,6 +1332,118 @@ const listNotification = [
         isRead: true,
     },
 ];
+const listNotificationSell = [
+    {
+        id: 1,
+        roll:'user',
+        senderId: 1001,
+        receiverId: 1,
+        content: `Đơn hàng mới từ Nguyễn Văn A (#DH00123) – 1.250.000₫.
+Địa chỉ: 123 Đường ABC, Q.1, TP.HCM
+SĐT: 0987 123 456`,
+        timestamp: '2025-08-14T09:30:00',
+        isRead: false,
+    },
+    {
+        id: 2,
+        roll:'user',
+        senderId: 1002,
+        receiverId: 1,
+        content: `Đơn hàng mới từ Nguyễn Văn A (#DH00123) – 1.250.000₫.
+Địa chỉ: 123 Đường ABC, Q.1, TP.HCM
+SĐT: 0987 123 456`,
+        timestamp: '2025-08-14T08:45:00',
+        isRead: true,
+    },
+    {
+        id: 3,
+        roll:'user',
+        senderId: 1001,
+        receiverId: 1,
+        content: `Đơn hàng mới từ Nguyễn Văn A (#DH00123) – 1.250.000₫. Đã Hủy`,
+        timestamp: '2025-08-13T17:20:00',
+        isRead: true,
+    },
+       {
+        id: 4,
+        roll:'user',
+        senderId: 1001,
+        receiverId: 1,
+        content: `Đơn hàng mới từ Nguyễn Văn A (#DH00123) – 1.250.000₫.
+Địa chỉ: 123 Đường ABC, Q.1, TP.HCM
+SĐT: 0987 123 456`,
+        timestamp: '2025-08-14T09:30:00',
+        isRead: false,
+    },
+    {
+        id: 5,
+        roll:'user',
+        senderId: 1002,
+        receiverId: 1,
+        content: `Đơn hàng mới từ Nguyễn Văn A (#DH00123) – 1.250.000₫.
+Địa chỉ: 123 Đường ABC, Q.1, TP.HCM
+SĐT: 0987 123 456`,
+        timestamp: '2025-08-14T08:45:00',
+        isRead: true,
+    },
+    {
+        id: 6,
+        roll:'user',
+        senderId: 1001,
+        receiverId: 1,
+        content: `Đơn hàng mới từ Nguyễn Văn A (#DH00123) – 1.250.000₫. Đã Hủy`,
+        timestamp: '2025-08-13T17:20:00',
+        isRead: true,
+    },
+    
+];
+const listNotificationAdmin = [
+    {
+        id: 1,
+        roll: 'store',
+        senderId: 1,
+        receiverId: 111,
+        content: `Yêu Cầu Mở Cửa Hàng
+Tên cửa hàng: Bếp Nhà
+Giới thiệu cửa hàng: Bếp Nhà là nơi lưu giữ và lan tỏa những hương vị đặc sản đậm chất ...
+SĐT: 0123 851 320`,
+        timestamp: '2025-07-16T10:12:00',
+        isRead: false,
+    },
+        {
+        id: 2,
+        roll: 'user',
+        senderId: 1001,
+        receiverId: 111,
+        content: `Sản phẩm của cửa hàng HuyRon không đảm bảo an toàn vệ sinh thực phẩm yêu cầu
+xóa bỏ sản phẩm mè xửng hoặc khóa cửa hàng`,
+        timestamp: '2025-07-16T10:12:00',
+        isRead: false,
+    },
+        {
+        id: 3,
+        roll: 'store',
+        senderId: 1,
+        receiverId: 111,
+        content: `Yêu Cầu Mở Cửa Hàng
+Tên cửa hàng: Bếp Nhà
+Giới thiệu cửa hàng: Bếp Nhà là nơi lưu giữ và lan tỏa những hương vị đặc sản đậm chất ...
+SĐT: 0123 851 320`,
+        timestamp: '2025-07-16T10:12:00',
+        isRead: false,
+    },
+        {
+        id: 4,
+        roll: 'user',
+        senderId: 1001,
+        receiverId: 111,
+        content: `Sản phẩm của cửa hàng HuyRon không đảm bảo an toàn vệ sinh thực phẩm yêu cầu
+xóa bỏ sản phẩm mè xửng hoặc khóa cửa hàng`,
+        timestamp: '2025-07-16T10:12:00',
+        isRead: false,
+    }
+    
+];
 
 const chatMessages = [
     {
@@ -1173,6 +1583,23 @@ const chatMessages = [
         type: 'text',
     },
 ];
+const datachart=[
+    {
+        id:1,
+        name:"Khách Hàng",
+        value:49,
+    },
+       {
+        id:2,
+        name:"Cửa Hàng",
+        value:30
+    },
+       {
+        id:1,
+        name:"Cửa Hàng Chưa Duyệt",
+        value:21
+    },
+]
 
 export {
     listMenuUser,
@@ -1193,4 +1620,9 @@ export {
     ListBank,
     listNotification,
     chatMessages,
+    listSidebarProfileUser,
+    listSidebarProfileSell,
+    listNotificationSell,
+    listNotificationAdmin,
+    datachart
 };

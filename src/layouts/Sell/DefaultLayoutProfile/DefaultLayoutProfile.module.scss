@@ -1,7 +1,89 @@
-
-.container{
+.container {
     display: flex;
-    width: 90%;
-    max-width: 1200px; /* vẫn giới hạn tối đa */
-    margin: 0 auto; /* căn giữa */
+    flex-direction: column;
+    min-height: 100vh;
+
+    .wrapper {
+        display: flex;
+        flex: 1;
+        width: 100%;
+        max-width: 1200px;
+        margin: 0 auto;
+        margin-bottom: -30px;
+    }
+    .sidebar {
+        width: 380px;
+    }
+
+    .main {
+        flex: 1;
+    }
+}
+
+@media (max-width: 576px) {
+    .wrapper {
+        flex-direction: column;
+    }
+    .sidebar,
+    .main {
+        width: 380px;
+        position: relative;
+        margin: 0 auto;
+    }
+    .icon-back {
+        top:1%;
+        position: absolute;
+        right: 5%;
+        font-size: 2.2rem;
+        background-color: transparent;
+
+        &:hover {
+            color: var(--primary);
+            cursor: pointer;
+        }
+    }
+    .children{
+        margin-top: 50px;
+    }
+}
+@media (min-width: 577px) and (max-width: 768px) {
+    .container {
+        .wrapper {
+            width: 90%;
+        }
+        .sidebar {
+            width: 35%;
+        }
+        .main {
+            flex: 1;
+        }
+    }
+}
+@media (min-width: 769px) and (max-width: 992px) {
+    .container {
+        min-height: 462px;
+        .wrapper {
+            width: 90%;
+        }
+        .sidebar {
+            width: 35%;
+        }
+        .main {
+            flex: 1;
+        }
+    }
+}
+@media (min-width: 993px) and (max-width: 1200px) {
+    .container {
+        min-height: 462px;
+        .wrapper {
+            width: 90%;
+        }
+        .sidebar {
+            width: 35%;
+        }
+        .main {
+            flex: 1;
+        }
+    }
 }

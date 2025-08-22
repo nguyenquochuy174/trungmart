@@ -18,10 +18,17 @@ function ItemProduct({ data }) {
     const [direction, setDirection] = useState('next');
     const [isMobile, setIsMobile] = useState(window.innerWidth <= 576);
     const navigate = useNavigate();
+    
+   const idSell = localStorage.getItem('idSell');
 
-    const handleViewDetail = () => {
+const handleViewDetail = () => {
+    if (idSell) {
+        navigate(`/DetailProductSell/${data.id}`);
+    } else {
         navigate(`/UserDetailProduct/${data.id}`);
-    };
+    }
+};
+
 
     const handlePrev = () => {
         setDirection('prev');

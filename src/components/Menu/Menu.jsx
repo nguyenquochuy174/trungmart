@@ -36,24 +36,29 @@ const Menu = ({ data }) => {
                             )}
                         </Link>
 
-                        {item.children && (
-                            <ul className={cx('dropdownMenu')}>
-                                {item.children.map((child, childIndex) => (
-                                    <li
-                                        key={childIndex}
-                                        className={cx({
-                                            active: isActive(child.path),
-                                        })}
-                                    >
-                                        <Link
-                                            to={`/UserProduct?category=${child.categoryKey}`}
-                                        >
-                                            {child.name}
-                                        </Link>
-                                    </li>
-                                ))}
-                            </ul>
+                       {item.children && (
+                        <ul className={cx('dropdownMenu')}>
+                            {item.children.map((child, childIndex) => (
+                            <li
+                                key={childIndex}
+                                className={cx({
+                                active: isActive(child.path),
+                                })}
+                            >
+                                {child.categoryKey ? (
+                                <Link to={`/UserProduct?category=${child.categoryKey}`}>
+                                    {child.name}
+                                </Link>
+                                ):(
+                                  <Link to={child.path}>
+                                    {child.name}
+                                </Link>
+                                 )}
+                            </li>
+                            ))}
+                        </ul>
                         )}
+
                     </li>
                 );
             })}

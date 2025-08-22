@@ -1,16 +1,16 @@
 import styles from "./StatisticSell.module.scss";
 import { useEffect, useMemo, useState } from 'react';
 import classNames from 'classnames/bind';
-import { listProduct, listSelect } from '~/constant/mock-data';
+import { listProduct, listSelect,listOrder } from '~/constant/mock-data';
 import Select from '~/components/Select/Select';
 import { useSearchParams } from 'react-router-dom';
 import BarChartCustom from '~/components/Chart/Chart';
 import { useCalendarData } from '~/constant/Time';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { 
-  faPen,
-  faUserCheck,
-  faStar,
+  faArrowTrendUp,
+  faComments,
+  faSackDollar,
   faBox
 } from '@fortawesome/free-solid-svg-icons';
 const cx = classNames.bind(styles);
@@ -21,6 +21,9 @@ function StatisticSell() {
  const [Week, setWeek] = useState('');
  const [searchParams, setSearchParams] = useSearchParams();
  const [info, setInfo] = useState([]);
+ const [infoOrder, setInfoOrder] = useState([]);
+
+
  const [Sum,SetSum]=useState(0);
  const idsell = parseInt(localStorage.getItem('idSell'));
 
@@ -30,7 +33,12 @@ function StatisticSell() {
   );
  setInfo(filteredInfo);
  }, [idsell]);
-
+  useEffect(() => {
+ const filteredInfo = listOrder.filter(
+  (msg) => parseInt(msg.idUser) === idsell
+  );
+ setInfoOrder(filteredInfo);
+ }, [idsell]);
  // Cập nhật state từ URL khi load trang
  useEffect(() => {
  const yearParam = searchParams.get('Year');
@@ -131,6 +139,9 @@ setSearchParams(newParams);
     return [];
 }, [calendarData]);
 
+
+const order=infoOrder.reduce((acc,item)=>acc+item.idUser,0);
+const comment = info.reduce((acc, item) => acc + item.reviews, 0);
   return (
     <div className={cx('container')}>
      <div className={cx('contentHeader')}>
@@ -152,32 +163,77 @@ setSearchParams(newParams);
       />
      </div>
      <div className={cx('contentBottom')}>
-     <BarChartCustom data={chartData} />
+      <div className={cx('chart')}>
+        <BarChartCustom data={chartData} />
+      </div>
+     
       <div className={cx('detailBottom')}>
       <h4>Kết Quả Kinh Doanh</h4>
         <div className={cx("itemSta")}>
                   <div className={cx("item")}>
                     <div className={cx('headeritem')}>
                       <FontAwesomeIcon icon={faBox} className={cx("icon")} />
-                      <p>Sản Phẩm</p>
+                      <p>Đơn Hàng</p>
                     </div>
-                    <p>100</p>
+                    <p>{order}</p>
                   </div>
                   <div className={cx("item")}>
                     <div className={cx('headeritem')}>
-                      <FontAwesomeIcon icon={faStar} className={cx("icon")} />
+                      <FontAwesomeIcon icon={faSackDollar} className={cx("icon")} />
                       <p>Doanh Thu</p>
                     </div>
-                    <p>{Sum}</p>
+                    <p>{Sum}.000VNĐ</p>
                   </div>
                   <div className={cx("item")}>
                     <div className={cx('headeritem')}>
-                      <FontAwesomeIcon icon={faUserCheck} className={cx("icon")} />
-                      <p>Tham Gia</p>
+                      <FontAwesomeIcon icon={faComments} className={cx("icon")} />
+                      <p>Đánh Giá</p>
                     </div>
-                    <p> năm</p>
+                    <p>{comment}</p>
                   </div>
+
+            </div>
+           
+              <div className={cx('SanPham')}>
+              <div className={cx('hot')}>
+                <div className={cx('bottomitem')}>
+                  <FontAwesomeIcon icon={faBox} className={cx("icon")} />
+                  <p>Sản Phẩm Nổi Bật</p>
                 </div>
+
+                <div className={cx('listproduct')}>
+                  {infoOrder.map((item) => (
+                    <div key={item.id} className={cx('productHot')}>
+                      <img src={item.img} alt="" />
+                      <div className={cx('contentHot')}>
+                        <b>{item.product.name}</b>
+                        <p>500 lượt bán</p>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              <div className={cx('hot')}>
+                <div className={cx('bottomitem')}>
+                  <FontAwesomeIcon icon={faArrowTrendUp} className={cx("icon")} />
+                  <p>Xu Hướng</p>
+                </div>
+
+                <div className={cx('listproduct')}>
+                  {infoOrder.map((item) => (
+                    <div key={item.id} className={cx('productHot')}>
+                      <img src={item.img} alt="" />
+                      <div className={cx('contentHot')}>
+                        <b>{item.product.name}</b>
+                        <p>500 lượt xem</p>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+
       </div>
        
      </div>

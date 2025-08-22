@@ -1,0 +1,231 @@
+.container {
+  width: 100%;
+  margin-top: 10px;
+  padding: 10px;
+}
+
+.contentedit {
+  width: 100%;
+  height: 49px;
+  border-bottom: 0.5px solid #B3B3B3;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  a {
+    color: #333;
+    &:hover {
+      color: #5C8018;
+    }
+  }
+}
+
+.content {
+  width: 80%;
+  margin: 0 auto; /* căn giữa ngang */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.inputedit {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap; /* thêm để responsive đẹp hơn */
+
+  .inputeditanh {
+    flex: 1;
+    display: flex;
+  }
+
+  .userName {
+    flex: 1;
+    padding: 10px;
+    margin-top: 10px;
+
+    p {
+      margin-bottom: 10px;
+    }
+
+    .editinfo {
+      margin-right: 10px;
+    }
+  }
+
+.Edit {
+  border: 1px solid #000;
+  width: 100%;
+  height: 45px;       /* Chiều cao cố định */
+  padding: 10px;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+.selectBank {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  width: 100%;
+}
+
+}
+
+.userStore {
+  margin-bottom: 20px;
+  width: 100%;
+  padding: 10px;
+
+  .desEdit {
+    width: 100%;
+    border: 1px solid #000;
+    height: 45px;
+    padding: 10px;
+    border-radius: 4px;
+  }
+}
+
+.userAnh {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  width: 100%;
+
+  .editinfo {
+    flex: 0 0 30%;
+  }
+
+  .imgAvatar {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+
+    img {
+      width: 225px;
+      height: 185px;
+      object-fit: cover;
+      border-radius: 8px;
+    }
+  }
+}
+
+.Submit {
+  margin-top: 20px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+@media (max-width: 576px) {
+  .inputedit {
+    flex-direction: column;
+
+    .userName,
+    .walletName {
+      width: 100%;
+    }
+  }
+
+  .userAnh {
+    flex-direction: column;
+  }
+
+  .editinfo {
+    margin-bottom: 10px;
+  }
+
+  .Submit {
+    flex-direction: column;
+    gap: 8px;
+  }
+}
+
+@media (min-width: 577px) and (max-width: 768px) {
+  .container {
+    width: 95%;
+  }
+
+  .inputedit {
+    gap: 14px;
+    flex-direction: column;
+
+    .userName,
+    .walletName {
+      width: 100%;
+    }
+  }
+
+  .userAnh {
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  .Submit {
+    flex-direction: column;
+    width: 100%;
+    gap: 10px;
+  }
+}
+
+@media (min-width: 769px) and (max-width: 992px) {
+  .container {
+    width: 90%;
+  }
+
+  .inputedit {
+    gap: 20px;
+    flex-direction: column;
+
+    .userName,
+    .walletName {
+      width: 100%;
+    }
+  }
+
+  .userAnh {
+    gap: 20px;
+
+    .editinfo {
+      width: 35%;
+    }
+
+    .imgAvatar {
+      width: 65%;
+    }
+  }
+
+  .Submit {
+    gap: 20px;
+  }
+}
+
+@media (min-width: 993px) and (max-width: 1200px) {
+  .container {
+    width: 85%;
+  }
+
+  .inputedit {
+    gap: 24px;
+
+    .userName,
+    .walletName {
+      width: 48%;
+    }
+  }
+
+  .userAnh {
+    gap: 24px;
+
+    .editinfo {
+      width: 30%;
+    }
+
+    .imgAvatar {
+      width: 70%;
+    }
+  }
+}

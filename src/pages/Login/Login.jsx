@@ -34,6 +34,10 @@ function Login() {
             localStorage.setItem('idSell', user.id);
             setError('');
             navigate('/ProductSell');
+        }else if (user.roll === 'admin') {
+            localStorage.setItem('idAd', user.id);
+            setError('');
+            navigate('/StatisAdmin');
         }else{
                 localStorage.setItem('userId', user.id);
                 setError('');

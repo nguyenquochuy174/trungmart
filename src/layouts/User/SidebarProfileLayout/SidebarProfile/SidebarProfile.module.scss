@@ -1,0 +1,144 @@
+.container {
+    width: 30%;
+    border-right: 0.5px solid #dddddd;
+    padding-bottom: 15px;
+
+    .profile {
+        display: flex;
+        align-items: center;
+        justify-content: left;
+        gap: 10px;
+        padding: 15px 10px;
+        border-bottom: 0.5px solid #dddddd;
+
+        img {
+            width: 15%;
+            height: 15%;
+            border-radius: 50%;
+        }
+
+        .content {
+            .name {
+                font-weight: 600;
+            }
+        }
+    }
+
+    .list-info {
+        padding-left: 25px;
+
+        ul {
+            list-style: none;
+            font-size: 1.8rem;
+
+            .listItem {
+                padding: 8px 0;
+
+                .link {
+                    display: flex;
+                    gap: 10px;
+
+                    align-items: center;
+                    color: black;
+                    &.active {
+                        color: var(--primary);
+                    }
+
+                    &:hover {
+                        color: var(--primary);
+                        cursor: pointer;
+                    }
+                }
+            }
+        }
+    }
+}
+@media (max-width: 576px) {
+    .container {
+        width: 380px;
+        padding-bottom: 15px;
+        border-right: 0;
+        margin: 0 auto;
+        .profile {
+            img {
+                width: 10%;
+                height: 10%;
+            }
+        }
+    }
+}
+@media (min-width: 577px) and (max-width: 768px) {
+    .container {
+        width: 30%;
+        padding-bottom: 15px;
+        .profile {
+            img {
+                width: 25%;
+                height: 25%;
+            }
+            .content {
+                .email {
+                    width: 70%;
+                    white-space: nowrap;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                }
+            }
+        }
+        .list-info {
+            ul {
+                font-size: 1.6rem;
+            }
+        }
+    }
+}
+@media (min-width: 769px) and (max-width: 992px) {
+    .container {
+        width: 30%;
+        padding-bottom: 15px;
+        .profile {
+            img {
+                width: 25%;
+                height: 25%;
+            }
+            .content {
+                .email {
+                    width: 80%;
+                    white-space: nowrap;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                }
+            }
+        }
+        .list-info {
+            ul {
+                font-size: 1.7rem;
+            }
+        }
+    }
+}
+@media (min-width: 993px) and (max-width: 1200px) {
+    .container {
+        width: 30%;
+        padding-bottom: 15px;
+        .profile {
+            img {
+                width: 20%;
+                height: 20%;
+            }
+            .content {
+                .email {
+                    width: 70%;
+                    white-space: nowrap;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                }
+            }
+        }
+        .list-info {
+            ul {
+                font-size: 1.8rem;
+            }
+        }
+    }
+}
