@@ -280,12 +280,12 @@ function ManagerUser() {
               </div>
               <div className={cx('menu')}>
                 <div className={cx('infomenu')}>
-                  <p>Tên Cửa Hàng</p>
+                  <p className={cx('name')}>Tên Cửa Hàng</p>
                   <p className={cx('address')}>Địa Chỉ</p>
                 </div>
                 <div className={cx('infoendmenu')}>
-                  <p>Tên Chủ Cửa hàng</p>
-                  <p>Trạng Thái</p>
+                  <p className={cx('namestore')}>Tên Chủ Cửa hàng</p>
+                  <p className={cx('interface')}>Trạng Thái</p>
                 </div>
               </div>
             </div>
@@ -293,13 +293,16 @@ function ManagerUser() {
           {currentData.map((item, index) => (
             <Link to={`/StoreAdmin/${item.id}`} key={item.id}>
                 <div className={cx('itemManager')}>
+                  <div className={cx('infostart')}>
                   <div className={cx('imgAvatar')}>
                     <img src={item.avatar} alt="" />
+                     <p>{item.name}</p>
                   </div>
                   <div className={cx('info')}>
-                    <p>{item.name}</p>
                     <p>{item.address}</p>
                   </div>
+                  </div>
+                  
                   <div className={cx('infoend')}>
                     <div className={cx('display')}>
                       <p>{storeUser(item.id)}</p>
@@ -340,7 +343,7 @@ function ManagerUser() {
           <div className={cx('modalOverlay')}>
             <div className={cx('modalContent')}>
               <FormApprove
-                data={reportForm[4]}
+                data={reportForm[6]}
                 onClose={() => setShowDeleteFormstore(false)}
                 form
               />
@@ -351,7 +354,7 @@ function ManagerUser() {
           <div className={cx('modalOverlay')}>
             <div className={cx('modalContent')}>
               <FormApprove
-                data={reportForm[5]}
+                data={reportForm[7]}
                 onClose={() => setShowReportFormstore(false)}
                 form
               />
@@ -362,7 +365,7 @@ function ManagerUser() {
           <div className={cx('modalOverlay')}>
             <div className={cx('modalContent')}>
               <FormApprove
-                data={reportForm[9]}
+                data={reportForm[8]}
                 onClose={() => setShowUnblockFormstore(false)}
               />
             </div>

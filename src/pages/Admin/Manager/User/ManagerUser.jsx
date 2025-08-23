@@ -29,7 +29,7 @@ function ManagerUser() {
 
 
   const statusMapUser = {
-    Sell: ['sell', 'Người Bán'],
+    Sell: ['user', 'Khách Hàng'],
     block: ['block', 'Khóa'],
     user: ['user', 'Khách Hàng'],
   };
@@ -58,9 +58,7 @@ function ManagerUser() {
     if (item.roll?.toLowerCase() === 'admin') return false;
 
     const matchStatus =
-      filters.status === 'cancelled'
-        ? item.roll?.toLowerCase() === 'sell'
-        : filters.status === 'block'
+     filters.status === 'block'
         ? item.roll === 'block'
         : true;
 
@@ -270,25 +268,29 @@ function ManagerUser() {
             </div>
             <div className={cx('menu')}>
               <div className={cx('infomenu')}>
-                <p>Tên Người Dùng</p>
-                <p>Email</p>
+                <p className={cx('name')}>Tên Người Dùng</p>
+                <p className={cx('address')} >Email</p>
               </div>
               <div className={cx('infoendmenu')}>
-                <p className={cx('address')}>Địa Chỉ</p>
-                <p>Trạng Thái</p>
+                <p className={cx('namestore')}>Địa Chỉ</p>
+                <p className={cx('interface')}>Trạng Thái</p>
               </div>
             </div>
           </div>
 
           {currentData.map((item, index) => (
             <div key={item.id} className={cx('itemManager')}>
-              <div className={cx('imgAvatar')}>
+                <div className={cx('infostart')}>
+                   <div className={cx('imgAvatar')}>
                 <img src={item.avatar} alt="" />
-              </div>
-              <div className={cx('info')}>
                 <p>{item.name}</p>
+              </div>
+               
+             
+              <div className={cx('info')}>         
                 <p>{item.email}</p>
               </div>
+               </div>
               <div className={cx('infoend')}>
                 <div className={cx('display')}>
                   <p>{item.address}</p>

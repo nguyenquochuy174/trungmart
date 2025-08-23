@@ -234,8 +234,7 @@ const listMenuUser = [
 
 const listMenuAdmin = [
     { name: 'Thống Kế', path: '/StatisAdmin' },
-    { name: 'Giới Thiệu', path: '/IntroduceAdmin' },
-    { name: 'Quản Lý', path: '/ManagerUser',
+     { name: 'Quản Lý', path: '/ManagerUser',
         children: [
             {
                 name: 'Người Dùng',
@@ -247,6 +246,8 @@ const listMenuAdmin = [
             },
         ],
     },
+    { name: 'Giới Thiệu', path: '/IntroduceAdmin' },
+   
 ];
 
 const listMenuSell = [
@@ -1056,7 +1057,6 @@ const listSelect = [
     id: 7,
     name: "Trạng Thái",
      children: [
-            { label: 'Người bán', value: 'cancelled', queryKey: 'status' },
             { label: 'Khách Hàng', value: 'approved', queryKey: 'status' },
             { label: 'Khóa', value: 'block', queryKey: 'status' },
         ],
