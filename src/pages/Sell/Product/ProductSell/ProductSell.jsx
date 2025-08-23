@@ -160,8 +160,10 @@ function Product() {
             }
         });
         setSearchParams(searchParams);
-        setCurrentPage(1);
     };
+      useEffect(() => {
+    setCurrentPage(1);
+  }, [filters]);
     const handleResetFilters = () => {
         setSearchParams({});
         setCurrentPage(1);

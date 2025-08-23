@@ -59,21 +59,21 @@ function DetailStoreAdmin() {
                                     <div className={cx('NameSell')}>
                                         <div className={cx('Name')}>
                                             <p>Tên</p>
-                                            <b>{info.Name}</b>
+                                            <p>{info.Name}</p>
                                         </div>
                                         <div className={cx('Name')}>
                                             <p>Họ Đệm</p>
-                                            <b>{info.LastName}</b>
+                                            <p>{info.LastName}</p>
                                         </div>
                                     </div>
                                     <div className={cx('NameSell')}>
                                         <div className={cx('Name')}>
                                             <p>Ngày Sinh</p>
-                                            <b>{info.Date}</b>
+                                            <p>{info.Date}</p>
                                         </div>
                                         <div className={cx('Name')}>
                                             <p>Giới Tính</p>
-                                            <b>{info.Gender}</b>
+                                            <p>{info.Gender}</p>
                                         </div>
                                     </div>
                                 </div>
@@ -86,11 +86,11 @@ function DetailStoreAdmin() {
                                     <div className={cx('NameSell')}>
                                         <div className={cx('Name')}>
                                             <p>Email</p>
-                                            <b>{info.Email}</b>
+                                            <p>{info.Email}</p>
                                         </div>
                                         <div className={cx('Name')}>
                                             <p>Điện Thoại</p>
-                                            <b>{info.Phone}</b>
+                                            <p>{info.Phone}</p>
                                         </div>
                                     </div>
                                 </div>
@@ -102,11 +102,11 @@ function DetailStoreAdmin() {
                                 <div className={cx('NameSell')}>
                                     <div className={cx('Name')}>
                                         <p>Facebook</p>
-                                        <b>{info.Facebook}</b>
+                                        <p>{info.Facebook}</p>
                                     </div>
                                     <div className={cx('Name')}>
                                         <p>TikTok</p>
-                                        <b>{info.Tiktok}</b>
+                                        <p>{info.Tiktok}</p>
                                     </div>
                                 </div>
                             </div>

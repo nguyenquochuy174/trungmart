@@ -3,6 +3,7 @@ import classNames from "classnames/bind";
 import { listinfoSell } from "~/constant/mock-data";
 import Button from '~/components/Button/Button';
 import { useState,useEffect} from 'react';
+import { Link } from "react-router-dom";
 
 const cx = classNames.bind(styles);
 
@@ -91,12 +92,15 @@ function ProfileSellEdit() {
             
           </div>
           <div className={cx('Submit')} >
-                  <Button primary large style={{ width: '50%' }}>
+                 <Button primary large style={{ width: '50%' }}>
                                 Lưu
                 </Button>
+               <Link to="/ProfileSell" style={{ textDecoration: 'none', width:'100%',display:'flex',justifyContent:'center'}}>
                 <Button outline large style={{ width: '50%' }}>
-                                Hủy
+                  Hủy
                 </Button>
+              </Link>
+
           </div>
         
         </div>

@@ -4,6 +4,7 @@ import { useState,useEffect } from 'react';
 import { listinforWalletSell, ListBank } from '~/constant/mock-data';
 import Select from "react-select";
 import Button from '~/components/Button/Button';
+import { Link } from "react-router-dom";
 
 
 const cx = classNames.bind(styles);
@@ -81,9 +82,11 @@ const options = ListBank.map(item => ({
                   <Button primary large >
                                 Lưu
                 </Button>
-                <Button outline large >
-                                Hủy
+                 <Link to="/WalletSell" style={{ textDecoration: 'none', width:'40%',display:'flex',justifyContent:'center'}}>
+                <Button outline large style={{ width: '50%' }}>
+                  Hủy
                 </Button>
+              </Link>
           </div>
             
           </div>

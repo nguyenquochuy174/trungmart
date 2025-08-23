@@ -7,6 +7,7 @@ import { useState, useEffect } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { 
 } from '@fortawesome/free-solid-svg-icons';
+import { Link } from "react-router-dom";
 
 const cx = classNames.bind(styles);
 function StoreSellEdit() {
@@ -139,9 +140,11 @@ function StoreSellEdit() {
                   <Button primary large style={{ width: '50%' }}>
                                 Lưu
                 </Button>
-                <Button outline large style={{ width: '50%' }}>
-                                Hủy
+                <Link to="/StoreSell" style={{ textDecoration: 'none', width:'50%',display:'flex',justifyContent:'center'}}>
+                <Button outline large style={{ width: '100%' }}>
+                  Hủy
                 </Button>
+              </Link>
           </div>
             
           

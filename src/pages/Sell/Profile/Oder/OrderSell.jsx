@@ -36,16 +36,20 @@ const filteredOrders = useMemo(() => {
         return matchSeller && matchStatus;
     });
 }, [idsell, filters]);
+  useEffect(() => {
+    setCurrentPage(1);
+  }, [filters.status]);
     // chon select
-    const handleFilterChange=(value)=>{
-        if(!value || value==='Tất Cả'){
-            searchParams.delete('status')
-        }else{
-            searchParams.set('status',value)
-        }
-        setSearchParams(searchParams);
-        setCurrentPage(1);
+const handleFilterChange = (value) => {
+    const newParams = new URLSearchParams(searchParams); 
+    if (!value || value === 'Tất Cả') {
+        newParams.delete('status');
+    } else {
+        newParams.set('status', value);
     }
+    setSearchParams(newParams); 
+};
+
        // phân trang
         const totalPages = Math.ceil(filteredOrders.length / OrderPage);
     const getPaginationRange = (currentPage, totalPages, delta = 2) => {
@@ -142,15 +146,14 @@ const TongTien = (item) => {
     <div className={cx('container')}>
         <div className={cx('contentHeader')}>
             <h4>Tổng Quan Đơn Hàng</h4>
-            <Select
-                data={listSelect[2]}
-                value={filters.status||'Tất Cả'}
-                onChange={(value)=>{
-                    handleFilterChange({
-                        status: value||'Tất Cả',
-                    })
-                }}
-            />
+        <Select
+            data={listSelect[2]}
+            value={filters.status || 'Tất Cả'}
+            onChange={(value) => {
+                handleFilterChange(value || 'Tất Cả')
+            }}
+        />
+
         </div>
         <div className={cx('contentBottom')}>
                 {currentorder.map((item,index)=>(
