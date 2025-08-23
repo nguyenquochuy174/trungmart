@@ -10,9 +10,9 @@ import PieChartCustom from '~/components/Chart/PieChar';
 import { useCalendarData } from '~/constant/Time';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { 
-  faComments,
-  faSackDollar,
-  faBox
+  faShopLock,
+  faStore,
+  faUserGroup,
 } from '@fortawesome/free-solid-svg-icons';
 const cx = classNames.bind(styles);
 function StatisticSell() {
@@ -124,6 +124,7 @@ const cancelledStore=storeList.filter(item=> item.status==='cancelled').length;
      <div className={cx('contentHeader')}>
 
       <h4>Tổng Quan Báo Cáo</h4>
+      <div className={cx('selectTime')}>
       <Select
        data={listSelect[3]}
        value={Year}
@@ -139,26 +140,28 @@ const cancelledStore=storeList.filter(item=> item.status==='cancelled').length;
        value={Week}
        onChange={(value) => handleFilterChange(Year, Month, value)}
       />
+      </div>
+      
      </div>
      <div className={cx('contentBottom')}>
                    <div className={cx("itemSta")}>
                   <div className={cx("item")}>
                     <div className={cx('headeritem')}>
-                      <FontAwesomeIcon icon={faBox} className={cx("icon")} />
+                      <FontAwesomeIcon icon={faUserGroup} className={cx("icon")} />
                       <p>Khách Hàng</p>
                     </div>
                     <p>{soluongUser}</p>
                   </div>
                   <div className={cx("item")}>
                     <div className={cx('headeritem')}>
-                      <FontAwesomeIcon icon={faSackDollar} className={cx("icon")} />
+                      <FontAwesomeIcon icon={faShopLock} className={cx("icon")} />
                       <p>Cửa Hàng Chưa Duyệt</p>
                     </div>
                     <p>{cancelledStore}</p>
                   </div>
                   <div className={cx("item")}>
                     <div className={cx('headeritem')}>
-                      <FontAwesomeIcon icon={faComments} className={cx("icon")} />
+                      <FontAwesomeIcon icon={faStore} className={cx("icon")} />
                       <p>Cửa Hàng</p>
                     </div>
                     <p>{aprrovedStore}</p>

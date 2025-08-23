@@ -1,7 +1,7 @@
 import classNames from 'classnames/bind';
 import styles from './ItemManager.module.scss';
 import FormApprove from '~/components/FormApprove/FormApprove';
-import { storeList, listUser, reportForm } from '~/constant/mock-data';
+import { storeList, listUser, reportForm,listinfoSell } from '~/constant/mock-data';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEye, faEyeSlash, faTrash } from '@fortawesome/free-solid-svg-icons';
 import { useState } from 'react';
@@ -18,6 +18,9 @@ function ItemManager({ data, area, status }) {
   const [showReportForm, setShowReportForm] = useState(false);
   const [showDeleteFormstore, setShowDeleteFormstore] = useState(false);
   const [showReportFormstore, setShowReportFormstore] = useState(false);
+   const [showUnblockFormstore, setShowUnblockFormstore] = useState(false);
+   const [showUnblockFormUser, setShowUnblockFormUser] = useState(false);
+
 
   const statusMapUser = {
     Sell: ['sell', 'Người Bán'],
@@ -42,8 +45,8 @@ function ItemManager({ data, area, status }) {
   };
 
   const storeUser = (id) => {
-    const store = listUser.find((item) => item.id === id);
-    return store ? store.name : '';
+    const store = listinfoSell.find((item) => item.idstore === id);
+    return store ? (store.LastName+" "+store.Name) : '';
   };
 
   const filteredUsers = listUser.filter((item) => {
@@ -120,11 +123,17 @@ function ItemManager({ data, area, status }) {
                       className={cx('iconEye')}
                       onMouseEnter={() => setHover(`user-${index}`)}
                       onMouseLeave={() => setHover(null)}
-                      onClick={() => setShowReportForm(true)}
+                      onClick={() =>
+                            item.roll === 'block'
+                                ? setShowUnblockFormUser(true)
+                                : setShowReportForm(true)
+                        }
+                     
                     />
                     <FontAwesomeIcon
                       icon={faTrash}
                       className={cx('delete')}
+                      
                       onClick={() => setShowDeleteForm(true)}
                     />
                   </div>
@@ -152,7 +161,7 @@ function ItemManager({ data, area, status }) {
           </div>
 
           {filteredStores.map((item, index) => (
-            <Link to={`DetailProductAdmin/${item.id}`} key={item.id}>
+            <Link to={`/StoreAdmin/${item.id}`} key={item.id}>
               <div className={cx('itemManager')}>
                 <div className={cx('imgAvatar')}>
                   <img src={item.avatar} alt="" />
@@ -173,9 +182,11 @@ function ItemManager({ data, area, status }) {
                         className={cx('iconEye')}
                         onMouseEnter={() => setHover(`store-${index}`)}
                         onMouseLeave={() => setHover(null)}
-                        onClick={(e) => {
-                          e.preventDefault();
-                          setShowReportFormstore(true);
+                         onClick={(e) =>{
+                            e.preventDefault();
+                            item.status === 'block'
+                                ? setShowUnblockFormstore(true)
+                                : setShowReportFormstore(true)
                         }}
                       />
                       <FontAwesomeIcon
@@ -238,6 +249,26 @@ function ItemManager({ data, area, status }) {
               data={reportForm[7]}
               onClose={() => setShowReportFormstore(false)}
                form
+            />
+          </div>
+        </div>
+      )}
+          {showUnblockFormstore && (
+        <div className={cx('modalOverlay')}>
+          <div className={cx('modalContent')}>
+            <FormApprove
+              data={reportForm[8]}
+              onClose={() => setShowUnblockFormstore(false)}
+            />
+          </div>
+        </div>
+      )}
+          {showUnblockFormUser && (
+        <div className={cx('modalOverlay')}>
+          <div className={cx('modalContent')}>
+            <FormApprove
+              data={reportForm[9]}
+              onClose={() => setShowUnblockFormUser(false)}
             />
           </div>
         </div>

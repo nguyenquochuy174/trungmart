@@ -2,6 +2,7 @@
   width: 100%;
   display: flex;
   flex-direction: column;
+
   .banner{
     display: flex;
     justify-content: center;
@@ -12,9 +13,10 @@
   .menu{
      padding:10px;
     display: flex;
+      border-bottom: 0.5px solid;
     .infomenu{
       display: flex;
-      width: 35%;
+      width: 40%;
       margin-left: 20px;
       justify-content: space-between;
         align-items: center;
@@ -40,7 +42,7 @@ text-decoration: none;
     align-items: center;
     gap:2%;
     padding:10px;
-    font-size: 16px;
+    font-size: 1.6rem;
     border-bottom: 0.5px solid #B3B3B3;
     
     .imgAvatar{
@@ -115,7 +117,7 @@ text-decoration: none;
          justify-content: center;
                
           .iconEye {
-          font-size: 22px;
+          font-size: 2.2rem;
           cursor: pointer;
 
           &:hover {
@@ -124,7 +126,7 @@ text-decoration: none;
         }
 
         .delete {
-          font-size: 22px;
+          font-size: 2.2rem;
           cursor: pointer;
 
           &:hover {
@@ -160,11 +162,18 @@ text-decoration: none;
         display: none; // ẩn email với user
       }
       }
-     
     }
+    .infoendmenu{
+      .address{
+         width: 50%;
+         display: flex;
+         justify-content: center;
+      }
+      }
   }
-  .itemManager
+  .itemManager{
   .info{
+    width: 30%;
       p:nth-child(2) {
         display: none; // ẩn email với user
       }
@@ -172,10 +181,10 @@ text-decoration: none;
   .infoend{
     width: 60%;
      .display{
-          width: 30%;
+          width: 50%;
         }
         .icon{
-          width: 70%;
+          width: 50%;
           flex-direction: column;
           justify-content: center;
           align-items: center;
@@ -190,15 +199,127 @@ text-decoration: none;
         }
 
   }
-
+  }
 }
 @media (min-width: 577px) and (max-width: 768px) {
+  .title{
+    .menu{
+      .infomenu{
+           p:nth-child(2) {
+        display: none; // ẩn email với user
+      }
+      }
+     
+    }
+  }
+  .itemManager{
+  .info{
+        width: 25%;
 
+      p:nth-child(2) {
+        display: none; // ẩn email với user
+      }
+  }
+  .infoend{
+    width: 70%;
+     .display{
+          width: 50%;
+        }
+        .icon{
+          width: 40%;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+          gap:10px;
+               .iconaction{
+                 width: 100%;
+             
+              }
+                 .status{
+                  width: 100%;
+                }
+        }
+
+  }
+  }
 }
-@media (min-width: 769px) and (max-width: 992px) {
 
+@media (min-width: 769px) and (max-width: 992px) {
+   .title{
+    .menu{
+      .infomenu{
+         width: 50%;
+         justify-content: space-between;
+      }
+      
+     
+    }
+    .infoendmenu{
+      .address{
+         width: 50%;
+         display: flex;
+         justify-content: center;
+      }
+      }
+     
+    }
+  .itemManager{
+    .info{
+        width: 70%;
+  }
+  .infoend{
+     .display{
+      width: 50%;
+        }
+        .icon{
+          width: 50%;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+          gap:10px;
+               .iconaction{
+                 width: 100%;
+             
+              }
+                 .status{
+                  width: 100%;
+                }
+        }
+
+  }
+}
 }
 @media (min-width: 993px) and (max-width: 1200px) {
+    .title{
+    .infoendmenu{
+      .address{
+         width: 50%;
+         display: flex;
+         justify-content: center;
+      }
+      }
+     
+    }
+  .itemManager{
+  .infoend{
+     .display{
+      width: 40%;
+        }
+        .icon{
+          width: 40%;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+          gap:10px;
+               .iconaction{
+                 width: 100%;
+             
+              }
+                 .status{
+                  width: 100%;
+                }
+        }
 
+  }
 }
-
+}

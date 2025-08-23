@@ -11,7 +11,7 @@ function ProfileSellEdit() {
       const idsell = parseInt(localStorage.getItem('idSell'))
        useEffect(() => {
   const filteredInfo = listinfoSell.filter(
-    (msg) => parseInt(msg.idUser) === idsell
+    (msg) => parseInt(msg.id) === idsell
   );
   setInfo(filteredInfo);
 }, [idsell]);

@@ -235,14 +235,15 @@ const publicRoutes = [
         layout: DefaultLayoutAdmin,
     },
 
-    { path: '/StoreAdmin', component: StoreAdmin, layout: DefaultLayoutAdmin },
+    
+    { path: '/StoreAdmin/:id', component: StoreAdmin, layout: DefaultLayoutAdmin },
     {
-        path: '/DetailStoreAdmin',
+        path: '/DetailStoreAdmin/:id',
         component: DetailStoreAdmin,
         layout: DefaultLayoutAdmin,
     },
     {
-        path: '/ProductAdmin',
+        path: '/ProductAdmin/:id',
         component: ProductAdmin,
         layout: DefaultLayoutAdmin,
     },

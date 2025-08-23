@@ -1,5 +1,6 @@
 .container {
-  width: 100%;
+  width: 1200px;
+  margin: 0 auto;
   margin-top: 10px;
   padding: 10px;
 }
@@ -121,6 +122,10 @@
 }
 
 @media (max-width: 576px) {
+
+  .container {
+    width: 100%;
+}
   .inputedit {
     flex-direction: column;
 

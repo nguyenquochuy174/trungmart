@@ -379,7 +379,7 @@ const storeList = [
             'Hoàn tiền nếu sản phẩm không đạt yêu cầu',
         ],
         area: 'hatinh',
-        status:'approved'
+        status:'block'
     },
     {
         id: 5,
@@ -554,7 +554,7 @@ const listProduct = [
             { id: 2, url: images.banhLoc.img2, alt: 'Bánh bột lọc Huế' },
         ],
         totalStars: 100,
-        reviews: 23,
+        reviews: 35,
     },
     {
         id: 11,
@@ -623,7 +623,7 @@ const listProduct = [
         idStore: '1',
         image: [{ id: 1, url: images.tra, alt: 'Trà cung đình Huế' }],
         totalStars: 100,
-        reviews: 21,
+        reviews: 35,
     },
     {
         id: 16,
@@ -798,6 +798,20 @@ const reportForm = [
         description:
             'Khi bạn “Xác Nhận” thì Cửa Hàng này sẽ bị khóa tài khoản .', 
     },
+               {
+        id: 'blockstore',
+        icon: faTriangleExclamation,
+        title: 'Mở Khóa Tài Khoản Cửa Hàng',
+        description:
+            'Khi bạn “Xác Nhận” thì Cửa Hàng này sẽ Hoạt Động Lại .', 
+    },
+                 {
+        id: 'blockuser',
+        icon: faTriangleExclamation,
+        title: 'Mở Khóa Tài Khoản ',
+        description:
+            'Khi bạn “Xác Nhận” thì Tài Khoản này sẽ Hoạt Động Lại .', 
+    },
 ];
 
 const slideImage = [
@@ -830,7 +844,7 @@ const featuredCategories = [
 ];
 const listinfoSell = [
     {
-        idUser:1,
+        idstore:1,
         id: 1,
         Name: 'An',
         LastName: 'Nguyễn Phúc',
@@ -845,8 +859,69 @@ const listinfoSell = [
         password:'123'
     },
         {
+        idstore:2,
         id: 2,
         Name: 'Mạnh',
+        LastName: 'Nguyễn Hoàng',
+        Date: '28/05/20005',
+        Gender: 'Nam',
+        Email: 'n24@gmail.com',
+        Phone: '01659835717',
+        Facebook: 'trungmart',
+        Tiktok: 'trungmart@168',
+        Avatar: images.avatar,
+        Address: 'thôn, Phước Thanh, xã Quảng Điền, TP. Huế',
+        password:'1235'
+    },
+           {
+        idstore:3,
+        id: 3,
+        Name: 'Mạnh',
+        LastName: 'Nguyễn Hoàng',
+        Date: '28/05/20005',
+        Gender: 'Nam',
+        Email: 'n24@gmail.com',
+        Phone: '01659835717',
+        Facebook: 'trungmart',
+        Tiktok: 'trungmart@168',
+        Avatar: images.avatar,
+        Address: 'thôn, Phước Thanh, xã Quảng Điền, TP. Huế',
+        password:'1235'
+    },
+           {
+        idstore:4,
+        id: 4,
+        Name: 'Cường',
+        LastName: 'Nguyễn Hoàng',
+        Date: '28/05/20005',
+        Gender: 'Nam',
+        Email: 'n24@gmail.com',
+        Phone: '01659835717',
+        Facebook: 'trungmart',
+        Tiktok: 'trungmart@168',
+        Avatar: images.avatar,
+        Address: 'thôn, Phước Thanh, xã Quảng Điền, TP. Huế',
+        password:'1235'
+    },
+           {
+        idstore:5,
+        id: 5,
+        Name: 'Tiến',
+        LastName: 'Nguyễn Hoàng',
+        Date: '28/05/20005',
+        Gender: 'Nam',
+        Email: 'n24@gmail.com',
+        Phone: '01659835717',
+        Facebook: 'trungmart',
+        Tiktok: 'trungmart@168',
+        Avatar: images.avatar,
+        Address: 'thôn, Phước Thanh, xã Quảng Điền, TP. Huế',
+        password:'1235'
+    },
+    {
+        idstore:6,
+        id: 6,
+        Name: 'Dũng',
         LastName: 'Nguyễn Hoàng',
         Date: '28/05/20005',
         Gender: 'Nam',
@@ -1624,5 +1699,6 @@ export {
     listSidebarProfileSell,
     listNotificationSell,
     listNotificationAdmin,
-    datachart
+    datachart,
+
 };

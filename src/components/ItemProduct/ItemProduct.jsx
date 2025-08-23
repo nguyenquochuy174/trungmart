@@ -20,11 +20,14 @@ function ItemProduct({ data }) {
     const navigate = useNavigate();
     
    const idSell = localStorage.getItem('idSell');
+   const idAd = localStorage.getItem('idAd');
 
 const handleViewDetail = () => {
     if (idSell) {
         navigate(`/DetailProductSell/${data.id}`);
-    } else {
+    }else if(idAd){
+            navigate(`/DetailProductAdmin/${data.id}`);
+    }else {
         navigate(`/UserDetailProduct/${data.id}`);
     }
 };

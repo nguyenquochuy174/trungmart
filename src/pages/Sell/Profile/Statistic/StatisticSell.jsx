@@ -11,7 +11,8 @@ import {
   faArrowTrendUp,
   faComments,
   faSackDollar,
-  faBox
+  faBox,
+  faStar
 } from '@fortawesome/free-solid-svg-icons';
 const cx = classNames.bind(styles);
 function StatisticSell() {
@@ -142,10 +143,18 @@ setSearchParams(newParams);
 
 const order=infoOrder.reduce((acc,item)=>acc+item.idUser,0);
 const comment = info.reduce((acc, item) => acc + item.reviews, 0);
+const threshold = 25; 
+const thresta = 110; 
+const trendProducts = info.filter(item => item.totalStars > thresta);
+const hotProducts = info.filter(item => item.reviews > threshold);
   return (
     <div className={cx('container')}>
      <div className={cx('contentHeader')}>
+       
+          <div className={cx('title')}>
       <h4>Tổng Quan Báo Cáo</h4>
+      </div>
+      <div className={cx('selectitem')}> 
       <Select
        data={listSelect[3]}
        value={Year}
@@ -162,13 +171,16 @@ const comment = info.reduce((acc, item) => acc + item.reviews, 0);
        onChange={(value) => handleFilterChange(Year, Month, value)}
       />
      </div>
+     </div>
      <div className={cx('contentBottom')}>
       <div className={cx('chart')}>
         <BarChartCustom data={chartData} />
       </div>
      
       <div className={cx('detailBottom')}>
-      <h4>Kết Quả Kinh Doanh</h4>
+        
+             <h4>Kết Quả Kinh Doanh</h4>
+     
         <div className={cx("itemSta")}>
                   <div className={cx("item")}>
                     <div className={cx('headeritem')}>
@@ -192,7 +204,8 @@ const comment = info.reduce((acc, item) => acc + item.reviews, 0);
                     <p>{comment}</p>
                   </div>
 
-            </div>
+        </div>
+        
            
               <div className={cx('SanPham')}>
               <div className={cx('hot')}>
@@ -202,12 +215,13 @@ const comment = info.reduce((acc, item) => acc + item.reviews, 0);
                 </div>
 
                 <div className={cx('listproduct')}>
-                  {infoOrder.map((item) => (
+                 
+                  {trendProducts.map((item) => (
                     <div key={item.id} className={cx('productHot')}>
-                      <img src={item.img} alt="" />
+                      <img src={item.image[0].url} alt="" />
                       <div className={cx('contentHot')}>
-                        <b>{item.product.name}</b>
-                        <p>500 lượt bán</p>
+                        <b>{item.name}</b>
+                        <p>{item.totalStars} <FontAwesomeIcon icon={faStar} className={cx("icon")} /></p>
                       </div>
                     </div>
                   ))}
@@ -221,12 +235,12 @@ const comment = info.reduce((acc, item) => acc + item.reviews, 0);
                 </div>
 
                 <div className={cx('listproduct')}>
-                  {infoOrder.map((item) => (
+                   {hotProducts.map((item) => (
                     <div key={item.id} className={cx('productHot')}>
-                      <img src={item.img} alt="" />
+                      <img src={item.image[0].url} alt="" />
                       <div className={cx('contentHot')}>
-                        <b>{item.product.name}</b>
-                        <p>500 lượt xem</p>
+                        <b>{item.name}</b>
+                        <p>{item.reviews} Đánh Giá</p>
                       </div>
                     </div>
                   ))}

@@ -153,6 +153,13 @@
         }
     }
 }
+ .btn {
+            width: 100%;
+            display: flex;
+            justify-content: end;
+            gap: 30px;
+            padding: 8px 0;
+        }
 
 @media (max-width: 576px) {
     .storeContainer {
