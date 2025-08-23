@@ -102,6 +102,7 @@ function OrderItem({ data }) {
                         <FormApprove
                             data={reportForm[2]}
                             onClose={() => setShowEvaluateForm(false)}
+                            form
                         />
                     </div>
                 </div>
@@ -112,6 +113,7 @@ function OrderItem({ data }) {
                         <FormApprove
                             data={reportForm[1]}
                             onClose={() => setShowCancelForm(false)}
+                            form
                         />
                     </div>
                 </div>

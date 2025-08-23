@@ -1,0 +1,97 @@
+.container {
+    min-height: 48vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    width: 1200px;
+    margin: 0 auto;
+    padding: 10px 0;
+
+    .title {
+        text-align: center;
+        font-size: 2.2rem;
+        padding: 7px;
+    }
+
+    .banner {
+        display: flex;
+        align-items: center;
+        gap: 60px;
+        padding: 10px 125px 10px 30px;
+        font-size: 1.8rem;
+        border-top: 0.5px solid #dddddd;
+        border-bottom: 0.5px solid #dddddd;
+
+        .bannerFirst {
+            flex: 1;
+        }
+    }
+
+    .payment {
+        margin-top: auto;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        border-top: 0.5px solid #dddddd;
+        padding: 10px 0 0 0;
+
+        .totalAmount {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            font-size: 1.8rem;
+
+            p {
+                font-weight: 500;
+            }
+        }
+    }
+}
+
+@media (max-width: 576px) {
+    .container {
+        width: 380px;
+        .banner {
+            display: none;
+        }
+        .payment {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-top: 0.5px solid #dddddd;
+            padding: 10px 0 20px;
+
+            .totalAmount {
+                gap: 10px;
+                font-size: 1.6rem;
+                p {
+                    font-weight: 500;
+                }
+            }
+        }
+    }
+}
+@media (min-width: 577px) and (max-width: 768px) {
+    .container {
+        width: 90%;
+        .banner {
+            display: none;
+        }
+    }
+}
+@media (min-width: 769px) and (max-width: 992px) {
+    .container {
+        width: 90%;
+        .banner {
+            padding: 8px 100px 8px 30px;
+            font-size: 1.6rem;
+            gap: 40px;
+        }
+    }
+}
+@media (min-width: 993px) and (max-width: 1200px) {
+    .container {
+        width: 90%;
+    }
+}

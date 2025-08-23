@@ -10,7 +10,7 @@ import RatingSelect from '../RatingSelect/RatingSelect';
 
 const cx = classNames.bind(styles);
 
-function FormApprove({ data, onClose }) {
+function FormApprove({ data, onClose, form = false }) {
     const inputRef = useRef(null);
     const [isMobile, setIsMobile] = useState(window.innerWidth <= 576);
     const [inputValue, setInputValue] = useState('');
@@ -70,20 +70,22 @@ function FormApprove({ data, onClose }) {
                 )}
                 <h2>{data.title}</h2>
 
-                <div className={cx('textarea')}>
-                    <input
-                        ref={inputRef}
-                        type="text"
-                        placeholder="Nhập nội dung vào đây..."
-                        value={inputValue}
-                        onChange={(e) => setInputValue(e.target.value)}
-                    />
-                    <FontAwesomeIcon
-                        onClick={handleFocusInput}
-                        icon={faPen}
-                        className={cx('iconPen')}
-                    />
-                </div>
+                {form && (
+                    <div className={cx('textarea')}>
+                        <input
+                            ref={inputRef}
+                            type="text"
+                            placeholder="Nhập nội dung vào đây..."
+                            value={inputValue}
+                            onChange={(e) => setInputValue(e.target.value)}
+                        />
+                        <FontAwesomeIcon
+                            onClick={handleFocusInput}
+                            icon={faPen}
+                            className={cx('iconPen')}
+                        />
+                    </div>
+                )}
                 {error && <p className={cx('errorMessage')}>{error}</p>}
 
                 {data.description && (

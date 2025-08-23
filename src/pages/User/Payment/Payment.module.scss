@@ -1,0 +1,227 @@
+.container {
+    width: 1200px;
+    margin: 0 auto;
+    .title {
+        text-align: center;
+        font-size: 2.2rem;
+        padding: 7px;
+    }
+    .address {
+        border-top: 0.5px solid #dddddd;
+        border-bottom: 0.5px solid #dddddd;
+        .addressChange {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            font-size: 1.6rem;
+            border-bottom: 0.5px solid #dddddd;
+            padding: 8px 15px;
+        }
+        .addresDetail {
+            padding: 16px 40px;
+            ul {
+                display: flex;
+                gap: 40px;
+                align-items: center;
+                list-style: none;
+                font-size: 1.6rem;
+                padding: 0;
+                margin: 0;
+
+                li {
+                    display: flex;
+                    flex-direction: column;
+                    min-width: 0;
+                    flex: 1;
+
+                    .addressText {
+                        width: 100%;
+                        white-space: nowrap;
+                        overflow: hidden;
+                        text-overflow: ellipsis;
+                    }
+                }
+            }
+        }
+    }
+    .banner {
+        display: flex;
+        align-items: center;
+        gap: 60px;
+        padding: 10px 10px 10px 30px;
+        font-size: 1.6rem;
+        border-bottom: 0.5px solid #dddddd;
+        .bannerFirst {
+            flex: 1;
+        }
+    }
+    .note {
+        display: flex;
+        align-items: center;
+        width: 100%;
+        gap: 20px;
+        padding: 12px 30px;
+        border-bottom: 0.5px solid #dddddd;
+        input {
+            width: 90%;
+            height: 45px;
+            border: 1px solid #dbdbdb;
+            border-radius: 4px;
+            font-size: 1.6rem;
+            background-color: #dbdbdb;
+            padding-left: 15px;
+        }
+    }
+    .itemPayment {
+        h3 {
+            padding: 10px 20px;
+            font-size: 1.8rem;
+            border-bottom: 0.5px solid #dddddd;
+        }
+        .checkoutBox {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 20px;
+            border-radius: 8px;
+
+            .paymentMethod {
+                margin-bottom: 20px;
+
+                .paymentSelect {
+                    padding: 8px 10px;
+
+                    font-size: 1.6rem;
+                }
+            }
+
+            .totals {
+                display: flex;
+                flex-direction: column;
+                gap: 10px;
+
+                .totalsRow {
+                    display: flex;
+                    justify-content: space-between;
+                    gap: 50px;
+
+                    span:first-child {
+                        text-align: right;
+                        min-width: 150px;
+                        display: inline-block;
+                    }
+                }
+
+                .totalPrice {
+                    color: red;
+                    font-weight: bold;
+                    font-size: 2rem;
+                }
+            }
+        }
+    }
+    .check {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        border-top: 0.5px solid #dddddd;
+        padding: 10px 20px 20px;
+        strong {
+            color: blue;
+        }
+        .totalAmount {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            font-size: 1.8rem;
+            p {
+                font-weight: 500;
+            }
+        }
+    }
+}
+
+@media (max-width: 576px) {
+    .container {
+        width: 380px;
+        .address {
+            .addresDetail {
+                padding: 16px 20px;
+                ul {
+                    flex-direction: column;
+                    gap: 10px;
+                    align-items: self-start;
+                    li {
+                        width: 100%;
+                        display: flex;
+
+                        .addressText {
+                            width: 100%;
+                            white-space: nowrap;
+                            overflow: hidden;
+                            text-overflow: ellipsis;
+                        }
+                    }
+                }
+            }
+        }
+        .banner {
+            display: none;
+        }
+        .note {
+            gap: 10px;
+            padding: 10px 0;
+            font-size: 1.5rem;
+            p {
+                width: 20%;
+            }
+            input {
+                height: 40px;
+
+                font-size: 1.5rem;
+            }
+        }
+        .itemPayment {
+            .checkoutBox {
+                flex-direction: column;
+            }
+        }
+        .check {
+            flex-direction: column;
+            gap: 20px;
+        }
+    }
+}
+@media (min-width: 577px) and (max-width: 768px) {
+    .container {
+        width: 90%;
+        .banner {
+            display: none;
+        }
+        .note {
+            gap: 10px;
+            padding: 10px 20px;
+            font-size: 1.6rem;
+            p {
+                width: 10%;
+            }
+        }
+    }
+}
+@media (min-width: 769px) and (max-width: 992px) {
+    .container {
+        width: 90%;
+        .note {
+            gap: 10px;
+            padding: 10px 20px;
+            font-size: 1.6rem;
+            p {
+                width: 10%;
+            }
+        }
+    }
+}
+@media (min-width: 993px) and (max-width: 1200px) {
+    .container {
+        width: 90%;
+    }
+}
