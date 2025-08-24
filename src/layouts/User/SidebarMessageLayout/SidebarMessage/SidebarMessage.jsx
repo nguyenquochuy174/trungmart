@@ -3,12 +3,14 @@ import styles from './SidebarMessage.module.scss';
 
 import ItemChat from '~/components/ItemChat/ItemChat';
 import { chatMessages, storeList } from '~/constant/mock-data';
-import { Link } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 
 const cx = classNames.bind(styles);
 
 function SidebarMessage({ className }) {
     const userId = parseInt(localStorage.getItem('userId'));
+    const { shopId } = useParams();
+
     const userChats = chatMessages.filter(
         (msg) => msg.idSend === userId || msg.idReceive === userId,
     );
@@ -25,6 +27,10 @@ function SidebarMessage({ className }) {
         groupedByShop[shopId].push(msg);
     });
 
+    if (shopId && !groupedByShop[shopId]) {
+        groupedByShop[shopId] = [];
+    }
+
     const shopChatList = Object.entries(groupedByShop).map(([shopId, msgs]) => {
         const sorted = msgs.sort((a, b) => new Date(b.time) - new Date(a.time));
         const lastMsg = sorted[0];
@@ -34,8 +40,8 @@ function SidebarMessage({ className }) {
             id: shopInfo?.id,
             name: shopInfo?.name,
             avatar: shopInfo?.avatar,
-            lastMessage: lastMsg.content,
-            time: lastMsg.time,
+            lastMessage: lastMsg?.content || 'Bắt đầu trò chuyện',
+            time: lastMsg?.time || new Date().toISOString(),
         };
     });
 

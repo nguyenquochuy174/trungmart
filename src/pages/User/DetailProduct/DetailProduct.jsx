@@ -24,6 +24,7 @@ import ReviewItem from '~/components/ReviewItem/ReviewItem';
 import FormApprove from '~/components/FormApprove/FormApprove';
 const cx = classNames.bind(styles);
 function DetailProduct() {
+    const userId = localStorage.getItem('userId');
     const { id } = useParams();
     const product = listProduct.find((item) => item.id === Number(id));
     const productImages = product.image || [];
@@ -80,7 +81,8 @@ function DetailProduct() {
         );
     };
     const saveToLocalStorage = (productId, quantity) => {
-        const currentCart = JSON.parse(localStorage.getItem('cart')) || [];
+        const currentCart =
+            JSON.parse(localStorage.getItem(`cart_${userId}`)) || [];
         const existingProductIndex = currentCart.findIndex(
             (item) => item.productId === productId,
         );
@@ -90,8 +92,7 @@ function DetailProduct() {
         } else {
             currentCart.push({ productId, quantity });
         }
-
-        localStorage.setItem('cart', JSON.stringify(currentCart));
+        localStorage.setItem(`cart_${userId}`, JSON.stringify(currentCart));
     };
 
     return (
