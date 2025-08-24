@@ -1,13 +1,15 @@
-import { useLocation } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import classNames from 'classnames/bind';
 import styles from './Payment.module.scss';
 import ItemShopCard from '~/components/ItemShopCard/ItemShopCard';
 import Button from '~/components/Button/Button';
 import { listProduct } from '~/constant/mock-data';
+import { toast, ToastContainer } from 'react-toastify';
 
 const cx = classNames.bind(styles);
 
 function Payment() {
+    const userId = localStorage.getItem('userId');
     const location = useLocation();
 
     const { selectedProducts, productId, quantity } = location.state || {};
@@ -21,7 +23,8 @@ function Payment() {
             cartItems = [{ ...product, quantity }];
         }
     } else {
-        const storedCart = JSON.parse(localStorage.getItem('cart')) || [];
+        const storedCart =
+            JSON.parse(localStorage.getItem(`cart_${userId}`)) || [];
         cartItems = storedCart.map((cartItem) => {
             const product = listProduct.find(
                 (item) => item.id === cartItem.productId,
@@ -33,6 +36,19 @@ function Payment() {
     const totalAmount = cartItems.reduce((total, item) => {
         return total + item.price * item.quantity;
     }, 0);
+
+    const navigate = useNavigate();
+
+    const handleOrder = () => {
+        toast.success('Đặt hàng thành công!');
+        const cart = JSON.parse(localStorage.getItem(`cart_${userId}`)) || [];
+        const orderedIds = cartItems.map((item) => item.id);
+        const updatedCart = cart.filter(
+            (item) => !orderedIds.includes(item.productId),
+        );
+        localStorage.setItem(`cart_${userId}`, JSON.stringify(updatedCart));
+        setTimeout(() => navigate('/UserProfileOrder?status=pending'), 1000);
+    };
 
     return (
         <div className={cx('container')}>
@@ -99,12 +115,13 @@ function Payment() {
                         <strong>Điều khoản TrungMart</strong>
                     </p>
                     <div className={cx('totalAmount')}>
-                        <Button primary small>
+                        <Button primary small onClick={handleOrder}>
                             Đặt hàng
                         </Button>
                     </div>
                 </div>
             </div>
+            <ToastContainer position="top-right" autoClose={2000} />
         </div>
     );
 }

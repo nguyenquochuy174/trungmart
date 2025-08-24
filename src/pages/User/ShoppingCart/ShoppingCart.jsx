@@ -10,11 +10,13 @@ import { toast, ToastContainer } from 'react-toastify';
 const cx = classNames.bind(styles);
 
 function ShoppingCart() {
+    const userId = localStorage.getItem('userId');
     const [cartItems, setCartItems] = useState([]);
-    const [selectedItems, setSelectedItems] = useState([]); // New
+    const [selectedItems, setSelectedItems] = useState([]);
 
     useEffect(() => {
-        const storedCart = JSON.parse(localStorage.getItem('cart')) || [];
+        const storedCart =
+            JSON.parse(localStorage.getItem(`cart_${userId}`)) || [];
         const items = storedCart.map((cartItem) => {
             const product = listProduct.find(
                 (item) => item.id === cartItem.productId,
@@ -22,14 +24,14 @@ function ShoppingCart() {
             return { ...product, quantity: cartItem.quantity };
         });
         setCartItems(items);
-    }, []);
+    }, [userId]);
 
     const updateLocalStorage = (items) => {
         const storedCart = items.map((item) => ({
             productId: item.id,
             quantity: item.quantity,
         }));
-        localStorage.setItem('cart', JSON.stringify(storedCart));
+        localStorage.setItem(`cart_${userId}`, JSON.stringify(storedCart));
     };
 
     const handleQuantityChange = (productId, newQuantity) => {
