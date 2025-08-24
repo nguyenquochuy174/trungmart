@@ -14,11 +14,10 @@ const cx = classNames.bind(styles);
 function AddProductSell() {
   const [bank, setBank] = useState('');
   const { id } = useParams();
-  console.log(id);
   
   const [storeInfo, setStoreInfo] = useState(null);
   const [product, setProduct] = useState(null);
-
+  const [avatarPreview, setAvatarPreview] = useState(null);
     const numericId = parseInt(id, 10); 
   const idsell = parseInt(localStorage.getItem('idSell'));
   useEffect(() => {
@@ -31,6 +30,12 @@ function AddProductSell() {
     setProduct(info);
   }, [numericId]);
 
+  useEffect(()=>{
+    if(product && product.image && product.image.length>0){
+    setAvatarPreview(product.image[0].url)
+
+    }
+  },[product])
   const options = listMenuUser[1].children.map(item => ({
     value: item.name,
     label: (
@@ -108,10 +113,26 @@ function AddProductSell() {
         <div className={cx("userAnh")}>
           <p className={cx("editinfo")}>Ảnh đại diện: </p>
           <div className={cx('imgAvatar')}>
-            <img src={product.image[0].url} alt={product.image[0].alt} />
-            <Button outline large>
-              Chọn ảnh
-            </Button>
+              <img src={avatarPreview} alt="Ảnh đại diện" />
+                    <input
+                        type="file"
+                        id="fileInput"
+                        className={cx('file-input')}
+                        accept="image/*"
+                        onChange={(e) => {
+                            const file = e.target.files[0];
+                            if (file) {
+                                const imageUrl = URL.createObjectURL(file);
+                                setAvatarPreview(imageUrl);
+                            }
+                        }}
+                    />
+                    <label
+                        htmlFor="fileInput"
+                        className={cx('custom-file-label')}
+                    >
+                        Chọn tệp
+                    </label>
           </div>
         </div>
         <div className={cx('Submit')}>

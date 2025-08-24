@@ -152,8 +152,8 @@ function StoreSell() {
                 <b>Thông tin liên hệ</b>
                 <p>Địa chỉ: {storeInfo.address}</p>
                 <p>Số điện thoại: {storeInfo.phone}</p>
-                <p>Website: <a>{storeInfo.website}</a></p>
-                <p>Fanpage: <a>{storeInfo.fanpage}</a></p>
+                <p>Website: {storeInfo.website}</p>
+                <p>Fanpage: {storeInfo.fanpage}</p>
               </div>
             </div>
           </div>

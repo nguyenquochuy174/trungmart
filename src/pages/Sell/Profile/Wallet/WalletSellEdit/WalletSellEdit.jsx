@@ -12,11 +12,6 @@ const cx = classNames.bind(styles);
 function WalletSellEdit() {
   const [bank, setBank] = useState('Tất Cả');
 
-  // đổi ngân hàng
-  const handleBankChange = (value) => {
-    // value là ngân hàng user chọn
-    setBank(value || 'Tất Cả');
-  };
 const options = ListBank.map(item => ({
   value: item.value,
   label: (

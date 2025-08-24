@@ -15,7 +15,6 @@ const cx = classNames.bind(styles);
 function MessageSell() {
     const userId = parseInt(localStorage.getItem('idSell'));
     const { idUser } = useParams();
-    console.log(idUser);
     
     const shop = listUser.find((s) => s.id === parseInt(idUser));
     const [messageInput, setMessageInput] = useState('');
@@ -25,14 +24,14 @@ function MessageSell() {
         const newChatMessages = chatMessages
             .filter(
                 (msg) =>
-                    (msg.idSend === userId && msg.idReceive === shop?.id) ||
-                    (msg.idReceive === userId && msg.idSend === shop?.id),
+                    (msg.idSend === userId && shop && msg.idReceive === shop.id) ||
+                    (msg.idReceive === userId && shop && msg.idSend === shop.id),
             )
             .sort((a, b) => new Date(a.time) - new Date(b.time));
 
         setMessages(newChatMessages);
        
-    }, [chatMessages, idUser]);
+    }, [idUser,shop,userId]);
 
     const messagesEndRef = useRef(null);
 

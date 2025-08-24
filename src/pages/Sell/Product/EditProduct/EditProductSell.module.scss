@@ -93,7 +93,7 @@
   width: 100%;
 
   .editinfo {
-    flex: 0 0 30%;
+   width: 30%;
   }
 
   .imgAvatar {
@@ -110,6 +110,26 @@
       object-fit: cover;
       border-radius: 8px;
     }
+    .file-input {
+                display: none;
+            }
+
+            .custom-file-label {
+                width: 190px;
+                padding: 6px;
+                border-radius: 4px;
+                color: var(--primary);
+                margin-bottom: 15px;
+                border: 2px solid var(--primary);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                &:hover {
+                    background-color: var(--primary);
+                    color: white;
+                    cursor: pointer;
+                }
+            }
   }
 }
 

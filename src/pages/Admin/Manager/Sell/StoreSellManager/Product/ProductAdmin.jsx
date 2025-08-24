@@ -81,7 +81,7 @@ function ProductAdmin() {
     };
     return (
         <>
-            <h4>Sản Phẩm cửa hàng</h4>
+            <h4 className={cx('tieude')}>Sản Phẩm cửa hàng</h4>
             <StoreView
                 data={store}
                 report={false}

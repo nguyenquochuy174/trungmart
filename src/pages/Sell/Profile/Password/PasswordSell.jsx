@@ -1,6 +1,5 @@
 import styles from "./PasswordSell.module.scss"
 import classNames from "classnames/bind";
-import { listinfoSell } from "~/constant/mock-data";
 import Button from '~/components/Button/Button';
 const cx = classNames.bind(styles);
 function PasswordSell() {
