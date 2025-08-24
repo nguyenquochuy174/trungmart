@@ -1,6 +1,6 @@
 import classNames from 'classnames/bind';
 import styles from './SliderBar.module.scss';
-import { listSidebarProfileSell, listUser } from '~/constant/mock-data';
+import { listSidebarProfileSell, listinfoSell } from '~/constant/mock-data';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Link, useLocation } from 'react-router-dom';
 
@@ -8,7 +8,7 @@ const cx = classNames.bind(styles);
 
 function SidebarProfile({ onLinkClick }) {
     const idSell = Number(localStorage.getItem('idSell'));
-    const user = listUser.find((item) => item.id === idSell);
+    const user = listinfoSell.find((item) => item.id === idSell);
     const location = useLocation();
     const isActive = (path) => location.pathname === path;
 
@@ -16,10 +16,10 @@ function SidebarProfile({ onLinkClick }) {
         <div className={cx('container')}>
             {user && ( // chỉ render nếu user tồn tại
                 <div className={cx('profile')}>
-                    <img src={user.avatar} alt="" />
+                    <img src={user.Avatar} alt="" />
                     <div className={cx('content')}>
-                        <p className={cx('name')}>{user.name}</p>
-                        <p className={cx('email')}>{user.email}</p>
+                        <p className={cx('name')}>{user.Name}</p>
+                        <p className={cx('email')}>{user.Email}</p>
                     </div>
                 </div>
             )}

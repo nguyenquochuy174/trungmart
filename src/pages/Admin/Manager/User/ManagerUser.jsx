@@ -34,8 +34,8 @@ function ManagerUser() {
     user: ['user', 'Hoạt Động'],
   };
 
-  const viewUser = (roll) => {
-    const [cls, text] = statusMapUser[roll] || ['user', 'Hoạt Động'];
+  const viewUser = (status) => {
+    const [cls, text] = statusMapUser[status] || ['user', 'Hoạt Động'];
     return <div className={cx(cls)}>{text}</div>;
   };
 
@@ -59,7 +59,7 @@ function ManagerUser() {
 
     const matchStatus =
      filters.status === 'block'
-        ? item.roll === 'block'
+        ? item.status === 'block'
         : true;
 
     const matchArea = filters.area === 'Tất Cả' || item.area === filters.area;
@@ -296,7 +296,7 @@ function ManagerUser() {
                   <p>{item.address}</p>
                 </div>
                 <div className={cx('icon')}>
-                  <div className={cx('status')}>{viewUser(item.roll)}</div>
+                  <div className={cx('status')}>{viewUser(item.status)}</div>
                   <div className={cx('iconaction')}>
                     <FontAwesomeIcon
                       icon={hover === `user-${index}` ? faEyeSlash : faEye}

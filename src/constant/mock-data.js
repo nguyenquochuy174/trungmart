@@ -21,18 +21,8 @@ const listUser = [
 
     },
     {
-        id: 1,
-        roll:'Sell',
-        name: 'Nguyễn Văn A',
-        avatar: images.avatarStore,
-        password: '123',
-        email: 'nguyenvana@gmail.com',
-        address:'Xã Quảng Điền, TP Huế',
-        area: 'hue',
-    },
-    {
         id: 23,
-        roll:'block',
+        status:'block',
         name: 'Nguyễn Văn Mười',
         avatar: images.avatarStore,
         password: '123',
@@ -107,7 +97,7 @@ const listUser = [
         {
         id: 1007,
         name: 'Đặng Văn Em',
-        roll:'block',
+        status:'block',
         avatar: images.avatarStore,
         password: 'e123',
         email: 'dangvane@gmail.com',
@@ -1104,7 +1094,7 @@ const listinfoSell = [
         Phone: '01659835717',
         Facebook: 'trungmart',
         Tiktok: 'trungmart@168',
-        Avatar: images.avatar,
+        Avatar: images.avatarStore,
         Address: 'thôn, Phước Thanh, xã Quảng Điền, TP. Huế',
         password:'123'
     },
@@ -1119,7 +1109,7 @@ const listinfoSell = [
         Phone: '01659835717',
         Facebook: 'trungmart',
         Tiktok: 'trungmart@168',
-        Avatar: images.avatar,
+        Avatar: images.avatarStore,
         Address: 'thôn, Phước Thanh, xã Quảng Điền, TP. Huế',
         password:'1235'
     },
@@ -1134,7 +1124,7 @@ const listinfoSell = [
         Phone: '01659835717',
         Facebook: 'trungmart',
         Tiktok: 'trungmart@168',
-        Avatar: images.avatar,
+        Avatar: images.avatarStore,
         Address: 'thôn, Phước Thanh, xã Quảng Điền, TP. Huế',
         password:'1235'
     },
@@ -1149,7 +1139,7 @@ const listinfoSell = [
         Phone: '01659835717',
         Facebook: 'trungmart',
         Tiktok: 'trungmart@168',
-        Avatar: images.avatar,
+        Avatar: images.avatarStore,
         Address: 'thôn, Phước Thanh, xã Quảng Điền, TP. Huế',
         password:'1235'
     },
@@ -1164,7 +1154,7 @@ const listinfoSell = [
         Phone: '01659835717',
         Facebook: 'trungmart',
         Tiktok: 'trungmart@168',
-        Avatar: images.avatar,
+        Avatar: images.avatarStore,
         Address: 'thôn, Phước Thanh, xã Quảng Điền, TP. Huế',
         password:'1235'
     },
@@ -1179,7 +1169,7 @@ const listinfoSell = [
         Phone: '01659835717',
         Facebook: 'trungmart',
         Tiktok: 'trungmart@168',
-        Avatar: images.avatar,
+        Avatar: images.avatarStore,
         Address: 'thôn, Phước Thanh, xã Quảng Điền, TP. Huế',
         password:'1235'
     },

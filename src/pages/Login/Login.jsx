@@ -25,13 +25,16 @@ function Login() {
         const user = listUser.find(
             (user) => user.id === id && user.password === password,
         );
+         const sell = listinfoSell.find(
+            (sell) => sell.id === id && sell.password === password,
+        );
         // code kiểm tra tk đn sell
-        if (!user) {
+       if (!user && !sell) {
             setError('Thông tin đăng nhập không đúng!');
             return;
         }
-        if(user.roll==='Sell'){
-            localStorage.setItem('idSell', user.id);
+        if(sell){
+            localStorage.setItem('idSell', sell.id);
             setError('');
             navigate('/ProductSell');
         }else if (user.roll === 'admin') {
