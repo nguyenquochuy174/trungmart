@@ -791,7 +791,7 @@ const reportForm = [
         icon: faTriangleExclamation,
         title: 'Xóa Cửa Hàng',
         description:
-            'Khi bạn “Xác Nhận” thì Cửa Hàng này sẽ bị xóa khỏi hệ thống và gửi lý do đên chủ cửa hàng  .',
+            'Khi bạn xác nhận thì cửa hàng sẽ bị xóa khỏi hệ thống. Lý do được gửi đến cho chủ cửa hàng.',
     },
              {
         id: 'blockstore',
@@ -1057,7 +1057,7 @@ const listSelect = [
     id: 7,
     name: "Trạng Thái",
      children: [
-            { label: 'Khách Hàng', value: 'approved', queryKey: 'status' },
+            { label: 'Hoạt Động', value: 'approved', queryKey: 'status' },
             { label: 'Khóa', value: 'block', queryKey: 'status' },
         ],
     },

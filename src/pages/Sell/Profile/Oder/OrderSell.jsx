@@ -1,12 +1,13 @@
 import styles from "./OrderSell.module.scss"
 import { useEffect, useMemo, useState } from 'react';
 import classNames from 'classnames/bind';
-import { listOrder, listSelect } from '~/constant/mock-data';
+import { listOrder, listSelect, reportForm } from '~/constant/mock-data';
 import Select from '~/components/Select/Select';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {faChevronRight,faChevronLeft} from '@fortawesome/free-solid-svg-icons';
 import { useSearchParams } from 'react-router-dom';
 import Button from '~/components/Button/Button';
+import FormApprove from "~/components/FormApprove/FormApprove";
 
 
 const cx = classNames.bind(styles);
@@ -14,7 +15,7 @@ function OrderSell() {
     const [currentPage, setCurrentPage] = useState(1);
     const OrderPage = 4;
     const [searchParams, setSearchParams] = useSearchParams();
-
+    const [order,setOrder]= useState(false)
     // filters lọc
     
     const filters = useMemo(() => {
@@ -123,18 +124,37 @@ const handleFilterChange = (value) => {
         }
            if (item.status === 'pending'){
             return (
+                <>
                  <div className={cx('statusOrder')}>
                     <p>Đang chờ duyệt</p>
                     <div className={cx('accept')}>
                 <Button primary small >
                                 Duyệt
                 </Button>
-                <Button outline small >
+                <Button outline small 
+                onClick={()=>{
+                    setOrder(true)
+                }}>
                                 Hủy
                 </Button>
                     </div>
                 
                 </div>
+                 {order &&(
+                     <div className={cx('modalOverlay')}>
+            <div className={cx('modalContent')}>
+              <FormApprove
+                data={reportForm[1]}
+                onClose={() => setOrder(false)}
+                form
+              />
+            </div>
+          </div>
+
+                )
+                    
+                }
+                </>
             )
            
         }
@@ -208,6 +228,7 @@ const TongTien = (item) => {
                     </div>
                     
                 ))}
+               
                 <div className={cx('pagination')}>
                                 <button
                                     onClick={() => handlePageChange(currentPage - 1)}

@@ -1,7 +1,7 @@
 import classNames from 'classnames/bind';
 import styles from './ManagerUser.module.scss';
 import FormApprove from '~/components/FormApprove/FormApprove';
-import { listUser, reportForm, listinfoSell, listSelect } from '~/constant/mock-data';
+import { listUser, reportForm, listSelect } from '~/constant/mock-data';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
   faEye,
@@ -29,13 +29,13 @@ function ManagerUser() {
 
 
   const statusMapUser = {
-    Sell: ['user', 'Khách Hàng'],
+    Sell: ['user', 'Hoạt Động'],
     block: ['block', 'Khóa'],
-    user: ['user', 'Khách Hàng'],
+    user: ['user', 'Hoạt Động'],
   };
 
   const viewUser = (roll) => {
-    const [cls, text] = statusMapUser[roll] || ['user', 'Khách Hàng'];
+    const [cls, text] = statusMapUser[roll] || ['user', 'Hoạt Động'];
     return <div className={cx(cls)}>{text}</div>;
   };
 
