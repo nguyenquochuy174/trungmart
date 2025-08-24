@@ -1,7 +1,6 @@
 import DefaultLayoutAdmin from '~/layouts/Admin/DefaultLayoutAdmin/DefaultLayoutAdmin';
 import LoginLayout from '~/layouts/LoginLayout/LoginLayout';
 import DefaultLayoutMess from '~/layouts/Sell/DefaultLayoutMess/DefaultLayoutMess';
-import DefaultLayoutProduct from '~/layouts/Sell/DefaultLayoutProduct/DefaultLayoutProduct';
 import DefaultLayoutProfile from '~/layouts/Sell/DefaultLayoutProfile/DefaultLayoutProfile';
 import DefaultLayoutSell from '~/layouts/Sell/DefaultLayoutSell/DefaultLayoutSell';
 import DefaultLayoutUser from '~/layouts/User/DefaultLayoutUser/DefaultLayoutUser';
@@ -139,7 +138,11 @@ const publicRoutes = [
     },
 
     // sell
-    { path: '/MessageSell/:idUser', component: MessageSell, layout: DefaultLayoutMess },
+    {
+        path: '/MessageSell/:idUser',
+        component: MessageSell,
+        layout: DefaultLayoutMess,
+    },
     { path: '/MessageSell', component: MessageSell, layout: DefaultLayoutMess },
     {
         path: '/NotificationSell',
@@ -235,8 +238,11 @@ const publicRoutes = [
         layout: DefaultLayoutAdmin,
     },
 
-    
-    { path: '/StoreAdmin/:id', component: StoreAdmin, layout: DefaultLayoutAdmin },
+    {
+        path: '/StoreAdmin/:id',
+        component: StoreAdmin,
+        layout: DefaultLayoutAdmin,
+    },
     {
         path: '/DetailStoreAdmin/:id',
         component: DetailStoreAdmin,
