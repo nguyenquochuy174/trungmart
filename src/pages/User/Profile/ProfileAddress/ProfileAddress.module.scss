@@ -1,0 +1,47 @@
+.container {
+    padding-bottom: 30px;
+    font-size: 1.8rem;
+    .headerAddress {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 21px 10px;
+        border-bottom: 0.5px solid #dddddd;
+    }
+    .listAddress {
+        .itemAddress {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 0.5px solid #dddddd;
+            padding: 5px 0 5px 25px;
+            line-height: 2;
+            p {
+                color: rgb(66, 66, 66);
+            }
+        }
+    }
+}
+
+.modalOverlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.4);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 99999;
+}
+
+.modalContent {
+    z-index: 1001;
+}
+@media (max-width: 576px) {
+    .container {
+        padding-top: 30px;
+        font-size: 1.6rem;
+    }
+}

@@ -1,0 +1,89 @@
+.container {
+    width: 100%;
+    padding-bottom: 30px;
+    .listProduct {
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 10px 10px;
+        padding: 0 0 0 10px;
+        margin-top: 10px;
+    }
+
+    .pagination {
+        margin-top: 30px;
+        text-align: center;
+
+        button {
+            margin: 0 6px;
+            padding: 6px 12px;
+            border: 1px solid #ddd;
+            background-color: white;
+            cursor: pointer;
+            border-radius: 4px;
+            transition: background-color 0.2s;
+
+            &.active {
+                background-color: var(--primary);
+                color: white;
+                border-color: var(--primary);
+            }
+
+            &:hover:not(:disabled):not(.active) {
+                background-color: #f0f0f0;
+            }
+
+            &:disabled {
+                cursor: not-allowed;
+                opacity: 0.5;
+            }
+        }
+    }
+}
+
+@media (max-width: 576px) {
+    .container {
+        .listProduct {
+            width: 380px;
+            padding: 40px 10px 0 10px;
+            grid-template-columns: repeat(2, 1fr);
+            justify-content: center;
+        }
+    }
+}
+
+@media (min-width: 577px) and (max-width: 768px) {
+    .container {
+        .listProduct {
+            width: 90%;
+            padding: 15px 0 0 0;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 5px;
+            justify-content: center;
+        }
+    }
+}
+
+@media (min-width: 769px) and (max-width: 992px) {
+    .container {
+        .listProduct {
+            width: 90%;
+            padding: 15px 10px 0 10px;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+            justify-content: center;
+        }
+    }
+}
+
+@media (min-width: 993px) and (max-width: 1200px) {
+    .container {
+        .listProduct {
+            width: 90%;
+            padding: 20px 10px;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+            justify-content: center;
+        }
+    }
+}

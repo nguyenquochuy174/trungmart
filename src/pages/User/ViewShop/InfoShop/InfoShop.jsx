@@ -20,7 +20,7 @@ function InfoShop() {
     const store = storeList.find((item) => item.id === Number(shopId));
     return (
         <>
-            <h4>Thông tin cửa hàng</h4>
+            <h4 className={cx('title')}>Thông tin cửa hàng</h4>
             <StoreView
                 data={store}
                 report={true}
@@ -79,8 +79,8 @@ function InfoShop() {
                 <p className={cx('info-title')}>Giấy chứng nhận</p>
                 <ul className={cx('cert')}>
                     {store.certifications.map((item, index) => (
-                        <li>
-                            <img key={index} src={item.url} alt={item.alt} />
+                        <li key={index}>
+                            <img src={item.url} alt={item.alt} />
                         </li>
                     ))}
                 </ul>

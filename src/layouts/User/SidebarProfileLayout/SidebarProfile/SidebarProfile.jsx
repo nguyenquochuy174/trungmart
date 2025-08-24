@@ -11,7 +11,6 @@ function SidebarProfile({ onLinkClick }) {
     const user = listUser.find((item) => item.id === userId);
     const location = useLocation();
     const isActive = (path) => location.pathname === path;
-    console.log(location.pathname);
 
     return (
         <div className={cx('container')}>

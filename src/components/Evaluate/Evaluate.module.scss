@@ -1,0 +1,147 @@
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    .form {
+        width: 645px;
+        max-width: 100%;
+        height: auto;
+        background-color: white;
+        border-radius: 4px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        text-align: center;
+        padding: 40px 0;
+
+        h2 {
+            font-size: 2.2rem;
+            padding-bottom: 15px;
+        }
+
+        .textarea {
+            font-size: 1.6rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+            padding: 20px 20px 5px 0;
+
+            label {
+                flex: 1;
+                text-align: right;
+                max-width: 120px;
+            }
+
+            input {
+                flex: 2;
+                width: 100%;
+                max-width: 362px;
+                height: 45px;
+                border: 1px solid #dbdbdb;
+                border-radius: 4px;
+                font-size: 1.6rem;
+                background-color: #dbdbdb;
+                padding-left: 15px;
+            }
+        }
+
+        .errorMessage {
+            color: red;
+            font-size: 1.4rem;
+            text-align: center;
+        }
+
+        .form-btn {
+            padding: 50px 0 20px 0;
+            display: flex;
+            justify-content: center;
+            gap: 55px;
+        }
+    }
+}
+
+@media (max-width: 576px) {
+    .container {
+        .form {
+            width: 380px;
+            padding: 25px 20px;
+            border-radius: 4px;
+
+            h2 {
+                font-size: 1.8rem;
+            }
+
+            .textarea {
+                flex-direction: column;
+                gap: 5px;
+                justify-content: center;
+                padding: 20px 0 0 0;
+
+                input {
+                    padding: 12px;
+                }
+            }
+
+            .form-btn {
+                gap: 35px;
+                flex-direction: row;
+            }
+        }
+    }
+}
+
+@media (min-width: 577px) and (max-width: 768px) {
+    .container {
+        .form {
+            width: 500px;
+            padding: 30px 25px;
+            border-radius: 4px;
+
+            h2 {
+                font-size: 2rem;
+            }
+
+            .textarea {
+                input {
+                    max-width: 300px;
+                }
+            }
+
+            .form-btn {
+                gap: 45px;
+            }
+        }
+    }
+}
+
+@media (min-width: 769px) and (max-width: 992px) {
+    .container {
+        .form {
+            width: 600px;
+            padding: 35px 30px;
+
+            h2 {
+                font-size: 2.1rem;
+            }
+
+            .textarea {
+                input {
+                    width: 340px;
+                }
+            }
+        }
+    }
+}
+
+@media (min-width: 993px) {
+    .container {
+        .form {
+            width: 620px;
+            border-radius: 4px;
+
+            h2 {
+                font-size: 2.2rem;
+            }
+        }
+    }
+}

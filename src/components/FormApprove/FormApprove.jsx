@@ -69,22 +69,23 @@ function FormApprove({ data, onClose,form=false }) {
                     />
                 )}
                 <h2>{data.title}</h2>
-           {form  && (
-                <div className={cx('textarea')}>
-                    <input
-                        ref={inputRef}
-                        type="text"
-                        placeholder="Nhập nội dung vào đây..."
-                        value={inputValue}
-                        onChange={(e) => setInputValue(e.target.value)}
-                    />
-                    <FontAwesomeIcon
-                        onClick={handleFocusInput}
-                        icon={faPen}
-                        className={cx('iconPen')}
-                    />
-                </div>
-            )}
+
+                {form && (
+                    <div className={cx('textarea')}>
+                        <input
+                            ref={inputRef}
+                            type="text"
+                            placeholder="Nhập nội dung vào đây..."
+                            value={inputValue}
+                            onChange={(e) => setInputValue(e.target.value)}
+                        />
+                        <FontAwesomeIcon
+                            onClick={handleFocusInput}
+                            icon={faPen}
+                            className={cx('iconPen')}
+                        />
+                    </div>
+                )}
                 {error && <p className={cx('errorMessage')}>{error}</p>}
 
                 {data.description && (

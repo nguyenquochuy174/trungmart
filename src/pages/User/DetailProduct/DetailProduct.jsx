@@ -1,6 +1,6 @@
 import classNames from 'classnames/bind';
 import styles from './DetailProduct.module.scss';
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import { listProduct, reportForm, storeList } from '~/constant/mock-data';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
@@ -24,6 +24,7 @@ import ReviewItem from '~/components/ReviewItem/ReviewItem';
 import FormApprove from '~/components/FormApprove/FormApprove';
 const cx = classNames.bind(styles);
 function DetailProduct() {
+    const userId = localStorage.getItem('userId');
     const { id } = useParams();
     const product = listProduct.find((item) => item.id === Number(id));
     const productImages = product.image || [];
@@ -78,6 +79,20 @@ function DetailProduct() {
         setCurrentIndex((prev) =>
             prev === productImages.length - 1 ? 0 : prev + 1,
         );
+    };
+    const saveToLocalStorage = (productId, quantity) => {
+        const currentCart =
+            JSON.parse(localStorage.getItem(`cart_${userId}`)) || [];
+        const existingProductIndex = currentCart.findIndex(
+            (item) => item.productId === productId,
+        );
+
+        if (existingProductIndex !== -1) {
+            currentCart[existingProductIndex].quantity += quantity;
+        } else {
+            currentCart.push({ productId, quantity });
+        }
+        localStorage.setItem(`cart_${userId}`, JSON.stringify(currentCart));
     };
 
     return (
@@ -152,12 +167,34 @@ function DetailProduct() {
                     </div>
 
                     <div className={cx('btn')}>
-                        <Button outline small>
-                            Thêm vào giỏ hàng
-                        </Button>
-                        <Button primary small>
-                            Mua ngay
-                        </Button>
+                        <Link
+                            to={`/UserShoppingCart`}
+                            state={{
+                                productId: product.id,
+                                quantity: quantity,
+                            }}
+                        >
+                            <Button
+                                outline
+                                small
+                                onClick={() =>
+                                    saveToLocalStorage(product.id, quantity)
+                                }
+                            >
+                                Thêm vào giỏ hàng
+                            </Button>
+                        </Link>
+                        <Link
+                            to={`/UserPayment`}
+                            state={{
+                                productId: product.id,
+                                quantity: quantity,
+                            }}
+                        >
+                            <Button primary small>
+                                Mua ngay
+                            </Button>
+                        </Link>
                     </div>
 
                     <div className={cx('social')}>
@@ -215,6 +252,7 @@ function DetailProduct() {
                         <FormApprove
                             data={reportForm[0]}
                             onClose={() => setShowReportForm(false)}
+                            form
                         />
                     </div>
                 </div>

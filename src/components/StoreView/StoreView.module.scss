@@ -49,14 +49,14 @@
                     white-space: nowrap;
                     overflow: hidden;
                     text-overflow: ellipsis;
-                    max-width: 350px;
+                    max-width: 300px;
                 }
             }
         }
 
         .storeSocial {
             display: flex;
-            gap: 200px;
+            gap: 150px;
             .storeStats {
                 display: flex;
                 flex-direction: column;
@@ -200,25 +200,25 @@
         .storeTop {
             .storeInfo {
                 .storeAvatar {
-                    width: 85px;
-                    height: 85px;
+                    width: 55px;
+                    height: 55px;
                 }
                 .storeDetails {
                     p {
-                        font-size: 1.6rem;
+                        font-size: 1.5rem;
                     }
                     .storeAddress {
-                        max-width: 150px;
+                        max-width: 140px;
                     }
                 }
             }
 
             .storeSocial {
-                gap: 120px;
+                gap: 10px;
 
                 .storeStats,
                 .storeNumbers {
-                    font-size: 1.6rem;
+                    font-size: 1.4rem;
                 }
             }
         }
@@ -227,7 +227,7 @@
             justify-content: space-between;
             flex-wrap: nowrap;
             .storeSocial {
-                gap: 50px;
+                gap: 30px;
                 .storeFavorite {
                     font-size: 1.6rem;
                 }
@@ -248,22 +248,26 @@
         width: 90%;
         .storeTop {
             .storeInfo {
+                .storeAvatar {
+                    width: 65px;
+                    height: 65px;
+                }
                 .storeDetails {
                     p {
-                        font-size: 1.7rem;
+                        font-size: 1.6rem;
                     }
                     .storeAddress {
-                        max-width: 180px;
+                        max-width: 150px;
                     }
                 }
             }
 
             .storeSocial {
-                gap: 150px;
+                gap: 20px;
 
                 .storeStats,
                 .storeNumbers {
-                    font-size: 1.7rem;
+                    font-size: 1.4rem;
                 }
             }
         }
@@ -271,13 +275,13 @@
         .storeActions {
             .storeSocial {
                 .storeFavorite {
-                    font-size: 1.7rem;
+                    font-size: 1.6rem;
                 }
             }
 
             .storeContact {
                 .storeReport {
-                    font-size: 1.7rem;
+                    font-size: 1.6rem;
                 }
             }
         }
@@ -290,19 +294,26 @@
 
         .storeTop {
             .storeInfo {
+                .storeAvatar {
+                    width: 70px;
+                    height: 70px;
+                }
                 .storeDetails {
                     p {
-                        font-size: 1.8rem;
+                        font-size: 1.7rem;
+                    }
+                    .storeAddress {
+                        max-width: 150px;
                     }
                 }
             }
 
             .storeSocial {
-                gap: 180px;
+                gap: 70px;
 
                 .storeStats,
                 .storeNumbers {
-                    font-size: 1.8rem;
+                    font-size: 1.6rem;
                 }
             }
         }

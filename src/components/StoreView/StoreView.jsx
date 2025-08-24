@@ -14,10 +14,11 @@ import {
 import Button from '../Button/Button';
 import { faHeart, faStar } from '@fortawesome/free-regular-svg-icons';
 import { listProduct } from '~/constant/mock-data';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 const cx = classNames.bind(styles);
 function StoreView({ data, report, onReportClick,form=true,check=false }) {
+    const navigate = useNavigate();
     const totalStoreProducts = listProduct.filter(
         (product) => Number(product.idStore) === data.id,
     ).length;
@@ -32,6 +33,11 @@ function StoreView({ data, report, onReportClick,form=true,check=false }) {
         joinedYear !== null
             ? Math.max(0, currentYear - joinedYear)
             : 'Không rõ';
+
+    const handleMessageClick = () => {
+        navigate(`/UserMessage/${data.id}`);
+    };
+
     return (
         <div className={cx('storeContainer')}>
             <div className={cx('storeTop')}>
@@ -137,7 +143,7 @@ function StoreView({ data, report, onReportClick,form=true,check=false }) {
                         </div>
                     )}
 
-                    <Button outline small>
+                    <Button outline small onClick={handleMessageClick}>
                         Nhắn tin
                     </Button>
                 </div>
