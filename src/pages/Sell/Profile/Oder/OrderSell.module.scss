@@ -1,7 +1,5 @@
 .container{
-    width: 80%;
-    margin-top: 10px;
-    margin-left: 10px;
+     width: 100%;
     padding:10px;
 }
 .contentHeader{
@@ -24,7 +22,7 @@
             display: flex;
             width: 100%;
               b{
-                   font-size: 18px;
+                   font-size: 1.8rem;
                    
                 }
             .Product{
@@ -93,6 +91,51 @@
             }
         }
     }
+    .pagination {
+    margin-top: 30px;
+    text-align: center;
+
+    button {
+        margin: 0 6px;
+        padding: 6px 12px;
+        border: 1px solid #ddd;
+        background-color: white;
+        cursor: pointer;
+        border-radius: 4px;
+        transition: background-color 0.2s;
+
+        &.active {
+            background-color: var(--primary);
+            color: white;
+            border-color: var(--primary);
+        }
+
+        &:hover:not(:disabled):not(.active) {
+            background-color: #f0f0f0;
+        }
+
+        &:disabled {
+            cursor: not-allowed;
+            opacity: 0.5;
+        }
+    }
+}
+}
+.modalOverlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.4);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+
+.modalContent {
+    z-index: 1001;
 }
 @media (max-width: 576px) {
 .container{
@@ -169,7 +212,7 @@
               height: 90px;
             }
             .infoProduct {
-              font-size: 14px;
+              font-size: 1.4rem;
               margin-left: 8px;
             }
           }

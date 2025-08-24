@@ -10,7 +10,7 @@ import RatingSelect from '../RatingSelect/RatingSelect';
 
 const cx = classNames.bind(styles);
 
-function FormApprove({ data, onClose, form = false }) {
+function FormApprove({ data, onClose,form=false }) {
     const inputRef = useRef(null);
     const [isMobile, setIsMobile] = useState(window.innerWidth <= 576);
     const [inputValue, setInputValue] = useState('');

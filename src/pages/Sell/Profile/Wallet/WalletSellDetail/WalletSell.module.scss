@@ -1,5 +1,5 @@
 .container{
-    width: 80%;
+     width: 100%;
     padding: 10px;
 }
 .content{
@@ -57,15 +57,24 @@
     .container{
         width: 100%;
     }
+   
     .info{
+        width: 100%;
         display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: center;
+         .leftInfo{
+        width: 100%;
     }
     .rightInfo{
         margin-top: 50px;
+        img{
+            width: 100%;
+        }
     }
+    }
+    
 
 }  
 

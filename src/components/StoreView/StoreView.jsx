@@ -17,7 +17,7 @@ import { listProduct } from '~/constant/mock-data';
 import { Link, useNavigate } from 'react-router-dom';
 
 const cx = classNames.bind(styles);
-function StoreView({ data, report, onReportClick }) {
+function StoreView({ data, report, onReportClick,form=true,check=false }) {
     const navigate = useNavigate();
     const totalStoreProducts = listProduct.filter(
         (product) => Number(product.idStore) === data.id,
@@ -41,7 +41,8 @@ function StoreView({ data, report, onReportClick }) {
     return (
         <div className={cx('storeContainer')}>
             <div className={cx('storeTop')}>
-                <Link
+                {form ?(
+                     <Link
                     to={`/UserInfoShop/${data.id}`}
                     className={cx('menu-link')}
                 >
@@ -56,6 +57,19 @@ function StoreView({ data, report, onReportClick }) {
                         </div>
                     </div>
                 </Link>
+                ):(
+                    <div className={cx('storeInfo')}>
+                        <div className={cx('storeAvatar')}>
+                            <img src={data.avatar} alt="Avatar" />
+                        </div>
+                        <div className={cx('storeDetails')}>
+                            <p className={cx('storeName')}>{data.name}</p>
+                            <p className={cx('storePhone')}>{data.phone}</p>
+                            <p className={cx('storeAddress')}>{data.address}</p>
+                        </div>
+                    </div>
+                )}
+               
 
                 <div className={cx('storeSocial')}>
                     <div className={cx('storeStats')}>
@@ -86,7 +100,8 @@ function StoreView({ data, report, onReportClick }) {
                     </div>
                 </div>
             </div>
-            <div className={cx('storeActions')}>
+            {form ? (
+                <div className={cx('storeActions')}>
                 <div className={cx('storeSocial')}>
                     <div className={cx('storeShare')}>
                         <p>Chia sẻ:</p>
@@ -133,6 +148,26 @@ function StoreView({ data, report, onReportClick }) {
                     </Button>
                 </div>
             </div>
+            ):(
+                check ?(
+                     <div className={cx('btn')}>          
+                        <Button outline small>
+                            Duyệt 
+                        </Button>
+                        <Button 
+                        primary 
+                        small 
+                        >
+                            Hủy Bỏ
+                            
+                        </Button>
+                    </div>
+                ):(
+                    <div></div>
+                )
+                
+            )}
+            
         </div>
     );
 }

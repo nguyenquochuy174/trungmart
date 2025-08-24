@@ -3,13 +3,22 @@ import classNames from 'classnames/bind';
 import { listinfoSell } from '~/constant/mock-data';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPen } from '@fortawesome/free-solid-svg-icons';
-
+import { useState,useEffect} from 'react';
 const cx = classNames.bind(styles);
 
 function ProfileSell() {
+     const [info, setInfo] = useState([]);
+    const idsell = parseInt(localStorage.getItem('idSell'))
+
+       useEffect(() => {
+  const filteredInfo = listinfoSell.filter(
+    (msg) => parseInt(msg.id) === idsell
+  );
+  setInfo(filteredInfo);
+}, [idsell]);
     return (
         <div className={cx('container')}>
-            {listinfoSell.map(info => (
+            {info.map(info => (
                 <div key={info.id}>
                     {/* Thông tin hồ sơ */}
                     <div className={cx('content')}>
@@ -23,21 +32,21 @@ function ProfileSell() {
                         <div className={cx('NameSell')}>
                             <div className={cx('Name')}>
                                 <p>Tên</p>
-                                <b>{info.Name}</b>
+                                <p>{info.Name}</p>
                             </div>
                             <div className={cx('Name')}>
                                 <p>Họ Đệm</p>
-                                <b>{info.LastName}</b>
+                                <p>{info.LastName}</p>
                             </div>
                         </div>
                         <div className={cx('NameSell')}>
                             <div className={cx('Name')}>
                                 <p>Ngày Sinh</p>
-                                <b>{info.Date}</b>
+                                <p>{info.Date}</p>
                             </div>
                             <div className={cx('Name')}>
                                 <p>Giới Tính</p>
-                                <b>{info.Gender}</b>
+                                <p>{info.Gender}</p>
                             </div>
                         </div>
                     </div>
@@ -50,11 +59,11 @@ function ProfileSell() {
                         <div className={cx('NameSell')}>
                             <div className={cx('Name')}>
                                 <p>Email</p>
-                                <b>{info.Email}</b>
+                                <p>{info.Email}</p>
                             </div>
                             <div className={cx('Name')}>
                                 <p>Điện Thoại</p>
-                                <b>{info.Phone}</b>
+                                <p>{info.Phone}</p>
                             </div>
                         </div>
                     </div>
@@ -66,11 +75,11 @@ function ProfileSell() {
                     <div className={cx('NameSell')}>
                         <div className={cx('Name')}>
                             <p>Facebook</p>
-                            <b>{info.Facebook}</b>
+                            <p>{info.Facebook}</p>
                         </div>
                         <div className={cx('Name')}>
                             <p>TikTok</p>
-                            <b>{info.Tiktok}</b>
+                            <p>{info.Tiktok}</p>
                         </div>
                     </div>
                 </div>

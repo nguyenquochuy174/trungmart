@@ -9,12 +9,15 @@ import {
 } from '@fortawesome/free-brands-svg-icons';
 import {
     faBell,
-    faSearch,
     faArrowRightFromBracket,
 } from '@fortawesome/free-solid-svg-icons';
 import images from '~/assets/images/image';
+
+
 const cx = classNames.bind(styles);
 function Header() {
+   
+
     return (
         <>
            <div className={cx('container')}>
@@ -30,21 +33,15 @@ function Header() {
                 </div>
             </div>
 
+
+
             <div className={cx('headerBottom')}>
                 <div className={cx('headerContent')}>
                     <div className={cx('logo')}>
                         <img src={images.logo} alt="TrungMart"/>
                     </div>
-                    <div className={cx('formSearch')}>
-                        <input
-                            type='text'
-                            placeholder='Nhập vào đây để tìm kiếm'
-                        />
-                        <FontAwesomeIcon
-                        icon={faSearch}
-                        className={cx('iconSearch')}
-                        />
-                    </div>
+                    
+        
                     <div className={cx('menuIconHeader')}>
                         <ul>
                             <li>
@@ -54,9 +51,14 @@ function Header() {
                                 </a>
                             </li>
                             <li>
-                                <a href="/">
+                                <a href="/"
+                                onClick={() => {
+                                localStorage.clear();
+                                }}>
                                     <FontAwesomeIcon
-                                        icon={faArrowRightFromBracket}/>
+                                     
+                                       icon={faArrowRightFromBracket}/>
+                                        
                                 </a>
                             </li>
                         </ul>

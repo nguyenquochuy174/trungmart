@@ -2,12 +2,23 @@ import styles from "./ProfileSellEdit.module.scss";
 import classNames from "classnames/bind";
 import { listinfoSell } from "~/constant/mock-data";
 import Button from '~/components/Button/Button';
+import { useState,useEffect} from 'react';
+import { Link } from "react-router-dom";
+
 const cx = classNames.bind(styles);
 
 function ProfileSellEdit() {
+  const [info, setInfo] = useState([]);
+      const idsell = parseInt(localStorage.getItem('idSell'))
+       useEffect(() => {
+  const filteredInfo = listinfoSell.filter(
+    (msg) => parseInt(msg.id) === idsell
+  );
+  setInfo(filteredInfo);
+}, [idsell]);
   return (
     <div className={cx("content")}>
-      {listinfoSell.map((info) => (
+      {info.map((info) => (
         <div key={info.id}>
           <div className={cx("userName")}>
             <p className={cx("editinfo")}>Tên đăng nhập: </p>
@@ -81,12 +92,15 @@ function ProfileSellEdit() {
             
           </div>
           <div className={cx('Submit')} >
-                  <Button primary large style={{ width: '50%' }}>
+                 <Button primary large style={{ width: '50%' }}>
                                 Lưu
                 </Button>
+               <Link to="/ProfileSell" style={{ textDecoration: 'none', width:'100%',display:'flex',justifyContent:'center'}}>
                 <Button outline large style={{ width: '50%' }}>
-                                Hủy
+                  Hủy
                 </Button>
+              </Link>
+
           </div>
         
         </div>

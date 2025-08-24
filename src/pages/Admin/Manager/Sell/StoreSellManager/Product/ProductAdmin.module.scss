@@ -1,0 +1,126 @@
+h4 {
+    text-align: center;
+    padding: 16px 0;
+    font-size: 2rem;
+}
+.menu-store {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    padding: 16px 0;
+    font-size: 1.8rem;
+
+    .menu-link {
+        color: black;
+        &:hover {
+            color: var(--primary);
+            cursor: pointer;
+        }
+    }
+    .active {
+        color: var(--primary);
+    }
+}
+.listProduct {
+    border-top: 0.5px solid #B3B3B3;
+    width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px 10px;
+    padding: 20px 0 0 30px;
+    border-top: 0.5px solid #dddddd;
+}
+
+.pagination {
+    margin-top: 30px;
+    text-align: center;
+
+    button {
+        margin: 0 6px;
+        padding: 6px 12px;
+        border: 1px solid #ddd;
+        background-color: white;
+        cursor: pointer;
+        border-radius: 4px;
+        transition: background-color 0.2s;
+
+        &.active {
+            background-color: var(--primary);
+            color: white;
+            border-color: var(--primary);
+        }
+
+        &:hover:not(:disabled):not(.active) {
+            background-color: #f0f0f0;
+        }
+
+        &:disabled {
+            cursor: not-allowed;
+            opacity: 0.5;
+        }
+    }
+}
+
+.modalOverlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.4);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+
+.modalContent {
+    z-index: 1001;
+}
+
+@media (max-width: 576px) {
+    .listProduct {
+        width: 380px;
+        padding: 10px 10px 0 10px;
+        grid-template-columns: repeat(2, 1fr);
+        justify-content: center;
+    }
+}
+
+@media (min-width: 577px) and (max-width: 768px) {
+    .listProduct {
+        width: 90%;
+        padding: 15px 0 0 0;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 5px;
+        justify-content: center;
+    }
+}
+
+@media (min-width: 769px) and (max-width: 992px) {
+    .listProduct {
+        width: 90%;
+        padding: 15px 10px 0 10px;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
+        justify-content: center;
+    }
+}
+
+@media (min-width: 993px) and (max-width: 1200px) {
+    .listProduct {
+        width: 90%;
+        padding: 0 10px;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
+        justify-content: center;
+
+        & > * {
+            width: 100%;
+            max-width: none;
+            margin: 0;
+        }
+    }
+}

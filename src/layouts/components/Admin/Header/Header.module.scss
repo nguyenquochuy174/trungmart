@@ -1,107 +1,183 @@
-.container{
+.container {
     width: 100%;
 }
-.headerTop{
+.headerTop {
     width: 100%;
     height: 42px;
-    background-color:var(--primary) ;
+    background-color: var(--primary);
 }
-.headerBottom{
+.headerBottom {
     width: 100%;
     height: 92px;
     background-color: #174733;
 }
-.infoHeader{
+.infoHeader {
     width: 1200px;
     height: 100%;
     margin: 0 auto;
     display: flex;
     align-items: center;
-    color:white;
+    color: white;
     font-size: 1.6rem;
 
-    .iconFace{
+    .iconFace {
         width: 24px;
         height: 24px;
     }
-    p{
+
+    p {
         padding-left: 350px;
     }
 }
-.headerContent{
+.headerContent {
     width: 1200px;
     height: 100%;
-     margin: 0 auto;
+    margin: 0 auto;
     display: flex;
     align-items: center;
-    color:white;
     justify-content: space-between;
-
-    .logo{
-        img{
-            width: 50px;
-            height: 80px;
-        }
-    }
-    .formSearch{
+    color: white;
+    .formSearch {
+        position: relative;
         display: flex;
-        input{
+        input {
             width: 500px;
             height: 45px;
-            border-top-left-radius:4px ;
+            border-top-left-radius: 4px;
             border-bottom-left-radius: 4px;
             padding-left: 10px;
             font-size: 1.6rem;
         }
-        .iconSearch{
-            padding:10px;
+        .iconSearch {
+            padding: 10px;
             background-color: var(--primary);
             font-size: 2.5rem;
             border-top-right-radius: 4px;
             border-bottom-right-radius: 4px;
-            &:hover{
-            opacity: 0.7;
-            cursor: pointer;
+
+            &:hover {
+                opacity: 0.7;
+                cursor: pointer;
+            }
         }
-        }
-        
-    }
-    .menuIconHeader{
-        ul{
-             display: flex;
+        .searchHistory {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            width: 100%;
+            max-height: 250px;
+            overflow-y: auto;
+            background: white;
+            border: 1px solid #ccc;
+            border-top: none;
+            border-bottom-left-radius: 4px;
+            border-bottom-right-radius: 4px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            z-index: 10;
             list-style: none;
-            a{
+            margin: 0;
+            padding: 0;
+
+            li {
+                padding: 10px 15px;
+                font-size: 1.6rem;
+                color: #333;
+                cursor: pointer;
+
+                &:hover {
+                    background-color: #f0f0f0;
+                }
+            }
+
+            li.clearAll {
+                padding: 10px 15px;
+                font-size: 1.5rem;
+                color: gray;
+                display: flex;
+                justify-content: right;
+                border-bottom: 1px solid #ddd;
+                cursor: pointer;
+                user-select: none;
+
+                &:hover {
+                    color: var(--primary);
+                }
+            }
+
+            li.historyItem {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                padding: 10px 15px;
+                font-size: 1.6rem;
+                color: #333;
+                cursor: pointer;
+
+                &:hover {
+                    background-color: #f0f0f0;
+                }
+
+                span:first-child {
+                    flex: 1;
+                    user-select: none;
+                }
+
+                span.deleteBtn {
+                    color: #999;
+                    margin-left: 10px;
+                    cursor: pointer;
+                    user-select: none;
+
+                    &:hover {
+                        color: red;
+                    }
+                }
+            }
+        }
+    }
+    .menuIconHeader {
+        ul {
+            display: flex;
+            list-style: none;
+            a {
                 color: white;
                 font-size: 2.4rem;
                 margin-left: 16px;
-                &:hover{
+                & :hover {
                     color: var(--primary);
                     cursor: pointer;
+                }
+
+                &.active {
+                    color: var(--primary);
                 }
             }
         }
     }
 }
 
+.logo {
+    img {
+        width: 50px;
+        height: 80px;
+    }
+}
+
 @media (max-width: 576px) {
-    .headerTop{
+    .headerTop {
         height: 35px;
-        p{
+
+        p {
             font-size: 1.2rem;
             padding-left: 20px;
         }
     }
-    .headerBottom{
+    .headerBottom {
         height: 68px;
     }
+
     .infoHeader {
         width: 380px;
-    }
-    .logo {
-        img {
-            width: 28px;
-            height: 51px;
-        }
     }
     .headerContent {
         width: 380px;
@@ -115,6 +191,14 @@
                 padding: 5px;
                 font-size: 2rem;
             }
+            .searchHistory {
+                max-height: 200px;
+
+                li {
+                    padding: 8px 12px;
+                    font-size: 1.2rem;
+                }
+            }
         }
 
         .menuIconHeader {
@@ -126,11 +210,17 @@
             }
         }
     }
+
+    .logo {
+        img {
+            width: 28px;
+            height: 51px;
+        }
+    }
 }
 
 @media (min-width: 577px) and (max-width: 768px) {
-
- .headerTop {
+    .headerTop {
         height: 38px;
 
         p {
@@ -156,11 +246,10 @@
                 font-size: 1.3rem;
             }
             .iconSearch {
-                padding: 6px;
-                font-size: 2rem;
+                padding: 7px;
+                font-size: 2.1rem;
             }
         }
-
         .menuIconHeader {
             ul {
                 a {
@@ -206,7 +295,7 @@
                 font-size: 1.4rem;
             }
             .iconSearch {
-                padding: 8px;
+                padding: 9px;
                 font-size: 2.2rem;
             }
         }
@@ -257,7 +346,7 @@
             }
             .iconSearch {
                 padding: 9px;
-                font-size: 2.3rem;
+                font-size: 2.4rem;
             }
         }
 

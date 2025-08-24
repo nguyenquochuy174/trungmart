@@ -1,9 +1,10 @@
 import styles from "./WalletSellEdit.module.scss"
 import classNames from 'classnames/bind';
-import { useState } from 'react';
+import { useState,useEffect } from 'react';
 import { listinforWalletSell, ListBank } from '~/constant/mock-data';
 import Select from "react-select";
 import Button from '~/components/Button/Button';
+import { Link } from "react-router-dom";
 
 
 const cx = classNames.bind(styles);
@@ -25,9 +26,17 @@ const options = ListBank.map(item => ({
     </div>
   )
 }));
+ const [info, setInfo] = useState([]);
+    const idsell = parseInt(localStorage.getItem('idSell'))
+    useEffect(() => {
+  const filteredInfo = listinforWalletSell.filter(
+    (msg) => parseInt(msg.idUser) === idsell
+  );
+  setInfo(filteredInfo);
+}, [idsell]);
   return (
     <div className={cx("container")}>
-      {listinforWalletSell.map(info => (
+      {info.map(info => (
         <div key={info.id}>
           <div className={cx('contentHeader')}>
             <h3>Chỉnh sửa ví điện tử</h3>
@@ -73,9 +82,11 @@ const options = ListBank.map(item => ({
                   <Button primary large >
                                 Lưu
                 </Button>
-                <Button outline large >
-                                Hủy
+                 <Link to="/WalletSell" style={{ textDecoration: 'none', width:'40%',display:'flex',justifyContent:'center'}}>
+                <Button outline large style={{ width: '50%' }}>
+                  Hủy
                 </Button>
+              </Link>
           </div>
             
           </div>
