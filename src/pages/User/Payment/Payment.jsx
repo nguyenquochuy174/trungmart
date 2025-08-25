@@ -4,12 +4,13 @@ import classNames from 'classnames/bind';
 import styles from './Payment.module.scss';
 import ItemShopCard from '~/components/ItemShopCard/ItemShopCard';
 import Button from '~/components/Button/Button';
-import { listProduct, listSelect } from '~/constant/mock-data';
+import { listAddress, listProduct, listSelect } from '~/constant/mock-data';
 import { toast, ToastContainer } from 'react-toastify';
 import MethodSelect from '~/components/MethodSelect/MethodSelect';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faLocationDot } from '@fortawesome/free-solid-svg-icons';
 
 const cx = classNames.bind(styles);
-
 function Payment() {
     const userId = localStorage.getItem('userId');
     const location = useLocation();
@@ -17,6 +18,18 @@ function Payment() {
 
     const [shippingFee, setShippingFee] = useState(null);
     const [cartItems, setCartItems] = useState([]);
+    const [showEvaluateForm, setShowEvaluateForm] = useState(false);
+    const [selectedAddress, setSelectedAddress] = useState(null);
+
+    const listAddressUser = listAddress.filter(
+        (item) => item.userId === parseInt(userId),
+    );
+
+    useEffect(() => {
+        if (listAddressUser.length > 0 && !selectedAddress) {
+            setSelectedAddress(listAddressUser[0]);
+        }
+    }, [listAddressUser, selectedAddress]);
 
     useEffect(() => {
         let selectedProducts = [];
@@ -72,9 +85,6 @@ function Payment() {
         }
     };
 
-    // const handlePaymentChange = (selectedOption) => {
-    // };
-
     const handleOrder = () => {
         if (shippingFee === null) {
             toast.error(
@@ -97,12 +107,56 @@ function Payment() {
     return (
         <div className={cx('container')}>
             <h3 className={cx('title')}>Thanh toán</h3>
+
+            <div className={cx('address')}>
+                <div className={cx('addressChange')}>
+                    <h3>
+                        <FontAwesomeIcon icon={faLocationDot} /> Địa chỉ nhận
+                        hàng
+                    </h3>
+                    <Button
+                        outline
+                        small
+                        onClick={() => setShowEvaluateForm(true)}
+                    >
+                        Thay đổi
+                    </Button>
+                </div>
+                <div className={cx('addresDetail')}>
+                    {selectedAddress ? (
+                        <ul>
+                            <li>
+                                <strong>Họ tên</strong>
+                                <span className={cx('addressText')}>
+                                    {selectedAddress.name}
+                                </span>
+                            </li>
+                            <li>
+                                <strong>Số điện thoại</strong>
+                                <span className={cx('addressText')}>
+                                    {selectedAddress.phone}
+                                </span>
+                            </li>
+                            <li>
+                                <strong>Địa chỉ</strong>
+                                <span className={cx('addressText')}>
+                                    {selectedAddress.address}
+                                </span>
+                            </li>
+                        </ul>
+                    ) : (
+                        <p>Không có địa chỉ để hiển thị</p>
+                    )}
+                </div>
+            </div>
+
             <div className={cx('banner')}>
                 <p className={cx('bannerFirst')}>Sản phẩm</p>
                 <p>Giá</p>
                 <p>Số lượng</p>
                 <p>Thành tiền</p>
             </div>
+
             {cartItems.map((item, index) => (
                 <ItemShopCard
                     key={index}
@@ -118,6 +172,7 @@ function Payment() {
                     placeholder="Nhập ghi chú của bạn cho cửa hàng ..."
                 />
             </div>
+
             <div className={cx('deliveryMethods')}>
                 <h3>Hình thức giao hàng</h3>
                 <MethodSelect
@@ -132,7 +187,6 @@ function Payment() {
                     <div className={cx('paymentMethod')}>
                         <MethodSelect
                             data={listSelect.find((item) => item.id === 10)}
-                            // onChange={handlePaymentChange}
                         />
                     </div>
 
@@ -149,7 +203,6 @@ function Payment() {
                                     : '---'}
                             </span>
                         </div>
-
                         <div className={cx('totalsRow')}>
                             <span>Giảm giá</span>
                             <span>30.000đ</span>
@@ -167,9 +220,10 @@ function Payment() {
                         </div>
                     </div>
                 </div>
+
                 <div className={cx('check')}>
                     <p>
-                        Nhấn "Đặt hàng" đồng nghĩa với việc bạn đồng ý theo
+                        Nhấn "Đặt hàng" đồng nghĩa với việc bạn đồng ý theo{' '}
                         <strong>Điều khoản TrungMart</strong>
                     </p>
                     <div className={cx('totalAmount')}>
@@ -179,6 +233,67 @@ function Payment() {
                     </div>
                 </div>
             </div>
+
+            {showEvaluateForm && (
+                <div
+                    className={cx('modalOverlay')}
+                    onClick={() => setShowEvaluateForm(false)}
+                >
+                    <div
+                        className={cx('modalContent')}
+                        onClick={(e) => e.stopPropagation()}
+                    >
+                        <h3>Chọn địa chỉ giao hàng</h3>
+                        {listAddressUser.length > 0 ? (
+                            <div className={cx('listAddress')}>
+                                {listAddressUser.map((item) => (
+                                    <div
+                                        className={cx('itemAddress')}
+                                        key={item.id}
+                                    >
+                                        <div className={cx('info')}>
+                                            <h4>{item.name}</h4>
+                                            <p>{item.phone}</p>
+                                            <p>{item.address}</p>
+                                        </div>
+                                        <Button
+                                            small
+                                            onClick={() => {
+                                                setSelectedAddress(item);
+                                                setShowEvaluateForm(false);
+                                            }}
+                                        >
+                                            Chọn
+                                        </Button>
+                                    </div>
+                                ))}
+                            </div>
+                        ) : (
+                            <div className={cx('noAddress')}>
+                                <p>Bạn chưa có địa chỉ giao hàng.</p>
+                                <Button
+                                    primary
+                                    onClick={() =>
+                                        navigate('/UserProfileAddress')
+                                    }
+                                >
+                                    Thêm địa chỉ
+                                </Button>
+                            </div>
+                        )}
+                        <div className={cx('btnClose')}>
+                            <Button
+                                outline
+                                small
+                                onClick={() => setShowEvaluateForm(false)}
+                            >
+                                Đóng
+                            </Button>
+                        </div>
+                    </div>
+                </div>
+            )}
+
             <ToastContainer position="top-right" autoClose={2000} />
         </div>
     );

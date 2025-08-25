@@ -21,6 +21,7 @@ import { useEffect, useState } from 'react';
 const cx = classNames.bind(styles);
 
 function Header() {
+    const userId = localStorage.getItem('userId');
     const location = useLocation();
     const currentPath = location.pathname;
 
@@ -30,7 +31,7 @@ function Header() {
     const [searchHistory, setSearchHistory] = useState([]);
     const [showHistory, setShowHistory] = useState(false);
 
-    const HISTORY_KEY = 'searchHistory';
+    const HISTORY_KEY = `searchHistory_${userId}`;
     const navigate = useNavigate();
 
     // lấy lịch xử khi focus vào search
