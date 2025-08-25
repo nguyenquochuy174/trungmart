@@ -29,8 +29,7 @@ function Message() {
             .sort((a, b) => new Date(a.time) - new Date(b.time));
 
         setMessages(newChatMessages);
-       
-    }, [chatMessages, shopId]);
+    }, [userId, shop?.id]);
 
     const messagesEndRef = useRef(null);
 
