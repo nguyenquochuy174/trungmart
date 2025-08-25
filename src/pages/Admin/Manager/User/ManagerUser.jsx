@@ -29,7 +29,6 @@ function ManagerUser() {
 
 
   const statusMapUser = {
-    Sell: ['user', 'Hoạt Động'],
     block: ['block', 'Khóa'],
     user: ['user', 'Hoạt Động'],
   };
@@ -57,10 +56,13 @@ function ManagerUser() {
   const filteredUsers = listUser.filter((item) => {
     if (item.roll?.toLowerCase() === 'admin') return false;
 
-    const matchStatus =
-     filters.status === 'block'
-        ? item.status === 'block'
-        : true;
+  const matchStatus =
+  filters.status === 'block'
+    ? item.status === 'block'
+    : filters.status === 'approved'
+      ? item.status !== 'block'
+      : true;
+
 
     const matchArea = filters.area === 'Tất Cả' || item.area === filters.area;
 

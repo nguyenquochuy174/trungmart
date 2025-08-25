@@ -209,7 +209,7 @@ function ManagerUser() {
       {/* Bộ lọc */}
       <div className={cx('find')}>
         <Select
-          data={listSelect[6]}
+          data={listSelect[7]}
           value={filters.status || 'Tất Cả'}
           onChange={(value) =>
             handleFilterChange({ status: value || 'Tất Cả', area: filters.area })
