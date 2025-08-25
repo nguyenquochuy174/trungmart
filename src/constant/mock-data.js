@@ -1305,6 +1305,60 @@ const listSelect = [
             { label: 'Khóa', value: 'block', queryKey: 'status' },
         ],
     },
+    {
+        id: 9,
+        name: 'Hình thức giao hàng',
+        children: [
+            {
+                label: 'Giao hàng tiêu chuẩn',
+                value: 'STANDARD',
+                description: 'Giao hàng trong vòng 5-7 ngày làm việc.',
+                deliveryTime: '5-7 ngày',
+                fee: 20000,
+                queryKey: 'delivery',
+            },
+            {
+                label: 'Giao hàng nhanh',
+                value: 'EXPRESS',
+                description: 'Giao hàng trong vòng 3-4 ngày làm việc.',
+                deliveryTime: '3-4 ngày',
+                fee: 35000,
+                queryKey: 'delivery',
+            },
+            {
+                label: 'Giao hàng hỏa tốc',
+                value: 'SAME_DAY',
+                description: 'Giao hàng trong vòng 1-2 ngày làm việc.',
+                deliveryTime: '1-2 ngày',
+                fee: 50000,
+                queryKey: 'delivery',
+            },
+            {
+                label: 'Giao hàng quốc tế',
+                value: 'INTERNATIONAL',
+                description: 'Giao hàng ra nước ngoài từ 7-14 ngày làm việc.',
+                deliveryTime: '7-14 ngày',
+                fee: 150000,
+                queryKey: 'delivery',
+            },
+        ],
+    },
+    {
+        id: 10,
+        name: 'Phương thức thanh toán',
+        children: [
+            {
+                label: 'Thanh toán khi nhận hàng',
+                value: 'cod',
+                queryKey: 'paymentMethod',
+            },
+            {
+                label: 'Thanh toán QRCode',
+                value: 'qrcode',
+                queryKey: 'paymentMethod',
+            },
+        ],
+    },
 ];
 
 const listOrders = [

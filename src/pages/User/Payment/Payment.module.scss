@@ -72,9 +72,19 @@
             padding-left: 15px;
         }
     }
+    .deliveryMethods {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+        padding: 10px 20px;
+        border-bottom: 0.5px solid #dddddd;
+        h3 {
+            font-size: 1.8rem;
+        }
+    }
     .itemPayment {
         h3 {
-            padding: 10px 20px;
+            padding: 12px 20px;
             font-size: 1.8rem;
             border-bottom: 0.5px solid #dddddd;
         }
@@ -179,6 +189,11 @@
 
                 font-size: 1.5rem;
             }
+        }
+        .deliveryMethods {
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 10px;
         }
         .itemPayment {
             .checkoutBox {
