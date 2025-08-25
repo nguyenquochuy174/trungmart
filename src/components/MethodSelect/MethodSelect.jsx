@@ -1,39 +1,30 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import classNames from 'classnames/bind';
-import styles from './Select.module.scss';
-import { useSearchParams } from 'react-router-dom';
+import styles from './MethodSelect.module.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAngleDown } from '@fortawesome/free-solid-svg-icons';
 
 const cx = classNames.bind(styles);
 
-function Select({ data }) {
-    const [searchParams, setSearchParams] = useSearchParams();
+function MethodSelect({ data, onChange }) {
     const [isOpen, setIsOpen] = useState(false);
     const [selectedValue, setSelectedValue] = useState(null);
 
-    useEffect(() => {
-        const key = data.children?.[0]?.queryKey || '';
-        const valueFromUrl = searchParams.get(key);
-        setSelectedValue(valueFromUrl ?? null);
-    }, [searchParams, data.children]);
-
     const selectedOption = data.children?.find(
-        (child) =>
-            (child.value === null && selectedValue === null) ||
-            String(child.value) === String(selectedValue),
+        (child) => child.value === selectedValue,
     );
 
-    const selectedLabel =
-        selectedOption?.value === null ? data.name : selectedOption?.label;
+    const selectedLabel = selectedOption?.label || data.name;
+
     const handleMouseEnter = () => setIsOpen(true);
     const handleMouseLeave = () => setIsOpen(false);
 
-    const handleChildClick = (queryKey, value) => {
-        searchParams.set(queryKey, value);
-        setSearchParams(searchParams);
+    const handleChildClick = (value) => {
         setSelectedValue(value);
         setIsOpen(false);
+
+        const option = data.children.find((child) => child.value === value);
+        if (onChange) onChange(option);
     };
 
     return (
@@ -44,7 +35,7 @@ function Select({ data }) {
                 onMouseLeave={handleMouseLeave}
             >
                 <span className={cx('title')}>
-                    {selectedLabel || data.name}
+                    {selectedLabel}
                     {data.children && (
                         <FontAwesomeIcon
                             icon={faAngleDown}
@@ -60,10 +51,7 @@ function Select({ data }) {
                                 <button
                                     className={cx('dropdownItem')}
                                     onClick={() =>
-                                        handleChildClick(
-                                            child.queryKey,
-                                            child.value,
-                                        )
+                                        handleChildClick(child.value)
                                     }
                                 >
                                     {child.label}
@@ -77,4 +65,4 @@ function Select({ data }) {
     );
 }
 
-export default Select;
+export default MethodSelect;

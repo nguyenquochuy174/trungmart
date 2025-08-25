@@ -6,7 +6,7 @@ import ItemShopCard from '~/components/ItemShopCard/ItemShopCard';
 import Button from '~/components/Button/Button';
 import { listProduct, listSelect } from '~/constant/mock-data';
 import { toast, ToastContainer } from 'react-toastify';
-import Select from '~/components/Select/Select';
+import MethodSelect from '~/components/MethodSelect/MethodSelect';
 
 const cx = classNames.bind(styles);
 
@@ -64,6 +64,17 @@ function Payment() {
         0,
     );
 
+    const handleShippingChange = (selectedOption) => {
+        if (selectedOption?.fee !== undefined) {
+            setShippingFee(selectedOption.fee);
+        } else {
+            setShippingFee(null);
+        }
+    };
+
+    // const handlePaymentChange = (selectedOption) => {
+    // };
+
     const handleOrder = () => {
         if (shippingFee === null) {
             toast.error(
@@ -109,13 +120,9 @@ function Payment() {
             </div>
             <div className={cx('deliveryMethods')}>
                 <h3>Hình thức giao hàng</h3>
-                <Select
-                    data={listSelect[8]}
-                    onChange={(selectedOption) => {
-                        if (selectedOption?.fee !== undefined) {
-                            setShippingFee(selectedOption.fee);
-                        }
-                    }}
+                <MethodSelect
+                    data={listSelect.find((item) => item.id === 9)}
+                    onChange={handleShippingChange}
                 />
             </div>
 
@@ -123,7 +130,10 @@ function Payment() {
                 <h3>Phương thức thanh toán</h3>
                 <div className={cx('checkoutBox')}>
                     <div className={cx('paymentMethod')}>
-                        <Select data={listSelect[9]} />
+                        <MethodSelect
+                            data={listSelect.find((item) => item.id === 10)}
+                            // onChange={handlePaymentChange}
+                        />
                     </div>
 
                     <div className={cx('totals')}>
