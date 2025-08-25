@@ -439,6 +439,7 @@ const storeList = [
             'Tư vấn tận tình, đổi trả dễ dàng nếu sản phẩm không như cam kết',
         ],
         area: 'hue',
+         status:'cancelled'
     },
     {
         id: 7,
@@ -470,6 +471,7 @@ const storeList = [
             'Hoàn tiền nếu sản phẩm không đúng mô tả',
         ],
         area: 'danang',
+         status:'approved'
     },
     {
         id: 8,
@@ -500,6 +502,7 @@ const storeList = [
             'Hỗ trợ đổi trả trong 7 ngày',
         ],
         area: 'quangnam',
+         status:'approved'
     },
     {
         id: 9,
@@ -526,36 +529,7 @@ const storeList = [
             'Hoàn tiền nếu sản phẩm không đạt yêu cầu',
         ],
         area: 'hatinh',
-    },
-    {
-        id: 10,
-        name: 'Quảng Ngãi Quê Hương',
-        description:
-            'Đưa đặc sản Quảng Ngãi đến gần hơn với mọi miền, chúng tôi cung cấp các sản phẩm như kẹo gương, kẹo đậu phộng, cá bống sông Trà, mạch nha,...',
-        address: '66 Hùng Vương, TP. Quảng Ngãi',
-        phone: '0988 555 666',
-        email: 'hello@quangngai.vn',
-        website: 'https://www.quangngai.vn',
-        fanpage: 'https://www.fb.com/quangngaiquehuong',
-        rating: 4.3,
-        totalReviews: 250,
-        joinedAt: '2019-11-20',
-        avatar: images.avatarStore,
-        certifications: [
-            { id: 1, url: images.giayChungNhan.img1, alt: 'Giấy chứng nhận' },
-            { id: 2, url: images.giayChungNhan.img2, alt: 'Giấy hoạt động' },
-        ],
-        featuredProducts: [
-            'Kẹo đậu phộng Quảng Ngãi',
-            'Cá bống sông Trà',
-            'Mạch nha Quảng Ngãi',
-        ],
-        guarantee: [
-            'Chọn lọc kỹ lưỡng từ địa phương',
-            'Đóng gói an toàn, giữ trọn hương vị',
-            'Đổi trả nếu không hài lòng',
-        ],
-        area: 'quangngai',
+         status:'approved'
     },
 ];
 
@@ -1173,6 +1147,51 @@ const listinfoSell = [
         Address: 'thôn, Phước Thanh, xã Quảng Điền, TP. Huế',
         password:'1235'
     },
+        {
+        idstore:7,
+        id: 7,
+        Name: 'Nam',
+        LastName: 'Nguyễn Hoàng',
+        Date: '28/05/20005',
+        Gender: 'Nam',
+        Email: 'n24@gmail.com',
+        Phone: '01659835717',
+        Facebook: 'trungmart',
+        Tiktok: 'trungmart@168',
+        Avatar: images.avatarStore,
+        Address: 'thôn, Phước Thanh, xã Quảng Điền, TP. Huế',
+        password:'1235'
+    },
+         {
+        idstore:8,
+        id: 8,
+        Name: 'Phước',
+        LastName: 'Nguyễn Hoàng',
+        Date: '28/05/20005',
+        Gender: 'Nam',
+        Email: 'n24@gmail.com',
+        Phone: '01659835717',
+        Facebook: 'trungmart',
+        Tiktok: 'trungmart@168',
+        Avatar: images.avatarStore,
+        Address: 'thôn, Phước Thanh, xã Quảng Điền, TP. Huế',
+        password:'1235'
+    },
+           {
+        idstore:9,
+        id: 9,
+        Name: 'Tiến',
+        LastName: 'Nguyễn Hoàng',
+        Date: '28/05/20005',
+        Gender: 'Nam',
+        Email: 'n24@gmail.com',
+        Phone: '01659835717',
+        Facebook: 'trungmart',
+        Tiktok: 'trungmart@168',
+        Avatar: images.avatarStore,
+        Address: 'thôn, Phước Thanh, xã Quảng Điền, TP. Huế',
+        password:'1235'
+    },
 ];
 const listinforWalletSell = [
     {
@@ -1295,6 +1314,7 @@ const listSelect = [
     id: 7,
     name: "Trạng Thái",
      children: [
+         { label: 'Tất Cả', value: '', queryKey: 'status' },
             { label: 'Hoạt Động', value: 'approved', queryKey: 'status' },
             { label: 'Khóa', value: 'block', queryKey: 'status' },
         ],
@@ -1303,6 +1323,7 @@ const listSelect = [
     id: 8,
     name: "Trạng Thái",
      children: [
+         { label: 'Tất Cả', value: '', queryKey: 'status' },
             { label: 'Chưa Duyệt', value: 'cancelled', queryKey: 'status' },
             { label: 'Hoạt Động', value: 'approved', queryKey: 'status' },
             { label: 'Khóa', value: 'block', queryKey: 'status' },

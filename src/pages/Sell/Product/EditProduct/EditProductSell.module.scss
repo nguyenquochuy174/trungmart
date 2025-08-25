@@ -10,15 +10,10 @@
   height: 49px;
   border-bottom: 0.5px solid #B3B3B3;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
 
-  a {
-    color: #333;
-    &:hover {
-      color: #5C8018;
-    }
-  }
+
 }
 
 .content {

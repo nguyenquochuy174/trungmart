@@ -1,6 +1,6 @@
 import styles from "./StoreSell.module.scss"
 import classNames from 'classnames/bind';
-import { storeList } from '~/constant/mock-data';
+import { storeList,listProduct } from '~/constant/mock-data';
 import { useState, useEffect } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { 
@@ -15,12 +15,20 @@ const cx = classNames.bind(styles);
 function StoreSell() {
   const [storeInfo, setStoreInfo] = useState(null);
   const idsell = parseInt(localStorage.getItem('idSell'));
-
+const [numverProduct, setNumverProduct] = useState(0);
   useEffect(() => {
     const info = storeList.find((store) => store.id === idsell);
     setStoreInfo(info);
   }, [idsell]);
-
+   useEffect(() => {
+  if (!storeInfo) return; 
+  const count = listProduct.reduce(
+    (acc, item) => acc + (Number(item.idStore) === storeInfo.id ? 1 : 0),
+    0
+  );
+  setNumverProduct(count);
+}, [storeInfo]);
+ 
   // Nếu chưa có dữ liệu thì không render gì
   if (!storeInfo) {
     return <div className={cx('container')}>Đang tải...</div>;
@@ -29,6 +37,8 @@ function StoreSell() {
   const joinYear = new Date(storeInfo.joinedAt).getFullYear();
   const currentYear = new Date().getFullYear();
   const yearsActive = currentYear - joinYear;
+  
+  
 
   return (
     <div className={cx("container")}>
@@ -39,7 +49,7 @@ function StoreSell() {
               <FontAwesomeIcon icon={faBox} className={cx("icon")} />
               <p>Sản Phẩm</p>
             </div>
-            <p>100</p>
+            <p>{numverProduct}</p>
           </div>
           <div className={cx("item")}>
             <div className={cx('headeritem')}>
