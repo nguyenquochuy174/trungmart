@@ -3,7 +3,7 @@ import styles from "./AddProductSell.module.scss"
 import classNames from 'classnames/bind';
 import { listMenuUser,storeList } from '~/constant/mock-data';
 import Button from '~/components/Button/Button';
-import { useState,useEffect } from 'react';
+import { useState } from 'react';
 import Select from "react-select";
 import { Link } from 'react-router-dom';
 import { 
@@ -16,13 +16,15 @@ function AddProductSell() {
   const [quantity, setQuantity] = useState('');
   const [price, setPrice] = useState('');
   const [description, setDescription] = useState('');
-  const [storeInfo, setStoreInfo] = useState(null);
+    const idsell = parseInt(localStorage.getItem('idSell'));
+ 
+ const info = storeList.find((store) => store.id === idsell);
+  const [avatarPreview, setAvatarPreview] = useState(info.avatar);
 
-  const idsell = parseInt(localStorage.getItem('idSell'));
-  useEffect(() => {
-    const info = storeList.find((store) => store.id === idsell);
-    setStoreInfo(info);
-  }, [idsell]);
+
+
+
+
 
   const options = listMenuUser[1].children.map(item => ({
     value: item.name,
@@ -45,7 +47,7 @@ function AddProductSell() {
     alert('Lưu thành công!');
   }
 
-  if (!storeInfo) {
+  if (!info) {
     return <div className={cx('container')}>Đang tải...</div>;
   }
 
@@ -106,10 +108,26 @@ function AddProductSell() {
         <div className={cx("userAnh")}>
           <p className={cx("editinfo")}>Ảnh đại diện: </p>
           <div className={cx('imgAvatar')}>
-            <img src={storeInfo.avatar} alt="" />
-            <Button outline large>
-              Chọn ảnh
-            </Button>
+            <img src={avatarPreview} alt="Ảnh đại diện" />
+                    <input
+                        type="file"
+                        id="fileInput"
+                        className={cx('file-input')}
+                        accept="image/*"
+                        onChange={(e) => {
+                            const file = e.target.files[0];
+                            if (file) {
+                                const imageUrl = URL.createObjectURL(file);
+                                setAvatarPreview(imageUrl);
+                            }
+                        }}
+                    />
+                    <label
+                        htmlFor="fileInput"
+                        className={cx('custom-file-label')}
+                    >
+                        Chọn tệp
+                    </label>
           </div>
         </div>
         <div className={cx('Submit')}>

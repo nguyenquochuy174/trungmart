@@ -1,7 +1,7 @@
 import styles from "./StatisAdmin.module.scss";
 import { useEffect, useMemo, useState } from 'react';
 import classNames from 'classnames/bind';
-import { listProduct, listSelect,listOrder,datachart,listUser,storeList } from '~/constant/mock-data';
+import { listSelect,datachart,listUser,storeList } from '~/constant/mock-data';
 import Select from '~/components/Select/Select';
 import { useSearchParams } from 'react-router-dom';
 import BarChartCustom from '~/components/Chart/Chart';

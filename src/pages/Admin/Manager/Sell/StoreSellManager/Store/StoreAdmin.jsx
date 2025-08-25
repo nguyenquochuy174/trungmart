@@ -22,7 +22,7 @@ function StoreAdmin() {
     const check = store.status==='cancelled'?true:false;
     return (
         <>
-            <h4>Thông tin cửa hàng</h4>
+            <h4 className={cx('tieude')}>Thông tin cửa hàng</h4>
             <StoreView
                 data={store}
                 report={false}
@@ -88,7 +88,7 @@ function StoreAdmin() {
                 <p className={cx('info-title')}>Giấy chứng nhận</p>
                 <ul className={cx('cert')}>
                     {store.certifications.map((item, index) => (
-                        <li>
+                        <li key={index}>
                             <img key={index} src={item.url} alt={item.alt} />
                         </li>
                     ))}

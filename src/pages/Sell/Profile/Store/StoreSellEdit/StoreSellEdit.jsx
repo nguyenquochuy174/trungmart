@@ -4,7 +4,6 @@ import classNames from 'classnames/bind';
 import { storeList } from '~/constant/mock-data';
 import Button from '~/components/Button/Button';
 import { useState, useEffect } from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { 
 } from '@fortawesome/free-solid-svg-icons';
 import { Link } from "react-router-dom";
@@ -12,13 +11,19 @@ import { Link } from "react-router-dom";
 const cx = classNames.bind(styles);
 function StoreSellEdit() {
    const [storeInfo, setStoreInfo] = useState(null);
+   const [avatarPreview, setAvatarPreview] = useState(null);
      const idsell = parseInt(localStorage.getItem('idSell'));
    
      useEffect(() => {
        const info = storeList.find((store) => store.id === idsell);
        setStoreInfo(info);
      }, [idsell]);
-   
+     useEffect(()=>{
+    if(storeInfo && storeInfo.avatar){
+    setAvatarPreview(storeInfo.avatar)
+
+    }
+  },[storeInfo])
      // Nếu chưa có dữ liệu thì không render gì
      if (!storeInfo) {
        return <div className={cx('container')}>Đang tải...</div>;
@@ -69,7 +74,7 @@ function StoreSellEdit() {
             />
           </div>
             </div>
-                      <div className={cx('inputedit')}>
+            <div className={cx('inputedit')}>
             <div className={cx("userName")}>
             <p className={cx("editinfo")}>Facebook: </p>
             <input
@@ -106,12 +111,15 @@ function StoreSellEdit() {
             </div>
              <div className={cx("userName")}>
             <p className={cx("editinfo")}>Giấy Phép Kinh Doanh: </p>
-            <input
+            <div className={cx('kd')}>
+              <input
               type="file"
               className={cx("Edit")}
               name="phone"
               
             />
+            </div>
+            
             </div>
               </div>
             
@@ -129,10 +137,26 @@ function StoreSellEdit() {
           <div className={cx("userAnh")}>
             <p className={cx("editinfo")}>Ảnh đại diện: </p>
             <div className={cx('imgAvatar')}>
-            <img src={storeInfo.avatar} alt="" />
-            <Button outline large>
-                        chọn ảnh
-              </Button>
+            <img src={avatarPreview} alt="Ảnh đại diện" />
+                    <input
+                        type="file"
+                        id="fileInput"
+                        className={cx('file-input')}
+                        accept="image/*"
+                        onChange={(e) => {
+                            const file = e.target.files[0];
+                            if (file) {
+                                const imageUrl = URL.createObjectURL(file);
+                                setAvatarPreview(imageUrl);
+                            }
+                        }}
+                    />
+                    <label
+                        htmlFor="fileInput"
+                        className={cx('custom-file-label')}
+                    >
+                        Chọn tệp
+                    </label>
             </div>
               
           </div>

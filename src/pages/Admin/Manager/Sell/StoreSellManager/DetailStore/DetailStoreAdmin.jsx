@@ -2,13 +2,7 @@ import classNames from 'classnames/bind';
 import styles from './DetailStoreAdmin.module.scss';
 import { Link, useParams } from 'react-router-dom';
 import { storeList,listinfoSell} from '~/constant/mock-data';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import {
-     faGlobe,
-    faHouse,
-    faMobile,
-    faPhone,
-} from '@fortawesome/free-solid-svg-icons';
+import {} from '@fortawesome/free-solid-svg-icons';
 
 import StoreView from '~/components/StoreView/StoreView';
 
@@ -23,7 +17,7 @@ function DetailStoreAdmin() {
      const check = store.status==='cancelled'?true:false;
     return (
      <>
-            <h4>Thông tin chủ cửa hàng</h4>
+            <h4 className={cx('tieude')}>Thông tin chủ cửa hàng</h4>
             <StoreView
                 data={store}
                 report={false}

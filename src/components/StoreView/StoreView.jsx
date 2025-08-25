@@ -151,11 +151,11 @@ function StoreView({ data, report, onReportClick,form=true,check=false }) {
             ):(
                 check ?(
                      <div className={cx('btn')}>          
-                        <Button outline small>
+                        <Button primary small>
                             Duyệt 
                         </Button>
                         <Button 
-                        primary 
+                        outline 
                         small 
                         >
                             Hủy Bỏ

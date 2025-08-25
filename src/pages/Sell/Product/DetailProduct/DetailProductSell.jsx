@@ -1,7 +1,7 @@
 import styles from "./DetailProductSell.module.scss"
 import classNames from 'classnames/bind';
 import { useParams } from 'react-router-dom';
-import { listProduct, reportForm, storeList } from '~/constant/mock-data';
+import { listProduct, reportForm } from '~/constant/mock-data';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
     faChevronLeft,
@@ -14,7 +14,6 @@ import Button from '~/components/Button/Button';
 import {
 
 } from '@fortawesome/free-brands-svg-icons';
-import StoreView from '~/components/StoreView/StoreView';
 import ItemProduct from '~/components/ItemProduct/ItemProduct';
 import ReviewItem from '~/components/ReviewItem/ReviewItem';
 import FormApprove from '~/components/FormApprove/FormApprove';
@@ -25,14 +24,9 @@ function DetailProductSell() {
     const productImages = product.image || [];
     const [currentIndex, setCurrentIndex] = useState(0);
     const [direction, setDirection] = useState('next');
-    const [quantity, setQuantity] = useState(5);
     const [productsPerPage, setProductsPerPage] = useState(8);
     const [showReportForm, setShowReportForm] = useState(false);
 
-    const idSell = parseInt(localStorage.getItem('idSell'));
-    const store = storeList.find(
-        (store) => store.id === idSell,
-    );
 
     useEffect(() => {
         function updateProductsPerPage() {
