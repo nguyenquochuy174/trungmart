@@ -7,7 +7,7 @@ import { faAngleDown } from '@fortawesome/free-solid-svg-icons';
 
 const cx = classNames.bind(styles);
 
-function Select({ data }) {
+function Select({ data, onChange }) {
     const [searchParams, setSearchParams] = useSearchParams();
     const [isOpen, setIsOpen] = useState(false);
     const [selectedValue, setSelectedValue] = useState(null);
@@ -34,6 +34,13 @@ function Select({ data }) {
         setSearchParams(searchParams);
         setSelectedValue(value);
         setIsOpen(false);
+
+        const selectedOption = data.children.find(
+            (child) => String(child.value) === String(value),
+        );
+        if (onChange && typeof onChange === 'function') {
+            onChange(selectedOption);
+        }
     };
 
     return (

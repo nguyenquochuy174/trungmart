@@ -1,52 +1,85 @@
 import { useLocation, useNavigate } from 'react-router-dom';
+import { useEffect, useState } from 'react';
 import classNames from 'classnames/bind';
 import styles from './Payment.module.scss';
 import ItemShopCard from '~/components/ItemShopCard/ItemShopCard';
 import Button from '~/components/Button/Button';
-import { listProduct } from '~/constant/mock-data';
+import { listProduct, listSelect } from '~/constant/mock-data';
 import { toast, ToastContainer } from 'react-toastify';
+import Select from '~/components/Select/Select';
 
 const cx = classNames.bind(styles);
 
 function Payment() {
     const userId = localStorage.getItem('userId');
     const location = useLocation();
-
-    const { selectedProducts, productId, quantity } = location.state || {};
-    let cartItems = [];
-
-    if (Array.isArray(selectedProducts) && selectedProducts.length > 0) {
-        cartItems = selectedProducts;
-    } else if (productId && quantity) {
-        const product = listProduct.find((item) => item.id === productId);
-        if (product) {
-            cartItems = [{ ...product, quantity }];
-        }
-    } else {
-        const storedCart =
-            JSON.parse(localStorage.getItem(`cart_${userId}`)) || [];
-        cartItems = storedCart.map((cartItem) => {
-            const product = listProduct.find(
-                (item) => item.id === cartItem.productId,
-            );
-            return { ...product, quantity: cartItem.quantity };
-        });
-    }
-
-    const totalAmount = cartItems.reduce((total, item) => {
-        return total + item.price * item.quantity;
-    }, 0);
-
     const navigate = useNavigate();
 
+    const [shippingFee, setShippingFee] = useState(null);
+    const [cartItems, setCartItems] = useState([]);
+
+    useEffect(() => {
+        let selectedProducts = [];
+        if (location.state?.selectedProducts) {
+            selectedProducts = location.state.selectedProducts;
+            sessionStorage.setItem(
+                `payment_selectedProducts_${userId}`,
+                JSON.stringify(selectedProducts),
+            );
+        } else {
+            const saved = sessionStorage.getItem(
+                `payment_selectedProducts_${userId}`,
+            );
+            if (saved) {
+                selectedProducts = JSON.parse(saved);
+            }
+        }
+
+        if (Array.isArray(selectedProducts) && selectedProducts.length > 0) {
+            setCartItems(selectedProducts);
+        } else if (location.state?.productId && location.state?.quantity) {
+            const product = listProduct.find(
+                (item) => item.id === location.state.productId,
+            );
+            if (product) {
+                setCartItems([
+                    { ...product, quantity: location.state.quantity },
+                ]);
+            }
+        } else {
+            const storedCart =
+                JSON.parse(localStorage.getItem(`cart_${userId}`)) || [];
+            const items = storedCart.map((cartItem) => {
+                const product = listProduct.find(
+                    (item) => item.id === cartItem.productId,
+                );
+                return { ...product, quantity: cartItem.quantity };
+            });
+            setCartItems(items);
+        }
+    }, [location.state, userId]);
+
+    const totalAmount = cartItems.reduce(
+        (total, item) => total + item.price * item.quantity,
+        0,
+    );
+
     const handleOrder = () => {
+        if (shippingFee === null) {
+            toast.error(
+                'Vui lòng chọn hình thức giao hàng trước khi đặt hàng!',
+            );
+            return;
+        }
         toast.success('Đặt hàng thành công!');
+
         const cart = JSON.parse(localStorage.getItem(`cart_${userId}`)) || [];
-        const orderedIds = cartItems.map((item) => item.id);
+        const orderedIds = cartItems.map((item) => item.id.toString());
         const updatedCart = cart.filter(
-            (item) => !orderedIds.includes(item.productId),
+            (item) => !orderedIds.includes(item.productId.toString()),
         );
         localStorage.setItem(`cart_${userId}`, JSON.stringify(updatedCart));
+        sessionStorage.removeItem(`payment_selectedProducts_${userId}`);
         setTimeout(() => navigate('/UserProfileOrder?status=pending'), 1000);
     };
 
@@ -74,15 +107,23 @@ function Payment() {
                     placeholder="Nhập ghi chú của bạn cho cửa hàng ..."
                 />
             </div>
+            <div className={cx('deliveryMethods')}>
+                <h3>Hình thức giao hàng</h3>
+                <Select
+                    data={listSelect[8]}
+                    onChange={(selectedOption) => {
+                        if (selectedOption?.fee !== undefined) {
+                            setShippingFee(selectedOption.fee);
+                        }
+                    }}
+                />
+            </div>
 
             <div className={cx('itemPayment')}>
                 <h3>Phương thức thanh toán</h3>
                 <div className={cx('checkoutBox')}>
                     <div className={cx('paymentMethod')}>
-                        <select id="payment" className={cx('paymentSelect')}>
-                            <option>Thanh toán khi nhận hàng</option>
-                            <option>Thanh toán QRCode</option>
-                        </select>
+                        <Select data={listSelect[9]} />
                     </div>
 
                     <div className={cx('totals')}>
@@ -92,8 +133,13 @@ function Payment() {
                         </div>
                         <div className={cx('totalsRow')}>
                             <span>Chi phí vận chuyển</span>
-                            <span>30.000đ</span>
+                            <span>
+                                {shippingFee !== null
+                                    ? `${shippingFee.toLocaleString('vi-VN')}đ`
+                                    : '---'}
+                            </span>
                         </div>
+
                         <div className={cx('totalsRow')}>
                             <span>Giảm giá</span>
                             <span>30.000đ</span>
@@ -101,9 +147,11 @@ function Payment() {
                         <div className={cx('totalsRow')}>
                             <span>Tổng thanh toán</span>
                             <span className={cx('totalPrice')}>
-                                {(totalAmount + 30000 - 30000).toLocaleString(
-                                    'vi-VN',
-                                )}
+                                {(
+                                    totalAmount +
+                                    (shippingFee || 0) -
+                                    30000
+                                ).toLocaleString('vi-VN')}
                                 đ
                             </span>
                         </div>
