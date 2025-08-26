@@ -49,6 +49,8 @@ import InfoShop from '~/pages/User/ViewShop/InfoShop/InfoShop';
 import ProductShop from '~/pages/User/ViewShop/ProductShop/ProductShop';
 import CouponAdmin from '~/pages/Admin/Coupon/CouponAdmin/CouponAdmin';
 import AddCoupon from '~/pages/Admin/Coupon/AddCoupon/AddCoupon';
+import ProfileCouponUser from '~/pages/User/Profile/ProfileCoupon/ProfileCouponUser/ProfileCouponUser';
+import ProfileCouponTake from '~/pages/User/Profile/ProfileCoupon/ProfileCouponTake/ProfileCouponTake';
 // không cần đăng nhập vẫn xem được
 const publicRoutes = [
     // user
@@ -122,6 +124,16 @@ const publicRoutes = [
     {
         path: '/UserProfileOrder',
         component: ProfileOrder,
+        layout: SidebarProfileLayout,
+    },
+    {
+        path: '/UserProfileCoupon',
+        component: ProfileCouponUser,
+        layout: SidebarProfileLayout,
+    },
+    {
+        path: '/UserProfileCouponTake',
+        component: ProfileCouponTake,
         layout: SidebarProfileLayout,
     },
 

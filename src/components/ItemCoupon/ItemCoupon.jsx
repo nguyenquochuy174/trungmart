@@ -4,7 +4,14 @@ import Button from '../Button/Button';
 
 const cx = classNames.bind(styles);
 
-function ItemCoupon({ data, user = false }) {
+function ItemCoupon({
+    data,
+    user = false,
+    payment = false,
+    selected = false,
+    onSelect,
+    onCancel,
+}) {
     const formatCouponValue = () => {
         if (data.type === 'percentage') return `Giảm ${data.value}%`;
         if (data.type === 'fixedAmount')
@@ -40,7 +47,7 @@ function ItemCoupon({ data, user = false }) {
                     <div className={cx('content-left')}>
                         <p className={cx('description')}>{data.description}</p>
                         <p className={cx('value')}>{formatCouponValue()}</p>
-                        {!user && (
+                        {!user && !payment && !selected && (
                             <p className={cx('quantity')}>
                                 Số lượng: {data.quantity}
                             </p>
@@ -60,8 +67,25 @@ function ItemCoupon({ data, user = false }) {
                         )}
                     </div>
                     {user && <Button text>Xóa</Button>}
+                    {payment &&
+                        (isDisabled() ? (
+                            <Button small disabled>
+                                {data.quantity <= 0 ? 'Hết mã giảm' : 'Hết hạn'}
+                            </Button>
+                        ) : (
+                            <Button small outline onClick={onSelect}>
+                                Chọn
+                            </Button>
+                        ))}
+                    {selected && (
+                        <Button text onClick={onCancel}>
+                            Hủy
+                        </Button>
+                    )}
 
                     {!user &&
+                        !selected &&
+                        !payment &&
                         (isDisabled() ? (
                             <Button small disabled>
                                 {data.quantity <= 0 ? 'Hết mã giảm' : 'Hết hạn'}

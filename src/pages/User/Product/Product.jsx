@@ -1,7 +1,7 @@
 import { useEffect, useMemo, useState } from 'react';
 import classNames from 'classnames/bind';
 import styles from './Product.module.scss';
-import { listProduct, listSelect,storeList  } from '~/constant/mock-data';
+import { listProduct, listSelect, storeList } from '~/constant/mock-data';
 import Select from '~/components/Select/Select';
 import RatingSelect from '~/components/RatingSelect/RatingSelect';
 import ItemProduct from '~/components/ItemProduct/ItemProduct';
@@ -54,57 +54,59 @@ function Product() {
     }, []);
 
     // lọc sản phẩm
-   const filteredProducts = useMemo(() => {
-    return listProduct.filter((product) => {
-        let matches = true;
+    const filteredProducts = useMemo(() => {
+        return listProduct.filter((product) => {
+            let matches = true;
 
-        //  ẩn sản phẩm nếu store bị canceled
-        const store = storeList.find((s) => s.id === parseInt(product.idStore));
-        if (store.status === 'cancelled') {
-            return false;
-        }
-
-        if (filters.price && Array.isArray(filters.price)) {
-            const [minPrice, maxPrice] = filters.price;
-            if (
-                typeof minPrice === 'number' &&
-                typeof maxPrice === 'number'
-            ) {
-                matches =
-                    matches &&
-                    product.price >= minPrice &&
-                    product.price <= maxPrice;
+            //  ẩn sản phẩm nếu store bị canceled
+            const store = storeList.find(
+                (s) => s.id === parseInt(product.idStore),
+            );
+            if (store.status === 'cancelled') {
+                return false;
             }
-        }
 
-        if (filters.area) {
-            matches = matches && product.area === filters.area;
-        }
+            if (filters.price && Array.isArray(filters.price)) {
+                const [minPrice, maxPrice] = filters.price;
+                if (
+                    typeof minPrice === 'number' &&
+                    typeof maxPrice === 'number'
+                ) {
+                    matches =
+                        matches &&
+                        product.price >= minPrice &&
+                        product.price <= maxPrice;
+                }
+            }
 
-        if (filters.rating) {
-            const averageRating =
-                product.reviews === 0
-                    ? 0
-                    : product.totalStars / product.reviews;
-            matches = matches && averageRating >= filters.rating;
-        }
+            if (filters.area) {
+                matches = matches && product.area === filters.area;
+            }
 
-        if (filters.keyword) {
-            const keyword = filters.keyword.toLowerCase();
-            const nameMatch = product.name.toLowerCase().includes(keyword);
-            const descMatch = product.description
-                ?.toLowerCase()
-                .includes(keyword);
-            matches = matches && (nameMatch || descMatch);
-        }
+            if (filters.rating) {
+                const averageRating =
+                    product.reviews === 0
+                        ? 0
+                        : product.totalStars / product.reviews;
+                matches = matches && averageRating >= filters.rating;
+            }
 
-        if (filters.category) {
-            matches = matches && product.category === filters.category;
-        }
+            if (filters.keyword) {
+                const keyword = filters.keyword.toLowerCase();
+                const nameMatch = product.name.toLowerCase().includes(keyword);
+                const descMatch = product.description
+                    ?.toLowerCase()
+                    .includes(keyword);
+                matches = matches && (nameMatch || descMatch);
+            }
 
-        return matches;
-    });
-}, [filters]);
+            if (filters.category) {
+                matches = matches && product.category === filters.category;
+            }
+
+            return matches;
+        });
+    }, [filters]);
 
     const totalPages = Math.ceil(filteredProducts.length / productsPerPage);
 

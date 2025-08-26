@@ -10,6 +10,7 @@ import {
     faUser,
     faWallet,
     faChartSimple,
+    faGift,
 } from '@fortawesome/free-solid-svg-icons';
 import images from '~/assets/images/image';
 
@@ -144,6 +145,12 @@ const listSidebarProfileUser = [
     },
     {
         id: 7,
+        name: 'Phiếu giảm giá',
+        icon: faGift,
+        path: '/UserProfileCoupon',
+    },
+    {
+        id: 8,
         name: 'Đăng xuất',
         icon: faArrowRightFromBracket,
         path: '/',
@@ -820,16 +827,19 @@ const listFavorites = [
         userId: 1001,
         productIds: [2, 5, 7, 8, 9, 10, 12, 13, 14, 15, 16],
         storeIds: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
+        couponIds: [1, 2, 3, 4, 5, 6],
     },
     {
         userId: 1002,
         productIds: [1, 3],
         storeIds: [1, 3, 5, 7],
+        couponIds: [1, 3, 5],
     },
     {
         userId: 1003,
         productIds: [4, 6, 7, 10],
         storeIds: [2, 4, 6, 8],
+        couponIds: [2, 4, 6],
     },
 ];
 
@@ -2077,6 +2087,7 @@ const datachart = [
 ];
 const listCoupons = [
     {
+        id: 1,
         code: 'SALE10K',
         description: 'Giảm 10.000đ cho đơn từ 100.000đ',
         type: 'fixedAmount',
@@ -2088,6 +2099,7 @@ const listCoupons = [
         status: 'active',
     },
     {
+        id: 2,
         code: 'FREESHIP',
         description: 'Miễn phí vận chuyển toàn quốc',
         type: 'freeShipping',
@@ -2099,6 +2111,7 @@ const listCoupons = [
         status: 'active',
     },
     {
+        id: 3,
         code: 'SUMMER25',
         description: 'Giảm 25% cho toàn bộ đơn hàng',
         type: 'percentage',
@@ -2110,6 +2123,7 @@ const listCoupons = [
         status: 'expired',
     },
     {
+        id: 4,
         code: 'VIP50',
         description: 'Giảm 50% cho khách VIP',
         type: 'percentage',
@@ -2121,6 +2135,7 @@ const listCoupons = [
         status: 'active',
     },
     {
+        id: 5,
         code: 'FLASHSALE',
         description: 'Giảm 100.000đ trong 2 ngày Flash Sale',
         type: 'fixedAmount',
@@ -2132,6 +2147,7 @@ const listCoupons = [
         status: 'active',
     },
     {
+        id: 6,
         code: 'BACK2SCHOOL',
         description: 'Giảm 15% mùa tựu trường',
         type: 'percentage',
