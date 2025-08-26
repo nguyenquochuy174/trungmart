@@ -43,3 +43,49 @@
         }
     }
 }
+
+@media (max-width: 576px) {
+    .add-coupon {
+        width: 380px;
+        .form {
+            label {
+                input {
+                    padding: 10px;
+                }
+            }
+            .formDate {
+                flex-direction: column;
+            }
+        }
+    }
+}
+@media (min-width: 577px) and (max-width: 768px) {
+    .add-coupon {
+        width: 90%;
+        .form {
+            .formDate {
+                flex-wrap: wrap;
+            }
+        }
+    }
+}
+@media (min-width: 769px) and (max-width: 992px) {
+    .add-coupon {
+        width: 90%;
+        .form {
+            .formDate {
+                flex-wrap: wrap;
+            }
+        }
+    }
+}
+@media (min-width: 993px) and (max-width: 1200px) {
+    .add-coupon {
+        width: 90%;
+        .form {
+            .formDate {
+                flex-wrap: wrap;
+            }
+        }
+    }
+}
