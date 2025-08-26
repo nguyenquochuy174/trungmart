@@ -438,7 +438,7 @@ const storeList = [
             'Tư vấn tận tình, đổi trả dễ dàng nếu sản phẩm không như cam kết',
         ],
         area: 'hue',
-         status:'cancelled'
+        status: 'cancelled',
     },
     {
         id: 7,
@@ -470,7 +470,7 @@ const storeList = [
             'Hoàn tiền nếu sản phẩm không đúng mô tả',
         ],
         area: 'danang',
-         status:'approved'
+        status: 'approved',
     },
     {
         id: 8,
@@ -501,7 +501,7 @@ const storeList = [
             'Hỗ trợ đổi trả trong 7 ngày',
         ],
         area: 'quangnam',
-         status:'approved'
+        status: 'approved',
     },
     {
         id: 9,
@@ -528,7 +528,7 @@ const storeList = [
             'Hoàn tiền nếu sản phẩm không đạt yêu cầu',
         ],
         area: 'hatinh',
-         status:'approved'
+        status: 'approved',
     },
 ];
 
@@ -1144,8 +1144,8 @@ const listinfoSell = [
         Address: 'thôn, Phước Thanh, xã Quảng Điền, TP. Huế',
         password: '1235',
     },
-        {
-        idstore:7,
+    {
+        idstore: 7,
         id: 7,
         Name: 'Nam',
         LastName: 'Nguyễn Hoàng',
@@ -1157,10 +1157,10 @@ const listinfoSell = [
         Tiktok: 'trungmart@168',
         Avatar: images.avatarStore,
         Address: 'thôn, Phước Thanh, xã Quảng Điền, TP. Huế',
-        password:'1235'
+        password: '1235',
     },
-         {
-        idstore:8,
+    {
+        idstore: 8,
         id: 8,
         Name: 'Phước',
         LastName: 'Nguyễn Hoàng',
@@ -1172,10 +1172,10 @@ const listinfoSell = [
         Tiktok: 'trungmart@168',
         Avatar: images.avatarStore,
         Address: 'thôn, Phước Thanh, xã Quảng Điền, TP. Huế',
-        password:'1235'
+        password: '1235',
     },
-           {
-        idstore:9,
+    {
+        idstore: 9,
         id: 9,
         Name: 'Tiến',
         LastName: 'Nguyễn Hoàng',
@@ -1187,7 +1187,7 @@ const listinfoSell = [
         Tiktok: 'trungmart@168',
         Avatar: images.avatarStore,
         Address: 'thôn, Phước Thanh, xã Quảng Điền, TP. Huế',
-        password:'1235'
+        password: '1235',
     },
 ];
 const listinforWalletSell = [
@@ -1307,23 +1307,23 @@ const listSelect = [
             { label: 'Tuần 5', value: '5', queryKey: 'Week' },
         ],
     },
-        {
-    id: 7,
-    name: "Trạng Thái",
-     children: [
-        { label: 'Tất Cả', value: '', queryKey: 'status' },
-        { label: 'Hoạt Động', value: 'approved', queryKey: 'status' },
-        { label: 'Khóa', value: 'block', queryKey: 'status' },
+    {
+        id: 7,
+        name: 'Trạng Thái',
+        children: [
+            { label: 'Tất Cả', value: '', queryKey: 'status' },
+            { label: 'Hoạt Động', value: 'approved', queryKey: 'status' },
+            { label: 'Khóa', value: 'block', queryKey: 'status' },
         ],
     },
-            {
-    id: 8,
-    name: "Trạng Thái",
-     children: [
-        { label: 'Tất Cả', value: '', queryKey: 'status' },
-        { label: 'Chưa Duyệt', value: 'cancelled', queryKey: 'status' },
-        { label: 'Hoạt Động', value: 'approved', queryKey: 'status' },
-        { label: 'Khóa', value: 'block', queryKey: 'status' },
+    {
+        id: 8,
+        name: 'Trạng Thái',
+        children: [
+            { label: 'Tất Cả', value: '', queryKey: 'status' },
+            { label: 'Chưa Duyệt', value: 'cancelled', queryKey: 'status' },
+            { label: 'Hoạt Động', value: 'approved', queryKey: 'status' },
+            { label: 'Khóa', value: 'block', queryKey: 'status' },
         ],
     },
     {
@@ -1377,6 +1377,35 @@ const listSelect = [
                 label: 'Thanh toán QRCode',
                 value: 'qrcode',
                 queryKey: 'paymentMethod',
+            },
+        ],
+    },
+    {
+        id: 11,
+        name: 'Trạng Thái',
+        children: [
+            { label: 'Hoạt Động', value: 'active', queryKey: 'statusCoupon' },
+            { label: 'Hết Hạn', value: 'expired', queryKey: 'statusCoupon' },
+        ],
+    },
+    {
+        id: 12,
+        name: 'Loại Phiếu Giảm',
+        children: [
+            {
+                label: 'Giảm phần trăm',
+                value: 'percentage',
+                queryKey: 'typeCoupon',
+            },
+            {
+                label: 'Giảm số tiền',
+                value: 'fixedAmount',
+                queryKey: 'typeCoupon',
+            },
+            {
+                label: 'Miễn phí vận chuyển',
+                value: 'freeShipping',
+                queryKey: 'typeCoupon',
             },
         ],
     },
@@ -2046,6 +2075,74 @@ const datachart = [
         value: 21,
     },
 ];
+const listCoupons = [
+    {
+        code: 'SALE10K',
+        description: 'Giảm 10.000đ cho đơn từ 100.000đ',
+        type: 'fixedAmount',
+        value: 10000,
+        startDate: '2025-08-01',
+        endDate: '2025-08-31',
+        quantity: 0,
+        minOrderValue: 100000,
+        status: 'active',
+    },
+    {
+        code: 'FREESHIP',
+        description: 'Miễn phí vận chuyển toàn quốc',
+        type: 'freeShipping',
+        value: 0,
+        startDate: '2025-08-15',
+        endDate: '2025-09-15',
+        quantity: 1000,
+        minOrderValue: 0,
+        status: 'active',
+    },
+    {
+        code: 'SUMMER25',
+        description: 'Giảm 25% cho toàn bộ đơn hàng',
+        type: 'percentage',
+        value: 25,
+        startDate: '2025-06-01',
+        endDate: '2025-06-01',
+        quantity: 200,
+        minOrderValue: 0,
+        status: 'expired',
+    },
+    {
+        code: 'VIP50',
+        description: 'Giảm 50% cho khách VIP',
+        type: 'percentage',
+        value: 50,
+        startDate: '2025-08-01',
+        endDate: '2025-12-31',
+        quantity: 100,
+        minOrderValue: 200000,
+        status: 'active',
+    },
+    {
+        code: 'FLASHSALE',
+        description: 'Giảm 100.000đ trong 2 ngày Flash Sale',
+        type: 'fixedAmount',
+        value: 100000,
+        startDate: '2025-08-25',
+        endDate: '2025-08-27',
+        quantity: 50,
+        minOrderValue: 500000,
+        status: 'active',
+    },
+    {
+        code: 'BACK2SCHOOL',
+        description: 'Giảm 15% mùa tựu trường',
+        type: 'percentage',
+        value: 15,
+        startDate: '2025-08-20',
+        endDate: '2025-09-10',
+        quantity: 300,
+        minOrderValue: 50000,
+        status: 'active',
+    },
+];
 
 export {
     listMenuUser,
@@ -2074,4 +2171,5 @@ export {
     listFavorites,
     listAddress,
     listOrders,
+    listCoupons,
 };

@@ -47,6 +47,8 @@ import ProfilePassword from '~/pages/User/Profile/ProfilePassword/ProfilePasswor
 import ShoppingCart from '~/pages/User/ShoppingCart/ShoppingCart';
 import InfoShop from '~/pages/User/ViewShop/InfoShop/InfoShop';
 import ProductShop from '~/pages/User/ViewShop/ProductShop/ProductShop';
+import CouponAdmin from '~/pages/Admin/Coupon/CouponAdmin/CouponAdmin';
+import AddCoupon from '~/pages/Admin/Coupon/AddCoupon/AddCoupon';
 // không cần đăng nhập vẫn xem được
 const publicRoutes = [
     // user
@@ -256,6 +258,16 @@ const publicRoutes = [
     {
         path: '/DetailProductAdmin/:id',
         component: DetailProductAdmin,
+        layout: DefaultLayoutAdmin,
+    },
+    {
+        path: '/CouponAdmin',
+        component: CouponAdmin,
+        layout: DefaultLayoutAdmin,
+    },
+    {
+        path: '/AddCoupon',
+        component: AddCoupon,
         layout: DefaultLayoutAdmin,
     },
 ];

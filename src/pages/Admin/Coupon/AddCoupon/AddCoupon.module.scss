@@ -1,0 +1,45 @@
+.add-coupon {
+    width: 1200px;
+    padding: 30px;
+    margin: 0 auto;
+
+    h2 {
+        text-align: center;
+        font-size: 2.2rem;
+        margin-bottom: 20px;
+    }
+
+    .form {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+
+        label {
+            display: flex;
+            flex-direction: column;
+            font-size: 1.6rem;
+            color: #333;
+
+            input {
+                margin-top: 6px;
+                padding: 12px;
+                font-size: 1.6rem;
+                border: 1px solid #ccc;
+                border-radius: 6px;
+            }
+        }
+        .formDate {
+            display: flex;
+            gap: 30px;
+            label {
+                .select {
+                    margin-bottom: 7px;
+                }
+            }
+        }
+        .btnAddVoucher {
+            text-align: center;
+            padding-top: 20px;
+        }
+    }
+}
