@@ -1,0 +1,25 @@
+.container {
+    .menuCoupon {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 30px;
+        padding: 33px 0 20px 0;
+        font-size: 1.8rem;
+        border-bottom: 0.5px solid #dddddd;
+
+        .menu-link {
+            color: black;
+            &:hover {
+                color: var(--primary);
+                cursor: pointer;
+            }
+        }
+        .active {
+            color: var(--primary);
+        }
+    }
+    .listCoupon {
+        padding: 10px;
+    }
+}

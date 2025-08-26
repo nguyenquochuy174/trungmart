@@ -4,7 +4,7 @@
     .title {
         text-align: center;
         font-size: 2.2rem;
-        padding: 7px;
+        padding: 10px;
     }
     .address {
         border-top: 0.5px solid #dddddd;
@@ -81,6 +81,16 @@
         gap: 20px;
         padding: 10px 20px;
         border-bottom: 0.5px solid #dddddd;
+        h3 {
+            font-size: 1.8rem;
+        }
+    }
+    .coupon {
+        padding: 10px 20px;
+        border-bottom: 0.5px solid #dddddd;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
         h3 {
             font-size: 1.8rem;
         }
@@ -173,7 +183,7 @@
     border-radius: 8px;
     max-height: 80vh;
     overflow-y: auto;
-    width: 500px;
+    width: 600px;
     h3 {
         text-align: center;
         font-size: 2rem;
@@ -268,6 +278,9 @@
             flex-direction: column;
             gap: 20px;
         }
+    }
+    .modalContent {
+        width: 400px;
     }
 }
 @media (min-width: 577px) and (max-width: 768px) {

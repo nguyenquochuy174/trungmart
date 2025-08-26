@@ -8,7 +8,6 @@ import {
     faChevronLeft,
     faChevronRight,
 } from '@fortawesome/free-solid-svg-icons';
-// import { useState } from 'react';
 const cx = classNames.bind(styles);
 function ProfileFavoriteShop() {
     const userId = Number(localStorage.getItem('userId'));

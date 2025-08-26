@@ -4,11 +4,18 @@ import classNames from 'classnames/bind';
 import styles from './Payment.module.scss';
 import ItemShopCard from '~/components/ItemShopCard/ItemShopCard';
 import Button from '~/components/Button/Button';
-import { listAddress, listProduct, listSelect } from '~/constant/mock-data';
+import {
+    listAddress,
+    listCoupons,
+    listFavorites,
+    listProduct,
+    listSelect,
+} from '~/constant/mock-data';
 import { toast, ToastContainer } from 'react-toastify';
 import MethodSelect from '~/components/MethodSelect/MethodSelect';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faLocationDot } from '@fortawesome/free-solid-svg-icons';
+import ItemCoupon from '~/components/ItemCoupon/ItemCoupon';
 
 const cx = classNames.bind(styles);
 function Payment() {
@@ -19,7 +26,18 @@ function Payment() {
     const [shippingFee, setShippingFee] = useState(null);
     const [cartItems, setCartItems] = useState([]);
     const [showEvaluateForm, setShowEvaluateForm] = useState(false);
+    const [ShowCoupon, setShowCoupon] = useState(false);
     const [selectedAddress, setSelectedAddress] = useState(null);
+    const [selectedCoupon, setSelectedCoupon] = useState(null);
+
+    const itemFavorite = listFavorites.find(
+        (item) => item.userId === Number(userId),
+    );
+    const listCouponFavorites = itemFavorite
+        ? listCoupons.filter((coupon) =>
+              itemFavorite.storeIds.includes(coupon.id),
+          )
+        : [];
 
     const listAddressUser = listAddress.filter(
         (item) => item.userId === parseInt(userId),
@@ -76,6 +94,23 @@ function Payment() {
         (total, item) => total + item.price * item.quantity,
         0,
     );
+    const discountAmount = (() => {
+        if (!selectedCoupon) return 0;
+        if (selectedCoupon.minOrderValue > totalAmount) return 0;
+        switch (selectedCoupon.type) {
+            case 'percentage':
+                return Math.min(
+                    (selectedCoupon.value / 100) * totalAmount,
+                    selectedCoupon.maxDiscount || Infinity,
+                );
+            case 'fixedAmount':
+                return selectedCoupon.value;
+            case 'freeShipping':
+                return shippingFee || 0;
+            default:
+                return 0;
+        }
+    })();
 
     const handleShippingChange = (selectedOption) => {
         if (selectedOption?.fee !== undefined) {
@@ -180,6 +215,21 @@ function Payment() {
                     onChange={handleShippingChange}
                 />
             </div>
+            <div className={cx('couponSelect')}>
+                <div className={cx('coupon')}>
+                    <h3>Mã giảm giá</h3>
+                    <Button outline small onClick={() => setShowCoupon(true)}>
+                        Chọn mã giảm
+                    </Button>
+                </div>
+                {selectedCoupon && (
+                    <ItemCoupon
+                        data={selectedCoupon}
+                        selected
+                        onCancel={() => setSelectedCoupon(null)}
+                    />
+                )}
+            </div>
 
             <div className={cx('itemPayment')}>
                 <h3>Phương thức thanh toán</h3>
@@ -205,7 +255,9 @@ function Payment() {
                         </div>
                         <div className={cx('totalsRow')}>
                             <span>Giảm giá</span>
-                            <span>30.000đ</span>
+                            <span>
+                                {discountAmount.toLocaleString('vi-VN')}đ
+                            </span>
                         </div>
                         <div className={cx('totalsRow')}>
                             <span>Tổng thanh toán</span>
@@ -213,7 +265,7 @@ function Payment() {
                                 {(
                                     totalAmount +
                                     (shippingFee || 0) -
-                                    30000
+                                    discountAmount
                                 ).toLocaleString('vi-VN')}
                                 đ
                             </span>
@@ -286,6 +338,47 @@ function Payment() {
                                 outline
                                 small
                                 onClick={() => setShowEvaluateForm(false)}
+                            >
+                                Đóng
+                            </Button>
+                        </div>
+                    </div>
+                </div>
+            )}
+
+            {ShowCoupon && (
+                <div
+                    className={cx('modalOverlay')}
+                    onClick={() => setShowEvaluateForm(false)}
+                >
+                    <div
+                        className={cx('modalContent')}
+                        onClick={(e) => e.stopPropagation()}
+                    >
+                        <h3>Chọn địa chỉ giao hàng</h3>
+                        {listCouponFavorites.map((item) => (
+                            <ItemCoupon
+                                data={item}
+                                key={item.id}
+                                payment
+                                onSelect={() => {
+                                    if (item.minOrderValue > totalAmount) {
+                                        toast.warning(
+                                            'Đơn hàng của bạn chưa đủ điều kiện để áp dụng mã này.',
+                                        );
+                                        setShowCoupon(false);
+                                    } else {
+                                        setSelectedCoupon(item);
+                                        setShowCoupon(false);
+                                    }
+                                }}
+                            />
+                        ))}
+                        <div className={cx('btnClose')}>
+                            <Button
+                                outline
+                                small
+                                onClick={() => setShowCoupon(false)}
                             >
                                 Đóng
                             </Button>
