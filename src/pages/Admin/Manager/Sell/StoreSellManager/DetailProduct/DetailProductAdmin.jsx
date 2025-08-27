@@ -1,6 +1,6 @@
 import classNames from 'classnames/bind';
 import styles from "./DetailProductAdmin.module.scss"
-import { useParams } from 'react-router-dom';
+import { useParams,Link } from 'react-router-dom';
 import { listProduct, reportForm, storeList } from '~/constant/mock-data';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
@@ -135,8 +135,7 @@ function DetailProductAdmin() {
                     </div>
 
                     <div className={cx('btn')}>
-                        <a href={`/EditProductSell/${product.id}`}>
-                        </a>
+                        <Link to={`/EditProductSell/${product.id}`}></Link>
                         <Button 
                         outline large
                         onClick={()=>setShowReportForm(true)}

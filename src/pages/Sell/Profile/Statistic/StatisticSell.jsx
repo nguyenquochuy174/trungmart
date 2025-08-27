@@ -25,7 +25,7 @@ function StatisticSell() {
  const [infoOrder, setInfoOrder] = useState([]);
 
 
- const [Sum,SetSum]=useState(0);
+
  const idsell = parseInt(localStorage.getItem('idSell'));
 
  useEffect(() => {
@@ -91,55 +91,55 @@ setSearchParams(newParams);
     const calendarData = useCalendarData(Year, Month, Week);
 
   const chartData = useMemo(() => {
-    let doanhthu=0;
     // Luôn trả về một mảng rỗng nếu calendarData không hợp lệ
     if (!calendarData || typeof calendarData !== 'object') {
-      SetSum(0);
+   
         return [];
     }
     
     // Kiểm tra và trả về dữ liệu hợp lệ
     if (calendarData.days?.length > 0) {
         const result=calendarData.days.map((w) =>{
-        doanhthu+=w.uv
+  
         return  {
             name: w.name,
             uv: w.uv,
         };
       });
-      SetSum(doanhthu)
+   
       return result;
     }
     if (calendarData.weeks?.length > 0) {
       const result=calendarData.weeks.map((w) =>{
-        doanhthu+=w.uv
+
         return  {
             name: w.name,
             uv: w.uv,
         };
       });
-      SetSum(doanhthu)
+    
       return result;
     }
     if (calendarData.values?.length > 0) {
         
         const result=calendarData.values.map((m) => {
-          doanhthu+=m.uv
+      
           return {
              name: m.name,
             uv: m.uv,
           };
            
         });
-        SetSum(doanhthu)
+    
         return result;
     }
     
     // Trường hợp không có dữ liệu nào khớp, trả về mảng rỗng
-     SetSum(0)
+   
     return [];
 }, [calendarData]);
 
+const sumorder=infoOrder.reduce((acc,item)=>acc+(item.product.price-item.discount+item.shippingFee),0);
 
 const order=infoOrder.reduce((acc,item)=>acc+item.idUser,0);
 const comment = info.reduce((acc, item) => acc + item.reviews, 0);
@@ -196,7 +196,7 @@ const hotProducts = info.filter(item => item.reviews > threshold);
                       <FontAwesomeIcon icon={faSackDollar} className={cx("icon")} />
                       <p>Doanh Thu</p>
                     </div>
-                    <p>{Sum}.000VNĐ</p>
+                    <p>{sumorder.toLocaleString('vi-VN')}VNĐ</p>
                   </div>
                   <div className={cx("item")}>
                     <div className={cx('headeritem')}>

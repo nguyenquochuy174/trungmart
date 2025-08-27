@@ -17,6 +17,7 @@ import {
 import ItemProduct from '~/components/ItemProduct/ItemProduct';
 import ReviewItem from '~/components/ReviewItem/ReviewItem';
 import FormApprove from '~/components/FormApprove/FormApprove';
+import { Link } from 'react-router-dom';
 const cx = classNames.bind(styles);
 function DetailProductSell() {
     const { id } = useParams();
@@ -131,11 +132,11 @@ function DetailProductSell() {
                     </div>
 
                     <div className={cx('btn')}>
-                        <a href={`/EditProductSell/${product.id}`}>
-                        <Button outline small>
+                    <Link to="/EditProductSell" >
+                        <Button outline small >
                             Sửa
                         </Button>
-                        </a>
+                    </Link>
                         <Button 
                         primary 
                         small 

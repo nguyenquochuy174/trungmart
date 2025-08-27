@@ -4,6 +4,7 @@ import { listinforWalletSell } from '~/constant/mock-data';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPen } from '@fortawesome/free-solid-svg-icons';
 import { useState,useEffect} from 'react';
+import { Link } from "react-router-dom";
 
 const cx = classNames.bind(styles);
 function WalletSell() {
@@ -21,10 +22,10 @@ function WalletSell() {
             <div key={info.id}>
                 <div className={cx('content')}>
                 <h3>Ví điện tử cửa hàng</h3>
-                <a href="/WalletSellEdit">
-                <FontAwesomeIcon icon={faPen} className={cx('icon')} />
-                            Chỉnh sửa
-                </a>
+                <Link to="/WalletSellEdit" className={cx('edit-link')}>
+                    <FontAwesomeIcon icon={faPen} className={cx('icon')} />
+                    Chỉnh sửa
+                    </Link>
             </div>
             <div className={cx('info')}>
              <div className={cx('leftInfo')}>
