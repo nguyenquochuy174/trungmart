@@ -27,7 +27,9 @@
         gap:10px;
     }
 }
-.contentedit{
+.contentBottom{
+    width: 100%;
+    .contentedit{
     width: 100%;
     max-width: 100%;
     height: 49px;
@@ -81,6 +83,8 @@
         width: 100%;
     }
 }
+}
+
 
 
 @media (max-width: 576px) {
@@ -152,7 +156,7 @@
     .contentHeader{
         gap:25px;
         .item{
-            width:25%;
+            width:28%;
             font-size:1.5rem;
             padding:8px;
         }

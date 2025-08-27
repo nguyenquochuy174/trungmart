@@ -22,7 +22,12 @@
 .contentBottom{
     width: 100%;
     .detailBottom{
-   
+      .result{
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        margin-bottom: 10px;
+      }
         width: 100%;
         align-items: center;
         .itemSta{
@@ -108,8 +113,11 @@
   .contentHeader{
     width: 100%;
     flex-direction: column;
-   
- 
+            .title{
+      display: flex;
+      justify-content: center;
+      margin-bottom: 10px;
+    } 
   }
 
   .contentBottom{
@@ -137,9 +145,22 @@
 }
 
 @media (min-width: 577px) and (max-width: 768px) {
+    .container{
+    width: 100%;
+  }
   .contentHeader {
+    width: 100%;
     flex-direction: column;
     gap: 10px;
+        .title{
+      display: flex;
+      justify-content: center;
+      margin-bottom: 10px;
+    } 
+    .selectitem{
+      flex-direction: column;
+        gap:10px;
+    }
   }
  .contentBottom{
   .detailBottom {
@@ -166,6 +187,15 @@
   .contentHeader {
     gap: 3%;
     flex-direction: column;
+    .title{
+      display: flex;
+      justify-content: center;
+      margin-bottom: 10px;
+    }    
+    .selectitem{
+    flex-direction: column;
+      gap:10px;
+    }
   }
 
   .contentBottom{

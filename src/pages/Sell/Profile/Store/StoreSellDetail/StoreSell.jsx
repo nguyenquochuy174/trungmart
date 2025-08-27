@@ -42,7 +42,6 @@ const [numverProduct, setNumverProduct] = useState(0);
 
   return (
     <div className={cx("container")}>
-      <div>
         <div className={cx("contentHeader")}>
           <div className={cx("item")}>
             <div className={cx('headeritem')}>
@@ -66,7 +65,7 @@ const [numverProduct, setNumverProduct] = useState(0);
             <p>{yearsActive} năm</p>
           </div>
         </div>
-
+        <div className={cx("contentBottom")}>
         {/* thông tin cửa hàng */}
         <div className={cx('box')}>
           <div className={cx('contentedit')}>
@@ -182,7 +181,7 @@ const [numverProduct, setNumverProduct] = useState(0);
             </div>
           </div>
         </div>
-      </div>
+    </div>
     </div>
   );
 }
