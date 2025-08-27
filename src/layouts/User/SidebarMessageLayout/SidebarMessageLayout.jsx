@@ -9,6 +9,7 @@ import Footer from '~/layouts/components/Footer/Footer';
 import { listMenuUser } from '~/constant/mock-data';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowLeft } from '@fortawesome/free-solid-svg-icons';
+import AIChatBox from '~/components/AIChatBox/AIChatBox';
 
 const cx = classNames.bind(styles);
 
@@ -60,6 +61,7 @@ function SidebarMessageLayout({ children }) {
                 )}
             </div>
             <Footer data={listMenuUser} />
+            <AIChatBox />
         </div>
     );
 }

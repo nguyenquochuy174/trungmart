@@ -298,6 +298,7 @@ const storeList = [
         ],
         area: 'hue',
         status: 'approved',
+        QRCode: images.QRCode,
     },
     {
         id: 2,
@@ -330,6 +331,7 @@ const storeList = [
         ],
         area: 'danang',
         status: 'approved',
+        QRCode: images.QRCode,
     },
     {
         id: 3,
@@ -361,6 +363,7 @@ const storeList = [
         ],
         area: 'quangnam',
         status: 'approved',
+        QRCode: images.QRCode,
     },
     {
         id: 4,
@@ -388,6 +391,7 @@ const storeList = [
         ],
         area: 'hatinh',
         status: 'block',
+        QRCode: images.QRCode,
     },
     {
         id: 5,
@@ -419,6 +423,7 @@ const storeList = [
         ],
         area: 'quangngai',
         status: 'cancelled',
+        QRCode: images.QRCode,
     },
     {
         id: 6,
@@ -446,6 +451,7 @@ const storeList = [
         ],
         area: 'hue',
         status: 'cancelled',
+        QRCode: images.QRCode,
     },
     {
         id: 7,
@@ -478,6 +484,7 @@ const storeList = [
         ],
         area: 'danang',
         status: 'approved',
+        QRCode: images.QRCode,
     },
     {
         id: 8,
@@ -509,6 +516,7 @@ const storeList = [
         ],
         area: 'quangnam',
         status: 'approved',
+        QRCode: images.QRCode,
     },
     {
         id: 9,
@@ -536,6 +544,7 @@ const storeList = [
         ],
         area: 'hatinh',
         status: 'approved',
+        QRCode: images.QRCode,
     },
 ];
 
@@ -827,13 +836,13 @@ const listFavorites = [
         userId: 1001,
         productIds: [2, 5, 7, 8, 9, 10, 12, 13, 14, 15, 16],
         storeIds: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
-        couponIds: [1, 2, 3, 4, 5, 6],
+        couponIds: [2, 3, 4, 5, 6],
     },
     {
         userId: 1002,
         productIds: [1, 3],
         storeIds: [1, 3, 5, 7],
-        couponIds: [1, 3, 5],
+        couponIds: [3, 5],
     },
     {
         userId: 1003,

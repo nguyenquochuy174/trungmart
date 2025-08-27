@@ -16,6 +16,7 @@ import MethodSelect from '~/components/MethodSelect/MethodSelect';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faLocationDot } from '@fortawesome/free-solid-svg-icons';
 import ItemCoupon from '~/components/ItemCoupon/ItemCoupon';
+import images from '~/assets/images/image';
 
 const cx = classNames.bind(styles);
 function Payment() {
@@ -29,13 +30,23 @@ function Payment() {
     const [ShowCoupon, setShowCoupon] = useState(false);
     const [selectedAddress, setSelectedAddress] = useState(null);
     const [selectedCoupon, setSelectedCoupon] = useState(null);
+    const [SelectedPaymentMethod, setSelectedPaymentMethod] = useState(null);
+    const isCouponValid = (coupon) => {
+        const today = new Date();
+        const start = new Date(coupon.startDate);
+        const end = new Date(coupon.endDate);
+        return coupon.status === 'active' && start <= today && end >= today;
+    };
 
     const itemFavorite = listFavorites.find(
         (item) => item.userId === Number(userId),
     );
+
     const listCouponFavorites = itemFavorite
-        ? listCoupons.filter((coupon) =>
-              itemFavorite.storeIds.includes(coupon.id),
+        ? listCoupons.filter(
+              (coupon) =>
+                  itemFavorite.couponIds.includes(coupon.id) &&
+                  isCouponValid(coupon),
           )
         : [];
 
@@ -237,7 +248,22 @@ function Payment() {
                     <div className={cx('paymentMethod')}>
                         <MethodSelect
                             data={listSelect.find((item) => item.id === 10)}
+                            onChange={(selectedOption) =>
+                                setSelectedPaymentMethod(selectedOption)
+                            }
                         />
+                        {SelectedPaymentMethod?.value === 'qrcode' && (
+                            <div className={cx('qrCode')}>
+                                <img
+                                    src={images.QRCode}
+                                    alt="QR Code của shop"
+                                />
+                                <p>
+                                    Vui lòng quét mã bằng ứng dụng ngân hàng
+                                    hoặc ví điện tử
+                                </p>
+                            </div>
+                        )}
                     </div>
 
                     <div className={cx('totals')}>
@@ -355,25 +381,34 @@ function Payment() {
                         className={cx('modalContent')}
                         onClick={(e) => e.stopPropagation()}
                     >
-                        <h3>Chọn địa chỉ giao hàng</h3>
-                        {listCouponFavorites.map((item) => (
-                            <ItemCoupon
-                                data={item}
-                                key={item.id}
-                                payment
-                                onSelect={() => {
-                                    if (item.minOrderValue > totalAmount) {
-                                        toast.warning(
-                                            'Đơn hàng của bạn chưa đủ điều kiện để áp dụng mã này.',
-                                        );
-                                        setShowCoupon(false);
-                                    } else {
-                                        setSelectedCoupon(item);
-                                        setShowCoupon(false);
-                                    }
-                                }}
-                            />
-                        ))}
+                        <h3>Chọn mã giảm giá</h3>
+                        {listCouponFavorites.length > 0 ? (
+                            <>
+                                {listCouponFavorites.map((item) => (
+                                    <ItemCoupon
+                                        data={item}
+                                        key={item.id}
+                                        payment
+                                        onSelect={() => {
+                                            if (
+                                                item.minOrderValue > totalAmount
+                                            ) {
+                                                toast.warning(
+                                                    'Đơn hàng của bạn chưa đủ điều kiện để áp dụng mã này.',
+                                                );
+                                                setShowCoupon(false);
+                                            } else {
+                                                setSelectedCoupon(item);
+                                                setShowCoupon(false);
+                                            }
+                                        }}
+                                    />
+                                ))}
+                            </>
+                        ) : (
+                            <p>Bạn không có mã giảm giá!</p>
+                        )}
+
                         <div className={cx('btnClose')}>
                             <Button
                                 outline

@@ -3,6 +3,7 @@ import styles from './DefaultLayoutUser.module.scss';
 import { listMenuUser } from '~/constant/mock-data';
 import Footer from '~/layouts/components/Footer/Footer';
 import Header from '~/layouts/components/User/Header/Header';
+import AIChatBox from '~/components/AIChatBox/AIChatBox';
 const cx = classNames.bind(styles);
 function DefaultLayoutUser({ children }) {
     return (
@@ -10,6 +11,7 @@ function DefaultLayoutUser({ children }) {
             <Header />
             <div className={cx('content')}>{children}</div>
             <Footer data={listMenuUser} />
+            <AIChatBox />
         </div>
     );
 }
