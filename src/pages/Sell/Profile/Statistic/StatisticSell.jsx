@@ -159,6 +159,7 @@ const hotProducts = info.filter(item => item.reviews > threshold);
        data={listSelect[3]}
        value={Year}
        onChange={(value) => handleFilterChange(value, Month, Week)}
+        className={cx('customSelect')}
       />
       <Select
        data={listSelect[4]}
@@ -178,8 +179,9 @@ const hotProducts = info.filter(item => item.reviews > threshold);
       </div>
      
       <div className={cx('detailBottom')}>
-        
+        <div className={cx('result')}>
              <h4>Kết Quả Kinh Doanh</h4>
+        </div>
      
         <div className={cx("itemSta")}>
                   <div className={cx("item")}>
