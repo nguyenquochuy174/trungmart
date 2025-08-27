@@ -201,19 +201,19 @@ const TongTien = (item) => {
                                 
                                 <div className={cx('sumPrice')}>
                                     <p>Tổng Tiền</p>
-                                    <p>{item.product.price}đ</p>
+                                    <p>{item.product.price.toLocaleString('vi-VN')}đ</p>
                                 </div>
                                 <div className={cx('sumPrice')}>
                                     <p>Giảm Giá</p>
-                                    <p>{item.discount}đ</p>
+                                    <p>{item.discount.toLocaleString('vi-VN')}đ</p>
                                 </div>
                                 <div className={cx('sumPrice')}>
                                     <p>Phí Vận Chuyển</p>
-                                    <p>{item.shippingFee}đ</p>
+                                    <p>{item.shippingFee.toLocaleString('vi-VN')}đ</p>
                                 </div>
                                 <div className={cx('sumPrice', 'total')}>
                                     <b>Tổng Tiền</b>
-                                    <b>{TongTien(item)}đ</b>
+                                   <b>{TongTien(item).toLocaleString('vi-VN')} đ</b>
                                 </div>
                             </div>
                         </div>

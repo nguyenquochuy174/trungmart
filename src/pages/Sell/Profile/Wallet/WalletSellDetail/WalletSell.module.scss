@@ -9,7 +9,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    a{
+    .edit-link{
         color:#333;
         &:hover{
             color:#5C8018;
@@ -47,9 +47,8 @@
         flex-direction: column;
         align-items: center;
         img{
-            width: 50%;
-            height: 327px;
-             object-fit: cover;
+           width: 100%;
+            height: auto;
         }
     }
 }

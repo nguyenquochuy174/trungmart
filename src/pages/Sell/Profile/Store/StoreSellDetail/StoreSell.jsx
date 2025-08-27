@@ -9,6 +9,7 @@ import {
   faStar,
   faBox
 } from '@fortawesome/free-solid-svg-icons';
+import { Link } from "react-router-dom";
 
 const cx = classNames.bind(styles);
 
@@ -70,10 +71,10 @@ const [numverProduct, setNumverProduct] = useState(0);
         <div className={cx('box')}>
           <div className={cx('contentedit')}>
             <h3>Thông tin hồ sơ</h3>
-            <a href="/StoreSellEdit">
-              <FontAwesomeIcon icon={faPen} className={cx('icon')} />
-              Chỉnh sửa
-            </a>
+          <Link to="/StoreSellEdit" className={cx('edit-link')}>
+          <FontAwesomeIcon icon={faPen} className={cx('icon')} />
+          Chỉnh sửa
+        </Link>
           </div>
 
           <div className={cx('info')}>

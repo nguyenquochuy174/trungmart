@@ -1216,7 +1216,7 @@ const listinforWalletSell = [
         Name: 'Nguyễn Phúc An',
         Bank: 'Viettinbank',
         Banknumber: '01659835717',
-        imgQR: images.avatar,
+        imgQR: images.QRCode,
     },
 ];
 const ListBank = [

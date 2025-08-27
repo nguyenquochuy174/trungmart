@@ -127,13 +127,13 @@ function AddProductSell() {
                     <Button
                         primary
                         large
-                        style={{ width: '50%' }}
+                        
                         onClick={handleSave}
                     >
                         Lưu
                     </Button>
-                    <Link to="/ProductSell" style={{ width: '50%' }}>
-                        <Button outline large style={{ width: '100%' }}>
+                    <Link to="/ProductSell" >
+                        <Button outline large >
                             Hủy
                         </Button>
                     </Link>

@@ -4,6 +4,7 @@ import { listinfoSell } from '~/constant/mock-data';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPen } from '@fortawesome/free-solid-svg-icons';
 import { useState,useEffect} from 'react';
+import { Link } from "react-router-dom";
 const cx = classNames.bind(styles);
 
 function ProfileSell() {
@@ -23,10 +24,10 @@ function ProfileSell() {
                     {/* Thông tin hồ sơ */}
                     <div className={cx('content')}>
                         <h3>Thông tin hồ sơ</h3>
-                        <a href="/ProfileSellEdit">
+                        <Link to="/ProfileSellEdit" className={cx('edit-link')}>
                             <FontAwesomeIcon icon={faPen} className={cx('icon')} />
                             Chỉnh sửa
-                        </a>
+                            </Link>
                     </div>
                     <div className={cx('info')}>
                         <div className={cx('NameSell')}>
