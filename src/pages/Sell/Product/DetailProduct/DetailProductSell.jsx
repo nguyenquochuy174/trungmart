@@ -1,4 +1,4 @@
-import styles from "./DetailProductSell.module.scss"
+import styles from './DetailProductSell.module.scss';
 import classNames from 'classnames/bind';
 import { useParams } from 'react-router-dom';
 import { listProduct, reportForm } from '~/constant/mock-data';
@@ -6,14 +6,11 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
     faChevronLeft,
     faChevronRight,
-
     faStar,
 } from '@fortawesome/free-solid-svg-icons';
 import { useEffect, useState } from 'react';
 import Button from '~/components/Button/Button';
-import {
-
-} from '@fortawesome/free-brands-svg-icons';
+import {} from '@fortawesome/free-brands-svg-icons';
 import ItemProduct from '~/components/ItemProduct/ItemProduct';
 import ReviewItem from '~/components/ReviewItem/ReviewItem';
 import FormApprove from '~/components/FormApprove/FormApprove';
@@ -27,7 +24,6 @@ function DetailProductSell() {
     const [direction, setDirection] = useState('next');
     const [productsPerPage, setProductsPerPage] = useState(8);
     const [showReportForm, setShowReportForm] = useState(false);
-
 
     useEffect(() => {
         function updateProductsPerPage() {
@@ -112,9 +108,9 @@ function DetailProductSell() {
                     <div className={cx('quantity')}>
                         <p>Số lượng:</p>
                         <div className={cx('quantityControl')}>
-
-                            <span className={cx('qtyValue')}>{product.quantity}</span>
- 
+                            <span className={cx('qtyValue')}>
+                                {product.quantity}
+                            </span>
                         </div>
                     </div>
                     <div className={cx('comment')}>
@@ -132,25 +128,22 @@ function DetailProductSell() {
                     </div>
 
                     <div className={cx('btn')}>
-                    <Link to="/EditProductSell" >
-                        <Button outline small >
-                            Sửa
-                        </Button>
-                    </Link>
-                        <Button 
-                        primary 
-                        small 
-                        onClick={()=>setShowReportForm(true)}
+                        <Link to="/EditProductSell">
+                            <Button outline small>
+                                Sửa
+                            </Button>
+                        </Link>
+                        <Button
+                            primary
+                            small
+                            onClick={() => setShowReportForm(true)}
                         >
                             Xóa
-                            
                         </Button>
                     </div>
-
-                   
                 </div>
             </div>
-          
+
             <div className={cx('otherProduct')}>
                 <h3>Sản phẩm khác của cửa hàng</h3>
 
@@ -173,7 +166,6 @@ function DetailProductSell() {
                         <FormApprove
                             data={reportForm[3]}
                             onClose={() => setShowReportForm(false)}
-                           
                         />
                     </div>
                 </div>

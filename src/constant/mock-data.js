@@ -238,7 +238,7 @@ const listMenuUser = [
 ];
 
 const listMenuAdmin = [
-    { name: 'Thống Kế', path: '/StatisAdmin' },
+    { name: 'Thống Kê', path: '/StatisAdmin' },
     {
         name: 'Quản Lý',
         path: '/ManagerUser',
