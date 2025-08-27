@@ -8,6 +8,7 @@ import { useEffect, useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowLeft } from '@fortawesome/free-solid-svg-icons';
+import AIChatBox from '~/components/AIChatBox/AIChatBox';
 
 const cx = classNames.bind(styles);
 
@@ -66,6 +67,7 @@ function SidebarProfileLayout({ children }) {
                 )}
             </div>
             <Footer data={listMenuUser} />
+            <AIChatBox />
         </div>
     );
 }

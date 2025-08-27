@@ -110,6 +110,22 @@
             .paymentMethod {
                 margin-bottom: 20px;
 
+                .qrCode {
+                    text-align: center;
+                    margin-top: 16px;
+
+                    img {
+                        width: 200px;
+                        height: 200px;
+                        object-fit: contain;
+                        margin: 12px 0;
+                    }
+
+                    p {
+                        font-size: 1.4rem;
+                        color: #555;
+                    }
+                }
                 .paymentSelect {
                     padding: 8px 10px;
 

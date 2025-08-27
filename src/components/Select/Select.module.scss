@@ -82,7 +82,7 @@
 @media (max-width: 576px) {
     .listSelect {
         .listItem {
-            width: 125px;
+            min-width: 120px;
 
             .title {
                 font-size: 1.4rem;
@@ -95,7 +95,7 @@
         }
 
         .dropdownMenu {
-            min-width: 125px;
+            min-width: 120px;
 
             li {
                 .dropdownItem {
