@@ -132,7 +132,7 @@ function DetailProductSell() {
                     </div>
 
                     <div className={cx('btn')}>
-                    <Link to="/EditProductSell" >
+                    <Link to={`/EditProductSell/${product.id}`} >
                         <Button outline small >
                             Sửa
                         </Button>
