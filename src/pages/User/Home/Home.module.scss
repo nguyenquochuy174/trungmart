@@ -1,13 +1,13 @@
 .slide-img {
     width: 100%;
-    height: 750px;
+    height: 1050px;
     overflow: hidden;
     position: relative;
 
     .slide-track {
         display: flex;
         transition: transform 0.5s ease-in-out;
-        width: 300%;
+        width: 100%;
         height: 100%;
     }
 
