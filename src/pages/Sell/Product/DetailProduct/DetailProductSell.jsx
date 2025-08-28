@@ -128,15 +128,15 @@ function DetailProductSell() {
                     </div>
 
                     <div className={cx('btn')}>
-                        <Link to="/EditProductSell">
-                            <Button outline small>
-                                Sửa
-                            </Button>
-                        </Link>
-                        <Button
-                            primary
-                            small
-                            onClick={() => setShowReportForm(true)}
+                    <Link to={`/EditProductSell/${product.id}`} >
+                        <Button outline small >
+                            Sửa
+                        </Button>
+                    </Link>
+                        <Button 
+                        primary 
+                        small 
+                        onClick={()=>setShowReportForm(true)}
                         >
                             Xóa
                         </Button>
