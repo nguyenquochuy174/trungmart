@@ -1,7 +1,7 @@
 import classNames from 'classnames/bind';
 import styles from './ItemNotification.module.scss';
 import Button from '../Button/Button';
-import { storeList,listUser } from '~/constant/mock-data';
+import { storeList, listUser } from '~/constant/mock-data';
 
 const cx = classNames.bind(styles);
 
@@ -11,9 +11,13 @@ function ItemNotification({ notifications, onDelete, onIsRead }) {
             {notifications.map((item) => {
                 let Name = '';
                 if (item.roll === 'user') {
-                    Name = listUser.find((user) => user.id === item.senderId)?.name || 'Người Ẩn Danh';
+                    Name =
+                        listUser.find((user) => user.id === item.senderId)
+                            ?.name || 'Người Ẩn Danh';
                 } else {
-                    Name = storeList.find((store) => store.id === item.senderId)?.name || 'Cửa hàng không xác định';
+                    Name =
+                        storeList.find((store) => store.id === item.senderId)
+                            ?.name || 'Cửa hàng không xác định';
                 }
                 return (
                     <div
