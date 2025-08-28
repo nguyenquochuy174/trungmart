@@ -19,6 +19,7 @@ function Product() {
     const [currentPage, setCurrentPage] = useState(1);
     const [productsPerPage, setProductsPerPage] = useState(16);
     const [searchParams, setSearchParams] = useSearchParams();
+    // console.log(listProduct);
 
     // filters lọc
     const filters = useMemo(() => {
