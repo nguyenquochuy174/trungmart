@@ -144,6 +144,9 @@ function StoreSellEdit() {
                         className={cx('file-input')}
                         accept="image/*"
                         onChange={(e) => {
+                          // onChange: khi người dùng chọn ảnh → lấy file đầu tiên (e.target.files[0]).
+                          // URL.createObjectURL(file): tạo một đường dẫn tạm (blob URL) để 
+                          // hiển thị ngay ảnh mới mà không cần upload lên server.    sẽ ko xác định đc ảnh
                             const file = e.target.files[0];
                             if (file) {
                                 const imageUrl = URL.createObjectURL(file);
@@ -152,6 +155,7 @@ function StoreSellEdit() {
                         }}
                     />
                     <label
+                    // htmlFor="fileInput" liên kết với input có id="fileInput".
                         htmlFor="fileInput"
                         className={cx('custom-file-label')}
                     >

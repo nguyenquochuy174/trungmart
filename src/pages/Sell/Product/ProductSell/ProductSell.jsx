@@ -28,6 +28,15 @@ function Product() {
     const filters = useMemo(() => {
         const priceValue = searchParams.get('price');
         const price = priceValue ? priceValue.split(',').map(Number) : null;
+        /**
+         * Nếu priceValue tồn tại (khác null, undefined, ""), thì:
+            priceValue.split(',') sẽ tách chuỗi theo dấu ,.
+            Ví dụ "100,500".split(',') → ["100", "500"].
+            .map(Number) chuyển từng phần tử trong mảng từ string → number.
+            ["100", "500"].map(Number) → [100, 500].
+            Kết quả cuối cùng: price = [100, 500].
+            Nếu priceValue không có thì price = null.
+         */
 
         return {
             price: price,

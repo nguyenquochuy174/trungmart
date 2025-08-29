@@ -32,12 +32,20 @@ function MessageSell() {
         setMessages(newChatMessages);
        
     }, [idUser,shop,userId]);
+    /**
+     * useEffect này chạy mỗi khi idUser, shop, userId thay đổi.
+            Lọc ra tin nhắn giữa user hiện tại và shop.
+            Sắp xếp theo thời gian tăng dần.
+            Cập nhật state messages.
+     */
 
     const messagesEndRef = useRef(null);
+    /**useRef có thể lưu trữ bất cứ giá trị nào mà bạn không muốn đưa vào state. 
+     * Khác với useState, thay đổi giá trị trong useRef không khiến component re-render. */
 
     useEffect(() => {
         messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
-    }, [messages]);
+    }, [messages]); // tự động cuốn xuống tin nhắn
 
     if (!shop) return <div className={cx('no-chat')}>Không tìm thấy shop</div>;
 
@@ -45,13 +53,19 @@ function MessageSell() {
         const maxId = messages.reduce((max, msg) => {
             const match = msg.idChat.match(/^msg(\d+)$/);
             if (match) {
-                const num = parseInt(match[1], 10);
-                return Math.max(max, num);
+                const num = parseInt(match[1], 10); // chuyển chuỗi thành hệ số 10
+                return Math.max(max, num); // cập nhật giá trị lớn nhất
             }
             return max;
         }, 0);
 
-        return `msg${maxId + 1}`;
+        return `msg${maxId + 1}`;//Tăng maxId lên 1 → đảm bảo id mới không trùng với id đã tồn tại.
+        /**
+         * useEffect này chạy mỗi khi idUser, shop, userId thay đổi.
+                Lọc ra tin nhắn giữa user hiện tại và shop.
+                Sắp xếp theo thời gian tăng dần.
+                Cập nhật state messages.
+         */
     };
 
     const handleSend = () => {
@@ -62,7 +76,7 @@ function MessageSell() {
 
         selectedFiles.forEach((file) => {
             const isImage = file.type.startsWith('image/');
-            const fileUrl = URL.createObjectURL(file);
+            const fileUrl = URL.createObjectURL(file);//tạo link tạm thời để preview hoặc download file
 
             newMessages.push({
                 idChat: getChatId([...messages, ...newMessages]),
@@ -87,15 +101,17 @@ function MessageSell() {
             });
         }
 
-        setMessages((prev) => [...prev, ...newMessages]);
+        setMessages((prev) => [...prev, ...newMessages]);//Thêm newMessages vào cuối state messages
         setMessageInput('');
         setSelectedFiles([]);
+        /**Reset input text và danh sách file đã chọn.
+Nhờ React re-render → tin nhắn mới hiển thị ngay */
     };
 
     const handleKeyPress = (e) => {
         if (e.key === 'Enter') {
             e.preventDefault();
-            handleSend();
+            handleSend(); // gọi hàm để gửi tin nhắn 
         }
     };
 
@@ -145,39 +161,7 @@ function MessageSell() {
                 ))}
                 <div ref={messagesEndRef} />
             </div>
-            <div className={cx('preview-list')}>
-                {selectedFiles.map((file, index) => {
-                    const isImage = file.type.startsWith('image/');
-                    const url = URL.createObjectURL(file);
-
-                    return (
-                        <div key={index} className={cx('preview-item')}>
-                            {isImage ? (
-                                <img
-                                    src={url}
-                                    alt={`preview-${index}`}
-                                    className={cx('preview-image')}
-                                />
-                            ) : (
-                                <div className={cx('file-preview')}>
-                                    📎 {file.name}
-                                </div>
-                            )}
-                            <button
-                                onClick={() =>
-                                    setSelectedFiles((prev) =>
-                                        prev.filter((_, i) => i !== index),
-                                    )
-                                }
-                                className={cx('remove-preview')}
-                            >
-                                <FontAwesomeIcon icon={faClose} />
-                            </button>
-                        </div>
-                    );
-                })}
-            </div>
-
+           
             <div className={cx('input-box')}>
                 <input
                     type="text"

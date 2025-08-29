@@ -58,6 +58,10 @@ function DetailProductSell() {
         setDirection('prev');
         setCurrentIndex((prev) =>
             prev === 0 ? productImages.length - 1 : prev - 1,
+        /**
+         * Nếu prev === 0 → tức là đang ở ảnh đầu tiên → khi nhấn "trái" thì nhảy về ảnh cuối cùng (productImages.length - 1).
+            Nếu không phải ảnh đầu tiên → chỉ cần giảm index đi 1 (prev - 1).
+         */
         );
     };
 
@@ -117,7 +121,7 @@ function DetailProductSell() {
                         <p>
                             {' '}
                             {(product.totalStars / product.reviews).toFixed(
-                                1,
+                                1, // làm tròn số thập phân thứ 1
                             )}{' '}
                             <FontAwesomeIcon
                                 icon={faStar}

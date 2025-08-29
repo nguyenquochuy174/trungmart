@@ -25,9 +25,12 @@ function Notification() {
         setNotifications(userNotifications);
     }, [idSell]);
 
-    const latestNotifications = useMemo(() => {
+    const latestNotifications = useMemo(() => { //Dùng để ghi nhớ (memoize) giá trị đã tính toán, chỉ tính lại khi dependencies (trong ngoặc []) thay đổi.
         return [...notifications].sort(
-            (a, b) => new Date(b.timestamp) - new Date(a.timestamp),
+            (a, b) => new Date(b.timestamp) - new Date(a.timestamp), //sort theo timestamp giảm dần.
+            // new Date(b.timestamp) - new Date(a.timestamp):
+            //     Nếu b mới hơn a → giá trị dương → b đứng trước a.
+            //     Nếu a mới hơn b → giá trị âm → a đứng trước b.
         );
     }, [notifications]);
 
@@ -69,12 +72,20 @@ function Notification() {
     const handleDeleteNotification = (notificationId) => {
         const updated = notifications.filter(
             (item) => item.id !== notificationId,
+            // filter() tạo mảng mới, bỏ đi thông báo có id = notificationId.
         );
         setNotifications(updated);
 
         const newTotalPages = Math.ceil(updated.length / notificationsPage);
         if (currentPage > newTotalPages) {
             setCurrentPage(newTotalPages || 1);
+            // Nếu sau khi xóa mà trang hiện tại lớn hơn newTotalPages 
+            // → lùi về trang cuối cùng (newTotalPages hoặc 1 nếu không còn thông báo).
+            /**
+             * Bạn đang ở trang 3, có tổng 3 trang. Sau khi xóa, chỉ còn 2 trang.
+                → Nếu không xử lý, bạn vẫn ở currentPage = 3 (sai).
+                → Đoạn code này giúp tự động đưa về trang 2.
+             */
         }
     };
 
@@ -86,6 +97,8 @@ function Notification() {
         setNotifications((prev) =>
             prev.map((item) =>
                 item.id === notificationId ? { ...item, isRead: true } : item,
+        // Nếu item.id === notificationId → tạo bản copy mới với isRead: true.
+        //     Các item khác giữ nguyên.
             ),
         );
     };

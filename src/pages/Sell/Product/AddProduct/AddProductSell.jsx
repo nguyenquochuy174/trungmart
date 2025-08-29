@@ -21,7 +21,7 @@ function AddProductSell() {
 
     const options = listMenuUser[1].children.map((item) => ({
         value: item.name,
-        label: (
+        label: ( //JSX để hiển thị trong dropdown.
             <div className={cx('selectBank')}>
                 <span>{item.name}</span>
             </div>
@@ -83,9 +83,11 @@ function AddProductSell() {
                     <div className={cx('userName')}>
                         <p className={cx('editinfo')}>Danh Mục: </p>
                         <Select
+                        // react-select yêu cầu value phải là nguyên object option,
                             options={options}
                             value={options.find((op) => op.value === bank)}
                             onChange={(op) => setBank(op.value)}
+                            // nhận về object option, nhưng bạn chỉ lưu value (string) vào state.
                         />
                     </div>
                 </div>

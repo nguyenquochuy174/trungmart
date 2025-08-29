@@ -138,7 +138,7 @@ function ManagerUser() {
   const [keyword, setKeyword] = useState('');
   const [searchHistory, setSearchHistory] = useState([]);
   const [showHistory, setShowHistory] = useState(false);
-  const HISTORY_KEY = 'searchHistory_sell';
+  const HISTORY_KEY = 'searchHistory_sell';//key dùng để lưu lịch sử tìm kiếm trong localStorage.
   const navigate = useNavigate();
 
   const handleFocus = () => {
@@ -168,16 +168,24 @@ function ManagerUser() {
     keyword = keyword.trim();
     if (!keyword) return;
 
-    history = history.filter((item) => item.toLowerCase() !== keyword.toLowerCase());
+    history = history.filter((item) => item.toLowerCase() !== keyword.toLowerCase());//Tránh trùng lặp (so sánh không phân biệt hoa thường).
 
-    history.unshift(keyword);
+    history.unshift(keyword);// đưa từ khóa mới lên đầu
 
     if (history.length > 10) {
-      history = history.slice(0, 10);
+      history = history.slice(0, 10);// chỉ giữ tối đa 10 mục
     }
     localStorage.setItem(HISTORY_KEY, JSON.stringify(history));
     setSearchHistory(history);
   };
+  /**
+   * trim() → loại bỏ khoảng trắng thừa.
+      Nếu từ khóa rỗng → return, không lưu.
+      Loại bỏ trùng lặp (không phân biệt chữ hoa/thường).
+      Thêm từ khóa mới lên đầu mảng → luôn hiển thị từ khóa mới nhất ở trên.
+      Giới hạn 10 mục gần nhất.
+      Lưu vào localStorage và cập nhật state.
+   */
 
   const handleSearch = () => {
     if (keyword.trim()) {
@@ -192,7 +200,7 @@ function ManagerUser() {
 
   const handleKeyPress = (e) => {
     if (e.key === 'Enter') {
-      handleSearch();
+      handleSearch(); //Nhấn Enter cũng kích hoạt tìm kiếm.
     }
   };
 
@@ -228,15 +236,27 @@ function ManagerUser() {
             type="text"
             value={keyword}
             placeholder="Nhập vào đây để tìm kiếm…"
-            onChange={(e) => setKeyword(e.target.value)}
-            onFocus={handleFocus}
+            onChange={(e) => setKeyword(e.target.value)} //Input nhận giá trị từ keyword.
+            onFocus={handleFocus} //Khi focus → hiển thị lịch sử.
+            /**Người dùng click vào input → hàm handleFocus chạy.
+
+              Lấy lịch sử tìm kiếm từ localStorage.
+              Nếu có dữ liệu → parse JSON thành mảng.
+              Nếu chưa có dữ liệu → tạo mảng rỗng.
+              Cập nhật searchHistory state.
+              Đặt showHistory = true để hiển thị danh sách lịch sử bên dưới input. */
             onBlur={handleBlur}
+            /**
+             * Khi input mất focus, showHistory sẽ thành false, ẩn danh sách lịch sử.
+                setTimeout(150ms) là để:
+                Nếu người dùng click vào một item trong lịch sử → click vẫn được xử lý trước khi danh sách ẩn.
+             */
             onKeyDown={handleKeyPress}
           />
           <FontAwesomeIcon
             icon={faSearch}
             className={cx('iconSearch')}
-            onClick={handleSearch}
+            onClick={handleSearch} 
           />
 
           {showHistory && searchHistory.length > 0 && (
@@ -260,6 +280,7 @@ function ManagerUser() {
                     onClick={(e) => {
                       e.stopPropagation();
                       deleteHistoryItem(index);
+                      //Nhấn nút X xóa mục lịch sử.
                     }}
                   >
                     <FontAwesomeIcon icon={faXmark} />

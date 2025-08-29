@@ -19,10 +19,10 @@ function ItemNotification({ notifications, onDelete, onIsRead }) {
                     <div
                         key={item.id}
                         className={cx('NotificationContainer', {
-                            unread: !item.isRead,
+                            unread: !item.isRead, // nếu thông bao chưa đc đọc thì thêm unread
                         })}
                         onClick={() => {
-                            if (!item.isRead) onIsRead(item.id);
+                            if (!item.isRead) onIsRead(item.id); // ở đây do bên notication truyền vào là handleIsRead => handleIsRead(item.id)
                         }}
                     >
                         <div className={cx('NotificationContent')}>
@@ -31,11 +31,12 @@ function ItemNotification({ notifications, onDelete, onIsRead }) {
                             <div className={cx('time')}>
                                 <p>
                                     {new Date(
-                                        item.timestamp,
+                                        item.timestamp, //time: hiển thị giờ (hh:mm) và ngày (theo chuẩn Việt Nam vi-VN).
                                     ).toLocaleTimeString('vi-VN', {
-                                        hour: '2-digit',
-                                        minute: '2-digit',
+                                        hour: '2-digit', //giờ sẽ hiển thị 2 chữ số
+                                        minute: '2-digit', //phút cũng hiển thị 2 chữ số
                                     })}
+
                                 </p>
                                 <p>
                                     {new Date(
@@ -49,7 +50,7 @@ function ItemNotification({ notifications, onDelete, onIsRead }) {
                             small
                             onClick={(e) => {
                                 e.stopPropagation();
-                                onDelete(item.id);
+                                onDelete(item.id);// ở đây do bên notication truyền vào là handleDeleteNotification => handleDeleteNotification(item.id)
                             }}
                         >
                             Xóa

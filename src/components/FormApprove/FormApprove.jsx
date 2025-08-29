@@ -19,7 +19,7 @@ function FormApprove({ data, onClose,form=false }) {
 
     const handleFocusInput = () => {
         if (inputRef.current) {
-            inputRef.current.focus();
+            inputRef.current.focus();//Khi click icon bút → input được focus.
         }
     };
 
@@ -48,7 +48,7 @@ function FormApprove({ data, onClose,form=false }) {
     };
 
     const handleCancel = () => {
-        setInputValue('');
+        setInputValue('');//Xóa dữ liệu input + lỗi.
         setError('');
         if (onClose) onClose();
     };
@@ -89,6 +89,7 @@ function FormApprove({ data, onClose,form=false }) {
                 {error && <p className={cx('errorMessage')}>{error}</p>}
 
                 {data.description && (
+                    // /Chia description theo dấu chấm → hiển thị xuống dòng
                     <p className={cx('description')}>
                         {data.description.split('.').map((sentence, index) =>
                             sentence.trim() ? (

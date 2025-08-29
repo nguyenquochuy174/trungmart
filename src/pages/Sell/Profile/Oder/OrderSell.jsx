@@ -37,12 +37,16 @@ const filteredOrders = useMemo(() => {
         return matchSeller && matchStatus;
     });
 }, [idsell, filters]);
+// Mỗi lần người dùng chọn filter mới (Select), component reset về trang 1.
   useEffect(() => {
     setCurrentPage(1);
   }, [filters.status]);
     // chon select
 const handleFilterChange = (value) => {
     const newParams = new URLSearchParams(searchParams); 
+    /**Đây là một class có sẵn trong JavaScript dùng để làm việc với query string trên URL (phần sau dấu ?).
+Nó cho phép bạn đọc, thêm, sửa, xóa tham số trong URL dễ dàng */
+/** Nghĩa là newParams ban đầu sẽ sao chép toàn bộ các query đang có. */
     if (!value || value === 'Tất Cả') {
         newParams.delete('status');
     } else {
@@ -52,7 +56,7 @@ const handleFilterChange = (value) => {
 };
 
        // phân trang
-        const totalPages = Math.ceil(filteredOrders.length / OrderPage);
+        const totalPages = Math.ceil(filteredOrders.length / OrderPage); // tính tổng số trang  nhớ ví dụ là 10 và đứng ở trang số 5
     const getPaginationRange = (currentPage, totalPages, delta = 2) => {
         const range = [];
         const left = Math.max(2, currentPage - delta);
@@ -76,20 +80,43 @@ const handleFilterChange = (value) => {
             range.push(totalPages);
         }
 
-        return range;
+        return range; // trả về 1 mảng danh sách số trang bao gồm 1(trang đầu)...2,3,4,5,....10(trang cuối)
+
+        /**
+         * Giả sử totalPages = 10, delta = 2:
+                currentPage = 1
+                left = max(2, -1) = 2, right = min(9, 3) = 3
+                range: [1, 2, 3, '...', 10]
+
+                currentPage = 5
+                left = 3, right = 7
+                range: [1, '...', 3, 4, 5, 6, 7, '...', 10]
+
+                currentPage = 9
+                left = 7, right = 10-1=9
+                range: [1, '...', 7, 8, 9, 10] (không có "..." sau 9 vì 9 sát 10)
+         */
     };
 
     const paginationRange = getPaginationRange(currentPage, totalPages);
 
-    const currentorder = filteredOrders.slice(
+    const currentorder = filteredOrders.slice( //slice(start, end) lấy từ vị trí start đến end - 1
         (currentPage - 1) * OrderPage,
         currentPage * OrderPage,
+        /**
+         * Giả sử OrderPage = 4 (mỗi trang 4 đơn):
+            currentPage = 1 → slice(0, 4) → lấy item 0,1,2,3
+            currentPage = 2 → slice(4, 8) → lấy item 4,5,6,7
+            currentPage = 3 → slice(8, 12) → lấy item 8,9,10,11
+         */
     );
 
     const handlePageChange = (page) => {
         if (page === '...' || page < 1 || page > totalPages) return;
         setCurrentPage(page);
     };
+
+
     const viewOrder = (item)=>{
         if( item.status === 'approved' ){
             return (
@@ -168,7 +195,8 @@ const TongTien = (item) => {
             <h4>Tổng Quan Đơn Hàng</h4>
         <Select
             data={listSelect[2]}
-            value={filters.status || 'Tất Cả'}
+            // 2 cái dưới thừa vì trong select nó đã đẩy lên URL rồi nền ko cần phải set lại 
+            value={filters.status || 'Tất Cả'} // cái 1 tm thì k chọn cái 2
             onChange={(value) => {
                 handleFilterChange(value || 'Tất Cả')
             }}
@@ -241,6 +269,8 @@ const TongTien = (item) => {
                                     <button
                                         key={index}
                                         className={cx({ active: currentPage === page })}
+                                        // Nếu page === '...' thì disabled.
+                                        // Nếu page === currentPage thì thêm class active.
                                         onClick={() => handlePageChange(page)}
                                         disabled={page === '...'}
                                     >

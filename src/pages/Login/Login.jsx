@@ -8,7 +8,7 @@ const cx = classNames.bind(styles);
 
 function Login() {
     const [isRegister, setIsRegister] = useState(false);
-    const [accountType, setAccountType] = useState('user');
+    const [accountType, setAccountType] = useState('user');// loại tài khoản (khách hàng / chủ cửa hàng) khi đăng ký
     const [userId, setUserId] = useState('');
     const [password, setPassword] = useState('');
     const [error, setError] = useState('');

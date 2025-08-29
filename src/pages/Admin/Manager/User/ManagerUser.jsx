@@ -66,8 +66,12 @@ function ManagerUser() {
 
     const matchArea = filters.area === 'Tất Cả' || item.area === filters.area;
 
-    const matchSearch = [item.name, item.email].some((val) =>
+    const matchSearch = [item.name, item.email].some((val) => //Nó sẽ trả về true nếu ít nhất một phần tử trong mảng thỏa điều kiện.
       (val || '').toLowerCase().includes(search),
+      /**
+       * Kiểm tra xem chuỗi đã chuyển về chữ thường có chứa từ khóa search hay không.
+        Trả về true nếu có, false nếu không.
+       */
     );
 
     return matchStatus && matchArea && matchSearch;

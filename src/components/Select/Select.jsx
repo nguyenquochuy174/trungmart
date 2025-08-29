@@ -15,7 +15,7 @@ function Select({ data }) {
     useEffect(() => {
         const key = data.children?.[0]?.queryKey || '';
         const valueFromUrl = searchParams.get(key);
-        setSelectedValue(valueFromUrl ?? null);
+        setSelectedValue(valueFromUrl ?? null); //Dùng searchParams.get("status") để xem trong URL có sẵn giá trị không 
     }, [searchParams, data.children]);
 
     const selectedOption = data.children?.find(
@@ -23,23 +23,29 @@ function Select({ data }) {
             (child.value === null && selectedValue === null) ||
             String(child.value) === String(selectedValue),
     );
-
+    /**
+     * selectedOption = tìm option nào có value trùng với selectedValue.
+            Nếu selectedValue = null thì hiển thị nhãn mặc định (data.name, tức là “Trạng thái”).
+            Nếu chọn một option thì hiển thị child.label (ví dụ “Đã giao”).
+     */
     const selectedLabel =
         selectedOption?.value === null ? data.name : selectedOption?.label;
     const handleMouseEnter = () => setIsOpen(true);
     const handleMouseLeave = () => setIsOpen(false);
 
     const handleChildClick = (queryKey, value) => {
-        searchParams.set(queryKey, value);
-        setSearchParams(searchParams);
-        setSelectedValue(value);
-        setIsOpen(false);
+        searchParams.set(queryKey, value); // cập nhật URL param
+        setSearchParams(searchParams);// ghi lại param vào URL
+        setSelectedValue(value);// cập nhật state hiển thị
+        setIsOpen(false);// đóng dropdown
     };
 
     return (
         <ul className={cx('listSelect')}>
             <li
-                className={cx('listItem', { hasChildren: data.children })}
+                className={cx('listItem', { hasChildren: data.children })} 
+            //     Nếu data.children tồn tại (truthy, khác null/undefined/[]) thì thêm class hasChildren.
+            // Nếu không có data.children → không thêm hasChildren.
                 onMouseEnter={handleMouseEnter}
                 onMouseLeave={handleMouseLeave}
             >
