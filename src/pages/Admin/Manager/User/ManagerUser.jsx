@@ -58,15 +58,16 @@ function ManagerUser() {
 
   const matchStatus =
   filters.status === 'block'
-    ? item.status === 'block'
-    : filters.status === 'approved'
-      ? item.status !== 'block'
+    ? item.status === 'block' //matchStatus = (item.status === 'block')
+    : filters.status === 'approved' 
+      ? item.status !== 'block'//matchStatus = (item.status !== 'block')
       : true;
 
 
     const matchArea = filters.area === 'Tất Cả' || item.area === filters.area;
 
-    const matchSearch = [item.name, item.email].some((val) => //Nó sẽ trả về true nếu ít nhất một phần tử trong mảng thỏa điều kiện.
+    const matchSearch = [item.name, item.email].some((val) => //Tạo một mảng gồm 2 phần tử: tên và email của item Hàm .some() sẽ duyệt qua từng phần tử của mảng
+      //Nó sẽ trả về true nếu ít nhất một phần tử trong mảng thỏa điều kiện.
       (val || '').toLowerCase().includes(search),
       /**
        * Kiểm tra xem chuỗi đã chuyển về chữ thường có chứa từ khóa search hay không.

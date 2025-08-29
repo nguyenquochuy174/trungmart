@@ -51,7 +51,7 @@ function MessageSell() {
 
     const getChatId = (messages) => {
         const maxId = messages.reduce((max, msg) => {
-            const match = msg.idChat.match(/^msg(\d+)$/);
+            const match = msg.idChat.match(/^msg(\d+)$/);// ^ đầu $ cuối 
             if (match) {
                 const num = parseInt(match[1], 10); // chuyển chuỗi thành hệ số 10
                 return Math.max(max, num); // cập nhật giá trị lớn nhất
@@ -60,12 +60,7 @@ function MessageSell() {
         }, 0);
 
         return `msg${maxId + 1}`;//Tăng maxId lên 1 → đảm bảo id mới không trùng với id đã tồn tại.
-        /**
-         * useEffect này chạy mỗi khi idUser, shop, userId thay đổi.
-                Lọc ra tin nhắn giữa user hiện tại và shop.
-                Sắp xếp theo thời gian tăng dần.
-                Cập nhật state messages.
-         */
+
     };
 
     const handleSend = () => {
@@ -86,7 +81,7 @@ function MessageSell() {
                 fileName: file.name,
                 fileType: file.type,
                 time: new Date().toISOString(),
-                type: isImage ? 'image' : 'file',
+                type: isImage ? 'image' : 'file', //Như vậy nếu chọn 3 file, sẽ có 3 object tin nhắn được push vào newMessages
             });
         });
 
@@ -161,7 +156,50 @@ Nhờ React re-render → tin nhắn mới hiển thị ngay */
                 ))}
                 <div ref={messagesEndRef} />
             </div>
-           
+            <div className={cx('preview-list')}>
+                {selectedFiles.map((file, index) => {
+                    const isImage = file.type.startsWith('image/');
+                    const url = URL.createObjectURL(file);
+
+                    return (
+                        <div key={index} className={cx('preview-item')}>
+                            {isImage ? (
+                                <img
+                                    src={url}
+                                    alt={`preview-${index}`}
+                                    className={cx('preview-image')}
+                                />
+                            ) : (
+                                <div className={cx('file-preview')}>
+                                    📎 {file.name}
+                                </div>
+                            )}
+                            <button
+                                onClick={() =>
+                                    setSelectedFiles((prev) =>
+                                        prev.filter((_, i) => i !== index),
+                                    )
+                                }
+                                className={cx('remove-preview')}
+                            >
+                                <FontAwesomeIcon icon={faClose} />
+                            </button>
+                        </div>
+                    );
+                })}
+            </div>
+                 {/**
+                  * onClick
+                    Khi bấm nút ❌ (icon faClose) thì hàm được gọi.
+                    Hàm setSelectedFiles sẽ cập nhật lại danh sách file.
+                    prev.filter((_, i) => i !== index)
+                    prev là danh sách file cũ (trước khi xóa).
+                    .filter((_, i) => i !== index) sẽ loại bỏ file có vị trí bằng index.
+                    Nghĩa là chỉ giữ lại những file không trùng index đang bấm xóa.
+                    Kết quả
+                    File được bấm ❌ sẽ biến mất khỏi danh sách selectedFiles.
+                    Đồng thời nó cũng biến mất khỏi phần preview trên UI.
+                  */}
             <div className={cx('input-box')}>
                 <input
                     type="text"

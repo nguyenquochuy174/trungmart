@@ -16,6 +16,7 @@ function Select({ data }) {
         const key = data.children?.[0]?.queryKey || '';
         const valueFromUrl = searchParams.get(key);
         setSelectedValue(valueFromUrl ?? null); //Dùng searchParams.get("status") để xem trong URL có sẵn giá trị không 
+        //Nếu query param không tồn tại thì gán null
     }, [searchParams, data.children]);
 
     const selectedOption = data.children?.find(

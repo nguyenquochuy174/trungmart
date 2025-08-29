@@ -1,9 +1,8 @@
 import styles from './AIChatBox.module.scss';
 import classNames from 'classnames/bind';
 import { useState } from 'react';
-import Button from '../Button/Button';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faClose } from '@fortawesome/free-solid-svg-icons';
+import { faClose, faComment } from '@fortawesome/free-solid-svg-icons';
 
 const cx = classNames.bind(styles);
 
@@ -63,7 +62,7 @@ function AIChatBox() {
                     className={cx('chat-toggle')}
                     onClick={() => setIsOpen(true)}
                 >
-                    💬
+                    <FontAwesomeIcon icon={faComment} />
                 </button>
             )}
         </div>

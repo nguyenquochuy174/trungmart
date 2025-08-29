@@ -164,7 +164,7 @@ function Product() {
             } else {
                 searchParams.set(
                     key,
-                    Array.isArray(value) ? value.join(',') : value,
+                    Array.isArray(value) ? value.join(',') : value, //Nếu là mảng → ghép lại thành chuỗi ngăn cách bằng dấu ,
                 );
             }
         });
